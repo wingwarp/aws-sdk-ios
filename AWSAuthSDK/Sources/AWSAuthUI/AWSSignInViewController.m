@@ -154,9 +154,9 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
     [self addButtonViewstoSignInView];
     
     // Setup the font
-    if (self.config.font) {
-        [self setUpFont];
-    }
+//    if (self.config.font) {
+//        [self setUpFont];
+//    }
 }
     
 - (void)viewWillAppear:(BOOL)animated {
@@ -373,13 +373,13 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
     
 }
 
-- (void)setUpFont {
-    AWSDDLogDebug(@"Setting up Font");
-    [self.signInButton.titleLabel setFont:self.config.font];
-    [self.signUpButton.titleLabel setFont:self.config.font];
-    [self.forgotPasswordButton.titleLabel setFont:self.config.font];
-    [self.orSignInWithLabel setFont:self.config.font];
-}
+//- (void)setUpFont {
+//    AWSDDLogDebug(@"Setting up Font");
+//    [self.signInButton.titleLabel setFont:self.config.font];
+//    [self.signUpButton.titleLabel setFont:self.config.font];
+//    [self.forgotPasswordButton.titleLabel setFont:self.config.font];
+//    [self.orSignInWithLabel setFont:self.config.font];
+//}
 
 - (void)barButtonClosePressed {
     [self dismissViewControllerAnimated:YES completion:nil];
