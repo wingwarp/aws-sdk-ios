@@ -133,6 +133,7 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.config.enableUserPoolsUI = true;
     AWSDDLogDebug(@"Sign-In Loading...");
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
@@ -255,7 +256,6 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
                     forControlEvents:UIControlEventTouchUpInside];
         
         if (self.config.enableUserPoolsUI) {
-            
             [self.forgotPasswordButton addTarget:self
                                           action:@selector(handleUserPoolForgotPassword)
                                 forControlEvents:UIControlEventTouchUpInside];

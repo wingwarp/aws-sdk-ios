@@ -162,6 +162,8 @@
 		B58F54C31F382449009ED450 /* AWSSignInViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B58F53D61F381A51009ED450 /* AWSSignInViewController.h */; };
 		B5FC69051FAFA1AA004790CB /* _AWSMobileClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B5FC69031FAFA1AA004790CB /* _AWSMobileClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5FC690A1FAFA1D0004790CB /* _AWSMobileClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FC69091FAFA1D0004790CB /* _AWSMobileClient.m */; };
+		FE08C31E236B7548001FE080 /* AWSAuthUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5345D0F1F366AFA009C1041 /* AWSAuthUI.framework */; };
+		FE08C37F236C3791001FE080 /* AWSUserPoolsSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1750D0071F2D4DFA006D915E /* AWSUserPoolsSignIn.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1169,6 +1171,7 @@
 		B5FC69031FAFA1AA004790CB /* _AWSMobileClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _AWSMobileClient.h; sourceTree = "<group>"; };
 		B5FC69041FAFA1AA004790CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5FC69091FAFA1D0004790CB /* _AWSMobileClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _AWSMobileClient.m; sourceTree = "<group>"; };
+		FE08C2C0236B5D1C001FE080 /* awsconfiguration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1221,6 +1224,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE08C37F236C3791001FE080 /* AWSUserPoolsSignIn.framework in Frameworks */,
+				FE08C31E236B7548001FE080 /* AWSAuthUI.framework in Frameworks */,
 				173A453E21E92A0200F9C579 /* AWSAuthCore.framework in Frameworks */,
 				173A454221E92A0200F9C579 /* AWSMobileClient.framework in Frameworks */,
 				173A45A321E92A0200F9C579 /* AWSCore.framework in Frameworks */,
@@ -1456,6 +1461,7 @@
 				17CD4B5521826BA100953483 /* credentials-mc.json */,
 				17CD4AA6218241AD00953483 /* AWSMobileClientTests.swift */,
 				17CD4AA8218241AD00953483 /* Info.plist */,
+				FE08C2C0236B5D1C001FE080 /* awsconfiguration.json */,
 				177B8AD521DFF12A0051068F /* awsconfiguration.json */,
 			);
 			path = AWSMobileClientTests;
@@ -1999,6 +2005,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);

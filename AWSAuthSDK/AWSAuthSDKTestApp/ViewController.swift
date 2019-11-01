@@ -6,6 +6,7 @@
 import UIKit
 import AWSMobileClient
 import AWSCore
+import AWSAuthCore
 
 class ViewController: UIViewController {
 
@@ -14,7 +15,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
             if let userState = userState {
                 print("Userstate is \(userState.rawValue)")
@@ -75,11 +75,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onLaunchCognitoAuthSignIn(_ sender: Any) {
-        let hostedUIOptions = HostedUIOptions(scopes: ["openid", "email"])
-        
-        AWSMobileClient.sharedInstance().showSignIn(navigationController: self.navigationController!, hostedUIOptions: hostedUIOptions) { (userState, error) in
+        AWSMobileClient.sharedInstance().showSignIn(navigationController: self.navigationController!,
+                                                    signInUIOptions: SignInUIOptions(
+                                                        canCancel: false,
+                                                        backgroundColor: UIColor.init(red: 62/255, green: 62/255, blue:120/255, alpha: 1))) { (userState, error) in
             if let error = error as? AWSMobileClientError {
-                print(error.localizedDescription)
+                print(error)
+                print("error \(error.localizedDescription)")
             }
             if let userState = userState {
                 print("Status: \(userState.rawValue)")
