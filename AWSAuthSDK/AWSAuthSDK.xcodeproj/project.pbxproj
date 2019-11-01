@@ -95,7 +95,6 @@
 		176375651F328D3A0086588B /* AWSFacebookSignIn.h in Headers */ = {isa = PBXBuildFile; fileRef = 1786CA431F2BED46003421FF /* AWSFacebookSignIn.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		176375681F328D510086588B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1786CA571F2BEDDD003421FF /* Images.xcassets */; };
 		1773B1D922029DAE00356909 /* credentials-mc.json in Resources */ = {isa = PBXBuildFile; fileRef = 17CD4B5521826BA100953483 /* credentials-mc.json */; };
-		177B8AD621DFF12A0051068F /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 177B8AD521DFF12A0051068F /* awsconfiguration.json */; };
 		177B8ADC21E52C730051068F /* AWSCognitoAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 177B8AD721E52C720051068F /* AWSCognitoAuth.m */; };
 		177B8ADD21E52C730051068F /* AWSCognitoAuthUICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 177B8AD821E52C730051068F /* AWSCognitoAuthUICKeyChainStore.m */; };
 		177B8ADE21E52C730051068F /* AWSCognitoAuth_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 177B8AD921E52C730051068F /* AWSCognitoAuth_Internal.h */; };
@@ -130,6 +129,9 @@
 		17DED2A61F32A4E400397F88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1786CA4D1F2BEDB8003421FF /* Images.xcassets */; };
 		17F4F75021F6B0750068B553 /* AWSCognitoAuth+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F4F74E21F6B0750068B553 /* AWSCognitoAuth+Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		17F4F75121F6B0750068B553 /* AWSCognitoAuth+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */; };
+		44F8C271236C5A2C00D9C277 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C270236C5A2C00D9C277 /* awsconfiguration.json */; };
+		44F8C272236C5A3800D9C277 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C270236C5A2C00D9C277 /* awsconfiguration.json */; };
+		44F8C274236C614800D9C277 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C273236C614800D9C277 /* Fonts */; };
 		B5150AB21F3BF03D00AC8D08 /* AWSAuthUIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B5150AB11F3BF03D00AC8D08 /* AWSAuthUIConfiguration.m */; };
 		B5150AB31F3BF04C00AC8D08 /* AWSAuthUIConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = B5150A531F3BF00F00AC8D08 /* AWSAuthUIConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5150B1C1F3CE0E500AC8D08 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5150B1A1F3C389C00AC8D08 /* Images.xcassets */; };
@@ -1069,7 +1071,6 @@
 		1750D0101F2D4E23006D915E /* AWSCognitoUserPoolsSignInProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoUserPoolsSignInProvider.m; sourceTree = "<group>"; };
 		176375041F3287580086588B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		176375401F328D210086588B /* AWSFacebookSignIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSFacebookSignIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		177B8AD521DFF12A0051068F /* awsconfiguration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		177B8AD721E52C720051068F /* AWSCognitoAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSCognitoAuth.m; path = ../../../../AWSCognitoAuth/AWSCognitoAuth.m; sourceTree = "<group>"; };
 		177B8AD821E52C730051068F /* AWSCognitoAuthUICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSCognitoAuthUICKeyChainStore.m; path = ../../../../AWSCognitoAuth/Internal/UICKeyChainStore/AWSCognitoAuthUICKeyChainStore.m; sourceTree = "<group>"; };
 		177B8AD921E52C730051068F /* AWSCognitoAuth_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSCognitoAuth_Internal.h; path = ../../../../AWSCognitoAuth/Internal/AWSCognitoAuth_Internal.h; sourceTree = "<group>"; };
@@ -1145,6 +1146,8 @@
 		17D61FA6216BBC59009B2B9C /* AWSMobileClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClient.swift; sourceTree = "<group>"; };
 		17F4F74E21F6B0750068B553 /* AWSCognitoAuth+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSCognitoAuth+Extensions.h"; sourceTree = "<group>"; };
 		17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AWSCognitoAuth+Extensions.m"; sourceTree = "<group>"; };
+		44F8C270236C5A2C00D9C277 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = awsconfiguration.json; path = ../../../../../Downloads/awsconfiguration.json; sourceTree = "<group>"; };
+		44F8C273236C614800D9C277 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = ../../../../ProjectMomenta/ProjectMomenta/Fonts; sourceTree = "<group>"; };
 		B5150A531F3BF00F00AC8D08 /* AWSAuthUIConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AWSAuthUIConfiguration.h; path = Sources/AWSAuthUI/AWSAuthUIConfiguration.h; sourceTree = SOURCE_ROOT; };
 		B5150AB11F3BF03D00AC8D08 /* AWSAuthUIConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSAuthUIConfiguration.m; path = Sources/AWSAuthUI/AWSAuthUIConfiguration.m; sourceTree = SOURCE_ROOT; };
 		B5150B1A1F3C389C00AC8D08 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Sources/AWSAuthUI/Images.xcassets; sourceTree = SOURCE_ROOT; };
@@ -1171,7 +1174,6 @@
 		B5FC69031FAFA1AA004790CB /* _AWSMobileClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _AWSMobileClient.h; sourceTree = "<group>"; };
 		B5FC69041FAFA1AA004790CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5FC69091FAFA1D0004790CB /* _AWSMobileClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _AWSMobileClient.m; sourceTree = "<group>"; };
-		FE08C2C0236B5D1C001FE080 /* awsconfiguration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1461,8 +1463,7 @@
 				17CD4B5521826BA100953483 /* credentials-mc.json */,
 				17CD4AA6218241AD00953483 /* AWSMobileClientTests.swift */,
 				17CD4AA8218241AD00953483 /* Info.plist */,
-				FE08C2C0236B5D1C001FE080 /* awsconfiguration.json */,
-				177B8AD521DFF12A0051068F /* awsconfiguration.json */,
+				44F8C270236C5A2C00D9C277 /* awsconfiguration.json */,
 			);
 			path = AWSMobileClientTests;
 			sourceTree = "<group>";
@@ -1494,6 +1495,7 @@
 				17C77CB41F417B3800AE8632 /* AWSAuthUIViewController.h */,
 				17C77CB51F417B3800AE8632 /* AWSAuthUIViewController.m */,
 				B5150B1A1F3C389C00AC8D08 /* Images.xcassets */,
+				44F8C273236C614800D9C277 /* Fonts */,
 				B58F53D51F381A51009ED450 /* SignIn.storyboard */,
 				B58F53D61F381A51009ED450 /* AWSSignInViewController.h */,
 				B58F53D71F381A51009ED450 /* AWSSignInViewController.m */,
@@ -2731,6 +2733,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44F8C271236C5A2C00D9C277 /* awsconfiguration.json in Resources */,
 				17DED2A61F32A4E400397F88 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2747,7 +2750,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				177B8AD621DFF12A0051068F /* awsconfiguration.json in Resources */,
+				44F8C272236C5A3800D9C277 /* awsconfiguration.json in Resources */,
 				17CD4B2D218244EC00953483 /* LaunchScreen.storyboard in Resources */,
 				17CD4B2A218244EC00953483 /* Assets.xcassets in Resources */,
 				17CD4B28218244EA00953483 /* Main.storyboard in Resources */,
@@ -2765,6 +2768,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44F8C274236C614800D9C277 /* Fonts in Resources */,
 				B5150B1C1F3CE0E500AC8D08 /* Images.xcassets in Resources */,
 				B58F54C21F382449009ED450 /* SignIn.storyboard in Resources */,
 			);

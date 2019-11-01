@@ -142,10 +142,10 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
     [self setUpNavigationController];
     
     // set up logo
-    [self setUpLogo:self.config.logoImage ?: nil];
+    //[self setUpLogo:self.config.logoImage ?: nil];
     
     // set up background color
-    [self setUpBackground:self.config.backgroundColor ?: nil];
+    //[self setUpBackground:self.config.backgroundColor ?: nil];
     
     // set up username and password UI if user pools enabled
     [self setUpUserPoolsUI];
@@ -354,7 +354,7 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 }
 
 - (void)setUpNavigationController {
-    self.navigationController.navigationBar.topItem.title = @"Sign In";
+    //self.navigationController.navigationBar.topItem.title = @"Sign In";
     self.canCancel = self.config.canCancel;
     if (self.canCancel) {
         UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
