@@ -255,7 +255,9 @@
                         </connections>
                     </navigationItem>
                     <connections>
+                        <outlet property="emailTextField" destination="vb4-Sa-RsP" id="Ce0-5j-9EP"/>
                         <outlet property="forgotPasswordButton" destination="bl8-r9-Ysa" id="NXM-kk-pr4"/>
+                        <outlet property="passwordTextField" destination="5Or-Jb-FLG" id="VD9-U4-WTx"/>
                         <outlet property="providerRow1" destination="xK4-QM-voz" id="qN3-Pg-dvb"/>
                         <outlet property="providerRow2" destination="jyk-z8-NkG" id="zJn-LY-Yvu"/>
                         <outlet property="providerRow3" destination="Utd-qw-giI" id="Njr-YR-IIb"/>

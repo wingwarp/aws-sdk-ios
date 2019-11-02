@@ -41,9 +41,9 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 
 @interface AWSSignInViewController ()
 
-@property (strong, atomic) AWSFormTableCell *passwordRow;
-@property (strong, atomic) AWSFormTableCell *userNameRow;
-@property (strong, atomic) AWSFormTableDelegate *tableDelegate;
+//@property (strong, atomic) AWSFormTableCell *passwordRow;
+//@property (strong, atomic) AWSFormTableCell *userNameRow;
+//@property (strong, atomic) AWSFormTableDelegate *tableDelegate;
 
 @property (weak, nonatomic) IBOutlet UIButton *providerRow1;
 @property (weak, nonatomic) IBOutlet UIButton *providerRow2;
@@ -229,18 +229,18 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 - (void)setUpUserPoolsUI {
     if (self.config.enableUserPoolsUI) {
         AWSDDLogDebug(@"User Pools Enabled. Setting up the view...");
-        Class formTableCell = NSClassFromString(@"AWSFormTableCell");
-        self.passwordRow = [[formTableCell alloc] initWithPlaceHolder:@"Password"
-                                                                 type:InputTypePassword];
-        self.userNameRow = [[formTableCell alloc] initWithPlaceHolder:@"User Name"
-                                                                 type:InputTypeText];
-        Class formTableDelegate = NSClassFromString(@"AWSFormTableDelegate");
-        self.tableDelegate = [formTableDelegate new];
-        [self.tableDelegate addCell:self.userNameRow];
-        [self.tableDelegate addCell:self.passwordRow];
-        self.tableView.delegate = self.tableDelegate;
-        self.tableView.dataSource = self.tableDelegate;
-        [self.tableView reloadData];
+//        Class formTableCell = NSClassFromString(@"AWSFormTableCell");
+//        self.passwordRow = [[formTableCell alloc] initWithPlaceHolder:@"Password"
+//                                                                 type:InputTypePassword];
+//        self.userNameRow = [[formTableCell alloc] initWithPlaceHolder:@"User Name"
+//                                                                 type:InputTypeText];
+//        Class formTableDelegate = NSClassFromString(@"AWSFormTableDelegate");
+//        self.tableDelegate = [formTableDelegate new];
+//        [self.tableDelegate addCell:self.userNameRow];
+//        [self.tableDelegate addCell:self.passwordRow];
+//        self.tableView.delegate = self.tableDelegate;
+//        self.tableView.dataSource = self.tableDelegate;
+//        [self.tableView reloadData];
         Class AWSUserPoolsUIHelper = NSClassFromString(@"AWSUserPoolsUIHelper");
         if ([AWSUserPoolsUIHelper respondsToSelector:@selector(setUpFormShadowForView:)]) {
             [AWSUserPoolsUIHelper setUpFormShadowForView:self.tableFormView];
@@ -498,10 +498,12 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 - (void)handleUserPoolSignIn {
     Class awsUserPoolsUIOperations = NSClassFromString(USERPOOLS_UI_OPERATIONS);
     AWSUserPoolsUIOperations *userPoolsOperations = [[awsUserPoolsUIOperations alloc] initWithAuthUIConfiguration:self.config];
-    [userPoolsOperations loginWithUserName:[self.tableDelegate getValueForCell:self.userNameRow forTableView:self.tableView]
-                                  password:[self.tableDelegate getValueForCell:self.passwordRow forTableView:self.tableView]
-                      navigationController:self.navigationController
-                         completionHandler:self.completionHandler];
+    
+    [userPoolsOperations loginWithUserName:_emailTextField.text password:_passwordTextField.text navigationController:self.navigationController completionHandler:self.completionHandler];
+//    [userPoolsOperations loginWithUserName:[self.tableDelegate getValueForCell:self.userNameRow forTableView:self.tableView]
+//                                  password:[self.tableDelegate getValueForCell:self.passwordRow forTableView:self.tableView]
+//                      navigationController:self.navigationController
+//                         completionHandler:self.completionHandler];
 }
 
 

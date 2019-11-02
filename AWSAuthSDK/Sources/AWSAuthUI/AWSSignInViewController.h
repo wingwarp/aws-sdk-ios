@@ -20,6 +20,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AWSSignInViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
 /**
  @property canCancel
