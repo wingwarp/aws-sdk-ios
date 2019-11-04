@@ -297,7 +297,7 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 
 - (void)setUpNavigationController {
     self.navigationItem.prompt = @" ";
-    NavBarView *navBarView = [[NavBarView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.navigationController.navigationBar.frame.size.height)];
+    NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Sign In"];
     self.navigationItem.titleView = navBarView;
     self.canCancel = self.config.canCancel;
     if (self.canCancel) {

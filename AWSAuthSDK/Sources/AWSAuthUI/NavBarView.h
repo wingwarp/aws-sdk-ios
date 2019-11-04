@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NavBarView : UIView
 
+@property (nonatomic, strong) NSString *navBarText;
+- (instancetype)initWithName:(NSString *)text;
+
 @end
 
 NS_ASSUME_NONNULL_END
