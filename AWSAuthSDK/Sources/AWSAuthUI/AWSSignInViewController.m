@@ -22,6 +22,7 @@
 #import "AWSFormTableDelegate.h"
 #import "AWSUserPoolsUIHelper.h"
 #import "AWSSignInViewController.h"
+#import "NavBarView.h"
 
 #define DEFAULT_BACKGROUND_COLOR_TOP [UIColor darkGrayColor]
 #define DEFAULT_BACKGROUND_COLOR_BOTTOM [UIColor whiteColor]
@@ -36,14 +37,7 @@ static NSString *const SIGNIN_STORYBOARD = @"SignIn";
 static NSString *const SIGNIN_VIEW_CONTROLLER_IDENTIFIER = @"SignIn";;
 static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 
-static NSInteger const SCALED_UP_LOGO_IMAGE_HEIGHT = 230;
-static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
-
 @interface AWSSignInViewController ()
-
-//@property (strong, atomic) AWSFormTableCell *passwordRow;
-//@property (strong, atomic) AWSFormTableCell *userNameRow;
-//@property (strong, atomic) AWSFormTableDelegate *tableDelegate;
 
 @property (weak, nonatomic) IBOutlet UIButton *providerRow1;
 @property (weak, nonatomic) IBOutlet UIButton *providerRow2;
@@ -242,9 +236,9 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 //        self.tableView.dataSource = self.tableDelegate;
 //        [self.tableView reloadData];
         Class AWSUserPoolsUIHelper = NSClassFromString(@"AWSUserPoolsUIHelper");
-        if ([AWSUserPoolsUIHelper respondsToSelector:@selector(setUpFormShadowForView:)]) {
-            [AWSUserPoolsUIHelper setUpFormShadowForView:self.tableFormView];
-        }
+//        if ([AWSUserPoolsUIHelper respondsToSelector:@selector(setUpFormShadowForView:)]) {
+//            [AWSUserPoolsUIHelper setUpFormShadowForView:self.tableFormView];
+//        }
         
         if ([AWSUserPoolsUIHelper respondsToSelector:@selector(setAWSUIConfiguration:)]) {
             [AWSUserPoolsUIHelper setAWSUIConfiguration:self.config];
@@ -272,73 +266,21 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
             [self.signUpButton removeFromSuperview];
         }
     } else {
-        [self.tableFormView removeFromSuperview];
-        self.orSignInWithLabel.text = @"Sign in with";
+//        [self.tableFormView removeFromSuperview];
+//        self.orSignInWithLabel.text = @"Sign in with";
         [self.signInButton removeFromSuperview];
         [self.signUpButton removeFromSuperview];
         [self.forgotPasswordButton removeFromSuperview];
         
-        [self.view addConstraint: [NSLayoutConstraint constraintWithItem:self.orSignInWithLabel
-                                                               attribute:NSLayoutAttributeTop
-                                                               relatedBy:NSLayoutRelationEqual
-                                                                  toItem:self.logoView
-                                                               attribute:NSLayoutAttributeBottom multiplier:1 constant:8.0]];
+//        [self.view addConstraint: [NSLayoutConstraint constraintWithItem:self.orSignInWithLabel
+//                                                               attribute:NSLayoutAttributeTop
+//                                                               relatedBy:NSLayoutRelationEqual
+//                                                                  toItem:self.logoView
+//                                                               attribute:NSLayoutAttributeBottom multiplier:1 constant:8.0]];
     }
-    if (![self.config hasSignInButtonView]) {
-        [self.orSignInWithLabel removeFromSuperview];
-    }
-}
-
-- (void)setUpLogo:(UIImage *)image {
-    
-    /**
-     If user did not select a logo image, use the default AWS Logo
-     Else, use the logo image passed in by the user
-     */
-    if (image == nil) {
-        self.logoView.contentMode = UIViewContentModeCenter;
-        if (self.config.enableUserPoolsUI &&
-            [self.config hasSignInButtonView]) {
-            self.logoView.image = [AWSSignInViewController getImageFromBundle:SMALL_IMAGE_NAME];
-        } else {
-            self.logoView.image = [AWSSignInViewController getImageFromBundle:BIG_IMAGE_NAME];
-            self.logoViewHeight.constant = SCALED_UP_LOGO_IMAGE_HEIGHT;
-            [self.logoView setNeedsLayout];
-            [self.view setNeedsLayout];
-            [self.view layoutIfNeeded];
-        }
-    } else {
-        if (self.config.enableUserPoolsUI &&
-            [self.config hasSignInButtonView]) {
-            self.logoViewHeight.constant = SCALED_DOWN_LOGO_IMAGE_HEIGHT;
-        } else {
-            self.logoViewHeight.constant = SCALED_UP_LOGO_IMAGE_HEIGHT;
-        }
-        self.logoView.image = image;
-        self.logoView.contentMode = UIViewContentModeScaleAspectFit;
-        [self.logoView setNeedsLayout];
-        [self.view setNeedsLayout];
-        [self.view layoutIfNeeded];
-    }
-}
-
-- (void)setUpBackground:(UIColor *)color {
-    if (self.config.isBackgroundColorFullScreen) {
-        self.view.backgroundColor = color ?: DEFAULT_BACKGROUND_COLOR_TOP;
-    } else {
-        self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR_BOTTOM;
-    }
-    
-    if (self.config.enableUserPoolsUI) {
-        UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.tableFormView.center.y)];
-        if (color != nil) {
-            backgroundImageView.backgroundColor = color;
-        } else {
-            backgroundImageView.backgroundColor = DEFAULT_BACKGROUND_COLOR_TOP;
-        }
-        backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        [self.view insertSubview:backgroundImageView atIndex:0];
-    }
+//    if (![self.config hasSignInButtonView]) {
+//        [self.orSignInWithLabel removeFromSuperview];
+//    }
 }
 
 - (void)setUpResponders {
@@ -354,7 +296,9 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 }
 
 - (void)setUpNavigationController {
-    //self.navigationController.navigationBar.topItem.title = @"Sign In";
+    self.navigationItem.prompt = @" ";
+    NavBarView *navBarView = [[NavBarView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.navigationController.navigationBar.frame.size.height)];
+    self.navigationItem.titleView = navBarView;
     self.canCancel = self.config.canCancel;
     if (self.canCancel) {
         UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
@@ -372,14 +316,6 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
     self.navigationController.navigationBar.tintColor = DEFAULT_BACKGROUND_COLOR_BOTTOM;
     
 }
-
-//- (void)setUpFont {
-//    AWSDDLogDebug(@"Setting up Font");
-//    [self.signInButton.titleLabel setFont:self.config.font];
-//    [self.signUpButton.titleLabel setFont:self.config.font];
-//    [self.forgotPasswordButton.titleLabel setFont:self.config.font];
-//    [self.orSignInWithLabel setFont:self.config.font];
-//}
 
 - (void)barButtonClosePressed {
     [self dismissViewControllerAnimated:YES completion:nil];
