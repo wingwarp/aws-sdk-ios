@@ -279,6 +279,8 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 - (void)setUpNavigationController {
     UIImage *bgImage = [UIImage imageNamed:@"navbar_bg"];
     self.navigationController.navigationBar.prefersLargeTitles = true;
+    self.navigationController.navigationBar.translucent = NO;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationItem.title = @"";
     if (@available(iOS 13.0, *)) {
         UINavigationBarAppearance *appearance = [self.navigationController.navigationBar standardAppearance];

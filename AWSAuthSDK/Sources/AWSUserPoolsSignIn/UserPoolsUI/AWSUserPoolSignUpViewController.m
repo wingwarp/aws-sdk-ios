@@ -67,7 +67,7 @@ id<AWSUIConfiguration> config = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.pool = [AWSCognitoIdentityUserPool defaultCognitoIdentityUserPool];
-    [self setUp];
+    [self setUpNavigationBar];
 }
 
 // This is used to dismiss the keyboard, user just has to tap outside the
@@ -81,14 +81,13 @@ id<AWSUIConfiguration> config = nil;
     [super touchesBegan:touches withEvent:event];
 }
 
-- (void)setUp {
+- (void)setUpNavigationBar {
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
     [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(32, 9)];
     [topLabel setAttributedText:text];
     
     UIImage *bgImage = [UIImage imageNamed:@"navbar_bg"];
     self.navigationController.navigationBar.prefersLargeTitles = true;
-    self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAlways;
     self.navigationItem.title = @"";
     if (@available(iOS 13.0, *)) {
         UINavigationBarAppearance *appearance = [self.navigationController.navigationBar standardAppearance];
@@ -184,9 +183,12 @@ id<AWSUIConfiguration> config = nil;
 
 #pragma mark - UIViewController
 
+@synthesize topLabel;
+@synthesize codeTextField;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUp];
+    [self setUpNavigationBar];
 }
 
 // This is used to dismiss the keyboard, user just has to tap outside the
@@ -200,30 +202,32 @@ id<AWSUIConfiguration> config = nil;
     [super touchesBegan:touches withEvent:event];
 }
 
-- (void)setUp {
-    _userNameRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"User Name" staticText:self.user.username];
-    _confirmationCodeRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"Confirmation Code" type:InputTypeText];
-    _tableDelegate = [AWSFormTableDelegate new];
-    [self.tableDelegate addCell:self.userNameRow];
-    [self.tableDelegate addCell:self.confirmationCodeRow];
-    self.tableView.delegate = self.tableDelegate;
-    self.tableView.dataSource = self.tableDelegate;
-    [self.tableView reloadData];
-    [AWSUserPoolsUIHelper setUpFormShadowForView:self.tableFormView];
-    [self setUpBackground];
+- (void)setUpNavigationBar {
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
+    [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(48, 8)];
+    [topLabel setAttributedText:text];
+    
+    UIImage *bgImage = [UIImage imageNamed:@"navbar_bg"];
+    self.navigationController.navigationBar.prefersLargeTitles = true;
+    self.navigationItem.title = @"";
+    if (@available(iOS 13.0, *)) {
+        UINavigationBarAppearance *appearance = [self.navigationController.navigationBar standardAppearance];
+        [appearance configureWithOpaqueBackground];
+        appearance.backgroundImage = bgImage;
+        self.navigationController.navigationBar.standardAppearance = appearance;
+        self.navigationController.navigationBar.scrollEdgeAppearance = appearance;
+        
+    } else {
+        // Fallback on earlier versions
+    }
+    
+    NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Confirm Singup"];
+    self.navigationItem.titleView = navBarView;
 }
 
-- (void)setUpBackground {
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.title = @"Confirm";
-    UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.tableFormView.center.y)];
-    backgroundImageView.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];
-    backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    [self.view insertSubview:backgroundImageView atIndex:0];
-}
 
 - (IBAction)onConfirmCode:(id)sender {
-    NSString *confirmationCode = [self.tableDelegate getValueForCell:self.confirmationCodeRow forTableView:self.tableView];
+    NSString *confirmationCode = codeTextField.text;
     if ([confirmationCode isEqualToString:@""]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Missing Information"
                                                                                  message:@"Please enter a valid confirmation code."

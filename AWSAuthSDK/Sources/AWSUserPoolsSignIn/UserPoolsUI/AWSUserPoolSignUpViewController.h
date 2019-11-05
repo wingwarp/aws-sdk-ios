@@ -33,6 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface UserPoolSignUpConfirmationViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *topLabel;
+@property (weak, nonatomic) IBOutlet UITextField *codeTextField;
 
 @property (weak, nonatomic) IBOutlet UIView *tableFormView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
