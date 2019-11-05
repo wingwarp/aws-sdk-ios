@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AWSSignInViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 
 /**
  @property canCancel
@@ -46,37 +47,6 @@ NS_ASSUME_NONNULL_BEGIN
  @brief UIButton that kicks off the ForgotPassword flow on click
  **/
 @property (weak, nonatomic) IBOutlet UIButton *forgotPasswordButton;
-
-/**
-// @property orSignInWithLabel
-// @brief Text Label that displays "or sign in with" when userpools
-// and one or more SignIn Buttons are configured
-// **/
-//@property (weak, nonatomic) IBOutlet UILabel *orSignInWithLabel;
-//
-///**
-// @property logoView
-// @brief Image View for holding the Logo Image
-// **/
-//@property (weak, nonatomic) IBOutlet UIImageView *logoView;
-//
-///**
-// @property tableFormView
-// @brief The table form view for userpools
-// **/
-//@property (weak, nonatomic) IBOutlet UIView *tableFormView;
-//
-///**
-// @property tableView
-// @brief The table view for userpools
-// **/
-//@property (weak, nonatomic) IBOutlet UITableView *tableView;
-//
-///**
-// @property logoViewHeight
-// @brief Layout constraint for specifying the height of the logo view
-// **/
-//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoViewHeight;
 
 /**
  @property completionHandler

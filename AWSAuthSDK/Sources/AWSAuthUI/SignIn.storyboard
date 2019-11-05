@@ -67,16 +67,10 @@
                                 <rect key="frame" x="30" y="45" width="315" height="250"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="o38-md-sBT">
-                                        <rect key="frame" x="44.5" y="0.0" width="226.5" height="20"/>
+                                        <rect key="frame" x="41" y="0.0" width="233" height="20"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN IN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbr-Ts-SfI">
-                                                <rect key="frame" x="0.0" y="0.0" width="61.5" height="20"/>
-                                                <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="17"/>
-                                                <color key="textColor" red="0.95294117649999999" green="0.3294117647" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TO YOUR ACCOUNT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4mi-FL-W31">
-                                                <rect key="frame" x="66.5" y="0.0" width="160" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN IN TO YOUR ACCOUNT!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4mi-FL-W31">
+                                                <rect key="frame" x="0.0" y="0.0" width="233" height="20"/>
                                                 <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="17"/>
                                                 <color key="textColor" red="0.094117647060000004" green="0.1529411765" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -243,6 +237,7 @@
                         <outlet property="providerRow3" destination="Utd-qw-giI" id="Njr-YR-IIb"/>
                         <outlet property="signInButton" destination="IkO-GD-xvp" id="2fb-kk-UZo"/>
                         <outlet property="signUpButton" destination="cMG-il-Rxs" id="76D-Nd-o1Z"/>
+                        <outlet property="statusLabel" destination="4mi-FL-W31" id="eMu-4X-x8R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbe-c5-U5j" userLabel="First Responder" sceneMemberID="firstResponder"/>

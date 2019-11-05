@@ -21,6 +21,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AWSUserPoolSignUpViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UILabel *topLabel;
 
 @property (weak, nonatomic) IBOutlet UIView *formView;
 @property (weak, nonatomic) IBOutlet UIView *tableFormView;

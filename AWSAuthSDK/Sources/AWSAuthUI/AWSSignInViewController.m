@@ -24,9 +24,9 @@
 #import "AWSSignInViewController.h"
 #import "NavBarView.h"
 
-#define DEFAULT_BACKGROUND_COLOR_TOP [UIColor darkGrayColor]
-#define DEFAULT_BACKGROUND_COLOR_BOTTOM [UIColor whiteColor]
-#define NAVIGATION_BAR_HEIGHT 64
+//#define DEFAULT_BACKGROUND_COLOR_TOP [UIColor darkGrayColor]
+//#define DEFAULT_BACKGROUND_COLOR_BOTTOM [UIColor whiteColor]
+//#define NAVIGATION_BAR_HEIGHT 64
 
 static NSString *const RESOURCES_BUNDLE = @"AWSAuthUI.bundle";
 static NSString *const SMALL_IMAGE_NAME = @"logo-aws-small";
@@ -90,6 +90,7 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 
 @synthesize canCancel;
 @synthesize config;
+@synthesize statusLabel;
 
 + (void)initialize {
     AWSDDLogDebug(@"Initializing the AWSSignInViewController...");
@@ -122,7 +123,7 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 }
 
 - (void)keyboardDidHide:(NSNotification *)notification {
-    [self.view setFrame:CGRectMake(0, NAVIGATION_BAR_HEIGHT ,self.view.frame.size.width,self.view.frame.size.height)];
+    [self.view setFrame:CGRectMake(0, 64 ,self.view.frame.size.width,self.view.frame.size.height)];
 }
 
 - (void)viewDidLoad {
@@ -135,22 +136,15 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
     // set up the navigation controller
     [self setUpNavigationController];
     
-    // set up logo
-    //[self setUpLogo:self.config.logoImage ?: nil];
-    
-    // set up background color
-    //[self setUpBackground:self.config.backgroundColor ?: nil];
-    
     // set up username and password UI if user pools enabled
     [self setUpUserPoolsUI];
     
     // add the  sign-in buttons created by the user to the sign-in view
     [self addButtonViewstoSignInView];
     
-    // Setup the font
-//    if (self.config.font) {
-//        [self setUpFont];
-//    }
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:statusLabel.text];
+    [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, 8)];
+    [statusLabel setAttributedText:text];
 }
     
 - (void)viewWillAppear:(BOOL)animated {
@@ -223,22 +217,9 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 - (void)setUpUserPoolsUI {
     if (self.config.enableUserPoolsUI) {
         AWSDDLogDebug(@"User Pools Enabled. Setting up the view...");
-//        Class formTableCell = NSClassFromString(@"AWSFormTableCell");
-//        self.passwordRow = [[formTableCell alloc] initWithPlaceHolder:@"Password"
-//                                                                 type:InputTypePassword];
-//        self.userNameRow = [[formTableCell alloc] initWithPlaceHolder:@"User Name"
-//                                                                 type:InputTypeText];
-//        Class formTableDelegate = NSClassFromString(@"AWSFormTableDelegate");
-//        self.tableDelegate = [formTableDelegate new];
-//        [self.tableDelegate addCell:self.userNameRow];
-//        [self.tableDelegate addCell:self.passwordRow];
-//        self.tableView.delegate = self.tableDelegate;
-//        self.tableView.dataSource = self.tableDelegate;
-//        [self.tableView reloadData];
+
         Class AWSUserPoolsUIHelper = NSClassFromString(@"AWSUserPoolsUIHelper");
-//        if ([AWSUserPoolsUIHelper respondsToSelector:@selector(setUpFormShadowForView:)]) {
-//            [AWSUserPoolsUIHelper setUpFormShadowForView:self.tableFormView];
-//        }
+
         
         if ([AWSUserPoolsUIHelper respondsToSelector:@selector(setAWSUIConfiguration:)]) {
             [AWSUserPoolsUIHelper setAWSUIConfiguration:self.config];
@@ -296,25 +277,22 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 }
 
 - (void)setUpNavigationController {
-    self.navigationItem.prompt = @" ";
+    UIImage *bgImage = [UIImage imageNamed:@"navbar_bg"];
+    self.navigationController.navigationBar.prefersLargeTitles = true;
+    self.navigationItem.title = @"";
+    if (@available(iOS 13.0, *)) {
+        UINavigationBarAppearance *appearance = [self.navigationController.navigationBar standardAppearance];
+        [appearance configureWithOpaqueBackground];
+        appearance.backgroundImage = bgImage;
+        self.navigationController.navigationBar.standardAppearance = appearance;
+        self.navigationController.navigationBar.scrollEdgeAppearance = appearance;
+        
+    } else {
+        //TODO - Customize NavBar for iOS lower than 13
+    }
+    
     NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Sign In"];
     self.navigationItem.titleView = navBarView;
-    self.canCancel = self.config.canCancel;
-    if (self.canCancel) {
-        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
-                                                                         style:UIBarButtonItemStylePlain
-                                                                        target:self
-                                                                        action:@selector(barButtonClosePressed)];
-        cancelButton.tintColor = [UIColor whiteColor];
-        self.navigationController.navigationBar.topItem.leftBarButtonItem = cancelButton;
-    }
-    self.navigationController.navigationBar.titleTextAttributes = @{
-                                                                    NSForegroundColorAttributeName: [UIColor whiteColor],
-                                                                    };
-    self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.barTintColor = self.config.backgroundColor ?: DEFAULT_BACKGROUND_COLOR_TOP;
-    self.navigationController.navigationBar.tintColor = DEFAULT_BACKGROUND_COLOR_BOTTOM;
-    
 }
 
 - (void)barButtonClosePressed {

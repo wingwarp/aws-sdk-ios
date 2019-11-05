@@ -21,6 +21,7 @@
 #import "AWSUserPoolsUIHelper.h"
 #import <AWSAuthCore/AWSSignInManager.h>
 #import <AWSAuthCore/AWSUIConfiguration.h>
+#import "NavBarView.h"
 
 
 @interface AWSSignInManager()
@@ -57,6 +58,8 @@
 
 @implementation AWSUserPoolSignUpViewController
 
+@synthesize topLabel;
+
 id<AWSUIConfiguration> config = nil;
 
 #pragma mark - UIViewController
@@ -79,34 +82,27 @@ id<AWSUIConfiguration> config = nil;
 }
 
 - (void)setUp {
-    _userNameRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"User Name" type:InputTypeText];
-    _passwordRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"Password" type:InputTypePassword];
-    _emailRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"Email" type:InputTypeText];
-    _phoneNumberRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"Phone Number" type:InputTypeText];
-    _tableDelegate = [AWSFormTableDelegate new];
-    [self.tableDelegate addCell:self.userNameRow];
-    [self.tableDelegate addCell:self.passwordRow];
-    [self.tableDelegate addCell:self.emailRow];
-    [self.tableDelegate addCell:self.phoneNumberRow];
-    self.tableView.delegate = self.tableDelegate;
-    self.tableView.dataSource = self.tableDelegate;
-    [self.tableView reloadData];
-    [AWSUserPoolsUIHelper setUpFormShadowForView:self.tableFormView];
-    [self setUpBackground];
-}
-
-- (void)setUpBackground {
-    if ([AWSUserPoolsUIHelper isBackgroundColorFullScreen:self.config]) {
-        self.view.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
+    [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(32, 9)];
+    [topLabel setAttributedText:text];
+    
+    UIImage *bgImage = [UIImage imageNamed:@"navbar_bg"];
+    self.navigationController.navigationBar.prefersLargeTitles = true;
+    self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAlways;
+    self.navigationItem.title = @"";
+    if (@available(iOS 13.0, *)) {
+        UINavigationBarAppearance *appearance = [self.navigationController.navigationBar standardAppearance];
+        [appearance configureWithOpaqueBackground];
+        appearance.backgroundImage = bgImage;
+        self.navigationController.navigationBar.standardAppearance = appearance;
+        self.navigationController.navigationBar.scrollEdgeAppearance = appearance;
+        
     } else {
-        self.view.backgroundColor = [UIColor whiteColor];
+        // Fallback on earlier versions
     }
     
-    self.title = @"Sign Up";
-    UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.tableFormView.center.y)];
-    backgroundImageView.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];
-    backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    [self.view insertSubview:backgroundImageView atIndex:0];
+    NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Sign Up"];
+    self.navigationItem.titleView = navBarView;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -122,22 +118,16 @@ id<AWSUIConfiguration> config = nil;
 - (IBAction)onSignUpClicked:(id)sender {
     
     NSMutableArray * attributes = [NSMutableArray new];
-    AWSCognitoIdentityUserAttributeType * phone = [AWSCognitoIdentityUserAttributeType new];
-    phone.name = @"phone_number";
-    phone.value = [self.tableDelegate getValueForCell:self.phoneNumberRow forTableView:self.tableView];
     AWSCognitoIdentityUserAttributeType * email = [AWSCognitoIdentityUserAttributeType new];
     email.name = @"email";
-    email.value = [self.tableDelegate getValueForCell:self.emailRow forTableView:self.tableView];
+    email.value = self.emailTextField.text;
     
-    if(![@"" isEqualToString:phone.value]){
-        [attributes addObject:phone];
-    }
     if(![@"" isEqualToString:email.value]){
         [attributes addObject:email];
     }
     
-    NSString *userName = [self.tableDelegate getValueForCell:self.userNameRow forTableView:self.tableView];
-    NSString *password = [self.tableDelegate getValueForCell:self.passwordRow forTableView:self.tableView];
+    NSString *userName = self.emailTextField.text;
+    NSString *password = self.passwordTextField.text;
     if ([userName isEqualToString:@""] || [password isEqualToString:@""]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Missing Information"
                                                                                  message:@"Please enter a valid username and password."
@@ -148,20 +138,6 @@ id<AWSUIConfiguration> config = nil;
                            animated:YES
                          completion:nil];
         return;
-    }
-    
-    NSString *phoneNumber = [self.tableDelegate getValueForCell:self.phoneNumberRow forTableView:self.tableView];
-    if (phoneNumber.length > 0) {
-        if (![phoneNumber hasPrefix:@"+"]) {
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Invalid format"
-                                                                                     message:@"Phone number should begin with country code. E.g. +1992.."
-                                                                              preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
-            [alertController addAction:ok];
-            [self presentViewController:alertController
-                               animated:YES
-                             completion:nil];
-        }
     }
     
     //sign up the user
