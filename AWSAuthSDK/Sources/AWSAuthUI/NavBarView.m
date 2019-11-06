@@ -41,24 +41,36 @@
 }
 
 -(void)navBarSetup {
-    //self.clipsToBounds = YES;
     self.backgroundColor = UIColor.clearColor;
     UIImage *logoImage = [UIImage imageNamed:@"walkthrough_logo"];
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 200, 45)];
 
-    [imageView setCenter:CGPointMake(self.center.x, 20)];
     imageView.image = logoImage;
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
 
     UILabel *labelView = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 300, 45)];
     labelView.text = navBarText;
     labelView.textColor = UIColor.whiteColor;
     labelView.textAlignment = NSTextAlignmentCenter;
-    [labelView setCenter:CGPointMake(self.center.x, 60)];
     [labelView setFont:[UIFont fontWithName:@"MavenPro-Bold" size:25]];
+    
+    imageView.translatesAutoresizingMaskIntoConstraints = NO;
+    labelView.translatesAutoresizingMaskIntoConstraints = NO;
     
     [self addSubview:imageView];
     [self addSubview:labelView];
+    
+    [imageView.topAnchor constraintEqualToAnchor:self.topAnchor constant:10].active = YES;
+    [imageView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor].active = YES;
+    [imageView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor].active = YES;
+    [imageView.centerXAnchor constraintEqualToAnchor:self.centerXAnchor].active = YES;
+    [imageView.heightAnchor constraintEqualToConstant:50].active = YES;
+    
+    [labelView.topAnchor constraintEqualToAnchor:imageView.bottomAnchor constant:0].active = YES;
+    [labelView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor].active = YES;
+    [labelView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor].active = YES;
+    [labelView.centerXAnchor constraintEqualToAnchor:self.centerXAnchor].active = YES;
+    
 }
 
 @end

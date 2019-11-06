@@ -67,27 +67,6 @@
 }
 
 - (void)setUpNavigationBar {
-    UIImage *bgImage = [UIImage imageNamed:@"navbar_bg"];
-    self.navigationController.navigationBar.tintColor = UIColor.whiteColor;
-    if (@available(iOS 11.0, *)) {
-        self.navigationController.navigationBar.prefersLargeTitles = true;
-    } else {
-        // Fallback on earlier versions
-    }
-    self.navigationController.navigationBar.translucent = NO;
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.navigationItem.title = @"";
-    if (@available(iOS 13.0, *)) {
-        UINavigationBarAppearance *appearance = [self.navigationController.navigationBar standardAppearance];
-        [appearance configureWithOpaqueBackground];
-        appearance.backgroundImage = bgImage;
-        self.navigationController.navigationBar.standardAppearance = appearance;
-        self.navigationController.navigationBar.scrollEdgeAppearance = appearance;
-        
-    } else {
-        //TODO - Customize NavBar for iOS lower than 13
-    }
-       
     NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Forgot Password"];
     self.navigationItem.titleView = navBarView;
 }
@@ -164,27 +143,6 @@
 }
 
 - (void)setUpNavigationBar {
-    UIImage *bgImage = [UIImage imageNamed:@"navbar_bg"];
-    self.navigationController.navigationBar.tintColor = UIColor.whiteColor;
-    if (@available(iOS 11.0, *)) {
-        self.navigationController.navigationBar.prefersLargeTitles = true;
-    } else {
-        // Fallback on earlier versions
-    }
-    self.navigationController.navigationBar.translucent = NO;
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.navigationItem.title = @"";
-    if (@available(iOS 13.0, *)) {
-        UINavigationBarAppearance *appearance = [self.navigationController.navigationBar standardAppearance];
-        [appearance configureWithOpaqueBackground];
-        appearance.backgroundImage = bgImage;
-        self.navigationController.navigationBar.standardAppearance = appearance;
-        self.navigationController.navigationBar.scrollEdgeAppearance = appearance;
-        
-    } else {
-        //TODO - Customize NavBar for iOS lower than 13
-    }
-       
     NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Reset Password"];
     self.navigationItem.titleView = navBarView;
 }

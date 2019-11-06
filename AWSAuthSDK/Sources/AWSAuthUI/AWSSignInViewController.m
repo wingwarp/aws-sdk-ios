@@ -29,9 +29,6 @@
 //#define NAVIGATION_BAR_HEIGHT 64
 
 static NSString *const RESOURCES_BUNDLE = @"AWSAuthUI.bundle";
-static NSString *const SMALL_IMAGE_NAME = @"logo-aws-small";
-static NSString *const BIG_IMAGE_NAME = @"logo-aws-big";
-
 
 static NSString *const SIGNIN_STORYBOARD = @"SignIn";
 static NSString *const SIGNIN_VIEW_CONTROLLER_IDENTIFIER = @"SignIn";;
@@ -256,9 +253,6 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 //                                                                  toItem:self.logoView
 //                                                               attribute:NSLayoutAttributeBottom multiplier:1 constant:8.0]];
     }
-//    if (![self.config hasSignInButtonView]) {
-//        [self.orSignInWithLabel removeFromSuperview];
-//    }
 }
 
 - (void)setUpResponders {
@@ -276,7 +270,6 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 - (void)setUpNavigationController {
     UIImage *bgImage = [UIImage imageNamed:@"navbar_bg"];
     self.navigationController.navigationBar.prefersLargeTitles = true;
-    self.navigationController.navigationBar.translucent = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationItem.title = @"";
     if (@available(iOS 13.0, *)) {

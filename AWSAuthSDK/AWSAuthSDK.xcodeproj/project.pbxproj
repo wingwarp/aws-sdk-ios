@@ -129,10 +129,10 @@
 		17DED2A61F32A4E400397F88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1786CA4D1F2BEDB8003421FF /* Images.xcassets */; };
 		17F4F75021F6B0750068B553 /* AWSCognitoAuth+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F4F74E21F6B0750068B553 /* AWSCognitoAuth+Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		17F4F75121F6B0750068B553 /* AWSCognitoAuth+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */; };
-		443D1F9123709608008B61EF /* NavBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 443D1EFD236FEEBA008B61EF /* NavBarView.h */; };
-		443D1FF523713111008B61EF /* NavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 443D1EFE236FEEBA008B61EF /* NavBarView.m */; };
-		443D1FF623713115008B61EF /* NavBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 443D1EFD236FEEBA008B61EF /* NavBarView.h */; };
-		443D205D23720E3A008B61EF /* NavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 443D1EFE236FEEBA008B61EF /* NavBarView.m */; };
+		443D2066237312E9008B61EF /* NavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 443D20612373104A008B61EF /* NavBarView.m */; };
+		443D2067237312ED008B61EF /* NavBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 443D20602373104A008B61EF /* NavBarView.h */; };
+		443D2068237325D3008B61EF /* NavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 443D20612373104A008B61EF /* NavBarView.m */; };
+		443D2069237325D6008B61EF /* NavBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 443D20602373104A008B61EF /* NavBarView.h */; };
 		447600CA236CCD07004A783E /* MavenPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DA236CB1D000D9C277 /* MavenPro-Black.ttf */; };
 		447600CB236CCD0C004A783E /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DB236CB1D000D9C277 /* MavenPro-Regular.ttf */; };
 		447600CC236CCD14004A783E /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DC236CB1D000D9C277 /* MavenPro-Medium.ttf */; };
@@ -1157,8 +1157,8 @@
 		17D61FA6216BBC59009B2B9C /* AWSMobileClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClient.swift; sourceTree = "<group>"; };
 		17F4F74E21F6B0750068B553 /* AWSCognitoAuth+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSCognitoAuth+Extensions.h"; sourceTree = "<group>"; };
 		17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AWSCognitoAuth+Extensions.m"; sourceTree = "<group>"; };
-		443D1EFD236FEEBA008B61EF /* NavBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavBarView.h; sourceTree = "<group>"; };
-		443D1EFE236FEEBA008B61EF /* NavBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavBarView.m; sourceTree = "<group>"; };
+		443D20602373104A008B61EF /* NavBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavBarView.h; sourceTree = "<group>"; };
+		443D20612373104A008B61EF /* NavBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavBarView.m; sourceTree = "<group>"; };
 		44F8C270236C5A2C00D9C277 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = awsconfiguration.json; path = ../../../../../Downloads/awsconfiguration.json; sourceTree = "<group>"; };
 		44F8C2DA236CB1D000D9C277 /* MavenPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Black.ttf"; sourceTree = "<group>"; };
 		44F8C2DB236CB1D000D9C277 /* MavenPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Regular.ttf"; sourceTree = "<group>"; };
@@ -1531,8 +1531,8 @@
 				B5345D741F366E4A009C1041 /* AWSAuthUI.h */,
 				B5345D751F366E4A009C1041 /* Info.plist */,
 				B5150B1A1F3C389C00AC8D08 /* Images.xcassets */,
-				443D1EFD236FEEBA008B61EF /* NavBarView.h */,
-				443D1EFE236FEEBA008B61EF /* NavBarView.m */,
+				443D20602373104A008B61EF /* NavBarView.h */,
+				443D20612373104A008B61EF /* NavBarView.m */,
 			);
 			path = AWSAuthUI;
 			sourceTree = "<group>";
@@ -1683,7 +1683,7 @@
 				B5170D301F44F098008FD811 /* AWSUserPoolsSignIn.h in Headers */,
 				1711A4E01F43A49E006105D3 /* AWSFormTableCell.h in Headers */,
 				1711A4EF1F43A49E006105D3 /* AWSUserPoolsUIHelper.h in Headers */,
-				443D1FF623713115008B61EF /* NavBarView.h in Headers */,
+				443D2069237325D6008B61EF /* NavBarView.h in Headers */,
 				1711A4ED1F43A49E006105D3 /* AWSUserPoolSignUpViewController.h in Headers */,
 				1711A4E61F43A49E006105D3 /* AWSUserPoolForgotPasswordViewController.h in Headers */,
 				1711A4F51F43D7D6006105D3 /* AWSUserPoolsUIOperations.h in Headers */,
@@ -1771,7 +1771,7 @@
 				B5150AB31F3BF04C00AC8D08 /* AWSAuthUIConfiguration.h in Headers */,
 				17C77CB61F417B3800AE8632 /* AWSAuthUIViewController.h in Headers */,
 				B5170D361F44FDBF008FD811 /* AWSUserPoolMFAViewController.h in Headers */,
-				443D1F9123709608008B61EF /* NavBarView.h in Headers */,
+				443D2067237312ED008B61EF /* NavBarView.h in Headers */,
 				B5345DE31F37B363009C1041 /* AWSAuthUI.h in Headers */,
 				B5170D311F44FD6C008FD811 /* AWSFormTableCell.h in Headers */,
 				B5170D351F44FDB6008FD811 /* AWSUserPoolForgotPasswordViewController.h in Headers */,
@@ -2833,7 +2833,7 @@
 				1711A4E71F43A49E006105D3 /* AWSUserPoolForgotPasswordViewController.m in Sources */,
 				1750D0121F2D4E23006D915E /* AWSCognitoUserPoolsSignInProvider.m in Sources */,
 				1711A4E91F43A49E006105D3 /* AWSUserPoolMFAViewController.m in Sources */,
-				443D1FF523713111008B61EF /* NavBarView.m in Sources */,
+				443D2068237325D3008B61EF /* NavBarView.m in Sources */,
 				1711A4F01F43A49E006105D3 /* AWSUserPoolsUIHelper.m in Sources */,
 				1711A4E51F43A49E006105D3 /* AWSTableInputCell.m in Sources */,
 				1711A4EE1F43A49E006105D3 /* AWSUserPoolSignUpViewController.m in Sources */,
@@ -2896,7 +2896,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				443D205D23720E3A008B61EF /* NavBarView.m in Sources */,
+				443D2066237312E9008B61EF /* NavBarView.m in Sources */,
 				B5150AB21F3BF03D00AC8D08 /* AWSAuthUIConfiguration.m in Sources */,
 				B58F54C01F382441009ED450 /* AWSSignInViewController.m in Sources */,
 				17C77CB71F417B3800AE8632 /* AWSAuthUIViewController.m in Sources */,
