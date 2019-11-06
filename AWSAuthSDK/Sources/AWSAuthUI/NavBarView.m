@@ -50,7 +50,7 @@
     imageView.image = logoImage;
     imageView.contentMode = UIViewContentModeScaleAspectFill;
 
-    UILabel *labelView = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 45)];
+    UILabel *labelView = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 300, 45)];
     labelView.text = navBarText;
     labelView.textColor = UIColor.whiteColor;
     labelView.textAlignment = NSTextAlignmentCenter;

@@ -19,6 +19,7 @@
 #import "AWSFormTableDelegate.h"
 #import "AWSUserPoolsUIHelper.h"
 #import <AWSAuthCore/AWSUIConfiguration.h>
+#import "NavBarView.h"
 
 @interface AWSUserPoolForgotPasswordViewController ()
 
@@ -41,11 +42,17 @@
 @implementation AWSUserPoolForgotPasswordViewController
 
 #pragma mark - UIViewController
+@synthesize topLabel;
+@synthesize emailTextField;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUp];
+    [self setUpNavigationBar];
     self.pool = [AWSCognitoIdentityUserPool defaultCognitoIdentityUserPool];
+    
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
+    [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(20, 6)];
+    [topLabel setAttributedText:text];
 }
 
 // This is used to dismiss the keyboard, user just has to tap outside the
@@ -59,29 +66,30 @@
     [super touchesBegan:touches withEvent:event];
 }
 
-- (void)setUp {
-    _userNameRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"User Name" type:InputTypeText];
-    _tableDelegate = [AWSFormTableDelegate new];
-    [self.tableDelegate addCell:self.userNameRow];
-    self.tableView.delegate = self.tableDelegate;
-    self.tableView.dataSource = self.tableDelegate;
-    [self.tableView reloadData];
-    [AWSUserPoolsUIHelper setUpFormShadowForView:self.tableFormView];
-    [self setUpBackground];
-}
-
-- (void)setUpBackground {
-    if ([AWSUserPoolsUIHelper isBackgroundColorFullScreen:self.config]) {
-        self.view.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];
+- (void)setUpNavigationBar {
+    UIImage *bgImage = [UIImage imageNamed:@"navbar_bg"];
+    self.navigationController.navigationBar.tintColor = UIColor.whiteColor;
+    if (@available(iOS 11.0, *)) {
+        self.navigationController.navigationBar.prefersLargeTitles = true;
     } else {
-        self.view.backgroundColor = [UIColor whiteColor];
+        // Fallback on earlier versions
     }
-    
-    self.title = @"Forgot Password";
-    UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.tableFormView.center.y)];
-    backgroundImageView.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];
-    backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    [self.view insertSubview:backgroundImageView atIndex:0];
+    self.navigationController.navigationBar.translucent = NO;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.navigationItem.title = @"";
+    if (@available(iOS 13.0, *)) {
+        UINavigationBarAppearance *appearance = [self.navigationController.navigationBar standardAppearance];
+        [appearance configureWithOpaqueBackground];
+        appearance.backgroundImage = bgImage;
+        self.navigationController.navigationBar.standardAppearance = appearance;
+        self.navigationController.navigationBar.scrollEdgeAppearance = appearance;
+        
+    } else {
+        //TODO - Customize NavBar for iOS lower than 13
+    }
+       
+    NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Forgot Password"];
+    self.navigationItem.titleView = navBarView;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -93,7 +101,7 @@
 }
 
 - (IBAction)onForgotPassword:(id)sender {
-    NSString *userName = [self.tableDelegate getValueForCell:self.userNameRow forTableView:self.tableView];
+    NSString *userName = emailTextField.text;
     if ([userName isEqualToString:@""]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Missing Username"
                                                                                  message:@"Please enter a valid username."
@@ -131,9 +139,17 @@
 
 #pragma mark - UIViewController
 
+@synthesize topLabel;
+@synthesize codeTextField;
+@synthesize passwordTextField;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUp];
+    [self setUpNavigationBar];
+    
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
+    [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(42, 8)];
+    [topLabel setAttributedText:text];
 }
 
 // This is used to dismiss the keyboard, user just has to tap outside the
@@ -147,37 +163,36 @@
     [super touchesBegan:touches withEvent:event];
 }
 
-- (void)setUp {
-    _confirmationCodeRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"Confirmation Code" type:InputTypeText];
-    _updatedPasswordRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"New Password" type:InputTypePassword];
-    _tableDelegate = [AWSFormTableDelegate new];
-    [self.tableDelegate addCell:self.confirmationCodeRow];
-    [self.tableDelegate addCell:self.updatedPasswordRow];
-    self.tableView.delegate = self.tableDelegate;
-    self.tableView.dataSource = self.tableDelegate;
-    [self.tableView reloadData];
-    [AWSUserPoolsUIHelper setUpFormShadowForView:self.tableFormView];
-    [self setUpBackground];
-}
-
-- (void)setUpBackground {
-    if ([AWSUserPoolsUIHelper isBackgroundColorFullScreen:self.config]) {
-        self.view.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];
+- (void)setUpNavigationBar {
+    UIImage *bgImage = [UIImage imageNamed:@"navbar_bg"];
+    self.navigationController.navigationBar.tintColor = UIColor.whiteColor;
+    if (@available(iOS 11.0, *)) {
+        self.navigationController.navigationBar.prefersLargeTitles = true;
     } else {
-        self.view.backgroundColor = [UIColor whiteColor];
+        // Fallback on earlier versions
     }
-    
-    self.title = @"Forgot Password";
-    UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.tableFormView.center.y)];
-    backgroundImageView.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];
-    backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    [self.view insertSubview:backgroundImageView atIndex:0];
+    self.navigationController.navigationBar.translucent = NO;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.navigationItem.title = @"";
+    if (@available(iOS 13.0, *)) {
+        UINavigationBarAppearance *appearance = [self.navigationController.navigationBar standardAppearance];
+        [appearance configureWithOpaqueBackground];
+        appearance.backgroundImage = bgImage;
+        self.navigationController.navigationBar.standardAppearance = appearance;
+        self.navigationController.navigationBar.scrollEdgeAppearance = appearance;
+        
+    } else {
+        //TODO - Customize NavBar for iOS lower than 13
+    }
+       
+    NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Reset Password"];
+    self.navigationItem.titleView = navBarView;
 }
 
 - (IBAction)onUpdatePassword:(id)sender {
     //confirm forgot password with input from ui.
-    NSString *confirmationCode = [self.tableDelegate getValueForCell:self.confirmationCodeRow forTableView:self.tableView];
-    NSString *updatedPassword = [self.tableDelegate getValueForCell:self.updatedPasswordRow forTableView:self.tableView];
+    NSString *confirmationCode = codeTextField.text;
+    NSString *updatedPassword = passwordTextField.text;
     if ([confirmationCode isEqualToString:@""] || [updatedPassword isEqualToString:@""]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Missing Information"
                                                                                  message:@"Please enter valid confirmation code and password values."

@@ -129,10 +129,10 @@
 		17DED2A61F32A4E400397F88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1786CA4D1F2BEDB8003421FF /* Images.xcassets */; };
 		17F4F75021F6B0750068B553 /* AWSCognitoAuth+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F4F74E21F6B0750068B553 /* AWSCognitoAuth+Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		17F4F75121F6B0750068B553 /* AWSCognitoAuth+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */; };
-		443D1F9123709608008B61EF /* NavBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 443D1EFD236FEEBA008B61EF /* NavBarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		443D1F9323709610008B61EF /* NavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 443D1EFE236FEEBA008B61EF /* NavBarView.m */; };
+		443D1F9123709608008B61EF /* NavBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 443D1EFD236FEEBA008B61EF /* NavBarView.h */; };
 		443D1FF523713111008B61EF /* NavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 443D1EFE236FEEBA008B61EF /* NavBarView.m */; };
-		443D1FF623713115008B61EF /* NavBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 443D1EFD236FEEBA008B61EF /* NavBarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		443D1FF623713115008B61EF /* NavBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 443D1EFD236FEEBA008B61EF /* NavBarView.h */; };
+		443D205D23720E3A008B61EF /* NavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 443D1EFE236FEEBA008B61EF /* NavBarView.m */; };
 		447600CA236CCD07004A783E /* MavenPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DA236CB1D000D9C277 /* MavenPro-Black.ttf */; };
 		447600CB236CCD0C004A783E /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DB236CB1D000D9C277 /* MavenPro-Regular.ttf */; };
 		447600CC236CCD14004A783E /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DC236CB1D000D9C277 /* MavenPro-Medium.ttf */; };
@@ -1158,7 +1158,7 @@
 		17F4F74E21F6B0750068B553 /* AWSCognitoAuth+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSCognitoAuth+Extensions.h"; sourceTree = "<group>"; };
 		17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AWSCognitoAuth+Extensions.m"; sourceTree = "<group>"; };
 		443D1EFD236FEEBA008B61EF /* NavBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavBarView.h; sourceTree = "<group>"; };
-		443D1EFE236FEEBA008B61EF /* NavBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = NavBarView.m; path = Sources/AWSAuthUI/NavBarView.m; sourceTree = SOURCE_ROOT; };
+		443D1EFE236FEEBA008B61EF /* NavBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavBarView.m; sourceTree = "<group>"; };
 		44F8C270236C5A2C00D9C277 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = awsconfiguration.json; path = ../../../../../Downloads/awsconfiguration.json; sourceTree = "<group>"; };
 		44F8C2DA236CB1D000D9C277 /* MavenPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Black.ttf"; sourceTree = "<group>"; };
 		44F8C2DB236CB1D000D9C277 /* MavenPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Regular.ttf"; sourceTree = "<group>"; };
@@ -2012,7 +2012,7 @@
 					};
 					17CD4B1F218244EA00953483 = {
 						CreatedOnToolsVersion = 10.0;
-						DevelopmentTeam = W9GWBC2HN3;
+						DevelopmentTeam = 4P96593SXL;
 						ProvisioningStyle = Automatic;
 					};
 					17D6F69521C0E1CD001E5F43 = {
@@ -2896,7 +2896,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				443D1F9323709610008B61EF /* NavBarView.m in Sources */,
+				443D205D23720E3A008B61EF /* NavBarView.m in Sources */,
 				B5150AB21F3BF03D00AC8D08 /* AWSAuthUIConfiguration.m in Sources */,
 				B58F54C01F382441009ED450 /* AWSSignInViewController.m in Sources */,
 				17C77CB71F417B3800AE8632 /* AWSAuthUIViewController.m in Sources */,
@@ -3463,7 +3463,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W9GWBC2HN3;
+				DEVELOPMENT_TEAM = 4P96593SXL;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSAuthSDKTestApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -3500,7 +3500,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W9GWBC2HN3;
+				DEVELOPMENT_TEAM = 4P96593SXL;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSAuthSDKTestApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

@@ -161,7 +161,6 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
     [AWSSignInManager sharedInstance].pendingSignIn = NO;
     [AWSSignInManager sharedInstance].pendingUsername = @"";
     [AWSSignInManager sharedInstance].pendingPassword = @"";
-    
 }
 
 // This is used to dismiss the keyboard, user just has to tap outside the
@@ -247,8 +246,6 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
             [self.signUpButton removeFromSuperview];
         }
     } else {
-//        [self.tableFormView removeFromSuperview];
-//        self.orSignInWithLabel.text = @"Sign in with";
         [self.signInButton removeFromSuperview];
         [self.signUpButton removeFromSuperview];
         [self.forgotPasswordButton removeFromSuperview];

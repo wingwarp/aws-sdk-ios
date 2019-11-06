@@ -68,6 +68,10 @@ id<AWSUIConfiguration> config = nil;
     [super viewDidLoad];
     self.pool = [AWSCognitoIdentityUserPool defaultCognitoIdentityUserPool];
     [self setUpNavigationBar];
+    
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
+    [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(32, 9)];
+    [topLabel setAttributedText:text];
 }
 
 // This is used to dismiss the keyboard, user just has to tap outside the
@@ -82,12 +86,13 @@ id<AWSUIConfiguration> config = nil;
 }
 
 - (void)setUpNavigationBar {
-    NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
-    [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(32, 9)];
-    [topLabel setAttributedText:text];
-    
     UIImage *bgImage = [UIImage imageNamed:@"navbar_bg"];
-    self.navigationController.navigationBar.prefersLargeTitles = true;
+    self.navigationController.navigationBar.tintColor = UIColor.whiteColor;
+    if (@available(iOS 11.0, *)) {
+        self.navigationController.navigationBar.prefersLargeTitles = true;
+    } else {
+        // Fallback on earlier versions
+    }
     self.navigationItem.title = @"";
     if (@available(iOS 13.0, *)) {
         UINavigationBarAppearance *appearance = [self.navigationController.navigationBar standardAppearance];
@@ -189,6 +194,10 @@ id<AWSUIConfiguration> config = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpNavigationBar];
+    
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
+    [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(48, 8)];
+    [topLabel setAttributedText:text];
 }
 
 // This is used to dismiss the keyboard, user just has to tap outside the
@@ -203,12 +212,13 @@ id<AWSUIConfiguration> config = nil;
 }
 
 - (void)setUpNavigationBar {
-    NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
-    [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(48, 8)];
-    [topLabel setAttributedText:text];
-    
     UIImage *bgImage = [UIImage imageNamed:@"navbar_bg"];
-    self.navigationController.navigationBar.prefersLargeTitles = true;
+    self.navigationController.navigationBar.tintColor = UIColor.whiteColor;
+    if (@available(iOS 11.0, *)) {
+        self.navigationController.navigationBar.prefersLargeTitles = true;
+    } else {
+        // Fallback on earlier versions
+    }
     self.navigationItem.title = @"";
     if (@available(iOS 13.0, *)) {
         UINavigationBarAppearance *appearance = [self.navigationController.navigationBar standardAppearance];

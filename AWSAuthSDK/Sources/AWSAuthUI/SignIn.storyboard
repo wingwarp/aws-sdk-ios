@@ -249,4 +249,5 @@
         <image name="envelope.fill" catalog="system" width="64" height="46"/>
         <image name="lock.fill" catalog="system" width="64" height="64"/>
     </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
