@@ -38,11 +38,6 @@
 
 @property (nonatomic, strong) AWSCognitoIdentityUserPool * pool;
 @property (nonatomic, strong) NSString* sentTo;
-@property (nonatomic, strong) AWSFormTableCell *userNameRow;
-@property (nonatomic, strong) AWSFormTableCell *passwordRow;
-@property (nonatomic, strong) AWSFormTableCell *phoneNumberRow;
-@property (nonatomic, strong) AWSFormTableCell *emailRow;
-@property (nonatomic, strong) AWSFormTableDelegate *tableDelegate;
 
 @end
 
@@ -50,15 +45,14 @@
 
 @property (nonatomic, strong) NSString* sentTo;
 @property (nonatomic, strong) AWSCognitoIdentityUser * user;
-@property (nonatomic, strong) AWSFormTableCell *userNameRow;
-@property (nonatomic, strong) AWSFormTableCell *confirmationCodeRow;
-@property (nonatomic, strong) AWSFormTableDelegate *tableDelegate;
 
 @end
 
 @implementation AWSUserPoolSignUpViewController
 
 @synthesize topLabel;
+@synthesize emailTextField;
+@synthesize passwordTextField;
 
 id<AWSUIConfiguration> config = nil;
 
@@ -135,7 +129,7 @@ id<AWSUIConfiguration> config = nil;
     if([@"SignUpConfirmSegue" isEqualToString:segue.identifier]){
         UserPoolSignUpConfirmationViewController *signUpConfirmationViewController = segue.destinationViewController;
         signUpConfirmationViewController.sentTo = self.sentTo;
-        NSString *userName = [self.tableDelegate getValueForCell:self.userNameRow forTableView:self.tableView];
+        NSString *userName = emailTextField.text;
         signUpConfirmationViewController.user = [self.pool getUser:userName];
     }
 }
