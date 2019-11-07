@@ -88,6 +88,7 @@ id<AWSUIConfiguration> config = nil;
 - (void)setUpNavigationBar {
     NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Sign Up"];
     self.navigationItem.titleView = navBarView;
+    [self.navigationItem setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil]];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

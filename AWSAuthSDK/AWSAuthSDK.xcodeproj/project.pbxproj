@@ -141,6 +141,7 @@
 		447600CF236CCEAE004A783E /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DB236CB1D000D9C277 /* MavenPro-Regular.ttf */; };
 		447600D0236CCEAE004A783E /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DC236CB1D000D9C277 /* MavenPro-Medium.ttf */; };
 		447600D1236CCEAE004A783E /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DD236CB1D000D9C277 /* MavenPro-Bold.ttf */; };
+		4494BB1B23742D83000F1604 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5150B1A1F3C389C00AC8D08 /* Images.xcassets */; };
 		44F8C271236C5A2C00D9C277 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C270236C5A2C00D9C277 /* awsconfiguration.json */; };
 		44F8C272236C5A3800D9C277 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C270236C5A2C00D9C277 /* awsconfiguration.json */; };
 		B5150AB21F3BF03D00AC8D08 /* AWSAuthUIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B5150AB11F3BF03D00AC8D08 /* AWSAuthUIConfiguration.m */; };
@@ -1159,6 +1160,7 @@
 		17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AWSCognitoAuth+Extensions.m"; sourceTree = "<group>"; };
 		443D20602373104A008B61EF /* NavBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavBarView.h; sourceTree = "<group>"; };
 		443D20612373104A008B61EF /* NavBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavBarView.m; sourceTree = "<group>"; };
+		4494BABC23742C3F000F1604 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		44F8C270236C5A2C00D9C277 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = awsconfiguration.json; path = ../../../../../Downloads/awsconfiguration.json; sourceTree = "<group>"; };
 		44F8C2DA236CB1D000D9C277 /* MavenPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Black.ttf"; sourceTree = "<group>"; };
 		44F8C2DB236CB1D000D9C277 /* MavenPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Regular.ttf"; sourceTree = "<group>"; };
@@ -1331,6 +1333,7 @@
 		175869961EF8899700F1452C = {
 			isa = PBXGroup;
 			children = (
+				4494BABC23742C3F000F1604 /* logo.png */,
 				17CD4B3521824A0C00953483 /* credentials.json */,
 				17CD4B0D218241B800953483 /* Tests */,
 				177AE7231F22715D00870762 /* Dependencies */,
@@ -2742,6 +2745,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1711A4EA1F43A49E006105D3 /* AWSUserPools.storyboard in Resources */,
+				4494BB1B23742D83000F1604 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

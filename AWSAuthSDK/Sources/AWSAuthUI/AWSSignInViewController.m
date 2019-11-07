@@ -115,12 +115,12 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
     visibleRect.size.height -= keyboardSize.height;
     
     if (visibleRect.size.height < buttonOrigin.y) {
-        [self.view setFrame:CGRectMake(0,visibleRect.size.height - buttonOrigin.y, self.view.frame.size.width, self.view.frame.size.height)];
+        [self.view setFrame:CGRectMake(0, visibleRect.size.height - buttonOrigin.y, self.view.frame.size.width, self.view.frame.size.height)];
     }
 }
 
 - (void)keyboardDidHide:(NSNotification *)notification {
-    [self.view setFrame:CGRectMake(0, 64 ,self.view.frame.size.width,self.view.frame.size.height)];
+    [self.view setFrame:CGRectMake(0, 44, self.view.frame.size.width,self.view.frame.size.height)];
 }
 
 - (void)viewDidLoad {
@@ -269,19 +269,9 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 
 - (void)setUpNavigationController {
     UIImage *bgImage = [UIImage imageNamed:@"navbar_bg"];
-    self.navigationController.navigationBar.prefersLargeTitles = true;
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+    [self.navigationController.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.title = @"";
-    if (@available(iOS 13.0, *)) {
-        UINavigationBarAppearance *appearance = [self.navigationController.navigationBar standardAppearance];
-        [appearance configureWithOpaqueBackground];
-        appearance.backgroundImage = bgImage;
-        self.navigationController.navigationBar.standardAppearance = appearance;
-        self.navigationController.navigationBar.scrollEdgeAppearance = appearance;
-        
-    } else {
-        //TODO - Customize NavBar for iOS lower than 13
-    }
+    self.navigationController.navigationBar.tintColor = UIColor.whiteColor;
     
     NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Sign In"];
     self.navigationItem.titleView = navBarView;
@@ -406,10 +396,6 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
     AWSUserPoolsUIOperations *userPoolsOperations = [[awsUserPoolsUIOperations alloc] initWithAuthUIConfiguration:self.config];
     
     [userPoolsOperations loginWithUserName:_emailTextField.text password:_passwordTextField.text navigationController:self.navigationController completionHandler:self.completionHandler];
-//    [userPoolsOperations loginWithUserName:[self.tableDelegate getValueForCell:self.userNameRow forTableView:self.tableView]
-//                                  password:[self.tableDelegate getValueForCell:self.passwordRow forTableView:self.tableView]
-//                      navigationController:self.navigationController
-//                         completionHandler:self.completionHandler];
 }
 
 
