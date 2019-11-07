@@ -274,7 +274,7 @@ id<AWSUIConfiguration> config = nil;
 }
 
 - (void)setUpNavigationBar {
-    NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Confirm Singup"];
+    NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Confirm Signup"];
     self.navigationItem.titleView = navBarView;
 }
 
