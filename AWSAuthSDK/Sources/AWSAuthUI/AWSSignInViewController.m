@@ -34,14 +34,6 @@ static NSString *const SIGNIN_STORYBOARD = @"SignIn";
 static NSString *const SIGNIN_VIEW_CONTROLLER_IDENTIFIER = @"SignIn";;
 static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 
-@interface AWSSignInViewController ()
-
-@property (weak, nonatomic) IBOutlet UIButton *providerRow1;
-@property (weak, nonatomic) IBOutlet UIButton *providerRow2;
-@property (weak, nonatomic) IBOutlet UIButton *providerRow3;
-
-@end
-
 @interface AWSSignInManager()
 
 @property (nonatomic) BOOL shouldFederate;
@@ -101,43 +93,42 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
     return self;
 }
 
+#pragma mark - keyboard movements
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
 
-#pragma mark - UIViewController
-
-
-- (void)keyboardDidShow:(NSNotification *)notification {
-    CGSize keyboardSize = ((NSValue *)[[notification userInfo]
-                                       valueForKey:UIKeyboardFrameBeginUserInfoKey]).CGRectValue.size;
-    
-    CGPoint buttonOrigin = self.signInButton.frame.origin;
-    CGRect visibleRect = self.view.frame;
-    
-    visibleRect.size.height -= keyboardSize.height;
-    
-    if (visibleRect.size.height < buttonOrigin.y) {
-        [self.view setFrame:CGRectMake(0, visibleRect.size.height - buttonOrigin.y, self.view.frame.size.width, self.view.frame.size.height)];
-    }
+    [UIView animateWithDuration:0.3 animations:^{
+        CGRect f = self.view.frame;
+        f.origin.y = -keyboardSize.height / 2;
+        self.view.frame = f;
+    }];
 }
 
-- (void)keyboardDidHide:(NSNotification *)notification {
-    [self.view setFrame:CGRectMake(0, 44, self.view.frame.size.width,self.view.frame.size.height)];
+-(void)keyboardWillHide:(NSNotification *)notification
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        CGRect f = self.view.frame;
+        f.origin.y = 0.0f;
+        self.view.frame = f;
+    }];
+}
+
+- (void)keyboardWillChange:(NSNotification *)notification {
+    CGRect keyboardRect = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.config.enableUserPoolsUI = true;
     AWSDDLogDebug(@"Sign-In Loading...");
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
     
     // set up the navigation controller
     [self setUpNavigationController];
     
     // set up username and password UI if user pools enabled
     [self setUpUserPoolsUI];
-    
-    // add the  sign-in buttons created by the user to the sign-in view
-    [self addButtonViewstoSignInView];
     
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:statusLabel.text];
     [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, 8)];
@@ -158,6 +149,17 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
     [AWSSignInManager sharedInstance].pendingSignIn = NO;
     [AWSSignInManager sharedInstance].pendingUsername = @"";
     [AWSSignInManager sharedInstance].pendingPassword = @"";
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
 }
 
 // This is used to dismiss the keyboard, user just has to tap outside the
@@ -281,37 +283,6 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
     [self dismissViewControllerAnimated:YES completion:nil];
     self.completionHandlerCustom(nil, nil, [[NSError alloc] initWithDomain:@"AWSMobileClientError" code:-2 userInfo:@{@"message": @"The user cancelled the sign in operation"}]);
     AWSDDLogDebug(@"User closed sign in screen.");
-}
-
-- (void)addButtonViewstoSignInView {
-    
-    NSMutableArray<Class<AWSSignInButtonView>> *buttonViews = [self.config getAllSignInButtonViews];
-    NSArray<UIButton *> *buttons = @[self.providerRow1, self.providerRow2, self.providerRow3];
-    for (NSUInteger i = buttonViews.count; i < buttons.count; i++) {
-        [buttons[i] removeFromSuperview];
-    }
-    if (buttonViews.count > 3) {
-        [NSException raise:NSInvalidArgumentException format:@"Only 3 Button Sign In Providers are currently supported."];
-    } else if (buttonViews.count == 3 && !self.config.enableUserPoolsUI) {
-        for (UIButton *btn in buttons) {
-            CGRect buttonFrame = btn.frame;
-            buttonFrame.size = CGSizeMake(280, 30);
-            btn.frame = buttonFrame;
-        }
-    }
-    
-    for (Class signInButtonViewClass in buttonViews) {
-        AWSDDLogDebug(@"Operating on Button View=%@", signInButtonViewClass);
-        UIButton *btn = buttons[[buttonViews indexOfObject:signInButtonViewClass]];
-        UIView<AWSSignInButtonView> *buttonView = [[signInButtonViewClass alloc] initWithFrame:CGRectMake(0, 0, btn.frame.size.width, btn.frame.size.height)];
-        buttonView.buttonStyle = AWSSignInButtonStyleLarge;
-        buttonView.delegate = self;
-        
-        [btn addSubview:buttonView];
-    }
-    
-    [self.view setNeedsLayout];
-    [self.view setNeedsDisplay];
 }
 
 + (UIImage *)getImageFromBundle:(NSString *)imageName {

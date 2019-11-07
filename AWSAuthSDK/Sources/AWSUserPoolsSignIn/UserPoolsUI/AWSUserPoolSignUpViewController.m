@@ -74,6 +74,46 @@ id<AWSUIConfiguration> config = nil;
     [topLabel setAttributedText:text];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+#pragma mark - keyboard movements
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+
+    [UIView animateWithDuration:0.3 animations:^{
+        CGRect f = self.view.frame;
+        f.origin.y = -keyboardSize.height / 2;
+        self.view.frame = f;
+    }];
+}
+
+-(void)keyboardWillHide:(NSNotification *)notification
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        CGRect f = self.view.frame;
+        f.origin.y = 0.0f;
+        self.view.frame = f;
+    }];
+}
+
+- (void)keyboardWillChange:(NSNotification *)notification {
+    CGRect keyboardRect = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
+}
+
 // This is used to dismiss the keyboard, user just has to tap outside the
 // user name and password views and it will dismiss
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -180,6 +220,46 @@ id<AWSUIConfiguration> config = nil;
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
     [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(48, 8)];
     [topLabel setAttributedText:text];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+#pragma mark - keyboard movements
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+
+    [UIView animateWithDuration:0.3 animations:^{
+        CGRect f = self.view.frame;
+        f.origin.y = -keyboardSize.height / 2;
+        self.view.frame = f;
+    }];
+}
+
+-(void)keyboardWillHide:(NSNotification *)notification
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        CGRect f = self.view.frame;
+        f.origin.y = 0.0f;
+        self.view.frame = f;
+    }];
+}
+
+- (void)keyboardWillChange:(NSNotification *)notification {
+    CGRect keyboardRect = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
 }
 
 // This is used to dismiss the keyboard, user just has to tap outside the
