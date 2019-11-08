@@ -133,13 +133,7 @@
 		443D2067237312ED008B61EF /* NavBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 443D20602373104A008B61EF /* NavBarView.h */; };
 		443D2068237325D3008B61EF /* NavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 443D20612373104A008B61EF /* NavBarView.m */; };
 		443D2069237325D6008B61EF /* NavBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 443D20602373104A008B61EF /* NavBarView.h */; };
-		447600CA236CCD07004A783E /* MavenPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DA236CB1D000D9C277 /* MavenPro-Black.ttf */; };
-		447600CB236CCD0C004A783E /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DB236CB1D000D9C277 /* MavenPro-Regular.ttf */; };
-		447600CC236CCD14004A783E /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DC236CB1D000D9C277 /* MavenPro-Medium.ttf */; };
 		447600CD236CCD17004A783E /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DD236CB1D000D9C277 /* MavenPro-Bold.ttf */; };
-		447600CE236CCEAE004A783E /* MavenPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DA236CB1D000D9C277 /* MavenPro-Black.ttf */; };
-		447600CF236CCEAE004A783E /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DB236CB1D000D9C277 /* MavenPro-Regular.ttf */; };
-		447600D0236CCEAE004A783E /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DC236CB1D000D9C277 /* MavenPro-Medium.ttf */; };
 		447600D1236CCEAE004A783E /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DD236CB1D000D9C277 /* MavenPro-Bold.ttf */; };
 		4494BB1B23742D83000F1604 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5150B1A1F3C389C00AC8D08 /* Images.xcassets */; };
 		4494BB83237562A9000F1604 /* AWSAuthUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5345D0F1F366AFA009C1041 /* AWSAuthUI.framework */; };
@@ -148,6 +142,9 @@
 		4494BBE3237562AC000F1604 /* AWSUserPoolsSignIn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1750D0071F2D4DFA006D915E /* AWSUserPoolsSignIn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		44F8C271236C5A2C00D9C277 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C270236C5A2C00D9C277 /* awsconfiguration.json */; };
 		44F8C272236C5A3800D9C277 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C270236C5A2C00D9C277 /* awsconfiguration.json */; };
+		A20974FA2375C6C6008B7D24 /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A20974F72375C6C5008B7D24 /* MavenPro-Regular.ttf */; };
+		A20974FB2375C6C6008B7D24 /* MavenPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A20974F82375C6C5008B7D24 /* MavenPro-Black.ttf */; };
+		A20974FC2375C6C6008B7D24 /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A20974F92375C6C6008B7D24 /* MavenPro-Medium.ttf */; };
 		B5150AB21F3BF03D00AC8D08 /* AWSAuthUIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B5150AB11F3BF03D00AC8D08 /* AWSAuthUIConfiguration.m */; };
 		B5150AB31F3BF04C00AC8D08 /* AWSAuthUIConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = B5150A531F3BF00F00AC8D08 /* AWSAuthUIConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5150B1C1F3CE0E500AC8D08 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5150B1A1F3C389C00AC8D08 /* Images.xcassets */; };
@@ -1166,10 +1163,10 @@
 		443D20612373104A008B61EF /* NavBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavBarView.m; sourceTree = "<group>"; };
 		4494BABC23742C3F000F1604 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		44F8C270236C5A2C00D9C277 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = awsconfiguration.json; path = ../../../../../Downloads/awsconfiguration.json; sourceTree = "<group>"; };
-		44F8C2DA236CB1D000D9C277 /* MavenPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Black.ttf"; sourceTree = "<group>"; };
-		44F8C2DB236CB1D000D9C277 /* MavenPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Regular.ttf"; sourceTree = "<group>"; };
-		44F8C2DC236CB1D000D9C277 /* MavenPro-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Medium.ttf"; sourceTree = "<group>"; };
 		44F8C2DD236CB1D000D9C277 /* MavenPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MavenPro-Bold.ttf"; path = "Fonts/MavenPro-Bold.ttf"; sourceTree = SOURCE_ROOT; };
+		A20974F72375C6C5008B7D24 /* MavenPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MavenPro-Regular.ttf"; path = "Fonts/MavenPro-Regular.ttf"; sourceTree = SOURCE_ROOT; };
+		A20974F82375C6C5008B7D24 /* MavenPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MavenPro-Black.ttf"; path = "Fonts/MavenPro-Black.ttf"; sourceTree = SOURCE_ROOT; };
+		A20974F92375C6C6008B7D24 /* MavenPro-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MavenPro-Medium.ttf"; path = "Fonts/MavenPro-Medium.ttf"; sourceTree = SOURCE_ROOT; };
 		B5150A531F3BF00F00AC8D08 /* AWSAuthUIConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AWSAuthUIConfiguration.h; path = Sources/AWSAuthUI/AWSAuthUIConfiguration.h; sourceTree = SOURCE_ROOT; };
 		B5150AB11F3BF03D00AC8D08 /* AWSAuthUIConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSAuthUIConfiguration.m; path = Sources/AWSAuthUI/AWSAuthUIConfiguration.m; sourceTree = SOURCE_ROOT; };
 		B5150B1A1F3C389C00AC8D08 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Sources/AWSAuthUI/Images.xcassets; sourceTree = SOURCE_ROOT; };
@@ -1516,9 +1513,9 @@
 		44F8C2D9236CB1D000D9C277 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				44F8C2DA236CB1D000D9C277 /* MavenPro-Black.ttf */,
-				44F8C2DB236CB1D000D9C277 /* MavenPro-Regular.ttf */,
-				44F8C2DC236CB1D000D9C277 /* MavenPro-Medium.ttf */,
+				A20974F82375C6C5008B7D24 /* MavenPro-Black.ttf */,
+				A20974F92375C6C6008B7D24 /* MavenPro-Medium.ttf */,
+				A20974F72375C6C5008B7D24 /* MavenPro-Regular.ttf */,
 				44F8C2DD236CB1D000D9C277 /* MavenPro-Bold.ttf */,
 			);
 			name = Fonts;
@@ -2773,8 +2770,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A20974FB2375C6C6008B7D24 /* MavenPro-Black.ttf in Resources */,
 				44F8C271236C5A2C00D9C277 /* awsconfiguration.json in Resources */,
+				A20974FA2375C6C6008B7D24 /* MavenPro-Regular.ttf in Resources */,
 				17DED2A61F32A4E400397F88 /* Images.xcassets in Resources */,
+				A20974FC2375C6C6008B7D24 /* MavenPro-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2790,9 +2790,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				447600CE236CCEAE004A783E /* MavenPro-Black.ttf in Resources */,
-				447600CF236CCEAE004A783E /* MavenPro-Regular.ttf in Resources */,
-				447600D0236CCEAE004A783E /* MavenPro-Medium.ttf in Resources */,
 				447600D1236CCEAE004A783E /* MavenPro-Bold.ttf in Resources */,
 				44F8C272236C5A3800D9C277 /* awsconfiguration.json in Resources */,
 				17CD4B2D218244EC00953483 /* LaunchScreen.storyboard in Resources */,
@@ -2813,11 +2810,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5150B1C1F3CE0E500AC8D08 /* Images.xcassets in Resources */,
-				447600CA236CCD07004A783E /* MavenPro-Black.ttf in Resources */,
 				B58F54C21F382449009ED450 /* SignIn.storyboard in Resources */,
 				447600CD236CCD17004A783E /* MavenPro-Bold.ttf in Resources */,
-				447600CB236CCD0C004A783E /* MavenPro-Regular.ttf in Resources */,
-				447600CC236CCD14004A783E /* MavenPro-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
