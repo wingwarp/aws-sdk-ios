@@ -142,6 +142,10 @@
 		447600D0236CCEAE004A783E /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DC236CB1D000D9C277 /* MavenPro-Medium.ttf */; };
 		447600D1236CCEAE004A783E /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DD236CB1D000D9C277 /* MavenPro-Bold.ttf */; };
 		4494BB1B23742D83000F1604 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5150B1A1F3C389C00AC8D08 /* Images.xcassets */; };
+		4494BB83237562A9000F1604 /* AWSAuthUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5345D0F1F366AFA009C1041 /* AWSAuthUI.framework */; };
+		4494BB84237562A9000F1604 /* AWSAuthUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B5345D0F1F366AFA009C1041 /* AWSAuthUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4494BBE2237562AC000F1604 /* AWSUserPoolsSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1750D0071F2D4DFA006D915E /* AWSUserPoolsSignIn.framework */; };
+		4494BBE3237562AC000F1604 /* AWSUserPoolsSignIn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1750D0071F2D4DFA006D915E /* AWSUserPoolsSignIn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		44F8C271236C5A2C00D9C277 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C270236C5A2C00D9C277 /* awsconfiguration.json */; };
 		44F8C272236C5A3800D9C277 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C270236C5A2C00D9C277 /* awsconfiguration.json */; };
 		B5150AB21F3BF03D00AC8D08 /* AWSAuthUIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B5150AB11F3BF03D00AC8D08 /* AWSAuthUIConfiguration.m */; };
@@ -176,8 +180,6 @@
 		B58F54C31F382449009ED450 /* AWSSignInViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B58F53D61F381A51009ED450 /* AWSSignInViewController.h */; };
 		B5FC69051FAFA1AA004790CB /* _AWSMobileClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B5FC69031FAFA1AA004790CB /* _AWSMobileClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5FC690A1FAFA1D0004790CB /* _AWSMobileClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FC69091FAFA1D0004790CB /* _AWSMobileClient.m */; };
-		FE08C31E236B7548001FE080 /* AWSAuthUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5345D0F1F366AFA009C1041 /* AWSAuthUI.framework */; };
-		FE08C37F236C3791001FE080 /* AWSUserPoolsSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1750D0071F2D4DFA006D915E /* AWSUserPoolsSignIn.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1046,6 +1048,8 @@
 			files = (
 				173A453F21E92A0200F9C579 /* AWSAuthCore.framework in Embed Frameworks */,
 				173A454321E92A0200F9C579 /* AWSMobileClient.framework in Embed Frameworks */,
+				4494BB84237562A9000F1604 /* AWSAuthUI.framework in Embed Frameworks */,
+				4494BBE3237562AC000F1604 /* AWSUserPoolsSignIn.framework in Embed Frameworks */,
 				173A45A421E92A0200F9C579 /* AWSCore.framework in Embed Frameworks */,
 				173A45AC21E92A0200F9C579 /* AWSCognitoIdentityProviderASF.framework in Embed Frameworks */,
 				173A45A821E92A0200F9C579 /* AWSCognitoIdentityProvider.framework in Embed Frameworks */,
@@ -1244,11 +1248,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE08C37F236C3791001FE080 /* AWSUserPoolsSignIn.framework in Frameworks */,
-				FE08C31E236B7548001FE080 /* AWSAuthUI.framework in Frameworks */,
 				173A453E21E92A0200F9C579 /* AWSAuthCore.framework in Frameworks */,
 				173A454221E92A0200F9C579 /* AWSMobileClient.framework in Frameworks */,
 				173A45A321E92A0200F9C579 /* AWSCore.framework in Frameworks */,
+				4494BBE2237562AC000F1604 /* AWSUserPoolsSignIn.framework in Frameworks */,
+				4494BB83237562A9000F1604 /* AWSAuthUI.framework in Frameworks */,
 				173A45AB21E92A0200F9C579 /* AWSCognitoIdentityProviderASF.framework in Frameworks */,
 				173A45A721E92A0200F9C579 /* AWSCognitoIdentityProvider.framework in Frameworks */,
 			);
