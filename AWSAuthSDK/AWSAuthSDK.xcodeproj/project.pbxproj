@@ -145,6 +145,9 @@
 		A20974FA2375C6C6008B7D24 /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A20974F72375C6C5008B7D24 /* MavenPro-Regular.ttf */; };
 		A20974FB2375C6C6008B7D24 /* MavenPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A20974F82375C6C5008B7D24 /* MavenPro-Black.ttf */; };
 		A20974FC2375C6C6008B7D24 /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A20974F92375C6C6008B7D24 /* MavenPro-Medium.ttf */; };
+		A20974FD2375C86C008B7D24 /* MavenPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A20974F82375C6C5008B7D24 /* MavenPro-Black.ttf */; };
+		A20974FE2375C86C008B7D24 /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A20974F92375C6C6008B7D24 /* MavenPro-Medium.ttf */; };
+		A20974FF2375C86C008B7D24 /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A20974F72375C6C5008B7D24 /* MavenPro-Regular.ttf */; };
 		B5150AB21F3BF03D00AC8D08 /* AWSAuthUIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B5150AB11F3BF03D00AC8D08 /* AWSAuthUIConfiguration.m */; };
 		B5150AB31F3BF04C00AC8D08 /* AWSAuthUIConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = B5150A531F3BF00F00AC8D08 /* AWSAuthUIConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5150B1C1F3CE0E500AC8D08 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5150B1A1F3C389C00AC8D08 /* Images.xcassets */; };
@@ -2790,6 +2793,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A20974FD2375C86C008B7D24 /* MavenPro-Black.ttf in Resources */,
+				A20974FE2375C86C008B7D24 /* MavenPro-Medium.ttf in Resources */,
+				A20974FF2375C86C008B7D24 /* MavenPro-Regular.ttf in Resources */,
 				447600D1236CCEAE004A783E /* MavenPro-Bold.ttf in Resources */,
 				44F8C272236C5A3800D9C277 /* awsconfiguration.json in Resources */,
 				17CD4B2D218244EC00953483 /* LaunchScreen.storyboard in Resources */,

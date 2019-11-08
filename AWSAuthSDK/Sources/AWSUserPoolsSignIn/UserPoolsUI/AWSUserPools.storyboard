@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SfA-Z0-41u">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SfA-Z0-41u">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -15,6 +15,9 @@
         </array>
         <array key="MavenPro-Medium.ttf">
             <string>MavenPro-Medium</string>
+        </array>
+        <array key="MavenPro-Regular.ttf">
+            <string>MavenPro-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -109,7 +112,8 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="5qG-Km-SXj"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" textContentType="username"/>
                                                     </textField>
                                                 </subviews>
@@ -145,7 +149,8 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="BP2-UD-bdv"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                     </textField>
                                                 </subviews>
@@ -296,7 +301,8 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="M6B-j6-fue"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                                     </textField>
                                                 </subviews>
@@ -332,7 +338,8 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="ZZ7-vG-0pZ"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                     </textField>
                                                 </subviews>
@@ -492,7 +499,8 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="mC3-Z9-GCT"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
@@ -637,7 +645,8 @@ RESET YOUR PASSWORD</string>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="YmB-K4-bA8"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                                     </textField>
                                                 </subviews>
