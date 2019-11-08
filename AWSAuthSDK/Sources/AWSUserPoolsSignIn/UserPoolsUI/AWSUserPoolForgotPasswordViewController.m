@@ -168,7 +168,7 @@
     [self setUpNavigationBar];
     
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
-    [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(42, 8)];
+    [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(47, 9)];
     [topLabel setAttributedText:text];
 }
 
