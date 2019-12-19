@@ -277,6 +277,7 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
     
     NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Sign In"];
     self.navigationItem.titleView = navBarView;
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 
 - (void)barButtonClosePressed {
