@@ -123,8 +123,8 @@
 - (IBAction)onForgotPassword:(id)sender {
     NSString *userName = emailTextField.text;
     if ([userName isEqualToString:@""]) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Missing Username"
-                                                                                 message:@"Please enter a valid username."
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Missing Email"
+                                                                                 message:@"Please enter a valid email adress."
                                                                           preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];

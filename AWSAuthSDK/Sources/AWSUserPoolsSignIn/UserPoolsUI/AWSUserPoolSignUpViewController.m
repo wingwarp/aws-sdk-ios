@@ -150,7 +150,7 @@ id<AWSUIConfiguration> config = nil;
     NSString *password = self.passwordTextField.text;
     if ([userName isEqualToString:@""] || [password isEqualToString:@""]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Missing Information"
-                                                                                 message:@"Please enter a valid username and password."
+                                                                                 message:@"Please enter a valid email and password."
                                                                           preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];
@@ -212,7 +212,7 @@ id<AWSUIConfiguration> config = nil;
     [self setUpNavigationBar];
     
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
-    [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(48, 8)];
+    [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(62, 8)];
     [topLabel setAttributedText:text];
 }
 
