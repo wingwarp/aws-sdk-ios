@@ -155,6 +155,18 @@
                                                         <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                     </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93V-G8-PtK">
+                                                        <rect key="frame" x="273" y="10.5" width="27" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="1Dp-uT-NPK"/>
+                                                            <constraint firstAttribute="width" constant="27" id="f3z-rb-RTm"/>
+                                                        </constraints>
+                                                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <state key="normal" image="eye.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="showHidePassword:" destination="Wwt-zD-yTe" eventType="touchUpInside" id="ZFJ-qB-Xo0"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -164,6 +176,8 @@
                                                     <constraint firstAttribute="height" constant="45" id="ZaN-Vf-UYX"/>
                                                     <constraint firstItem="Qh2-tW-jeD" firstAttribute="centerY" secondItem="JCB-iA-9Fd" secondAttribute="centerY" id="bE8-wI-BFe"/>
                                                     <constraint firstAttribute="trailing" secondItem="Qh2-tW-jeD" secondAttribute="trailing" id="dst-py-88K"/>
+                                                    <constraint firstAttribute="trailing" secondItem="93V-G8-PtK" secondAttribute="trailing" constant="15" id="fx3-te-PYG"/>
+                                                    <constraint firstItem="93V-G8-PtK" firstAttribute="centerY" secondItem="JCB-iA-9Fd" secondAttribute="centerY" id="qmD-3Z-TUb"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -336,7 +350,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mjg-fc-M1u">
-                                                        <rect key="frame" x="41" y="0.0" width="274" height="45"/>
+                                                        <rect key="frame" x="41" y="0.0" width="227" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -346,12 +360,26 @@
                                                         <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                     </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7a-MN-uer">
+                                                        <rect key="frame" x="273" y="10.5" width="27" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="27" id="214-wJ-JrW"/>
+                                                            <constraint firstAttribute="height" constant="24" id="RMB-b3-IIT"/>
+                                                        </constraints>
+                                                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <state key="normal" image="eye.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="showHidePassword:" destination="tBM-jZ-I7y" eventType="touchUpInside" id="CxN-y9-Nz3"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="Mjg-fc-M1u" firstAttribute="leading" secondItem="P9X-qv-3j2" secondAttribute="trailing" constant="8" id="19S-Bf-mYJ"/>
+                                                    <constraint firstItem="i7a-MN-uer" firstAttribute="leading" secondItem="Mjg-fc-M1u" secondAttribute="trailing" constant="5" id="4NM-zh-ddE"/>
                                                     <constraint firstItem="P9X-qv-3j2" firstAttribute="leading" secondItem="4XH-nn-my5" secondAttribute="leading" constant="8" id="5Q9-GW-ave"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Mjg-fc-M1u" secondAttribute="trailing" id="DsO-iR-puQ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="i7a-MN-uer" secondAttribute="trailing" constant="15" id="Eas-6b-Fnj"/>
+                                                    <constraint firstItem="i7a-MN-uer" firstAttribute="centerY" secondItem="4XH-nn-my5" secondAttribute="centerY" id="Hvn-mo-4vS"/>
                                                     <constraint firstItem="Mjg-fc-M1u" firstAttribute="centerY" secondItem="4XH-nn-my5" secondAttribute="centerY" id="Zed-1H-0CC"/>
                                                     <constraint firstItem="P9X-qv-3j2" firstAttribute="centerY" secondItem="4XH-nn-my5" secondAttribute="centerY" id="sRU-Hp-6U2"/>
                                                     <constraint firstAttribute="height" constant="45" id="vq8-yg-KqE"/>
@@ -930,6 +958,7 @@ RESET YOUR PASSWORD</string>
     </scenes>
     <resources>
         <image name="envelope.fill" catalog="system" width="64" height="46"/>
+        <image name="eye.fill" catalog="system" width="64" height="38"/>
         <image name="lock.fill" catalog="system" width="64" height="64"/>
         <image name="logo" width="1010" height="213"/>
     </resources>

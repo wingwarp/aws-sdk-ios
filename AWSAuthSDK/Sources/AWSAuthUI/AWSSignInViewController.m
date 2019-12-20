@@ -80,6 +80,8 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 @synthesize canCancel;
 @synthesize config;
 @synthesize statusLabel;
+@synthesize passwordTextField;
+@synthesize emailTextField;
 
 + (void)initialize {
     AWSDDLogDebug(@"Initializing the AWSSignInViewController...");
@@ -171,6 +173,9 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
     }
     
     [super touchesBegan:touches withEvent:event];
+}
+- (IBAction)showHidePassword:(UIButton *)sender {
+    passwordTextField.secureTextEntry = !passwordTextField.secureTextEntry;
 }
 
 #pragma mark - Utility Methods
@@ -367,7 +372,7 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
     Class awsUserPoolsUIOperations = NSClassFromString(USERPOOLS_UI_OPERATIONS);
     AWSUserPoolsUIOperations *userPoolsOperations = [[awsUserPoolsUIOperations alloc] initWithAuthUIConfiguration:self.config];
     
-    [userPoolsOperations loginWithUserName:_emailTextField.text password:_passwordTextField.text navigationController:self.navigationController completionHandler:self.completionHandler];
+    [userPoolsOperations loginWithUserName:emailTextField.text password:passwordTextField.text navigationController:self.navigationController completionHandler:self.completionHandler];
 }
 
 

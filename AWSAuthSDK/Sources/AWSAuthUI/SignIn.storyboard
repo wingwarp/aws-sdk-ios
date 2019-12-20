@@ -136,7 +136,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Or-Jb-FLG">
-                                                        <rect key="frame" x="41" y="0.0" width="274" height="45"/>
+                                                        <rect key="frame" x="41" y="0.0" width="224" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -146,14 +146,28 @@
                                                         <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                     </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2SY-t3-IGd">
+                                                        <rect key="frame" x="273" y="10.5" width="27" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="27" id="bQV-xi-1pH"/>
+                                                            <constraint firstAttribute="height" constant="24" id="gaX-hh-bN1"/>
+                                                        </constraints>
+                                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <state key="normal" image="eye.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="showHidePassword:" destination="xc1-Jg-Y5t" eventType="touchUpInside" id="emS-19-eFI"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="5Or-Jb-FLG" firstAttribute="leading" secondItem="4GL-WR-GZo" secondAttribute="trailing" constant="8" id="BFj-LC-EAl"/>
+                                                    <constraint firstAttribute="trailing" secondItem="2SY-t3-IGd" secondAttribute="trailing" constant="15" id="CBz-lE-1ti"/>
                                                     <constraint firstItem="4GL-WR-GZo" firstAttribute="centerY" secondItem="lMm-d9-UZ0" secondAttribute="centerY" id="Ko8-s4-otI"/>
                                                     <constraint firstItem="4GL-WR-GZo" firstAttribute="leading" secondItem="lMm-d9-UZ0" secondAttribute="leading" constant="8" id="PZo-QI-qTa"/>
+                                                    <constraint firstItem="2SY-t3-IGd" firstAttribute="centerY" secondItem="lMm-d9-UZ0" secondAttribute="centerY" id="SlH-Iy-MyG"/>
                                                     <constraint firstItem="5Or-Jb-FLG" firstAttribute="centerY" secondItem="lMm-d9-UZ0" secondAttribute="centerY" id="Yi3-Gb-ech"/>
-                                                    <constraint firstAttribute="trailing" secondItem="5Or-Jb-FLG" secondAttribute="trailing" id="kdW-3Q-3aJ"/>
+                                                    <constraint firstItem="2SY-t3-IGd" firstAttribute="leading" secondItem="5Or-Jb-FLG" secondAttribute="trailing" constant="8" id="b7k-it-wwx"/>
                                                     <constraint firstAttribute="height" constant="45" id="rs1-Wg-78T"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -239,6 +253,7 @@
     </scenes>
     <resources>
         <image name="envelope.fill" catalog="system" width="64" height="46"/>
+        <image name="eye.fill" catalog="system" width="64" height="38"/>
         <image name="lock.fill" catalog="system" width="64" height="64"/>
         <image name="logo" width="1010" height="213"/>
     </resources>

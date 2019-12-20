@@ -222,6 +222,9 @@
     
     [super touchesBegan:touches withEvent:event];
 }
+- (IBAction)showHidePassword:(UIButton *)sender {
+    passwordTextField.secureTextEntry = !passwordTextField.secureTextEntry;
+}
 
 - (void)setUpNavigationBar {
     NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Reset Password"];

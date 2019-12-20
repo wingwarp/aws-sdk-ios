@@ -118,6 +118,9 @@ id<AWSUIConfiguration> config = nil;
 
     [super touchesBegan:touches withEvent:event];
 }
+- (IBAction)showHidePassword:(UIButton *)sender {
+    passwordTextField.secureTextEntry = !passwordTextField.secureTextEntry;
+}
 
 - (void)setUpNavigationBar {
     NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Sign Up"];
