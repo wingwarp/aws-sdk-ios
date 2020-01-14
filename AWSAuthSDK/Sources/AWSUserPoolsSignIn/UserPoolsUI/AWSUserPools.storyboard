@@ -84,13 +84,13 @@
                                         <rect key="frame" x="0.0" y="70" width="315" height="200"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmation Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUU-mF-o5J">
-                                                <rect key="frame" x="8" y="8" width="148.5" height="20"/>
+                                                <rect key="frame" x="8" y="8" width="144" height="20"/>
                                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="17"/>
                                                 <color key="textColor" red="0.094117647060000004" green="0.1529411765" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35H-k0-nWH">
-                                                <rect key="frame" x="8" y="106" width="116" height="20"/>
+                                                <rect key="frame" x="8" y="106" width="114.5" height="20"/>
                                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="17"/>
                                                 <color key="textColor" red="0.094117647060000004" green="0.1529411765" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -98,16 +98,16 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="enV-re-dIV">
                                                 <rect key="frame" x="0.0" y="36" width="315" height="45"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zU4-5x-Ax2">
-                                                        <rect key="frame" x="8" y="11.5" width="25" height="21.5"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope" translatesAutoresizingMaskIntoConstraints="NO" id="zU4-5x-Ax2">
+                                                        <rect key="frame" x="8" y="12.5" width="20" height="20"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="25" id="THE-hF-hIy"/>
-                                                            <constraint firstAttribute="height" constant="25" id="WqR-YC-exS"/>
+                                                            <constraint firstAttribute="width" constant="20" id="THE-hF-hIy"/>
+                                                            <constraint firstAttribute="height" constant="20" id="WqR-YC-exS"/>
                                                         </constraints>
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirmation code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TYu-Iz-m0D">
-                                                        <rect key="frame" x="41" y="0.0" width="274" height="45"/>
+                                                        <rect key="frame" x="36" y="0.0" width="279" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -136,16 +136,16 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCB-iA-9Fd">
                                                 <rect key="frame" x="0.0" y="134" width="315" height="45"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="sju-kI-sqL">
-                                                        <rect key="frame" x="8" y="10.5" width="25" height="23.5"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="key" translatesAutoresizingMaskIntoConstraints="NO" id="sju-kI-sqL">
+                                                        <rect key="frame" x="8" y="12.5" width="20" height="20"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="25" id="005-UW-ift"/>
-                                                            <constraint firstAttribute="height" constant="25" id="jm4-sF-XVN"/>
+                                                            <constraint firstAttribute="width" constant="20" id="005-UW-ift"/>
+                                                            <constraint firstAttribute="height" constant="20" id="jm4-sF-XVN"/>
                                                         </constraints>
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qh2-tW-jeD">
-                                                        <rect key="frame" x="41" y="0.0" width="274" height="45"/>
+                                                        <rect key="frame" x="36" y="0.0" width="279" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -162,7 +162,7 @@
                                                             <constraint firstAttribute="width" constant="27" id="f3z-rb-RTm"/>
                                                         </constraints>
                                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" image="eye.fill" catalog="system"/>
+                                                        <state key="normal" image="eye"/>
                                                         <connections>
                                                             <action selector="showHidePassword:" destination="Wwt-zD-yTe" eventType="touchUpInside" id="ZFJ-qB-Xo0"/>
                                                         </connections>
@@ -280,7 +280,7 @@
                                 <rect key="frame" x="30" y="95" width="315" height="250"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENTER YOUR EMAIL AND PASSWORD TO SIGN UP!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvA-AR-JYe">
-                                        <rect key="frame" x="3.5" y="0.0" width="308" height="40"/>
+                                        <rect key="frame" x="4.5" y="0.0" width="306.5" height="40"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="17"/>
                                         <color key="textColor" red="0.094117647060000004" green="0.1529411765" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -289,13 +289,13 @@
                                         <rect key="frame" x="0.0" y="70" width="315" height="180"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8XX-St-plO">
-                                                <rect key="frame" x="8" y="8" width="43.5" height="20"/>
+                                                <rect key="frame" x="8" y="8" width="42" height="20"/>
                                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="17"/>
                                                 <color key="textColor" red="0.094117647060000004" green="0.1529411765" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgh-T2-mEE">
-                                                <rect key="frame" x="8" y="106" width="76" height="20"/>
+                                                <rect key="frame" x="8" y="106" width="75.5" height="20"/>
                                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="17"/>
                                                 <color key="textColor" red="0.094117647060000004" green="0.1529411765" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -303,16 +303,16 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HmI-id-tBk">
                                                 <rect key="frame" x="0.0" y="36" width="315" height="45"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GYY-M7-s16">
-                                                        <rect key="frame" x="8" y="11.5" width="25" height="21.5"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope" translatesAutoresizingMaskIntoConstraints="NO" id="GYY-M7-s16">
+                                                        <rect key="frame" x="8" y="12.5" width="20" height="20"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="25" id="hZ9-jq-JFl"/>
-                                                            <constraint firstAttribute="width" constant="25" id="kUx-RP-eiy"/>
+                                                            <constraint firstAttribute="height" constant="20" id="hZ9-jq-JFl"/>
+                                                            <constraint firstAttribute="width" constant="20" id="kUx-RP-eiy"/>
                                                         </constraints>
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OGj-wV-YTg">
-                                                        <rect key="frame" x="41" y="0.0" width="274" height="45"/>
+                                                        <rect key="frame" x="36" y="0.0" width="279" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -341,16 +341,16 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4XH-nn-my5">
                                                 <rect key="frame" x="0.0" y="134" width="315" height="45"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="P9X-qv-3j2">
-                                                        <rect key="frame" x="8" y="10.5" width="25" height="23.5"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="key" translatesAutoresizingMaskIntoConstraints="NO" id="P9X-qv-3j2">
+                                                        <rect key="frame" x="8" y="12.5" width="20" height="20"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="25" id="Lkc-o2-pJ2"/>
-                                                            <constraint firstAttribute="width" constant="25" id="Ql4-em-ZCz"/>
+                                                            <constraint firstAttribute="height" constant="20" id="Lkc-o2-pJ2"/>
+                                                            <constraint firstAttribute="width" constant="20" id="Ql4-em-ZCz"/>
                                                         </constraints>
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mjg-fc-M1u">
-                                                        <rect key="frame" x="41" y="0.0" width="227" height="45"/>
+                                                        <rect key="frame" x="36" y="0.0" width="232" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -367,7 +367,7 @@
                                                             <constraint firstAttribute="height" constant="24" id="RMB-b3-IIT"/>
                                                         </constraints>
                                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" image="eye.fill" catalog="system"/>
+                                                        <state key="normal" image="eye"/>
                                                         <connections>
                                                             <action selector="showHidePassword:" destination="tBM-jZ-I7y" eventType="touchUpInside" id="CxN-y9-Nz3"/>
                                                         </connections>
@@ -517,16 +517,16 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K7u-3I-ukc">
                                                 <rect key="frame" x="0.0" y="36" width="315" height="45"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZM7-1v-M9O">
-                                                        <rect key="frame" x="8" y="11.5" width="25" height="21.5"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope" translatesAutoresizingMaskIntoConstraints="NO" id="ZM7-1v-M9O">
+                                                        <rect key="frame" x="8" y="12.5" width="20" height="20"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="25" id="N8N-K0-oaV"/>
-                                                            <constraint firstAttribute="width" constant="25" id="f9t-SG-p6Q"/>
+                                                            <constraint firstAttribute="height" constant="20" id="N8N-K0-oaV"/>
+                                                            <constraint firstAttribute="width" constant="20" id="f9t-SG-p6Q"/>
                                                         </constraints>
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirmation Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gjp-Zh-j75">
-                                                        <rect key="frame" x="41" y="0.0" width="274" height="45"/>
+                                                        <rect key="frame" x="36" y="0.0" width="279" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -664,16 +664,16 @@ RESET YOUR PASSWORD</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQ2-Md-w9j">
                                                 <rect key="frame" x="0.0" y="36" width="315" height="45"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DMv-xB-iqH">
-                                                        <rect key="frame" x="8" y="11.5" width="25" height="21.5"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope" translatesAutoresizingMaskIntoConstraints="NO" id="DMv-xB-iqH">
+                                                        <rect key="frame" x="8" y="12.5" width="20" height="20"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="25" id="OjW-Hf-hQk"/>
-                                                            <constraint firstAttribute="width" constant="25" id="jGF-nF-y6G"/>
+                                                            <constraint firstAttribute="height" constant="20" id="OjW-Hf-hQk"/>
+                                                            <constraint firstAttribute="width" constant="20" id="jGF-nF-y6G"/>
                                                         </constraints>
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8DA-sr-n5V">
-                                                        <rect key="frame" x="41" y="0.0" width="274" height="45"/>
+                                                        <rect key="frame" x="36" y="0.0" width="279" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -957,9 +957,9 @@ RESET YOUR PASSWORD</string>
         </scene>
     </scenes>
     <resources>
-        <image name="envelope.fill" catalog="system" width="64" height="46"/>
-        <image name="eye.fill" catalog="system" width="64" height="38"/>
-        <image name="lock.fill" catalog="system" width="64" height="64"/>
+        <image name="envelope" width="21" height="21"/>
+        <image name="eye" width="21" height="21"/>
+        <image name="key" width="16" height="16"/>
         <image name="logo" width="1010" height="213"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
