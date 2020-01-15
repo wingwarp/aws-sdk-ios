@@ -84,13 +84,13 @@
                                         <rect key="frame" x="0.0" y="70" width="315" height="200"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmation Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUU-mF-o5J">
-                                                <rect key="frame" x="8" y="8" width="144" height="20"/>
+                                                <rect key="frame" x="8" y="8" width="148.5" height="20"/>
                                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="17"/>
                                                 <color key="textColor" red="0.094117647060000004" green="0.1529411765" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35H-k0-nWH">
-                                                <rect key="frame" x="8" y="106" width="114.5" height="20"/>
+                                                <rect key="frame" x="8" y="106" width="116" height="20"/>
                                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="17"/>
                                                 <color key="textColor" red="0.094117647060000004" green="0.1529411765" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -99,7 +99,7 @@
                                                 <rect key="frame" x="0.0" y="36" width="315" height="45"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope" translatesAutoresizingMaskIntoConstraints="NO" id="zU4-5x-Ax2">
-                                                        <rect key="frame" x="8" y="12.5" width="20" height="20"/>
+                                                        <rect key="frame" x="12" y="12.5" width="20" height="20"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="THE-hF-hIy"/>
@@ -107,7 +107,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirmation code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TYu-Iz-m0D">
-                                                        <rect key="frame" x="36" y="0.0" width="279" height="45"/>
+                                                        <rect key="frame" x="40" y="0.0" width="275" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -121,7 +121,7 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="TYu-Iz-m0D" secondAttribute="trailing" id="A1C-nP-hZB"/>
-                                                    <constraint firstItem="zU4-5x-Ax2" firstAttribute="leading" secondItem="enV-re-dIV" secondAttribute="leading" constant="8" id="GVv-vv-1ba"/>
+                                                    <constraint firstItem="zU4-5x-Ax2" firstAttribute="leading" secondItem="enV-re-dIV" secondAttribute="leading" constant="12" id="GVv-vv-1ba"/>
                                                     <constraint firstAttribute="height" constant="45" id="YvY-vf-XXc"/>
                                                     <constraint firstItem="TYu-Iz-m0D" firstAttribute="centerY" secondItem="enV-re-dIV" secondAttribute="centerY" id="eQb-fk-fYG"/>
                                                     <constraint firstItem="TYu-Iz-m0D" firstAttribute="leading" secondItem="zU4-5x-Ax2" secondAttribute="trailing" constant="8" id="hB6-XB-xne"/>
@@ -137,7 +137,7 @@
                                                 <rect key="frame" x="0.0" y="134" width="315" height="45"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="key" translatesAutoresizingMaskIntoConstraints="NO" id="sju-kI-sqL">
-                                                        <rect key="frame" x="8" y="12.5" width="20" height="20"/>
+                                                        <rect key="frame" x="12" y="12.5" width="20" height="20"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="005-UW-ift"/>
@@ -145,7 +145,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qh2-tW-jeD">
-                                                        <rect key="frame" x="36" y="0.0" width="279" height="45"/>
+                                                        <rect key="frame" x="40" y="0.0" width="275" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -170,7 +170,7 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="sju-kI-sqL" firstAttribute="leading" secondItem="JCB-iA-9Fd" secondAttribute="leading" constant="8" id="GC4-2h-NNh"/>
+                                                    <constraint firstItem="sju-kI-sqL" firstAttribute="leading" secondItem="JCB-iA-9Fd" secondAttribute="leading" constant="12" id="GC4-2h-NNh"/>
                                                     <constraint firstItem="Qh2-tW-jeD" firstAttribute="leading" secondItem="sju-kI-sqL" secondAttribute="trailing" constant="8" id="Rct-lc-bMM"/>
                                                     <constraint firstItem="sju-kI-sqL" firstAttribute="centerY" secondItem="JCB-iA-9Fd" secondAttribute="centerY" id="YtP-sl-sEW"/>
                                                     <constraint firstAttribute="height" constant="45" id="ZaN-Vf-UYX"/>
@@ -235,6 +235,8 @@
                     </view>
                     <connections>
                         <outlet property="codeTextField" destination="TYu-Iz-m0D" id="IwB-vu-whN"/>
+                        <outlet property="envelopeImage" destination="zU4-5x-Ax2" id="FGy-0w-fa2"/>
+                        <outlet property="keyImage" destination="sju-kI-sqL" id="hAZ-sa-HT1"/>
                         <outlet property="passwordTextField" destination="Qh2-tW-jeD" id="RMi-Nf-50t"/>
                         <outlet property="topLabel" destination="S7h-tS-Vjx" id="8ap-pJ-a6N"/>
                     </connections>
@@ -280,7 +282,7 @@
                                 <rect key="frame" x="30" y="95" width="315" height="250"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENTER YOUR EMAIL AND PASSWORD TO SIGN UP!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvA-AR-JYe">
-                                        <rect key="frame" x="4.5" y="0.0" width="306.5" height="40"/>
+                                        <rect key="frame" x="3.5" y="0.0" width="308" height="40"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="17"/>
                                         <color key="textColor" red="0.094117647060000004" green="0.1529411765" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -289,13 +291,13 @@
                                         <rect key="frame" x="0.0" y="70" width="315" height="180"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8XX-St-plO">
-                                                <rect key="frame" x="8" y="8" width="42" height="20"/>
+                                                <rect key="frame" x="8" y="8" width="43.5" height="20"/>
                                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="17"/>
                                                 <color key="textColor" red="0.094117647060000004" green="0.1529411765" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgh-T2-mEE">
-                                                <rect key="frame" x="8" y="106" width="75.5" height="20"/>
+                                                <rect key="frame" x="8" y="106" width="76" height="20"/>
                                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="17"/>
                                                 <color key="textColor" red="0.094117647060000004" green="0.1529411765" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -304,7 +306,7 @@
                                                 <rect key="frame" x="0.0" y="36" width="315" height="45"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope" translatesAutoresizingMaskIntoConstraints="NO" id="GYY-M7-s16">
-                                                        <rect key="frame" x="8" y="12.5" width="20" height="20"/>
+                                                        <rect key="frame" x="12" y="12.5" width="20" height="20"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="hZ9-jq-JFl"/>
@@ -312,7 +314,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OGj-wV-YTg">
-                                                        <rect key="frame" x="36" y="0.0" width="279" height="45"/>
+                                                        <rect key="frame" x="40" y="0.0" width="275" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -329,7 +331,7 @@
                                                     <constraint firstItem="OGj-wV-YTg" firstAttribute="leading" secondItem="GYY-M7-s16" secondAttribute="trailing" constant="8" id="QJU-5z-TJT"/>
                                                     <constraint firstAttribute="trailing" secondItem="OGj-wV-YTg" secondAttribute="trailing" id="Uhy-Pi-dsa"/>
                                                     <constraint firstItem="OGj-wV-YTg" firstAttribute="centerY" secondItem="HmI-id-tBk" secondAttribute="centerY" id="cBr-s3-Bg0"/>
-                                                    <constraint firstItem="GYY-M7-s16" firstAttribute="leading" secondItem="HmI-id-tBk" secondAttribute="leading" constant="8" id="geR-nI-6gT"/>
+                                                    <constraint firstItem="GYY-M7-s16" firstAttribute="leading" secondItem="HmI-id-tBk" secondAttribute="leading" constant="12" id="geR-nI-6gT"/>
                                                     <constraint firstAttribute="height" constant="45" id="t35-qV-Fbx"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -342,7 +344,7 @@
                                                 <rect key="frame" x="0.0" y="134" width="315" height="45"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="key" translatesAutoresizingMaskIntoConstraints="NO" id="P9X-qv-3j2">
-                                                        <rect key="frame" x="8" y="12.5" width="20" height="20"/>
+                                                        <rect key="frame" x="12" y="12.5" width="20" height="20"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="Lkc-o2-pJ2"/>
@@ -350,7 +352,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mjg-fc-M1u">
-                                                        <rect key="frame" x="36" y="0.0" width="232" height="45"/>
+                                                        <rect key="frame" x="40" y="0.0" width="228" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -377,7 +379,7 @@
                                                 <constraints>
                                                     <constraint firstItem="Mjg-fc-M1u" firstAttribute="leading" secondItem="P9X-qv-3j2" secondAttribute="trailing" constant="8" id="19S-Bf-mYJ"/>
                                                     <constraint firstItem="i7a-MN-uer" firstAttribute="leading" secondItem="Mjg-fc-M1u" secondAttribute="trailing" constant="5" id="4NM-zh-ddE"/>
-                                                    <constraint firstItem="P9X-qv-3j2" firstAttribute="leading" secondItem="4XH-nn-my5" secondAttribute="leading" constant="8" id="5Q9-GW-ave"/>
+                                                    <constraint firstItem="P9X-qv-3j2" firstAttribute="leading" secondItem="4XH-nn-my5" secondAttribute="leading" constant="12" id="5Q9-GW-ave"/>
                                                     <constraint firstAttribute="trailing" secondItem="i7a-MN-uer" secondAttribute="trailing" constant="15" id="Eas-6b-Fnj"/>
                                                     <constraint firstItem="i7a-MN-uer" firstAttribute="centerY" secondItem="4XH-nn-my5" secondAttribute="centerY" id="Hvn-mo-4vS"/>
                                                     <constraint firstItem="Mjg-fc-M1u" firstAttribute="centerY" secondItem="4XH-nn-my5" secondAttribute="centerY" id="Zed-1H-0CC"/>
@@ -438,6 +440,8 @@
                     <navigationItem key="navigationItem" id="kSJ-Ps-4Hc"/>
                     <connections>
                         <outlet property="emailTextField" destination="OGj-wV-YTg" id="NOA-lr-936"/>
+                        <outlet property="envelopeImage" destination="GYY-M7-s16" id="ESM-YN-Psq"/>
+                        <outlet property="keyImage" destination="P9X-qv-3j2" id="DBy-Zz-Ju5"/>
                         <outlet property="passwordTextField" destination="Mjg-fc-M1u" id="s9t-pt-eYl"/>
                         <outlet property="topLabel" destination="fvA-AR-JYe" id="GRk-8m-PgC"/>
                         <segue destination="oYn-kQ-Tog" kind="show" identifier="SignUpConfirmSegue" id="XMJ-lN-8F5"/>
@@ -518,7 +522,7 @@
                                                 <rect key="frame" x="0.0" y="36" width="315" height="45"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope" translatesAutoresizingMaskIntoConstraints="NO" id="ZM7-1v-M9O">
-                                                        <rect key="frame" x="8" y="12.5" width="20" height="20"/>
+                                                        <rect key="frame" x="12" y="12.5" width="20" height="20"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="N8N-K0-oaV"/>
@@ -526,7 +530,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirmation Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gjp-Zh-j75">
-                                                        <rect key="frame" x="36" y="0.0" width="279" height="45"/>
+                                                        <rect key="frame" x="40" y="0.0" width="275" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -544,7 +548,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="gjp-Zh-j75" secondAttribute="trailing" id="csD-HM-1wx"/>
                                                     <constraint firstItem="ZM7-1v-M9O" firstAttribute="centerY" secondItem="K7u-3I-ukc" secondAttribute="centerY" id="j9i-Rq-Yej"/>
                                                     <constraint firstItem="gjp-Zh-j75" firstAttribute="centerY" secondItem="K7u-3I-ukc" secondAttribute="centerY" id="nKd-0i-DIS"/>
-                                                    <constraint firstItem="ZM7-1v-M9O" firstAttribute="leading" secondItem="K7u-3I-ukc" secondAttribute="leading" constant="8" id="z9d-hD-vet"/>
+                                                    <constraint firstItem="ZM7-1v-M9O" firstAttribute="leading" secondItem="K7u-3I-ukc" secondAttribute="leading" constant="12" id="z9d-hD-vet"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -594,6 +598,7 @@
                     <navigationItem key="navigationItem" id="ze1-65-hn0"/>
                     <connections>
                         <outlet property="codeTextField" destination="gjp-Zh-j75" id="LpO-sa-nDb"/>
+                        <outlet property="envelopeImage" destination="ZM7-1v-M9O" id="7Rc-1V-zcI"/>
                         <outlet property="topLabel" destination="mBb-5X-mxI" id="UDp-96-UuL"/>
                     </connections>
                 </viewController>
@@ -665,7 +670,7 @@ RESET YOUR PASSWORD</string>
                                                 <rect key="frame" x="0.0" y="36" width="315" height="45"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope" translatesAutoresizingMaskIntoConstraints="NO" id="DMv-xB-iqH">
-                                                        <rect key="frame" x="8" y="12.5" width="20" height="20"/>
+                                                        <rect key="frame" x="12" y="12.5" width="20" height="20"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="OjW-Hf-hQk"/>
@@ -673,7 +678,7 @@ RESET YOUR PASSWORD</string>
                                                         </constraints>
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8DA-sr-n5V">
-                                                        <rect key="frame" x="36" y="0.0" width="279" height="45"/>
+                                                        <rect key="frame" x="40" y="0.0" width="275" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -690,7 +695,7 @@ RESET YOUR PASSWORD</string>
                                                     <constraint firstItem="8DA-sr-n5V" firstAttribute="centerY" secondItem="kQ2-Md-w9j" secondAttribute="centerY" id="Em1-ji-wES"/>
                                                     <constraint firstItem="DMv-xB-iqH" firstAttribute="centerY" secondItem="kQ2-Md-w9j" secondAttribute="centerY" id="Kcg-f2-Zx3"/>
                                                     <constraint firstAttribute="trailing" secondItem="8DA-sr-n5V" secondAttribute="trailing" id="XWE-qZ-blo"/>
-                                                    <constraint firstItem="DMv-xB-iqH" firstAttribute="leading" secondItem="kQ2-Md-w9j" secondAttribute="leading" constant="8" id="bc0-NF-BAj"/>
+                                                    <constraint firstItem="DMv-xB-iqH" firstAttribute="leading" secondItem="kQ2-Md-w9j" secondAttribute="leading" constant="12" id="bc0-NF-BAj"/>
                                                     <constraint firstItem="8DA-sr-n5V" firstAttribute="leading" secondItem="DMv-xB-iqH" secondAttribute="trailing" constant="8" id="iiG-gI-Kbx"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -739,6 +744,7 @@ RESET YOUR PASSWORD</string>
                     <navigationItem key="navigationItem" id="wcH-Ol-TbY"/>
                     <connections>
                         <outlet property="emailTextField" destination="8DA-sr-n5V" id="eIw-C0-BHq"/>
+                        <outlet property="envelopeImage" destination="DMv-xB-iqH" id="esQ-qx-5Qj"/>
                         <outlet property="topLabel" destination="4tp-qe-nVj" id="Vt6-PD-kzH"/>
                         <segue destination="Wwt-zD-yTe" kind="show" identifier="NewPasswordSegue" id="khP-zb-zjs"/>
                     </connections>
@@ -959,7 +965,7 @@ RESET YOUR PASSWORD</string>
     <resources>
         <image name="envelope" width="21" height="21"/>
         <image name="eye" width="21" height="21"/>
-        <image name="key" width="16" height="16"/>
+        <image name="key" width="21" height="21"/>
         <image name="logo" width="1010" height="213"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

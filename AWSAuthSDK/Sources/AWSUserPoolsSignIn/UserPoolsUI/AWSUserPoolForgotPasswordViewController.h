@@ -22,9 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AWSUserPoolForgotPasswordViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *topLabel;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UIImageView *envelopeImage;
 
-@property (weak, nonatomic) IBOutlet UIView *tableFormView;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) id<AWSUIConfiguration> config;
 
 @end
@@ -33,9 +32,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *topLabel;
 @property (weak, nonatomic) IBOutlet UITextField *codeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UIImageView *envelopeImage;
+@property (weak, nonatomic) IBOutlet UIImageView *keyImage;
 
-@property (weak, nonatomic) IBOutlet UIView *tableFormView;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) id<AWSUIConfiguration> config;
 
 @end

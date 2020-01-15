@@ -44,11 +44,14 @@
 #pragma mark - UIViewController
 @synthesize topLabel;
 @synthesize emailTextField;
+@synthesize envelopeImage;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpNavigationBar];
     self.pool = [AWSCognitoIdentityUserPool defaultCognitoIdentityUserPool];
+    
+    envelopeImage.tintColor = UIColor.lightGrayColor;
     
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
     [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(20, 6)];
@@ -162,10 +165,15 @@
 @synthesize topLabel;
 @synthesize codeTextField;
 @synthesize passwordTextField;
+@synthesize envelopeImage;
+@synthesize keyImage;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpNavigationBar];
+    
+    envelopeImage.tintColor = UIColor.lightGrayColor;
+    keyImage.tintColor = UIColor.lightGrayColor;
     
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
     [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(47, 9)];

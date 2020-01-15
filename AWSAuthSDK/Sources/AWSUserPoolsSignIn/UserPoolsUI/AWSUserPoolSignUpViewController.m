@@ -53,6 +53,8 @@
 @synthesize topLabel;
 @synthesize emailTextField;
 @synthesize passwordTextField;
+@synthesize envelopeImage;
+@synthesize keyImage;
 
 id<AWSUIConfiguration> config = nil;
 
@@ -62,6 +64,9 @@ id<AWSUIConfiguration> config = nil;
     [super viewDidLoad];
     self.pool = [AWSCognitoIdentityUserPool defaultCognitoIdentityUserPool];
     [self setUpNavigationBar];
+    
+    envelopeImage.tintColor = UIColor.lightGrayColor;
+    keyImage.tintColor = UIColor.lightGrayColor;
     
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
     [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(32, 9)];
@@ -209,10 +214,13 @@ id<AWSUIConfiguration> config = nil;
 
 @synthesize topLabel;
 @synthesize codeTextField;
+@synthesize envelopeImage;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpNavigationBar];
+    
+    envelopeImage.tintColor = UIColor.lightGrayColor;
     
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
     [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(62, 8)];

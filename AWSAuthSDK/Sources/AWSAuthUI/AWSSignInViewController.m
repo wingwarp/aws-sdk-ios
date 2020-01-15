@@ -82,6 +82,8 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 @synthesize statusLabel;
 @synthesize passwordTextField;
 @synthesize emailTextField;
+@synthesize envelopeImage;
+@synthesize keyImage;
 
 + (void)initialize {
     AWSDDLogDebug(@"Initializing the AWSSignInViewController...");
@@ -131,6 +133,8 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
     
     // set up username and password UI if user pools enabled
     [self setUpUserPoolsUI];
+    envelopeImage.tintColor = UIColor.lightGrayColor;
+    keyImage.tintColor = UIColor.lightGrayColor;
     
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:statusLabel.text];
     [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, 8)];
