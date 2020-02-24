@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SfA-Z0-41u">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SfA-Z0-41u">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -98,7 +98,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="enV-re-dIV">
                                                 <rect key="frame" x="0.0" y="36" width="315" height="45"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope" translatesAutoresizingMaskIntoConstraints="NO" id="zU4-5x-Ax2">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelopeImage" translatesAutoresizingMaskIntoConstraints="NO" id="zU4-5x-Ax2">
                                                         <rect key="frame" x="12" y="12.5" width="20" height="20"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -136,7 +136,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCB-iA-9Fd">
                                                 <rect key="frame" x="0.0" y="134" width="315" height="45"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="key" translatesAutoresizingMaskIntoConstraints="NO" id="sju-kI-sqL">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="keyImage" translatesAutoresizingMaskIntoConstraints="NO" id="sju-kI-sqL">
                                                         <rect key="frame" x="12" y="12.5" width="20" height="20"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -162,7 +162,7 @@
                                                             <constraint firstAttribute="width" constant="27" id="f3z-rb-RTm"/>
                                                         </constraints>
                                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" image="eye"/>
+                                                        <state key="normal" image="eyeImage"/>
                                                         <connections>
                                                             <action selector="showHidePassword:" destination="Wwt-zD-yTe" eventType="touchUpInside" id="ZFJ-qB-Xo0"/>
                                                         </connections>
@@ -305,7 +305,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HmI-id-tBk">
                                                 <rect key="frame" x="0.0" y="36" width="315" height="45"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope" translatesAutoresizingMaskIntoConstraints="NO" id="GYY-M7-s16">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelopeImage" translatesAutoresizingMaskIntoConstraints="NO" id="GYY-M7-s16">
                                                         <rect key="frame" x="12" y="12.5" width="20" height="20"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -343,7 +343,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4XH-nn-my5">
                                                 <rect key="frame" x="0.0" y="134" width="315" height="45"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="key" translatesAutoresizingMaskIntoConstraints="NO" id="P9X-qv-3j2">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="keyImage" translatesAutoresizingMaskIntoConstraints="NO" id="P9X-qv-3j2">
                                                         <rect key="frame" x="12" y="12.5" width="20" height="20"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -369,7 +369,7 @@
                                                             <constraint firstAttribute="height" constant="24" id="RMB-b3-IIT"/>
                                                         </constraints>
                                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" image="eye"/>
+                                                        <state key="normal" image="eyeImage"/>
                                                         <connections>
                                                             <action selector="showHidePassword:" destination="tBM-jZ-I7y" eventType="touchUpInside" id="CxN-y9-Nz3"/>
                                                         </connections>
@@ -521,7 +521,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K7u-3I-ukc">
                                                 <rect key="frame" x="0.0" y="36" width="315" height="45"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope" translatesAutoresizingMaskIntoConstraints="NO" id="ZM7-1v-M9O">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelopeImage" translatesAutoresizingMaskIntoConstraints="NO" id="ZM7-1v-M9O">
                                                         <rect key="frame" x="12" y="12.5" width="20" height="20"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -669,7 +669,7 @@ RESET YOUR PASSWORD</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQ2-Md-w9j">
                                                 <rect key="frame" x="0.0" y="36" width="315" height="45"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope" translatesAutoresizingMaskIntoConstraints="NO" id="DMv-xB-iqH">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelopeImage" translatesAutoresizingMaskIntoConstraints="NO" id="DMv-xB-iqH">
                                                         <rect key="frame" x="12" y="12.5" width="20" height="20"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -963,9 +963,9 @@ RESET YOUR PASSWORD</string>
         </scene>
     </scenes>
     <resources>
-        <image name="envelope" width="21" height="21"/>
-        <image name="eye" width="21" height="21"/>
-        <image name="key" width="21" height="21"/>
+        <image name="envelopeImage" width="21" height="21"/>
+        <image name="eyeImage" width="21" height="21"/>
+        <image name="keyImage" width="21" height="21"/>
         <image name="logo" width="1010" height="213"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

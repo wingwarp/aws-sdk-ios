@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IkO-GD-xvp">
-                                <rect key="frame" x="46" y="394" width="283" height="50"/>
+                                <rect key="frame" x="46" y="393.5" width="283" height="50"/>
                                 <color key="backgroundColor" red="0.094117647060000004" green="0.1529411765" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="hFo-QC-hod"/>
@@ -51,15 +51,21 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMG-il-Rxs">
-                                <rect key="frame" x="122.5" y="454" width="130" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cMG-il-Rxs">
+                                <rect key="frame" x="122.5" y="453.5" width="130" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="DQe-D1-dUz"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="14"/>
-                                <state key="normal" title="Create new account">
-                                    <color key="titleColor" red="0.95294117649999999" green="0.3294117647" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Create new account">
+                                            <attributes>
+                                                <color key="NSColor" red="0.95294117649999999" green="0.3294117647" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="14" name="MavenPro-Medium"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="K9S-8i-f7Y">
@@ -89,7 +95,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jLB-DY-MF6">
                                                 <rect key="frame" x="0.0" y="36" width="315" height="45"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope" translatesAutoresizingMaskIntoConstraints="NO" id="ecp-LX-wta">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelopeImage" translatesAutoresizingMaskIntoConstraints="NO" id="ecp-LX-wta">
                                                         <rect key="frame" x="12" y="12.5" width="20" height="20"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -127,7 +133,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMm-d9-UZ0">
                                                 <rect key="frame" x="0.0" y="134" width="315" height="45"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="key" translatesAutoresizingMaskIntoConstraints="NO" id="4GL-WR-GZo">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="keyImage" translatesAutoresizingMaskIntoConstraints="NO" id="4GL-WR-GZo">
                                                         <rect key="frame" x="12" y="12.5" width="20" height="20"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -153,7 +159,7 @@
                                                             <constraint firstAttribute="height" constant="24" id="gaX-hh-bN1"/>
                                                         </constraints>
                                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" image="eye"/>
+                                                        <state key="normal" image="eyeImage"/>
                                                         <connections>
                                                             <action selector="showHidePassword:" destination="xc1-Jg-Y5t" eventType="touchUpInside" id="emS-19-eFI"/>
                                                         </connections>
@@ -209,18 +215,45 @@
                                     <constraint firstAttribute="height" constant="45" id="ldo-1F-bv3"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bl8-r9-Ysa">
-                                <rect key="frame" x="196" y="335" width="149" height="29"/>
-                                <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="14"/>
-                                <state key="normal" title="Forgot your password?">
-                                    <color key="titleColor" red="0.95294117649999999" green="0.3294117647" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bl8-r9-Ysa">
+                                <rect key="frame" x="196" y="335" width="149" height="28.5"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Forgot your password?">
+                                            <attributes>
+                                                <color key="NSColor" red="0.95294117649999999" green="0.3294117647" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="14" name="MavenPro-Medium"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="crm-te-KSS">
+                                <rect key="frame" x="108.5" y="493.5" width="158" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Awg-FX-P09"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Enter confirmation code">
+                                            <attributes>
+                                                <color key="NSColor" red="0.96862745098039216" green="0.42745098039215684" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="14" name="MavenPro-Medium"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="handleUserPoolConfirmation:" destination="xc1-Jg-Y5t" eventType="touchUpInside" id="NUK-Dh-lzI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.95686274509803915" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FPB-UK-o6C" firstAttribute="centerX" secondItem="n6k-Ut-fuw" secondAttribute="centerX" id="0co-cm-jf3"/>
+                            <constraint firstItem="crm-te-KSS" firstAttribute="centerX" secondItem="n6k-Ut-fuw" secondAttribute="centerX" id="4du-YL-C8f"/>
                             <constraint firstItem="IkO-GD-xvp" firstAttribute="leading" secondItem="n6k-Ut-fuw" secondAttribute="leadingMargin" constant="30" id="4id-Xj-J9h"/>
                             <constraint firstItem="bl8-r9-Ysa" firstAttribute="trailing" secondItem="bCP-mJ-iQj" secondAttribute="trailing" id="8Is-PA-tpW"/>
                             <constraint firstItem="cMG-il-Rxs" firstAttribute="top" secondItem="IkO-GD-xvp" secondAttribute="bottom" constant="10" id="KYM-jt-6ji"/>
@@ -232,12 +265,14 @@
                             <constraint firstItem="IkO-GD-xvp" firstAttribute="top" secondItem="bl8-r9-Ysa" secondAttribute="bottom" constant="30" id="faa-ke-aWc"/>
                             <constraint firstAttribute="trailing" secondItem="K9S-8i-f7Y" secondAttribute="trailing" constant="30" id="fag-S5-Xan"/>
                             <constraint firstItem="FPB-UK-o6C" firstAttribute="leading" secondItem="n6k-Ut-fuw" secondAttribute="leading" constant="30" id="neX-8A-GKU"/>
+                            <constraint firstItem="crm-te-KSS" firstAttribute="top" secondItem="cMG-il-Rxs" secondAttribute="bottom" constant="10" id="pia-kH-By4"/>
                             <constraint firstItem="cMG-il-Rxs" firstAttribute="centerX" secondItem="n6k-Ut-fuw" secondAttribute="centerX" id="xfm-ww-Dod"/>
                             <constraint firstItem="K9S-8i-f7Y" firstAttribute="leading" secondItem="n6k-Ut-fuw" secondAttribute="leading" constant="30" id="y6G-PW-Rcc"/>
                             <constraint firstItem="K9S-8i-f7Y" firstAttribute="top" secondItem="FPB-UK-o6C" secondAttribute="bottom" constant="30" id="zZl-o1-PNP"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="confirmationButton" destination="crm-te-KSS" id="mki-fC-0V3"/>
                         <outlet property="emailTextField" destination="vb4-Sa-RsP" id="Ce0-5j-9EP"/>
                         <outlet property="envelopeImage" destination="ecp-LX-wta" id="BdR-p9-Yv2"/>
                         <outlet property="forgotPasswordButton" destination="bl8-r9-Ysa" id="NXM-kk-pr4"/>
@@ -254,9 +289,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="envelope" width="21" height="21"/>
-        <image name="eye" width="21" height="21"/>
-        <image name="key" width="21" height="21"/>
+        <image name="envelopeImage" width="21" height="21"/>
+        <image name="eyeImage" width="21" height="21"/>
+        <image name="keyImage" width="21" height="21"/>
         <image name="logo" width="1010" height="213"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

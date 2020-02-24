@@ -57,6 +57,8 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 
 -(void)pushForgotPasswordVCFromNavigationController:(UINavigationController *)navController;
 
+-(void)pushConfirmationSignUpVCFromNavigationController:(UINavigationController *)navController;
+
 @end
 
 @interface AWSSignInViewController() <AWSSignInDelegate>
@@ -389,6 +391,14 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
     AWSUserPoolsUIOperations *userPoolsOperations = [[awsUserPoolsUIOperations alloc] initWithAuthUIConfiguration:self.config];
     [userPoolsOperations pushSignUpVCFromNavigationController:self.navigationController];
 }
+
+- (IBAction)handleUserPoolConfirmation:(UIButton *)sender {
+    [self.view endEditing:YES];
+    Class awsUserPoolsUIOperations = NSClassFromString(USERPOOLS_UI_OPERATIONS);
+    AWSUserPoolsUIOperations *userPoolsOperations = [[awsUserPoolsUIOperations alloc] initWithAuthUIConfiguration:self.config];
+    [userPoolsOperations pushConfirmationSignUpVCFromNavigationController:self.navigationController];
+}
+
 
 - (void)handleUserPoolForgotPassword {
     
