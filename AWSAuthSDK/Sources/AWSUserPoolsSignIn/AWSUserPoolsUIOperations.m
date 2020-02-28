@@ -82,8 +82,9 @@ completionHandler:(nonnull void (^)(id _Nullable, NSError * _Nullable))completio
 }
 
 -(void)pushConfirmationSignUpVCFromNavigationController:(UINavigationController *)navController {
-    AWSUserPoolSignUpViewController *viewController = (AWSUserPoolSignUpViewController *)[self getUserPoolsViewControllerWithIdentifier:USERPOOLS_CONFIRMATION_SIGNUP_CONTROLLER_INDENTIFIER];
+    UserPoolSignUpConfirmationViewController *viewController = (UserPoolSignUpConfirmationViewController *)[self getUserPoolsViewControllerWithIdentifier:USERPOOLS_CONFIRMATION_SIGNUP_CONTROLLER_INDENTIFIER];
     viewController.config = self.config;
+    viewController.isNewUser = NO;
     [navController pushViewController:viewController animated:YES];
 }
 

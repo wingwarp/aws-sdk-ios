@@ -37,6 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *envelopeImage;
 
 @property (strong, nonatomic) id<AWSUIConfiguration> config;
+@property (nonatomic) BOOL isNewUser;
 
 @end
 

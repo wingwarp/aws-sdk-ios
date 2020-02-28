@@ -45,6 +45,7 @@
 
 @property (nonatomic, strong) NSString* sentTo;
 @property (nonatomic, strong) AWSCognitoIdentityUser * user;
+@property (nonatomic, strong) AWSCognitoIdentityUserPool * pool;
 
 @end
 
@@ -65,12 +66,12 @@ id<AWSUIConfiguration> config = nil;
     self.pool = [AWSCognitoIdentityUserPool defaultCognitoIdentityUserPool];
     [self setUpNavigationBar];
     
-    envelopeImage.tintColor = UIColor.lightGrayColor;
-    keyImage.tintColor = UIColor.lightGrayColor;
-    
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
     [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(32, 9)];
     [topLabel setAttributedText:text];
+    
+    envelopeImage.tintColor = UIColor.lightGrayColor;
+    keyImage.tintColor = UIColor.lightGrayColor;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -136,6 +137,7 @@ id<AWSUIConfiguration> config = nil;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([@"SignUpConfirmSegue" isEqualToString:segue.identifier]){
         UserPoolSignUpConfirmationViewController *signUpConfirmationViewController = segue.destinationViewController;
+        signUpConfirmationViewController.isNewUser = YES;
         signUpConfirmationViewController.sentTo = self.sentTo;
         NSString *userName = emailTextField.text;
         signUpConfirmationViewController.user = [self.pool getUser:userName];
@@ -218,13 +220,14 @@ id<AWSUIConfiguration> config = nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.pool = [AWSCognitoIdentityUserPool defaultCognitoIdentityUserPool];
     [self setUpNavigationBar];
-    
-    envelopeImage.tintColor = UIColor.lightGrayColor;
     
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
     [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(62, 8)];
     [topLabel setAttributedText:text];
+    
+    envelopeImage.tintColor = UIColor.lightGrayColor;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -285,6 +288,29 @@ id<AWSUIConfiguration> config = nil;
 
 
 - (IBAction)onConfirmCode:(id)sender {
+    
+    if (self.isNewUser == NO) {
+        
+        NSMutableArray * attributes = [NSMutableArray new];
+        AWSCognitoIdentityUserAttributeType * email = [AWSCognitoIdentityUserAttributeType new];
+        email.name = @"email";
+        email.value = @"ruslan@wingwarp.net";
+        
+        if(![@"" isEqualToString:email.value]){
+            [attributes addObject:email];
+        }
+        
+        NSString *userName = @"ruslankuksa@wingwarp.net";
+        NSString *password = @"andromeda91";
+        
+        //sign up the user
+        [self.pool signUp:userName
+                  password:password
+            userAttributes:attributes validationData:nil];
+        
+        self.user = [self.pool getUser:userName];
+    }
+    
     NSString *confirmationCode = codeTextField.text;
     if ([confirmationCode isEqualToString:@""]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Missing Information"
@@ -331,6 +357,28 @@ id<AWSUIConfiguration> config = nil;
 
 - (IBAction)onResendConfirmationCode:(id)sender {
     //resend the confirmation code
+    if (self.isNewUser == NO) {
+        NSMutableArray * attributes = [NSMutableArray new];
+        AWSCognitoIdentityUserAttributeType * email = [AWSCognitoIdentityUserAttributeType new];
+        email.name = @"email";
+        email.value = @"ruslan@wingwarp.net";
+        
+        if(![@"" isEqualToString:email.value]){
+            [attributes addObject:email];
+        }
+        
+        NSString *userName = @"ruslan@wingwarp.net";
+        NSString *password = @"andromeda91";
+        
+        //sign up the user
+        [self.pool signUp:userName
+                  password:password
+            userAttributes:attributes validationData:nil];
+        
+        self.user = [self.pool getUser:userName];
+    }
+    
+    
     [[self.user resendConfirmationCode] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserResendConfirmationCodeResponse *> * _Nonnull task) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if(task.error){
