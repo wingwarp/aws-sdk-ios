@@ -587,7 +587,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xPi-29-STc">
-                                                        <rect key="frame" x="40" y="0.0" width="275" height="45"/>
+                                                        <rect key="frame" x="40" y="0.0" width="228" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -597,15 +597,29 @@
                                                         <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                     </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mD-tU-inK">
+                                                        <rect key="frame" x="273" y="10.5" width="27" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="27" id="E8P-S0-qSR"/>
+                                                            <constraint firstAttribute="height" constant="24" id="Ide-Bl-NR2"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" image="eyeImage"/>
+                                                        <connections>
+                                                            <action selector="showHidePassword:" destination="oYn-kQ-Tog" eventType="touchUpInside" id="DOX-gd-87N"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="Tv8-PK-AUM" firstAttribute="leading" secondItem="ZW6-PL-QgL" secondAttribute="leading" constant="12" id="0ko-Vj-bzt"/>
                                                     <constraint firstAttribute="height" constant="45" id="6Xz-bD-Rv8"/>
                                                     <constraint firstItem="xPi-29-STc" firstAttribute="leading" secondItem="Tv8-PK-AUM" secondAttribute="trailing" constant="8" id="TKu-fl-Vw7"/>
-                                                    <constraint firstAttribute="trailing" secondItem="xPi-29-STc" secondAttribute="trailing" id="UNi-QR-3FN"/>
                                                     <constraint firstItem="Tv8-PK-AUM" firstAttribute="centerY" secondItem="ZW6-PL-QgL" secondAttribute="centerY" id="ZHN-pi-il6"/>
+                                                    <constraint firstItem="0mD-tU-inK" firstAttribute="leading" secondItem="xPi-29-STc" secondAttribute="trailing" constant="5" id="aDz-v6-7a9"/>
                                                     <constraint firstItem="xPi-29-STc" firstAttribute="centerY" secondItem="ZW6-PL-QgL" secondAttribute="centerY" id="lmI-bk-lZs"/>
+                                                    <constraint firstAttribute="trailing" secondItem="0mD-tU-inK" secondAttribute="trailing" constant="15" id="n17-t8-nXL"/>
+                                                    <constraint firstItem="0mD-tU-inK" firstAttribute="centerY" secondItem="ZW6-PL-QgL" secondAttribute="centerY" id="nAX-Vd-Egf"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
