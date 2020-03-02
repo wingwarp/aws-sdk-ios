@@ -215,13 +215,20 @@ id<AWSUIConfiguration> config = nil;
 #pragma mark - UIViewController
 
 @synthesize topLabel;
+@synthesize emailTextField;
+@synthesize passwordTextField;
 @synthesize codeTextField;
+
+@synthesize emailView;
+@synthesize passwordView;
+
 @synthesize envelopeImage;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.pool = [AWSCognitoIdentityUserPool defaultCognitoIdentityUserPool];
     [self setUpNavigationBar];
+    [self setUpView];
     
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
     [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(62, 8)];
@@ -251,7 +258,7 @@ id<AWSUIConfiguration> config = nil;
 
     [UIView animateWithDuration:0.3 animations:^{
         CGRect f = self.view.frame;
-        f.origin.y = -keyboardSize.height / 2;
+        f.origin.y = -150;
         self.view.frame = f;
     }];
 }
@@ -286,29 +293,48 @@ id<AWSUIConfiguration> config = nil;
     self.navigationItem.titleView = navBarView;
 }
 
+- (void)setUpView {
+    if (self.isNewUser == YES) {
+        [emailView removeFromSuperview];
+        [passwordView removeFromSuperview];
+    }
+}
+
+- (void)getUser {
+    
+    if ([self.emailTextField.text isEqualToString:@""] || [self.passwordTextField.text isEqualToString:@""]) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Missing Infromation" message:@"Please enter a valid email and password." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:okButton];
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+        return;
+    }
+    
+    NSMutableArray * attributes = [NSMutableArray new];
+    AWSCognitoIdentityUserAttributeType * email = [AWSCognitoIdentityUserAttributeType new];
+    email.name = @"email";
+    email.value = self.emailTextField.text;
+    
+    if(![@"" isEqualToString:email.value]){
+        [attributes addObject:email];
+    }
+    
+    NSString *userName = self.emailTextField.text;
+    NSString *password = self.passwordTextField.text;
+    
+    //sign up the user
+    [self.pool signUp:userName
+              password:password
+        userAttributes:attributes validationData:nil];
+    
+    self.user = [self.pool getUser:userName];
+}
 
 - (IBAction)onConfirmCode:(id)sender {
     
     if (self.isNewUser == NO) {
-        
-        NSMutableArray * attributes = [NSMutableArray new];
-        AWSCognitoIdentityUserAttributeType * email = [AWSCognitoIdentityUserAttributeType new];
-        email.name = @"email";
-        email.value = @"ruslan@wingwarp.net";
-        
-        if(![@"" isEqualToString:email.value]){
-            [attributes addObject:email];
-        }
-        
-        NSString *userName = @"ruslankuksa@wingwarp.net";
-        NSString *password = @"andromeda91";
-        
-        //sign up the user
-        [self.pool signUp:userName
-                  password:password
-            userAttributes:attributes validationData:nil];
-        
-        self.user = [self.pool getUser:userName];
+        [self getUser];
     }
     
     NSString *confirmationCode = codeTextField.text;
@@ -358,26 +384,8 @@ id<AWSUIConfiguration> config = nil;
 - (IBAction)onResendConfirmationCode:(id)sender {
     //resend the confirmation code
     if (self.isNewUser == NO) {
-        NSMutableArray * attributes = [NSMutableArray new];
-        AWSCognitoIdentityUserAttributeType * email = [AWSCognitoIdentityUserAttributeType new];
-        email.name = @"email";
-        email.value = @"ruslan@wingwarp.net";
-        
-        if(![@"" isEqualToString:email.value]){
-            [attributes addObject:email];
-        }
-        
-        NSString *userName = @"ruslan@wingwarp.net";
-        NSString *password = @"andromeda91";
-        
-        //sign up the user
-        [self.pool signUp:userName
-                  password:password
-            userAttributes:attributes validationData:nil];
-        
-        self.user = [self.pool getUser:userName];
+        [self getUser];
     }
-    
     
     [[self.user resendConfirmationCode] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserResendConfirmationCodeResponse *> * _Nonnull task) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -406,4 +414,3 @@ id<AWSUIConfiguration> config = nil;
 }
 
 @end
-

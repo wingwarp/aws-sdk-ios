@@ -106,7 +106,7 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 
     [UIView animateWithDuration:0.3 animations:^{
         CGRect f = self.view.frame;
-        f.origin.y = -keyboardSize.height / 2;
+        f.origin.y = -150;
         self.view.frame = f;
     }];
 }
