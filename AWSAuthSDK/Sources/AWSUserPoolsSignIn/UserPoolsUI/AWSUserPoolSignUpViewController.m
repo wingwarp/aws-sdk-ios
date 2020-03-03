@@ -333,6 +333,7 @@ id<AWSUIConfiguration> config = nil;
         userAttributes:attributes validationData:nil];
     
     self.user = [self.pool getUser:userName];
+    [[AWSSignInManager sharedInstance] reSignInWithUsername:userName password:password];
 }
 
 - (IBAction)onConfirmCode:(id)sender {
