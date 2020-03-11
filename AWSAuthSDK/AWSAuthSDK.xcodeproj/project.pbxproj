@@ -203,6 +203,7 @@
 		FE1EBF92241974D100DA340A /* NavBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = FE1EBF24241974D100DA340A /* NavBarView.h */; };
 		FE1EBF93241974D100DA340A /* NavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1EBF90241974D100DA340A /* NavBarView.m */; };
 		FE1EBF94241974D100DA340A /* NavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1EBF90241974D100DA340A /* NavBarView.m */; };
+		FE1EBF9B24197F2B00DA340A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5150B1A1F3C389C00AC8D08 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3193,6 +3194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE1EBF9B24197F2B00DA340A /* Images.xcassets in Resources */,
 				1711A4EA1F43A49E006105D3 /* AWSUserPools.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
