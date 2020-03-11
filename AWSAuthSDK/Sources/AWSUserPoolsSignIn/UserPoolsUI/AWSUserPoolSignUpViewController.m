@@ -125,7 +125,7 @@ id<AWSUIConfiguration> config = nil;
 
     [super touchesBegan:touches withEvent:event];
 }
-<<<<<<< HEAD
+
 - (IBAction)showHidePassword:(UIButton *)sender {
     passwordTextField.secureTextEntry = !passwordTextField.secureTextEntry;
 }
@@ -134,54 +134,13 @@ id<AWSUIConfiguration> config = nil;
     NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Sign Up"];
     self.navigationItem.titleView = navBarView;
     [self.navigationItem setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil]];
-=======
-
-- (void)setUp {
-    _userNameRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"User Name" type:InputTypeText];
-    _passwordRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"Password" type:InputTypePassword];
-    _emailRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"Email" type:InputTypeText];
-    _phoneNumberRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"Phone Number" type:InputTypeText];
-    _tableDelegate = [AWSFormTableDelegate new];
-    [self.tableDelegate addCell:self.userNameRow];
-    [self.tableDelegate addCell:self.passwordRow];
-    [self.tableDelegate addCell:self.emailRow];
-    [self.tableDelegate addCell:self.phoneNumberRow];
-    self.tableView.delegate = self.tableDelegate;
-    self.tableView.dataSource = self.tableDelegate;
-    [self.tableView reloadData];
-    [AWSAuthUIHelper setUpFormShadowForView:self.tableFormView];
-    [self setUpBackground];
-
-    // setup button background
-    [AWSAuthUIHelper applyPrimaryColorFromConfig:self.config
-                                          toView:self.signUpButton];
-}
-
-- (void)setUpBackground {
-    if ([AWSAuthUIHelper isBackgroundColorFullScreen:self.config]) {
-        self.view.backgroundColor = [AWSAuthUIHelper getBackgroundColor:self.config];
-    } else {
-        self.view.backgroundColor = [AWSAuthUIHelper getSecondaryBackgroundColor];
-    }
-    
-    self.title = @"Sign Up";
-    UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.tableFormView.center.y)];
-    backgroundImageView.backgroundColor = [AWSAuthUIHelper getBackgroundColor:self.config];
-    backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    [self.view insertSubview:backgroundImageView atIndex:0];
->>>>>>> 2.12.0_merge
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([@"SignUpConfirmSegue" isEqualToString:segue.identifier]){
         UserPoolSignUpConfirmationViewController *signUpConfirmationViewController = segue.destinationViewController;
         signUpConfirmationViewController.sentTo = self.sentTo;
-<<<<<<< HEAD
         NSString *userName = emailTextField.text;
-=======
-        signUpConfirmationViewController.config = self.config;
-        NSString *userName = [self.tableDelegate getValueForCell:self.userNameRow forTableView:self.tableView];
->>>>>>> 2.12.0_merge
         signUpConfirmationViewController.user = [self.pool getUser:userName];
     }
 }
@@ -322,42 +281,10 @@ id<AWSUIConfiguration> config = nil;
     [super touchesBegan:touches withEvent:event];
 }
 
-<<<<<<< HEAD
 - (void)setUpNavigationBar {
     NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Confirm Signup"];
     self.navigationItem.titleView = navBarView;
 }
-
-=======
-- (void)setUp {
-    _userNameRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"User Name" staticText:self.user.username];
-    _confirmationCodeRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"Confirmation Code" type:InputTypeText];
-    _tableDelegate = [AWSFormTableDelegate new];
-    [self.tableDelegate addCell:self.userNameRow];
-    [self.tableDelegate addCell:self.confirmationCodeRow];
-    self.tableView.delegate = self.tableDelegate;
-    self.tableView.dataSource = self.tableDelegate;
-    [self.tableView reloadData];
-    [AWSAuthUIHelper setUpFormShadowForView:self.tableFormView];
-    [self setUpBackground];
-
-    // setup button background
-    [AWSAuthUIHelper applyPrimaryColorFromConfig:self.config
-                                          toView:self.confirmButton];
-    [AWSAuthUIHelper applyPrimaryColorFromConfig:self.config
-                                          toView:self.requestCodeButton
-                                      background:NO];
-}
-
-- (void)setUpBackground {
-    self.view.backgroundColor = [AWSAuthUIHelper getSecondaryBackgroundColor];
-    self.title = @"Confirm";
-    UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.tableFormView.center.y)];
-    backgroundImageView.backgroundColor = [AWSAuthUIHelper getBackgroundColor:self.config];
-    backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    [self.view insertSubview:backgroundImageView atIndex:0];
-}
->>>>>>> 2.12.0_merge
 
 - (IBAction)onConfirmCode:(id)sender {
     NSString *confirmationCode = codeTextField.text;

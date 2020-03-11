@@ -224,25 +224,12 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 - (void)setUpUserPoolsUI {
     if (self.config.enableUserPoolsUI) {
         AWSDDLogDebug(@"User Pools Enabled. Setting up the view...");
-        Class formTableCell = NSClassFromString(@"AWSFormTableCell");
-        self.passwordRow = [[formTableCell alloc] initWithPlaceHolder:@"Password"
-                                                                 type:InputTypePassword];
-        self.userNameRow = [[formTableCell alloc] initWithPlaceHolder:@"User Name"
-                                                                 type:InputTypeText];
-        Class formTableDelegate = NSClassFromString(@"AWSFormTableDelegate");
-        self.tableDelegate = [formTableDelegate new];
-        [self.tableDelegate addCell:self.userNameRow];
-        [self.tableDelegate addCell:self.passwordRow];
-        self.tableView.delegate = self.tableDelegate;
-        self.tableView.dataSource = self.tableDelegate;
-        [self.tableView reloadData];
-        Class AWSAuthUIHelper = NSClassFromString(@"AWSAuthUIHelper");
-        if ([AWSAuthUIHelper respondsToSelector:@selector(setUpFormShadowForView:)]) {
-            [AWSAuthUIHelper setUpFormShadowForView:self.tableFormView];
-        }
+
+        Class AWSUserPoolsUIHelper = NSClassFromString(@"AWSUserPoolsUIHelper");
+
         
-        if ([AWSAuthUIHelper respondsToSelector:@selector(setAWSUIConfiguration:)]) {
-            [AWSAuthUIHelper setAWSUIConfiguration:self.config];
+        if ([AWSUserPoolsUIHelper respondsToSelector:@selector(setAWSUIConfiguration:)]) {
+            [AWSUserPoolsUIHelper setAWSUIConfiguration:self.config];
         }
         
         // Add SignInButton to the view
@@ -266,14 +253,6 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
         } else {
             [self.signUpButton removeFromSuperview];
         }
-        
-        // style buttons (primary color)
-        if (self.config.primaryColor) {
-            self.signInButton.backgroundColor = self.config.primaryColor;
-            self.signUpButton.tintColor = self.config.primaryColor;
-            self.forgotPasswordButton.tintColor = self.config.primaryColor;
-        }
-        
     } else {
         [self.signInButton removeFromSuperview];
         [self.signUpButton removeFromSuperview];
@@ -284,7 +263,6 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 //                                                               relatedBy:NSLayoutRelationEqual
 //                                                                  toItem:self.logoView
 //                                                               attribute:NSLayoutAttributeBottom multiplier:1 constant:8.0]];
-
     }
 }
 

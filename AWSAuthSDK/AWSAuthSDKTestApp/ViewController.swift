@@ -15,12 +15,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-<<<<<<< HEAD
-        AWSMobileClient.sharedInstance().initialize { (userState, error) in
-=======
         
         AWSMobileClient.default().initialize { (userState, error) in
->>>>>>> 2.12.0_merge
             if let userState = userState {
                 print("Userstate is \(userState.rawValue)")
                 DispatchQueue.main.async {
@@ -82,16 +78,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onLaunchCognitoAuthSignIn(_ sender: Any) {
-<<<<<<< HEAD
-        AWSMobileClient.sharedInstance().showSignIn(navigationController: self.navigationController!,
-                                                    signInUIOptions: SignInUIOptions(
-                                                        canCancel: false,
-                                                        backgroundColor: UIColor.init(red: 62/255, green: 62/255, blue:120/255, alpha: 1))) { (userState, error) in
-=======
-        let hostedUIOptions = HostedUIOptions(scopes: ["openid", "email"])
         
-        AWSMobileClient.default().showSignIn(navigationController: self.navigationController!, hostedUIOptions: hostedUIOptions) { (userState, error) in
->>>>>>> 2.12.0_merge
+        AWSMobileClient.default().showSignIn(navigationController: self.navigationController!,signInUIOptions: SignInUIOptions(
+        canCancel: false,
+        backgroundColor: UIColor.init(red: 62/255, green: 62/255, blue:120/255, alpha: 1))) { (userState, error) in
             if let error = error as? AWSMobileClientError {
                 print(error)
                 print("error \(error.localizedDescription)")

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xWh-de-mYM">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xWh-de-mYM">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SignInState:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFB-Q1-zsK">
-                                <rect key="frame" x="16" y="79" width="93" height="21"/>
+                                <rect key="frame" x="16" y="59" width="93" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNKNOWN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Sy-3d-vMx">
-                                <rect key="frame" x="135" y="79" width="88" height="21"/>
+                                <rect key="frame" x="135" y="59" width="88" height="21"/>
                                 <accessibility key="accessibilityConfiguration" identifier="signInStateLabel">
                                     <accessibilityTraits key="traits" none="YES"/>
                                 </accessibility>
@@ -76,17 +74,24 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="in7-KF-uyG">
-                                <rect key="frame" x="101.5" y="142" width="172" height="30"/>
+                                <rect key="frame" x="101.5" y="122" width="172" height="30"/>
                                 <state key="normal" title="Hosted UI Userpool tests"/>
                                 <connections>
                                     <segue destination="4xE-Wp-lW2" kind="show" id="x9R-5r-cB0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDE-Go-KtQ">
-                                <rect key="frame" x="135" y="180" width="105" height="30"/>
+                                <rect key="frame" x="135" y="160" width="105" height="30"/>
                                 <state key="normal" title="DropIn UI Tests"/>
                                 <connections>
                                     <segue destination="zxF-Vv-Hr2" kind="show" id="MRs-QE-nRB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKs-rc-DUI">
+                                <rect key="frame" x="59" y="394" width="257" height="30"/>
+                                <state key="normal" title="Launch CognitoAuth SignIn"/>
+                                <connections>
+                                    <action selector="onLaunchCognitoAuthSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Ob-EM-QUD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -114,6 +119,7 @@
                             <constraint firstItem="YPp-C0-XL7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="reL-Gl-nSn"/>
                             <constraint firstItem="zFB-Q1-zsK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="xbW-bq-1it"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SbK-2g-jrL" secondAttribute="bottom" constant="30" id="yWq-Hl-m88"/>
+                            <constraint firstItem="pKs-rc-DUI" firstAttribute="top" secondItem="kQI-9m-PM5" secondAttribute="bottom" constant="7.5" id="z2w-u5-20q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -136,14 +142,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhd-B0-ND4">
-                                <rect key="frame" x="107" y="112" width="161" height="30"/>
+                                <rect key="frame" x="107" y="92" width="161" height="30"/>
                                 <state key="normal" title="Drop In User Pool Tests"/>
                                 <connections>
                                     <segue destination="r46-A3-owT" kind="show" id="wW5-3F-S6b"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PV2-vt-knq">
-                                <rect key="frame" x="107" y="172" width="161" height="30"/>
+                                <rect key="frame" x="107" y="152" width="161" height="30"/>
                                 <state key="normal" title="Drop In Facebook Tests"/>
                             </button>
                         </subviews>
@@ -170,32 +176,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current user state:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jez-Dt-yK2">
-                                <rect key="frame" x="16" y="112" width="144" height="21"/>
+                                <rect key="frame" x="16" y="92" width="144" height="21"/>
                                 <accessibility key="accessibilityConfiguration" identifier="userPoolStateLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSk-IR-WaP">
-                                <rect key="frame" x="148" y="166" width="79" height="30"/>
+                                <rect key="frame" x="148" y="146" width="79" height="30"/>
                                 <state key="normal" title="SignIn User"/>
                                 <connections>
                                     <action selector="onLaunchCognitoAuthSignIn:" destination="r46-A3-owT" eventType="touchUpInside" id="HS0-xc-BaT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5w-Zy-VWM">
-                                <rect key="frame" x="141.5" y="229" width="92" height="30"/>
+                                <rect key="frame" x="141.5" y="209" width="92" height="30"/>
                                 <state key="normal" title="SignOut User"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAf-Rr-YwL">
-                                <rect key="frame" x="116" y="292" width="143" height="30"/>
+                                <rect key="frame" x="116" y="272" width="143" height="30"/>
                                 <state key="normal" title="User pool operations"/>
                                 <connections>
                                     <segue destination="mG6-DT-ukZ" kind="show" id="oIV-qf-1As"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlk-8p-X7B">
-                                <rect key="frame" x="168" y="112" width="24" height="21"/>
+                                <rect key="frame" x="168" y="92" width="24" height="21"/>
                                 <accessibility key="accessibilityConfiguration" identifier="userPoolSignInStateLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.1166862764" green="0.24307424650000001" blue="0.60000404789999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -235,32 +241,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current user state:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3h-ZP-AQx">
-                                <rect key="frame" x="15" y="134" width="144" height="21"/>
+                                <rect key="frame" x="15" y="114" width="144" height="21"/>
                                 <accessibility key="accessibilityConfiguration" identifier="userPoolStateLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z83-mT-Ha2">
-                                <rect key="frame" x="148" y="188" width="79" height="30"/>
+                                <rect key="frame" x="148" y="168" width="79" height="30"/>
                                 <state key="normal" title="SignIn User"/>
                                 <connections>
                                     <action selector="onLaunchCognitoAuthSignIn:" destination="4xE-Wp-lW2" eventType="touchUpInside" id="qjf-om-Ea8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jx1-9H-Bdf">
-                                <rect key="frame" x="141" y="251" width="93" height="30"/>
+                                <rect key="frame" x="141" y="231" width="93" height="30"/>
                                 <state key="normal" title="SignOut User"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="de6-2m-IB4">
-                                <rect key="frame" x="116" y="314" width="143" height="30"/>
+                                <rect key="frame" x="116" y="294" width="143" height="30"/>
                                 <state key="normal" title="User pool operations"/>
                                 <connections>
                                     <segue destination="mG6-DT-ukZ" kind="show" id="Uyr-Pg-JMc"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eks-a4-vTN">
-                                <rect key="frame" x="167" y="134" width="24" height="21"/>
+                                <rect key="frame" x="167" y="114" width="24" height="21"/>
                                 <accessibility key="accessibilityConfiguration" identifier="userPoolSignInStateLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.1166862764" green="0.24307424650000001" blue="0.60000404789999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -302,155 +308,155 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Token Details:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nt3-dm-BAC">
-                                <rect key="frame" x="16" y="99" width="107" height="21"/>
+                                <rect key="frame" x="16" y="79" width="107" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.1166862764" green="0.24307424650000001" blue="0.60000404789999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credentials:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Sz-sS-1FN">
-                                <rect key="frame" x="16" y="280" width="92" height="21"/>
+                                <rect key="frame" x="16" y="260" width="92" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.1166862764" green="0.24307424650000001" blue="0.60000404789999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User attributes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLx-hx-vic">
-                                <rect key="frame" x="16" y="461" width="119" height="21"/>
+                                <rect key="frame" x="16" y="441" width="119" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.1166862764" green="0.24307424650000001" blue="0.60000404789999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID Token:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGP-tA-ibG">
-                                <rect key="frame" x="16" y="135" width="53" height="15"/>
+                                <rect key="frame" x="16" y="115" width="53" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NA" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLI-09-drv">
-                                <rect key="frame" x="77" y="135.5" width="17" height="14.5"/>
+                                <rect key="frame" x="77" y="115.5" width="17" height="14.5"/>
                                 <accessibility key="accessibilityConfiguration" identifier="idTokenLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NA" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziK-LP-NrU">
-                                <rect key="frame" x="106" y="165.5" width="17" height="14.5"/>
+                                <rect key="frame" x="106" y="145.5" width="17" height="14.5"/>
                                 <accessibility key="accessibilityConfiguration" identifier="accessTokenLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NA" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRM-3a-3E0">
-                                <rect key="frame" x="109" y="195.5" width="17" height="14.5"/>
+                                <rect key="frame" x="109" y="175.5" width="17" height="14.5"/>
                                 <accessibility key="accessibilityConfiguration" identifier="refreshTokenLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ItA-ZJ-WAH">
-                                <rect key="frame" x="84" y="225" width="17" height="15"/>
+                                <rect key="frame" x="84" y="205" width="17" height="15"/>
                                 <accessibility key="accessibilityConfiguration" identifier="tokenExpirationLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NA" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gne-gx-5Sv">
-                                <rect key="frame" x="93" y="316" width="17" height="15"/>
+                                <rect key="frame" x="93" y="296" width="17" height="15"/>
                                 <accessibility key="accessibilityConfiguration" identifier="accessKeyLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NA" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taA-kR-dux">
-                                <rect key="frame" x="89" y="346" width="17" height="15"/>
+                                <rect key="frame" x="89" y="326" width="17" height="15"/>
                                 <accessibility key="accessibilityConfiguration" identifier="secretKeyLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NA" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ot2-cM-oYk">
-                                <rect key="frame" x="96" y="376" width="17" height="15"/>
+                                <rect key="frame" x="96" y="356" width="17" height="15"/>
                                 <accessibility key="accessibilityConfiguration" identifier="sessionKeyLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Access Token:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xt3-O0-ESK">
-                                <rect key="frame" x="16" y="165" width="82" height="15"/>
+                                <rect key="frame" x="16" y="145" width="82" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refresh Token:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1c-kg-6gb">
-                                <rect key="frame" x="16" y="195" width="85" height="15"/>
+                                <rect key="frame" x="16" y="175" width="85" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiration:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWB-U0-HBM">
-                                <rect key="frame" x="16" y="225" width="60" height="15"/>
+                                <rect key="frame" x="16" y="205" width="60" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Access Key:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyb-c0-l8R">
-                                <rect key="frame" x="16" y="316" width="69" height="15"/>
+                                <rect key="frame" x="16" y="296" width="69" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secret Key:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1N-WR-a8c">
-                                <rect key="frame" x="16" y="346" width="65" height="15"/>
+                                <rect key="frame" x="16" y="326" width="65" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session Key:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyb-BD-wHA">
-                                <rect key="frame" x="16" y="376" width="72" height="15"/>
+                                <rect key="frame" x="16" y="356" width="72" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiration:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaD-qm-dNr">
-                                <rect key="frame" x="16" y="406" width="60" height="15"/>
+                                <rect key="frame" x="16" y="386" width="60" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Fi-Fa-jJ1">
-                                <rect key="frame" x="84" y="406" width="17" height="15"/>
+                                <rect key="frame" x="84" y="386" width="17" height="15"/>
                                 <accessibility key="accessibilityConfiguration" identifier="credentialExpirationLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Attribute 1:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JM8-m0-SBO">
-                                <rect key="frame" x="16" y="497" width="110" height="15"/>
+                                <rect key="frame" x="16" y="477" width="110" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IqN-tt-co0">
-                                <rect key="frame" x="134" y="497" width="17" height="15"/>
+                                <rect key="frame" x="134" y="477" width="17" height="15"/>
                                 <accessibility key="accessibilityConfiguration" identifier="attribute1Label"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Attribute 2:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgr-Jm-OR1">
-                                <rect key="frame" x="16" y="527" width="111" height="15"/>
+                                <rect key="frame" x="16" y="507" width="111" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjp-bi-Swj">
-                                <rect key="frame" x="112" y="571" width="151" height="30"/>
+                                <rect key="frame" x="112" y="551" width="151" height="30"/>
                                 <state key="normal" title="Update User Attribute"/>
                                 <connections>
                                     <action selector="updateUserAttributeAction:" destination="mG6-DT-ukZ" eventType="touchUpInside" id="HNC-kP-PDW"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Jf-c9-2Pn">
-                                <rect key="frame" x="135" y="527" width="17" height="15"/>
+                                <rect key="frame" x="135" y="507" width="17" height="15"/>
                                 <accessibility key="accessibilityConfiguration" identifier="attribute2Label"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
@@ -548,7 +554,7 @@
             <objects>
                 <navigationController id="xWh-de-mYM" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RDY-f5-ujd">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
