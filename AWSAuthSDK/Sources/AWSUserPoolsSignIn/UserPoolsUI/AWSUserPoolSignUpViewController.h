@@ -27,7 +27,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *envelopeImage;
 @property (weak, nonatomic) IBOutlet UIImageView *keyImage;
 
+<<<<<<< HEAD
+=======
+@property (weak, nonatomic) IBOutlet UIView *formView;
+@property (weak, nonatomic) IBOutlet UIView *tableFormView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *signUpButton;
+>>>>>>> 2.12.0_merge
 @property (strong, nonatomic) id<AWSUIConfiguration> config;
+
 
 @end
 
@@ -36,6 +44,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextField *codeTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *envelopeImage;
 
+<<<<<<< HEAD
+=======
+@property (weak, nonatomic) IBOutlet UIView *tableFormView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *requestCodeButton;
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
+>>>>>>> 2.12.0_merge
 @property (strong, nonatomic) id<AWSUIConfiguration> config;
 
 @end

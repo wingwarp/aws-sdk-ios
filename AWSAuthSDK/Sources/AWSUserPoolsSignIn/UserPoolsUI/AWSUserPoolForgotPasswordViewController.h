@@ -34,7 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *envelopeImage;
 @property (weak, nonatomic) IBOutlet UIImageView *keyImage;
-
 @property (strong, nonatomic) id<AWSUIConfiguration> config;
 
 @end

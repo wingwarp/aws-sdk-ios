@@ -14,7 +14,6 @@
 //
 
 #import "AWSPinpointTargetingService.h"
-#import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSCategory.h>
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSSignature.h>
@@ -26,7 +25,7 @@
 #import "AWSPinpointTargetingResources.h"
 
 static NSString *const AWSInfoPinpointTargeting = @"PinpointTargeting";
-NSString *const AWSPinpointTargetingSDKVersion = @"2.9.3";
+NSString *const AWSPinpointTargetingSDKVersion = @"2.12.0";
 
 
 @interface AWSPinpointTargetingResponseSerializer : AWSJSONResponseSerializer
@@ -938,6 +937,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSPinpointTargetingGetApplicationDateRangeKpiResponse *> *)getApplicationDateRangeKpi:(AWSPinpointTargetingGetApplicationDateRangeKpiRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/v1/apps/{application-id}/kpis/daterange/{kpi-name}"
+                  targetPrefix:@""
+                 operationName:@"GetApplicationDateRangeKpi"
+                   outputClass:[AWSPinpointTargetingGetApplicationDateRangeKpiResponse class]];
+}
+
+- (void)getApplicationDateRangeKpi:(AWSPinpointTargetingGetApplicationDateRangeKpiRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingGetApplicationDateRangeKpiResponse *response, NSError *error))completionHandler {
+    [[self getApplicationDateRangeKpi:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetApplicationDateRangeKpiResponse *> * _Nonnull task) {
+        AWSPinpointTargetingGetApplicationDateRangeKpiResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSPinpointTargetingGetApplicationSettingsResponse *> *)getApplicationSettings:(AWSPinpointTargetingGetApplicationSettingsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -1043,6 +1065,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSPinpointTargetingGetCampaignActivitiesResponse *response, NSError *error))completionHandler {
     [[self getCampaignActivities:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetCampaignActivitiesResponse *> * _Nonnull task) {
         AWSPinpointTargetingGetCampaignActivitiesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSPinpointTargetingGetCampaignDateRangeKpiResponse *> *)getCampaignDateRangeKpi:(AWSPinpointTargetingGetCampaignDateRangeKpiRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/v1/apps/{application-id}/campaigns/{campaign-id}/kpis/daterange/{kpi-name}"
+                  targetPrefix:@""
+                 operationName:@"GetCampaignDateRangeKpi"
+                   outputClass:[AWSPinpointTargetingGetCampaignDateRangeKpiResponse class]];
+}
+
+- (void)getCampaignDateRangeKpi:(AWSPinpointTargetingGetCampaignDateRangeKpiRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingGetCampaignDateRangeKpiResponse *response, NSError *error))completionHandler {
+    [[self getCampaignDateRangeKpi:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetCampaignDateRangeKpiResponse *> * _Nonnull task) {
+        AWSPinpointTargetingGetCampaignDateRangeKpiResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1536,6 +1581,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSPinpointTargetingListTagsForResourceResponse *> *)listTagsForResource:(AWSPinpointTargetingListTagsForResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/v1/tags/{resource-arn}"
+                  targetPrefix:@""
+                 operationName:@"ListTagsForResource"
+                   outputClass:[AWSPinpointTargetingListTagsForResourceResponse class]];
+}
+
+- (void)listTagsForResource:(AWSPinpointTargetingListTagsForResourceRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingListTagsForResourceResponse *response, NSError *error))completionHandler {
+    [[self listTagsForResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingListTagsForResourceResponse *> * _Nonnull task) {
+        AWSPinpointTargetingListTagsForResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSPinpointTargetingPhoneNumberValidateResponse *> *)phoneNumberValidate:(AWSPinpointTargetingPhoneNumberValidateRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1668,6 +1736,50 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)tagResource:(AWSPinpointTargetingTagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/v1/tags/{resource-arn}"
+                  targetPrefix:@""
+                 operationName:@"TagResource"
+                   outputClass:nil];
+}
+
+- (void)tagResource:(AWSPinpointTargetingTagResourceRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self tagResource:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)untagResource:(AWSPinpointTargetingUntagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/v1/tags/{resource-arn}"
+                  targetPrefix:@""
+                 operationName:@"UntagResource"
+                   outputClass:nil];
+}
+
+- (void)untagResource:(AWSPinpointTargetingUntagResourceRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self untagResource:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
         }
 
         return nil;
