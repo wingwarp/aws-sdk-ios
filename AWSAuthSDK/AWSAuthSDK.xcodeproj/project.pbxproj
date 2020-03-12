@@ -128,6 +128,14 @@
 		17DED2A61F32A4E400397F88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1786CA4D1F2BEDB8003421FF /* Images.xcassets */; };
 		17F4F75021F6B0750068B553 /* AWSCognitoAuth+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F4F74E21F6B0750068B553 /* AWSCognitoAuth+Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		17F4F75121F6B0750068B553 /* AWSCognitoAuth+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */; };
+		4427081F23FFE54500EC61B1 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		4427082023FFE54500EC61B1 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		4427082123FFE54500EC61B1 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		4427087F23FFE80500EC61B1 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		4427088023FFE80A00EC61B1 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		4427088123FFE81100EC61B1 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		4427088223FFE81400EC61B1 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		447600CD236CCD17004A783E /* (null) in Resources */ = {isa = PBXBuildFile; };
 		B4031B79230F044A009EB524 /* AWSMobileClientUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4031B78230F044A009EB524 /* AWSMobileClientUserDetails.swift */; };
 		B4031BE623105727009EB524 /* AWSMobileClientSignInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4031BE523105727009EB524 /* AWSMobileClientSignInTests.swift */; };
 		B40EA1852339774200135711 /* AWSHostedUIUserPoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA1842339774200135711 /* AWSHostedUIUserPoolTests.swift */; };
@@ -162,28 +170,6 @@
 		B4C8E4A8230743780064C158 /* AWSMobileClientPasswordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8E4A7230743780064C158 /* AWSMobileClientPasswordTests.swift */; };
 		B4C8E4AA2307447F0064C158 /* AWSMobileClientCredentialsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8E4A92307447F0064C158 /* AWSMobileClientCredentialsTest.swift */; };
 		B4F4C8D02321CC26001C87CD /* AWSCognitoCredentialsProvider+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = B4F4C8692321CB6B001C87CD /* AWSCognitoCredentialsProvider+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4427081F23FFE54500EC61B1 /* MavenPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A20974F82375C6C5008B7D24 /* MavenPro-Black.ttf */; };
-		4427082023FFE54500EC61B1 /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A20974F92375C6C6008B7D24 /* MavenPro-Medium.ttf */; };
-		4427082123FFE54500EC61B1 /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A20974F72375C6C5008B7D24 /* MavenPro-Regular.ttf */; };
-		4427087F23FFE80500EC61B1 /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A20974F72375C6C5008B7D24 /* MavenPro-Regular.ttf */; };
-		4427088023FFE80A00EC61B1 /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DD236CB1D000D9C277 /* MavenPro-Bold.ttf */; };
-		4427088123FFE81100EC61B1 /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A20974F92375C6C6008B7D24 /* MavenPro-Medium.ttf */; };
-		4427088223FFE81400EC61B1 /* MavenPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A20974F82375C6C5008B7D24 /* MavenPro-Black.ttf */; };
-		4431270223CEDE5D0050EEE8 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 4431270123CEDE5D0050EEE8 /* awsconfiguration.json */; };
-		443D2066237312E9008B61EF /* NavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 443D20612373104A008B61EF /* NavBarView.m */; };
-		443D2067237312ED008B61EF /* NavBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 443D20602373104A008B61EF /* NavBarView.h */; };
-		443D2068237325D3008B61EF /* NavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 443D20612373104A008B61EF /* NavBarView.m */; };
-		443D2069237325D6008B61EF /* NavBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 443D20602373104A008B61EF /* NavBarView.h */; };
-		447600CD236CCD17004A783E /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DD236CB1D000D9C277 /* MavenPro-Bold.ttf */; };
-		447600D1236CCEAE004A783E /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44F8C2DD236CB1D000D9C277 /* MavenPro-Bold.ttf */; };
-		4494BB1B23742D83000F1604 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5150B1A1F3C389C00AC8D08 /* Images.xcassets */; };
-		4494BB83237562A9000F1604 /* AWSAuthUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5345D0F1F366AFA009C1041 /* AWSAuthUI.framework */; };
-		4494BB84237562A9000F1604 /* AWSAuthUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B5345D0F1F366AFA009C1041 /* AWSAuthUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4494BBE2237562AC000F1604 /* AWSUserPoolsSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1750D0071F2D4DFA006D915E /* AWSUserPoolsSignIn.framework */; };
-		4494BBE3237562AC000F1604 /* AWSUserPoolsSignIn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1750D0071F2D4DFA006D915E /* AWSUserPoolsSignIn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A20974FD2375C86C008B7D24 /* MavenPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A20974F82375C6C5008B7D24 /* MavenPro-Black.ttf */; };
-		A20974FE2375C86C008B7D24 /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A20974F92375C6C6008B7D24 /* MavenPro-Medium.ttf */; };
-		A20974FF2375C86C008B7D24 /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A20974F72375C6C5008B7D24 /* MavenPro-Regular.ttf */; };
 		B5150AB21F3BF03D00AC8D08 /* AWSAuthUIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B5150AB11F3BF03D00AC8D08 /* AWSAuthUIConfiguration.m */; };
 		B5150AB31F3BF04C00AC8D08 /* AWSAuthUIConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = B5150A531F3BF00F00AC8D08 /* AWSAuthUIConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5150B1C1F3CE0E500AC8D08 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5150B1A1F3C389C00AC8D08 /* Images.xcassets */; };
@@ -3218,11 +3204,10 @@
 			files = (
 				FE1EBF9B24197F2B00DA340A /* Images.xcassets in Resources */,
 				1711A4EA1F43A49E006105D3 /* AWSUserPools.storyboard in Resources */,
-				4494BB1B23742D83000F1604 /* Images.xcassets in Resources */,
-				4427087F23FFE80500EC61B1 /* MavenPro-Regular.ttf in Resources */,
-				4427088023FFE80A00EC61B1 /* MavenPro-Bold.ttf in Resources */,
-				4427088223FFE81400EC61B1 /* MavenPro-Black.ttf in Resources */,
-				4427088123FFE81100EC61B1 /* MavenPro-Medium.ttf in Resources */,
+				4427087F23FFE80500EC61B1 /* (null) in Resources */,
+				4427088023FFE80A00EC61B1 /* (null) in Resources */,
+				4427088223FFE81400EC61B1 /* (null) in Resources */,
+				4427088123FFE81100EC61B1 /* (null) in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3299,10 +3284,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4427081F23FFE54500EC61B1 /* MavenPro-Black.ttf in Resources */,
-				4427082023FFE54500EC61B1 /* MavenPro-Medium.ttf in Resources */,
-				4427082123FFE54500EC61B1 /* MavenPro-Regular.ttf in Resources */,
-				447600CD236CCD17004A783E /* MavenPro-Bold.ttf in Resources */,
+				4427081F23FFE54500EC61B1 /* (null) in Resources */,
+				4427082023FFE54500EC61B1 /* (null) in Resources */,
+				4427082123FFE54500EC61B1 /* (null) in Resources */,
+				447600CD236CCD17004A783E /* (null) in Resources */,
 				B5150B1C1F3CE0E500AC8D08 /* Images.xcassets in Resources */,
 				B58F54C21F382449009ED450 /* SignIn.storyboard in Resources */,
 			);
