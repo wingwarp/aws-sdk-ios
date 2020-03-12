@@ -128,14 +128,6 @@
 		17DED2A61F32A4E400397F88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1786CA4D1F2BEDB8003421FF /* Images.xcassets */; };
 		17F4F75021F6B0750068B553 /* AWSCognitoAuth+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F4F74E21F6B0750068B553 /* AWSCognitoAuth+Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		17F4F75121F6B0750068B553 /* AWSCognitoAuth+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */; };
-		4427081F23FFE54500EC61B1 /* (null) in Resources */ = {isa = PBXBuildFile; };
-		4427082023FFE54500EC61B1 /* (null) in Resources */ = {isa = PBXBuildFile; };
-		4427082123FFE54500EC61B1 /* (null) in Resources */ = {isa = PBXBuildFile; };
-		4427087F23FFE80500EC61B1 /* (null) in Resources */ = {isa = PBXBuildFile; };
-		4427088023FFE80A00EC61B1 /* (null) in Resources */ = {isa = PBXBuildFile; };
-		4427088123FFE81100EC61B1 /* (null) in Resources */ = {isa = PBXBuildFile; };
-		4427088223FFE81400EC61B1 /* (null) in Resources */ = {isa = PBXBuildFile; };
-		447600CD236CCD17004A783E /* (null) in Resources */ = {isa = PBXBuildFile; };
 		B4031B79230F044A009EB524 /* AWSMobileClientUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4031B78230F044A009EB524 /* AWSMobileClientUserDetails.swift */; };
 		B4031BE623105727009EB524 /* AWSMobileClientSignInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4031BE523105727009EB524 /* AWSMobileClientSignInTests.swift */; };
 		B40EA1852339774200135711 /* AWSHostedUIUserPoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA1842339774200135711 /* AWSHostedUIUserPoolTests.swift */; };
@@ -212,6 +204,18 @@
 		FE1EBF93241974D100DA340A /* NavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1EBF90241974D100DA340A /* NavBarView.m */; };
 		FE1EBF94241974D100DA340A /* NavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1EBF90241974D100DA340A /* NavBarView.m */; };
 		FE1EBF9B24197F2B00DA340A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5150B1A1F3C389C00AC8D08 /* Images.xcassets */; };
+		FE1EC15C241AAF1E00DA340A /* MavenPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE1EC0ED241AAF1E00DA340A /* MavenPro-Black.ttf */; };
+		FE1EC15D241AAF1E00DA340A /* MavenPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE1EC0ED241AAF1E00DA340A /* MavenPro-Black.ttf */; };
+		FE1EC15E241AAF1E00DA340A /* MavenPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE1EC0ED241AAF1E00DA340A /* MavenPro-Black.ttf */; };
+		FE1EC15F241AAF1E00DA340A /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE1EC0EE241AAF1E00DA340A /* MavenPro-Regular.ttf */; };
+		FE1EC160241AAF1E00DA340A /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE1EC0EE241AAF1E00DA340A /* MavenPro-Regular.ttf */; };
+		FE1EC161241AAF1E00DA340A /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE1EC0EE241AAF1E00DA340A /* MavenPro-Regular.ttf */; };
+		FE1EC162241AAF1E00DA340A /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE1EC0EF241AAF1E00DA340A /* MavenPro-Medium.ttf */; };
+		FE1EC163241AAF1E00DA340A /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE1EC0EF241AAF1E00DA340A /* MavenPro-Medium.ttf */; };
+		FE1EC164241AAF1E00DA340A /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE1EC0EF241AAF1E00DA340A /* MavenPro-Medium.ttf */; };
+		FE1EC165241AAF1E00DA340A /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE1EC0F0241AAF1E00DA340A /* MavenPro-Bold.ttf */; };
+		FE1EC166241AAF1E00DA340A /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE1EC0F0241AAF1E00DA340A /* MavenPro-Bold.ttf */; };
+		FE1EC167241AAF1E00DA340A /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE1EC0F0241AAF1E00DA340A /* MavenPro-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1395,6 +1399,10 @@
 		B9E2F6CC231EEE63009EAA48 /* AWSMobileClientInitializerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientInitializerTests.swift; sourceTree = "<group>"; };
 		FE1EBF24241974D100DA340A /* NavBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavBarView.h; sourceTree = "<group>"; };
 		FE1EBF90241974D100DA340A /* NavBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavBarView.m; sourceTree = "<group>"; };
+		FE1EC0ED241AAF1E00DA340A /* MavenPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Black.ttf"; sourceTree = "<group>"; };
+		FE1EC0EE241AAF1E00DA340A /* MavenPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Regular.ttf"; sourceTree = "<group>"; };
+		FE1EC0EF241AAF1E00DA340A /* MavenPro-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Medium.ttf"; sourceTree = "<group>"; };
+		FE1EC0F0241AAF1E00DA340A /* MavenPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1620,6 +1628,7 @@
 		177AE7231F22715D00870762 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				FE1EC0EC241AAF1E00DA340A /* Fonts */,
 				B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */,
 				17B5A0E51F31A6B000857676 /* FacebookHeaders */,
 				17B5A1011F31A6B000857676 /* GoogleHeaders */,
@@ -1958,6 +1967,17 @@
 			);
 			path = AWSMobileClientUnitTests;
 			sourceTree = "<group>";
+		};
+		FE1EC0EC241AAF1E00DA340A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FE1EC0ED241AAF1E00DA340A /* MavenPro-Black.ttf */,
+				FE1EC0EE241AAF1E00DA340A /* MavenPro-Regular.ttf */,
+				FE1EC0EF241AAF1E00DA340A /* MavenPro-Medium.ttf */,
+				FE1EC0F0241AAF1E00DA340A /* MavenPro-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -3204,10 +3224,10 @@
 			files = (
 				FE1EBF9B24197F2B00DA340A /* Images.xcassets in Resources */,
 				1711A4EA1F43A49E006105D3 /* AWSUserPools.storyboard in Resources */,
-				4427087F23FFE80500EC61B1 /* (null) in Resources */,
-				4427088023FFE80A00EC61B1 /* (null) in Resources */,
-				4427088223FFE81400EC61B1 /* (null) in Resources */,
-				4427088123FFE81100EC61B1 /* (null) in Resources */,
+				FE1EC166241AAF1E00DA340A /* MavenPro-Bold.ttf in Resources */,
+				FE1EC15D241AAF1E00DA340A /* MavenPro-Black.ttf in Resources */,
+				FE1EC160241AAF1E00DA340A /* MavenPro-Regular.ttf in Resources */,
+				FE1EC163241AAF1E00DA340A /* MavenPro-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3284,12 +3304,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4427081F23FFE54500EC61B1 /* (null) in Resources */,
-				4427082023FFE54500EC61B1 /* (null) in Resources */,
-				4427082123FFE54500EC61B1 /* (null) in Resources */,
-				447600CD236CCD17004A783E /* (null) in Resources */,
+				FE1EC167241AAF1E00DA340A /* MavenPro-Bold.ttf in Resources */,
+				FE1EC15E241AAF1E00DA340A /* MavenPro-Black.ttf in Resources */,
 				B5150B1C1F3CE0E500AC8D08 /* Images.xcassets in Resources */,
 				B58F54C21F382449009ED450 /* SignIn.storyboard in Resources */,
+				FE1EC161241AAF1E00DA340A /* MavenPro-Regular.ttf in Resources */,
+				FE1EC164241AAF1E00DA340A /* MavenPro-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3297,6 +3317,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE1EC15C241AAF1E00DA340A /* MavenPro-Black.ttf in Resources */,
+				FE1EC15F241AAF1E00DA340A /* MavenPro-Regular.ttf in Resources */,
+				FE1EC162241AAF1E00DA340A /* MavenPro-Medium.ttf in Resources */,
+				FE1EC165241AAF1E00DA340A /* MavenPro-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
