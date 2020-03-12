@@ -17,6 +17,6 @@ Pod::Spec.new do |s|
    s.source_files = 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/**/*.{h,m}', 'AWSAuthSDK/Sources/AWSAuthUI/NavBarView.{h,m}'
    s.public_header_files = 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/*.{h}'
    s.private_header_files = 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/UserPoolsUI/*.{h}'
-   s.resource_bundles = { 'AWSUserPoolsSignIn' => ['AWSAuthSDK/Sources/AWSUserPoolsSignIn/**/*.{storyboard}'] }
+   s.resource_bundles = { 'AWSUserPoolsSignIn' => ['AWSAuthSDK/Sources/AWSAuthUI/Images.xcassets', 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/**/*.{storyboard}'] }
 end
  
