@@ -55,6 +55,8 @@ NS_ASSUME_NONNULL_BEGIN
  **/
 -(void)pushForgotPasswordVCFromNavigationController:(UINavigationController *)navController;
 
+-(void)pushConfirmationSignUpVCFromNavigationController:(UINavigationController *)navController;
+
 @end
 
 NS_ASSUME_NONNULL_END

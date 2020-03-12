@@ -24,6 +24,7 @@
 static NSString *const USERPOOLS_STORYBOARD = @"AWSUserPools";
 static NSString *const USERPOOLS_MFA_VIEW_CONTROLLER_IDENTIFIER = @"MFA";
 static NSString *const USERPOOLS_SIGNUP_VIEW_CONTROLLER_IDENTIFIER = @"SignUp";
+static NSString *const USERPOOLS_CONFIRMATION_SIGNUP_CONTROLLER_INDENTIFIER = @"SignUpConfirmation";
 static NSString *const USERPOOLS_FORGOT_PASSWORD_VIEW_CONTROLLER_IDENTIFIER = @"ForgotPassword";
 static NSString *const RESOURCES_BUNDLE = @"AWSUserPoolsSignIn.bundle";
 
@@ -79,6 +80,13 @@ completionHandler:(nonnull void (^)(id _Nullable, NSError * _Nullable))completio
     viewController.config = self.config;
     [navController pushViewController:viewController
                              animated:YES];
+}
+
+-(void)pushConfirmationSignUpVCFromNavigationController:(UINavigationController *)navController {
+    UserPoolSignUpConfirmationViewController *viewController = (UserPoolSignUpConfirmationViewController *)[self getUserPoolsViewControllerWithIdentifier:USERPOOLS_CONFIRMATION_SIGNUP_CONTROLLER_INDENTIFIER];
+    viewController.config = self.config;
+    viewController.isNewUser = NO;
+    [navController pushViewController:viewController animated:YES];
 }
 
 - (UIViewController *)getUserPoolsViewControllerWithIdentifier:(NSString *)viewControllerIdentifier {

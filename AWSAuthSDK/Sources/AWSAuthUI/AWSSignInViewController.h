@@ -44,6 +44,9 @@ NS_ASSUME_NONNULL_BEGIN
  **/
 @property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *confirmationButton;
+
+
 /**
  @property forgotPasswordButton
  @brief UIButton that kicks off the ForgotPassword flow on click
