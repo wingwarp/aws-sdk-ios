@@ -573,12 +573,12 @@ extension AWSMobileClient {
 
 extension AWSMobileClient {
     
-    @available(*, deprecated: 2.7, message: "This method will be removed in the next minor version. Please update to use AWSMobileClient using `initialize`. Please visit https://aws-amplify.github.io for the latest iOS documentation.")
+    @available(*, deprecated, message: "This method will be removed in the next minor version. Please update to use AWSMobileClient using `initialize`. Please visit https://aws-amplify.github.io for the latest iOS documentation.")
     override public func interceptApplication(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable : Any]? = nil) -> Bool {
         return _AWSMobileClient.sharedInstance().interceptApplication(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
-    @available(*, deprecated: 2.7, message: "This method will be removed in the next minor version. Please update to use AWSMobileClient using `initialize`. Please visit https://aws-amplify.github.io for the latest iOS documentation.")
+    @available(*, deprecated, message: "This method will be removed in the next minor version. Please update to use AWSMobileClient using `initialize`. Please visit https://aws-amplify.github.io for the latest iOS documentation.")
     @objc override public func interceptApplication(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable : Any]? = nil, resumeSessionWithCompletionHandler completionHandler: @escaping (Any, Error) -> Void) -> Bool {
         operateInLegacyMode = true
         return _AWSMobileClient.sharedInstance().interceptApplication(application,
@@ -586,7 +586,7 @@ extension AWSMobileClient {
                                                                       resumeSessionWithCompletionHandler: completionHandler)
     }
     
-    @available(*, deprecated: 2.7, message: "This method will be removed in the next minor version. Please update to use AWSMobileClient in the updated manner. Please visit https://aws-amplify.github.io for the latest iOS documentation")
+    @available(*, deprecated, message: "This method will be removed in the next minor version. Please update to use AWSMobileClient in the updated manner. Please visit https://aws-amplify.github.io for the latest iOS documentation")
     @objc override public func setSignInProviders(_ signInProviderConfig: [AWSSignInProviderConfig]?) {
         _AWSMobileClient.sharedInstance().setSignInProviders(signInProviderConfig)
     }
@@ -594,7 +594,7 @@ extension AWSMobileClient {
     /// Get the credentials provider object which provides `AWSCredentials`.
     ///
     /// - Returns: An object which implements `AWSCredentialsProvider`.
-    @available(*, deprecated: 2.7, message: "This method will be removed in the next minor version. AWSMobileClient itself is a credentials provider now and should be passed directly where required. Please visit https://aws-amplify.github.io for the latest iOS documentation.")
+    @available(*, deprecated, message: "This method will be removed in the next minor version. AWSMobileClient itself is a credentials provider now and should be passed directly where required. Please visit https://aws-amplify.github.io for the latest iOS documentation.")
     @objc override public func getCredentialsProvider() -> AWSCognitoCredentialsProvider {
         if (operateInLegacyMode) {
             return _AWSMobileClient.sharedInstance().getCredentialsProvider()

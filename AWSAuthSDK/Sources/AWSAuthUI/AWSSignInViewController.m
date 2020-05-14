@@ -24,10 +24,6 @@
 #import "AWSSignInViewController.h"
 #import "NavBarView.h"
 
-//#define DEFAULT_BACKGROUND_COLOR_TOP [UIColor darkGrayColor]
-//#define DEFAULT_BACKGROUND_COLOR_BOTTOM [UIColor whiteColor]
-//#define NAVIGATION_BAR_HEIGHT 64
-
 static NSString *const RESOURCES_BUNDLE = @"AWSAuthUI.bundle";
 
 static NSString *const SIGNIN_STORYBOARD = @"SignIn";
@@ -137,10 +133,6 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
     [self setUpUserPoolsUI];
     envelopeImage.tintColor = UIColor.lightGrayColor;
     keyImage.tintColor = UIColor.lightGrayColor;
-    
-    NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:statusLabel.text];
-    [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, 8)];
-    [statusLabel setAttributedText:text];
 }
     
 - (void)viewWillAppear:(BOOL)animated {
@@ -281,14 +273,15 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 }
 
 - (void)setUpNavigationController {
-    UIImage *bgImage = [UIImage imageNamed:@"navbar_bg"];
-    [self.navigationController.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
-    self.navigationItem.title = @"";
-    self.navigationController.navigationBar.tintColor = UIColor.whiteColor;
-    
-    NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Sign In"];
-    self.navigationItem.titleView = navBarView;
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    [self.navigationController setNavigationBarHidden:YES];
+//    UIImage *bgImage = [UIImage imageNamed:@"navbar_bg"];
+//    [self.navigationController.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
+//    self.navigationItem.title = @"";
+//    self.navigationController.navigationBar.tintColor = UIColor.whiteColor;
+//
+//    NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Sign In"];
+//    self.navigationItem.titleView = navBarView;
+//    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 
 - (void)barButtonClosePressed {
