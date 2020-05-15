@@ -90,8 +90,13 @@
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nXO-11-c7D">
                                         <rect key="frame" x="53" y="17" width="264" height="20.5"/>
-                                        <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="16"/>
+                                        <color key="tintColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.14901960784313725" green="0.20000000000000001" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="xc1-Jg-Y5t" id="C8n-f3-kcQ"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -130,8 +135,13 @@
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kj8-T5-nJn">
                                         <rect key="frame" x="53" y="17.5" width="235" height="19"/>
-                                        <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="16"/>
+                                        <color key="tintColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.14901960784313725" green="0.20000000000000001" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="xc1-Jg-Y5t" id="LbK-6r-WSY"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GB-ff-nwS">
                                         <rect key="frame" x="296" y="16.5" width="21" height="21"/>
@@ -194,8 +204,8 @@
                                     <constraint firstAttribute="height" constant="24" id="yOV-U5-UIg"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unP-Ws-tMc">
-                                <rect key="frame" x="21" y="408" width="91" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid login information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unP-Ws-tMc">
+                                <rect key="frame" x="21" y="408" width="132" height="15"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="12"/>
                                 <color key="textColor" red="0.9137254901960784" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -246,10 +256,14 @@
                     <connections>
                         <outlet property="confirmationButton" destination="crm-te-KSS" id="mki-fC-0V3"/>
                         <outlet property="emailTextField" destination="nXO-11-c7D" id="gDo-aE-tws"/>
+                        <outlet property="emailView" destination="TFW-oY-rLB" id="pQB-Bd-VRH"/>
                         <outlet property="envelopeImage" destination="rpF-zn-z8Z" id="XZf-27-e90"/>
+                        <outlet property="errorLabel" destination="unP-Ws-tMc" id="DAL-j9-6J8"/>
+                        <outlet property="eyeButton" destination="6GB-ff-nwS" id="45I-QR-iRV"/>
                         <outlet property="forgotPasswordButton" destination="bl8-r9-Ysa" id="NXM-kk-pr4"/>
                         <outlet property="keyImage" destination="lLE-nr-x3b" id="clP-FF-8FE"/>
                         <outlet property="passwordTextField" destination="kj8-T5-nJn" id="bOO-Fx-Lk1"/>
+                        <outlet property="passwordView" destination="EKX-Kk-wgm" id="VcS-Z8-bUa"/>
                         <outlet property="signInButton" destination="IkO-GD-xvp" id="2fb-kk-UZo"/>
                         <outlet property="signUpButton" destination="cMG-il-Rxs" id="76D-Nd-o1Z"/>
                         <outlet property="statusLabel" destination="4mi-FL-W31" id="eMu-4X-x8R"/>

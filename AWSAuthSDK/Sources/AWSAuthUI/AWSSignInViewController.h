@@ -24,13 +24,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *envelopeImage;
+@property (weak, nonatomic) IBOutlet UIButton *eyeButton;
 @property (weak, nonatomic) IBOutlet UIImageView *keyImage;
+@property (weak, nonatomic) IBOutlet UIView *emailView;
+@property (weak, nonatomic) IBOutlet UIView *passwordView;
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 
 /**
  @property canCancel
  @brief If set to `YES` user can hit cancel button to dismiss sign in UI
  **/
 @property (atomic) BOOL canCancel;
+
+@property (atomic) UIColor *darkColor;
+@property (atomic) UIColor *lightGreenColor;
+@property (atomic) UIColor *redColor;
 
 /**
  @property signInButton
