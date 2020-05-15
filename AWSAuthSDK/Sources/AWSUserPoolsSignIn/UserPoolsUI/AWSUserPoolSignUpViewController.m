@@ -51,11 +51,17 @@
 
 @implementation AWSUserPoolSignUpViewController
 
-@synthesize topLabel;
 @synthesize emailTextField;
 @synthesize passwordTextField;
 @synthesize envelopeImage;
 @synthesize keyImage;
+@synthesize eyeButton;
+@synthesize emailView;
+@synthesize passwordView;
+
+@synthesize darkColor;
+@synthesize lightGreenColor;
+@synthesize redColor;
 
 id<AWSUIConfiguration> config = nil;
 
@@ -66,12 +72,15 @@ id<AWSUIConfiguration> config = nil;
     self.pool = [AWSCognitoIdentityUserPool defaultCognitoIdentityUserPool];
     [self setUpNavigationBar];
     
-    NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
-    [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(32, 9)];
-    [topLabel setAttributedText:text];
+    darkColor = [UIColor colorWithRed:38/255.0 green:51/255.0 blue:65/255.0 alpha:1];
+    lightGreenColor = [UIColor colorWithRed:36/255.0 green:209/255.0 blue:195/255.0 alpha:1];
+    redColor = [UIColor colorWithRed:233/255.0 green:57/255.0 blue:57/255.0 alpha:1];
     
     envelopeImage.tintColor = UIColor.lightGrayColor;
     keyImage.tintColor = UIColor.lightGrayColor;
+    eyeButton.tintColor = UIColor.lightGrayColor;
+    emailView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    passwordView.layer.borderColor = [UIColor lightGrayColor].CGColor;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -91,7 +100,7 @@ id<AWSUIConfiguration> config = nil;
 #pragma mark - keyboard movements
 - (void)keyboardWillShow:(NSNotification *)notification
 {
-    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+//    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
 
     [UIView animateWithDuration:0.3 animations:^{
         CGRect f = self.view.frame;
@@ -124,14 +133,52 @@ id<AWSUIConfiguration> config = nil;
 
     [super touchesBegan:touches withEvent:event];
 }
+
+#pragma mark UITextFieldDelegate methods
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if (textField == emailTextField) {
+        emailView.layer.borderColor = darkColor.CGColor;
+        envelopeImage.tintColor = darkColor;
+    } else {
+        keyImage.tintColor = darkColor;
+        eyeButton.tintColor = darkColor;
+        passwordView.layer.borderColor = darkColor.CGColor;
+    }
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    
+    if (textField == emailTextField) {
+        if (![textField.text  isEqual: @""]) {
+            emailView.layer.borderColor = lightGreenColor.CGColor;
+            envelopeImage.tintColor = lightGreenColor;
+        } else {
+            emailView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+            envelopeImage.tintColor = [UIColor lightGrayColor];
+        }
+    } else {
+        if (![textField.text isEqualToString:@""]) {
+            passwordView.layer.borderColor = lightGreenColor.CGColor;
+            keyImage.tintColor = lightGreenColor;
+        } else {
+            passwordView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+            keyImage.tintColor = [UIColor lightGrayColor];
+        }
+    }
+    return YES;
+}
+
 - (IBAction)showHidePassword:(UIButton *)sender {
     passwordTextField.secureTextEntry = !passwordTextField.secureTextEntry;
 }
 
 - (void)setUpNavigationBar {
-    NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Sign Up"];
-    self.navigationItem.titleView = navBarView;
-    [self.navigationItem setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil]];
+
+    [self.navigationItem setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Sign In" style:UIBarButtonItemStylePlain target:nil action:nil]];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -144,6 +191,17 @@ id<AWSUIConfiguration> config = nil;
     }
 }
 
+- (IBAction)signInClicked:(UIButton *)sender {
+    [self.view endEditing:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (IBAction)enterConfirmationClicked:(UIButton *)sender {
+    [self.view endEditing:YES];
+    Class awsUserPoolsUIOperations = NSClassFromString(@"AWSUserPoolsUIOperations");
+    AWSUserPoolsUIOperations *userPoolsOperations = [[awsUserPoolsUIOperations alloc] initWithAuthUIConfiguration:self.config];
+    [userPoolsOperations pushConfirmationSignUpVCFromNavigationController:self.navigationController];
+}
 
 - (IBAction)onSignUpClicked:(id)sender {
     

@@ -24,11 +24,7 @@
 #import "AWSSignInViewController.h"
 #import "NavBarView.h"
 
-
-#define DARK_COLOR [UIColor UIColor colorWithRed:38/255.0 green:51/255.0 blue:65/255.0 alpha:1]
-
 static NSString *const RESOURCES_BUNDLE = @"AWSAuthUI.bundle";
-
 static NSString *const SIGNIN_STORYBOARD = @"SignIn";
 static NSString *const SIGNIN_VIEW_CONTROLLER_IDENTIFIER = @"SignIn";;
 static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";

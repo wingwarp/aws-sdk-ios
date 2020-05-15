@@ -7,6 +7,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="MavenPro-Black.ttf">
+            <string>MavenPro-Black</string>
+        </array>
         <array key="MavenPro-Bold.ttf">
             <string>MavenPro-Bold</string>
         </array>
@@ -45,7 +48,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Gfg-F3-5Yh"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="MavenPro-Black" family="Maven Pro Black" pointSize="18"/>
                                 <state key="normal" title="Sign In">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -71,121 +74,148 @@
                                     <color key="titleColor" red="0.27450980392156865" green="0.094117647058823528" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRl-0p-oTv">
-                                <rect key="frame" x="21" y="219" width="35" height="16.5"/>
-                                <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="14"/>
-                                <color key="textColor" red="0.14901960784313725" green="0.20000000000000001" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFW-oY-rLB" userLabel="Email View">
-                                <rect key="frame" x="21" y="247.5" width="333" height="54"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="9rR-OE-WIC">
+                                <rect key="frame" x="21" y="219" width="333" height="185"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelopeImage" translatesAutoresizingMaskIntoConstraints="NO" id="rpF-zn-z8Z">
-                                        <rect key="frame" x="16" y="16.5" width="21" height="21"/>
-                                        <color key="tintColor" red="0.14901960784313725" green="0.20000000000000001" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9Lg-01-Thn" userLabel="Email StackView">
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="82.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRl-0p-oTv">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="16.5"/>
+                                                <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="14"/>
+                                                <color key="textColor" red="0.14901960784313725" green="0.20000000000000001" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFW-oY-rLB" userLabel="Email View">
+                                                <rect key="frame" x="0.0" y="28.5" width="333" height="54"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelopeImage" translatesAutoresizingMaskIntoConstraints="NO" id="rpF-zn-z8Z">
+                                                        <rect key="frame" x="16" y="16.5" width="21" height="21"/>
+                                                        <color key="tintColor" red="0.14901960784313725" green="0.20000000000000001" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="21" id="g96-AB-SNk"/>
+                                                            <constraint firstAttribute="height" constant="21" id="oLf-82-T24"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nXO-11-c7D">
+                                                        <rect key="frame" x="53" y="17" width="264" height="20.5"/>
+                                                        <color key="tintColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" red="0.14901960784313725" green="0.20000000000000001" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="xc1-Jg-Y5t" id="C8n-f3-kcQ"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="54" id="8g0-7M-z13"/>
+                                                    <constraint firstItem="rpF-zn-z8Z" firstAttribute="centerY" secondItem="TFW-oY-rLB" secondAttribute="centerY" id="CIS-Gf-Iyn"/>
+                                                    <constraint firstItem="nXO-11-c7D" firstAttribute="leading" secondItem="rpF-zn-z8Z" secondAttribute="trailing" constant="16" id="NI7-FW-3Xp"/>
+                                                    <constraint firstAttribute="trailing" secondItem="nXO-11-c7D" secondAttribute="trailing" constant="16" id="TOs-bS-YRt"/>
+                                                    <constraint firstItem="nXO-11-c7D" firstAttribute="centerY" secondItem="TFW-oY-rLB" secondAttribute="centerY" id="dKB-o6-bNO"/>
+                                                    <constraint firstItem="rpF-zn-z8Z" firstAttribute="leading" secondItem="TFW-oY-rLB" secondAttribute="leading" constant="16" id="pyI-LY-D2w"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="0.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="21" id="g96-AB-SNk"/>
-                                            <constraint firstAttribute="height" constant="21" id="oLf-82-T24"/>
+                                            <constraint firstAttribute="trailing" secondItem="TFW-oY-rLB" secondAttribute="trailing" id="52c-wb-8Yf"/>
+                                            <constraint firstItem="nRl-0p-oTv" firstAttribute="top" secondItem="9Lg-01-Thn" secondAttribute="top" id="UDO-8O-kIb"/>
+                                            <constraint firstItem="TFW-oY-rLB" firstAttribute="leading" secondItem="9Lg-01-Thn" secondAttribute="leading" id="Ytr-tT-Bzx"/>
+                                            <constraint firstItem="nRl-0p-oTv" firstAttribute="leading" secondItem="9Lg-01-Thn" secondAttribute="leading" id="icg-HD-46i"/>
                                         </constraints>
-                                    </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nXO-11-c7D">
-                                        <rect key="frame" x="53" y="17" width="264" height="20.5"/>
-                                        <color key="tintColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="textColor" red="0.14901960784313725" green="0.20000000000000001" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="xc1-Jg-Y5t" id="C8n-f3-kcQ"/>
-                                        </connections>
-                                    </textField>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="2Jh-jf-kv3" userLabel="Password StackView">
+                                        <rect key="frame" x="0.0" y="102.5" width="333" height="82.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5N-Qe-AWs">
+                                                <rect key="frame" x="0.0" y="0.0" width="61" height="16.5"/>
+                                                <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="14"/>
+                                                <color key="textColor" red="0.14901960784313725" green="0.20000000000000001" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKX-Kk-wgm" userLabel="Password View">
+                                                <rect key="frame" x="0.0" y="28.5" width="333" height="54"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="keyImage" translatesAutoresizingMaskIntoConstraints="NO" id="lLE-nr-x3b">
+                                                        <rect key="frame" x="16" y="16.5" width="21" height="21"/>
+                                                        <color key="tintColor" red="0.14901960784313725" green="0.20000000000000001" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="21" id="BC0-Hq-8vL"/>
+                                                            <constraint firstAttribute="height" constant="21" id="ek9-uo-quT"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kj8-T5-nJn">
+                                                        <rect key="frame" x="53" y="17.5" width="235" height="19"/>
+                                                        <color key="tintColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" red="0.14901960784313725" green="0.20000000000000001" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="xc1-Jg-Y5t" id="LbK-6r-WSY"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GB-ff-nwS">
+                                                        <rect key="frame" x="296" y="16.5" width="21" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="21" id="bWi-Bc-q8K"/>
+                                                            <constraint firstAttribute="width" constant="21" id="qqn-ax-wgo"/>
+                                                        </constraints>
+                                                        <color key="tintColor" red="0.14901960784313725" green="0.20000000000000001" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <state key="normal" image="eyeImage"/>
+                                                        <connections>
+                                                            <action selector="showHidePassword:" destination="xc1-Jg-Y5t" eventType="touchUpInside" id="X80-8L-tjQ"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="lLE-nr-x3b" firstAttribute="leading" secondItem="EKX-Kk-wgm" secondAttribute="leading" constant="16" id="16X-ol-Lvv"/>
+                                                    <constraint firstItem="lLE-nr-x3b" firstAttribute="centerY" secondItem="EKX-Kk-wgm" secondAttribute="centerY" id="3SE-hq-6qb"/>
+                                                    <constraint firstItem="6GB-ff-nwS" firstAttribute="centerY" secondItem="EKX-Kk-wgm" secondAttribute="centerY" id="ALx-oD-lmk"/>
+                                                    <constraint firstItem="kj8-T5-nJn" firstAttribute="centerY" secondItem="EKX-Kk-wgm" secondAttribute="centerY" id="HAy-NH-2rZ"/>
+                                                    <constraint firstItem="6GB-ff-nwS" firstAttribute="leading" secondItem="kj8-T5-nJn" secondAttribute="trailing" constant="8" id="HGX-Mh-rIr"/>
+                                                    <constraint firstItem="kj8-T5-nJn" firstAttribute="leading" secondItem="lLE-nr-x3b" secondAttribute="trailing" constant="16" id="kyZ-2Y-mhc"/>
+                                                    <constraint firstAttribute="height" constant="54" id="szg-2a-XT8"/>
+                                                    <constraint firstAttribute="trailing" secondItem="6GB-ff-nwS" secondAttribute="trailing" constant="16" id="zAG-wY-Zkq"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="0.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="EKX-Kk-wgm" secondAttribute="trailing" id="H7j-F4-e0H"/>
+                                            <constraint firstItem="j5N-Qe-AWs" firstAttribute="leading" secondItem="2Jh-jf-kv3" secondAttribute="leading" id="L65-LT-PLh"/>
+                                            <constraint firstItem="EKX-Kk-wgm" firstAttribute="leading" secondItem="2Jh-jf-kv3" secondAttribute="leading" id="WmM-nl-DNt"/>
+                                            <constraint firstItem="j5N-Qe-AWs" firstAttribute="top" secondItem="2Jh-jf-kv3" secondAttribute="top" id="xzr-ZP-8es"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="8g0-7M-z13"/>
-                                    <constraint firstItem="rpF-zn-z8Z" firstAttribute="centerY" secondItem="TFW-oY-rLB" secondAttribute="centerY" id="CIS-Gf-Iyn"/>
-                                    <constraint firstItem="nXO-11-c7D" firstAttribute="leading" secondItem="rpF-zn-z8Z" secondAttribute="trailing" constant="16" id="NI7-FW-3Xp"/>
-                                    <constraint firstAttribute="trailing" secondItem="nXO-11-c7D" secondAttribute="trailing" constant="16" id="TOs-bS-YRt"/>
-                                    <constraint firstItem="nXO-11-c7D" firstAttribute="centerY" secondItem="TFW-oY-rLB" secondAttribute="centerY" id="dKB-o6-bNO"/>
-                                    <constraint firstItem="rpF-zn-z8Z" firstAttribute="leading" secondItem="TFW-oY-rLB" secondAttribute="leading" constant="16" id="pyI-LY-D2w"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <real key="value" value="0.5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5N-Qe-AWs">
-                                <rect key="frame" x="21" y="321.5" width="61" height="16.5"/>
-                                <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="14"/>
-                                <color key="textColor" red="0.14901960784313725" green="0.20000000000000001" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKX-Kk-wgm" userLabel="Password View">
-                                <rect key="frame" x="21" y="350" width="333" height="54"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="keyImage" translatesAutoresizingMaskIntoConstraints="NO" id="lLE-nr-x3b">
-                                        <rect key="frame" x="16" y="16.5" width="21" height="21"/>
-                                        <color key="tintColor" red="0.14901960784313725" green="0.20000000000000001" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="21" id="BC0-Hq-8vL"/>
-                                            <constraint firstAttribute="height" constant="21" id="ek9-uo-quT"/>
-                                        </constraints>
-                                    </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kj8-T5-nJn">
-                                        <rect key="frame" x="53" y="17.5" width="235" height="19"/>
-                                        <color key="tintColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="textColor" red="0.14901960784313725" green="0.20000000000000001" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="xc1-Jg-Y5t" id="LbK-6r-WSY"/>
-                                        </connections>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GB-ff-nwS">
-                                        <rect key="frame" x="296" y="16.5" width="21" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="bWi-Bc-q8K"/>
-                                            <constraint firstAttribute="width" constant="21" id="qqn-ax-wgo"/>
-                                        </constraints>
-                                        <color key="tintColor" red="0.14901960784313725" green="0.20000000000000001" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" image="eyeImage"/>
-                                        <connections>
-                                            <action selector="showHidePassword:" destination="xc1-Jg-Y5t" eventType="touchUpInside" id="X80-8L-tjQ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="lLE-nr-x3b" firstAttribute="leading" secondItem="EKX-Kk-wgm" secondAttribute="leading" constant="16" id="16X-ol-Lvv"/>
-                                    <constraint firstItem="lLE-nr-x3b" firstAttribute="centerY" secondItem="EKX-Kk-wgm" secondAttribute="centerY" id="3SE-hq-6qb"/>
-                                    <constraint firstItem="6GB-ff-nwS" firstAttribute="centerY" secondItem="EKX-Kk-wgm" secondAttribute="centerY" id="ALx-oD-lmk"/>
-                                    <constraint firstItem="kj8-T5-nJn" firstAttribute="centerY" secondItem="EKX-Kk-wgm" secondAttribute="centerY" id="HAy-NH-2rZ"/>
-                                    <constraint firstItem="6GB-ff-nwS" firstAttribute="leading" secondItem="kj8-T5-nJn" secondAttribute="trailing" constant="8" id="HGX-Mh-rIr"/>
-                                    <constraint firstItem="kj8-T5-nJn" firstAttribute="leading" secondItem="lLE-nr-x3b" secondAttribute="trailing" constant="16" id="kyZ-2Y-mhc"/>
-                                    <constraint firstAttribute="height" constant="54" id="szg-2a-XT8"/>
-                                    <constraint firstAttribute="trailing" secondItem="6GB-ff-nwS" secondAttribute="trailing" constant="16" id="zAG-wY-Zkq"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <real key="value" value="0.5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5SE-v3-nfm">
-                                <rect key="frame" x="63.5" y="565" width="248" height="24"/>
+                                <rect key="frame" x="64" y="565" width="247.5" height="24"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ls9-X8-AUj">
-                                        <rect key="frame" x="8" y="5" width="172" height="14"/>
+                                        <rect key="frame" x="8" y="5" width="171.5" height="14"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="16"/>
                                         <color key="textColor" red="0.14901960784313725" green="0.20000000000000001" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMG-il-Rxs">
-                                        <rect key="frame" x="183" y="5" width="57" height="14"/>
+                                        <rect key="frame" x="182.5" y="5" width="57" height="14"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="16"/>
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" red="0.27450980392156865" green="0.094117647058823528" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
@@ -205,7 +235,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid login information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unP-Ws-tMc">
-                                <rect key="frame" x="21" y="408" width="132" height="15"/>
+                                <rect key="frame" x="21" y="408" width="132" height="14.5"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="12"/>
                                 <color key="textColor" red="0.9137254901960784" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -228,28 +258,21 @@
                         <constraints>
                             <constraint firstItem="FPB-UK-o6C" firstAttribute="centerX" secondItem="n6k-Ut-fuw" secondAttribute="centerX" id="5RU-lJ-aYd"/>
                             <constraint firstItem="unP-Ws-tMc" firstAttribute="leading" secondItem="n6k-Ut-fuw" secondAttribute="leading" constant="21" id="65Y-ZF-rvQ"/>
+                            <constraint firstItem="9rR-OE-WIC" firstAttribute="top" secondItem="4mi-FL-W31" secondAttribute="bottom" constant="40" id="D9T-g9-Cof"/>
+                            <constraint firstItem="9rR-OE-WIC" firstAttribute="leading" secondItem="n6k-Ut-fuw" secondAttribute="leading" constant="21" id="ES9-7F-tIF"/>
                             <constraint firstItem="4mi-FL-W31" firstAttribute="top" secondItem="FPB-UK-o6C" secondAttribute="bottom" constant="26" id="EgV-lP-x7A"/>
-                            <constraint firstItem="j5N-Qe-AWs" firstAttribute="top" secondItem="TFW-oY-rLB" secondAttribute="bottom" constant="20" id="Fd5-nA-EX0"/>
                             <constraint firstItem="5SE-v3-nfm" firstAttribute="centerX" secondItem="n6k-Ut-fuw" secondAttribute="centerX" id="Lji-56-CVS"/>
                             <constraint firstItem="FPB-UK-o6C" firstAttribute="top" secondItem="iDn-EW-gbn" secondAttribute="bottom" constant="57" id="UO4-un-mpW"/>
-                            <constraint firstItem="EKX-Kk-wgm" firstAttribute="top" secondItem="j5N-Qe-AWs" secondAttribute="bottom" constant="12" id="WfD-Gv-NhM"/>
                             <constraint firstItem="4mi-FL-W31" firstAttribute="centerX" secondItem="n6k-Ut-fuw" secondAttribute="centerX" id="Wsf-ea-ck1"/>
-                            <constraint firstItem="unP-Ws-tMc" firstAttribute="top" secondItem="EKX-Kk-wgm" secondAttribute="bottom" constant="4" id="Y23-sg-2Tw"/>
                             <constraint firstItem="IkO-GD-xvp" firstAttribute="leading" secondItem="n6k-Ut-fuw" secondAttribute="leading" constant="21" id="YCy-1U-dva"/>
-                            <constraint firstItem="nRl-0p-oTv" firstAttribute="leading" secondItem="n6k-Ut-fuw" secondAttribute="leading" constant="21" id="YRE-G1-9rh"/>
                             <constraint firstAttribute="trailing" secondItem="bl8-r9-Ysa" secondAttribute="trailing" constant="21" id="Zn5-sD-zQU"/>
                             <constraint firstItem="crm-te-KSS" firstAttribute="top" secondItem="5SE-v3-nfm" secondAttribute="bottom" constant="8" id="Zww-9P-pLg"/>
                             <constraint firstItem="IkO-GD-xvp" firstAttribute="top" secondItem="bl8-r9-Ysa" secondAttribute="bottom" constant="30" id="dcO-ZA-Evo"/>
-                            <constraint firstItem="bl8-r9-Ysa" firstAttribute="top" secondItem="EKX-Kk-wgm" secondAttribute="bottom" constant="14" id="dwN-Vd-ML9"/>
-                            <constraint firstItem="nRl-0p-oTv" firstAttribute="top" secondItem="4mi-FL-W31" secondAttribute="bottom" constant="40" id="fiF-I0-XzP"/>
-                            <constraint firstItem="j5N-Qe-AWs" firstAttribute="leading" secondItem="n6k-Ut-fuw" secondAttribute="leading" constant="21" id="g06-Sw-Sxn"/>
-                            <constraint firstItem="TFW-oY-rLB" firstAttribute="top" secondItem="nRl-0p-oTv" secondAttribute="bottom" constant="12" id="g4h-Jy-hzu"/>
-                            <constraint firstItem="EKX-Kk-wgm" firstAttribute="leading" secondItem="n6k-Ut-fuw" secondAttribute="leading" constant="21" id="nRT-OO-isp"/>
                             <constraint firstItem="crm-te-KSS" firstAttribute="centerX" secondItem="n6k-Ut-fuw" secondAttribute="centerX" id="nWE-ml-Xsu"/>
+                            <constraint firstAttribute="trailing" secondItem="9rR-OE-WIC" secondAttribute="trailing" constant="21" id="pB4-rf-UpC"/>
                             <constraint firstAttribute="trailing" secondItem="IkO-GD-xvp" secondAttribute="trailing" constant="21" id="plc-JV-Vrd"/>
-                            <constraint firstAttribute="trailing" secondItem="EKX-Kk-wgm" secondAttribute="trailing" constant="21" id="uCu-mQ-D6g"/>
-                            <constraint firstAttribute="trailing" secondItem="TFW-oY-rLB" secondAttribute="trailing" constant="21" id="v3J-Os-gMk"/>
-                            <constraint firstItem="TFW-oY-rLB" firstAttribute="leading" secondItem="n6k-Ut-fuw" secondAttribute="leading" constant="21" id="vc6-sK-GLg"/>
+                            <constraint firstItem="unP-Ws-tMc" firstAttribute="top" secondItem="9rR-OE-WIC" secondAttribute="bottom" constant="4" id="qXX-FC-UJS"/>
+                            <constraint firstItem="bl8-r9-Ysa" firstAttribute="top" secondItem="9rR-OE-WIC" secondAttribute="bottom" constant="14" id="r4h-Nu-0UX"/>
                             <constraint firstItem="5SE-v3-nfm" firstAttribute="top" secondItem="IkO-GD-xvp" secondAttribute="bottom" constant="30" id="yuh-Hb-wSf"/>
                         </constraints>
                     </view>
