@@ -42,20 +42,26 @@
 @implementation AWSUserPoolForgotPasswordViewController
 
 #pragma mark - UIViewController
-@synthesize topLabel;
+
 @synthesize emailTextField;
 @synthesize envelopeImage;
+@synthesize emailView;
+
+@synthesize darkColor;
+@synthesize lightGreenColor;
+@synthesize redColor;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpNavigationBar];
     self.pool = [AWSCognitoIdentityUserPool defaultCognitoIdentityUserPool];
     
-    envelopeImage.tintColor = UIColor.lightGrayColor;
+    darkColor = [UIColor colorWithRed:38/255.0 green:51/255.0 blue:65/255.0 alpha:1];
+    lightGreenColor = [UIColor colorWithRed:36/255.0 green:209/255.0 blue:195/255.0 alpha:1];
+    redColor = [UIColor colorWithRed:233/255.0 green:57/255.0 blue:57/255.0 alpha:1];
     
-    NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
-    [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(20, 6)];
-    [topLabel setAttributedText:text];
+    envelopeImage.tintColor = UIColor.lightGrayColor;
+    emailView.layer.borderColor = [UIColor lightGrayColor].CGColor;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -121,6 +127,33 @@
         AWSUserPoolNewPasswordViewController * confirmForgot = segue.destinationViewController;
         confirmForgot.user = self.user;
     }
+}
+
+#pragma mark UITextFieldDelegate methods
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if (textField == emailTextField) {
+        emailView.layer.borderColor = darkColor.CGColor;
+        envelopeImage.tintColor = darkColor;
+    }
+
+    return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    
+    if (textField == emailTextField) {
+        if (![textField.text  isEqual: @""]) {
+            emailView.layer.borderColor = lightGreenColor.CGColor;
+            envelopeImage.tintColor = lightGreenColor;
+        } else {
+            emailView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+            envelopeImage.tintColor = [UIColor lightGrayColor];
+        }
+    }
+    
+    return YES;
 }
 
 - (IBAction)onForgotPassword:(id)sender {

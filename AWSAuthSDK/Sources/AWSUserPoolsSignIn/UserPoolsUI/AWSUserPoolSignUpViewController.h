@@ -38,17 +38,29 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface UserPoolSignUpConfirmationViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *topLabel;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *codeTextField;
+
 @property (weak, nonatomic) IBOutlet UIImageView *envelopeImage;
+@property (weak, nonatomic) IBOutlet UIImageView *keyImage;
+@property (weak, nonatomic) IBOutlet UIImageView *lockImage;
+@property (weak, nonatomic) IBOutlet UIButton *eyeButton;
 
 @property (weak, nonatomic) IBOutlet UIView *emailView;
 @property (weak, nonatomic) IBOutlet UIView *passwordView;
+@property (weak, nonatomic) IBOutlet UIView *confirmationView;
+
+@property (weak, nonatomic) IBOutlet UIStackView *emailStackView;
+@property (weak, nonatomic) IBOutlet UIStackView *passwordStackView;
+
 
 @property (strong, nonatomic) id<AWSUIConfiguration> config;
 @property (nonatomic) BOOL isNewUser;
+
+@property (atomic) UIColor *darkColor;
+@property (atomic) UIColor *lightGreenColor;
+@property (atomic) UIColor *redColor;
 
 @end
 

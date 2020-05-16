@@ -263,7 +263,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="e38-pR-gGq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MavenPro-Black" family="Maven Pro Black" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="20"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" red="0.9951923077" green="0.9903846154" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -288,7 +288,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ys0-fG-HVy">
                                 <rect key="frame" x="129" y="131" width="117.5" height="38"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="32"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7UG-Yv-AIL">
@@ -515,21 +515,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyM-ka-pB5">
-                                <rect key="frame" x="30" y="501.5" width="315" height="50"/>
-                                <color key="backgroundColor" red="0.094117647060000004" green="0.1529411765" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJJ-nm-kxN">
+                                <rect key="frame" x="105.5" y="597.5" width="164" height="31"/>
+                                <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="16"/>
+                                <state key="normal" title="Request another code">
+                                    <color key="titleColor" red="0.27450980392156865" green="0.094117647058823528" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onResendConfirmationCode:" destination="oYn-kQ-Tog" eventType="touchUpInside" id="PzT-yY-pgi"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-aws-big" translatesAutoresizingMaskIntoConstraints="NO" id="mYB-sW-Ns3">
+                                <rect key="frame" x="163.5" y="57" width="48" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="g1z-Wt-Cuy"/>
+                                    <constraint firstAttribute="width" constant="48" id="AGc-bN-E20"/>
+                                    <constraint firstAttribute="height" constant="48" id="QYE-cS-G6e"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MavenPro-Black" family="Maven Pro Black" pointSize="20"/>
-                                <state key="normal" title="CONFIRM">
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Signup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ply-86-N2s">
+                                <rect key="frame" x="69.5" y="131" width="236.5" height="38"/>
+                                <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="32"/>
+                                <color key="textColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyM-ka-pB5">
+                                <rect key="frame" x="21" y="526.5" width="333" height="56"/>
+                                <color key="backgroundColor" red="0.14117647058823529" green="0.81960784313725488" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="hXn-fM-7o4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="20"/>
+                                <state key="normal" title="Confirm">
                                     <color key="titleColor" red="0.9951923077" green="0.9903846154" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="25"/>
+                                        <integer key="value" value="14"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -537,257 +560,225 @@
                                     <action selector="onSignUpClicked:" destination="tBM-jZ-I7y" eventType="touchUpInside" id="n6o-JX-yaZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJJ-nm-kxN">
-                                <rect key="frame" x="111.5" y="571.5" width="152" height="30"/>
-                                <state key="normal" title="Request another code">
-                                    <color key="titleColor" red="0.95294117649999999" green="0.3294117647" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="onResendConfirmationCode:" destination="oYn-kQ-Tog" eventType="touchUpInside" id="PzT-yY-pgi"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="c3H-pp-mMy">
-                                <rect key="frame" x="30" y="20" width="315" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="FX9-Ds-Spv"/>
-                                </constraints>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="30" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uyf-YI-Nbp">
-                                <rect key="frame" x="30" y="85" width="315" height="376.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Xjv-z1-tTA">
+                                <rect key="frame" x="21" y="209" width="333" height="287.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A CONFIRMATION CODE WAS SENT TO YOUR EMAIL. ENTER THE CODE TO CONFIRM YOUR ACCOUNT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBb-5X-mxI">
-                                        <rect key="frame" x="0.0" y="0.0" width="315" height="72.5"/>
-                                        <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="17"/>
-                                        <color key="textColor" red="0.094117647060000004" green="0.1529411765" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MLe-F2-EBX" userLabel="Email View">
-                                        <rect key="frame" x="0.0" y="99" width="315" height="72.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="KiU-Io-r2o" userLabel="Email StackView">
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="82.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAW-EP-3Y5">
-                                                <rect key="frame" x="8" y="0.0" width="299" height="20"/>
-                                                <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="17"/>
-                                                <color key="textColor" red="0.094117647060000004" green="0.1529411765" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mz5-iQ-OIu">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="16.5"/>
+                                                <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="14"/>
+                                                <color key="textColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z5H-rh-nKu">
-                                                <rect key="frame" x="0.0" y="28" width="315" height="45"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SmB-TD-Lub" userLabel="Email View">
+                                                <rect key="frame" x="0.0" y="28.5" width="333" height="54"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelopeImage" translatesAutoresizingMaskIntoConstraints="NO" id="L5y-ow-wBr">
-                                                        <rect key="frame" x="12" y="12.5" width="20" height="20"/>
-                                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelopeImage" translatesAutoresizingMaskIntoConstraints="NO" id="mox-CH-6fu">
+                                                        <rect key="frame" x="16" y="16.5" width="21" height="21"/>
+                                                        <color key="tintColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="20" id="1Ps-F7-HVq"/>
-                                                            <constraint firstAttribute="height" constant="20" id="KWG-3d-v1W"/>
+                                                            <constraint firstAttribute="height" constant="21" id="2tc-1o-3tK"/>
+                                                            <constraint firstAttribute="width" constant="21" id="KE4-GM-IyJ"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vGt-JB-p2K">
-                                                        <rect key="frame" x="40" y="0.0" width="275" height="45"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="45" id="e4K-87-W7L"/>
-                                                        </constraints>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EDb-1L-NDW">
+                                                        <rect key="frame" x="53" y="17" width="264" height="20.5"/>
+                                                        <color key="tintColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="oYn-kQ-Tog" id="fdz-O5-V5L"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="vGt-JB-p2K" firstAttribute="centerY" secondItem="Z5H-rh-nKu" secondAttribute="centerY" id="4Cl-Cr-5M6"/>
-                                                    <constraint firstAttribute="trailing" secondItem="vGt-JB-p2K" secondAttribute="trailing" id="PAR-EG-EeX"/>
-                                                    <constraint firstItem="vGt-JB-p2K" firstAttribute="leading" secondItem="L5y-ow-wBr" secondAttribute="trailing" constant="8" id="SUR-oC-GXK"/>
-                                                    <constraint firstItem="L5y-ow-wBr" firstAttribute="leading" secondItem="Z5H-rh-nKu" secondAttribute="leading" constant="12" id="Y1r-oU-t6I"/>
-                                                    <constraint firstItem="L5y-ow-wBr" firstAttribute="centerY" secondItem="Z5H-rh-nKu" secondAttribute="centerY" id="asd-s1-lvU"/>
-                                                    <constraint firstAttribute="height" constant="45" id="dMo-WD-QpN"/>
+                                                    <constraint firstAttribute="height" constant="54" id="HGO-s1-rSb"/>
+                                                    <constraint firstItem="mox-CH-6fu" firstAttribute="leading" secondItem="SmB-TD-Lub" secondAttribute="leading" constant="16" id="MPE-3K-G1f"/>
+                                                    <constraint firstAttribute="trailing" secondItem="EDb-1L-NDW" secondAttribute="trailing" constant="16" id="PzX-SC-A05"/>
+                                                    <constraint firstItem="EDb-1L-NDW" firstAttribute="centerY" secondItem="SmB-TD-Lub" secondAttribute="centerY" id="QZi-e6-SN4"/>
+                                                    <constraint firstItem="mox-CH-6fu" firstAttribute="centerY" secondItem="SmB-TD-Lub" secondAttribute="centerY" id="SWL-Zb-zf1"/>
+                                                    <constraint firstItem="EDb-1L-NDW" firstAttribute="leading" secondItem="mox-CH-6fu" secondAttribute="trailing" constant="16" id="tnC-OQ-5sd"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="22"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="0.5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.95294117649999999" green="0.95686274510000002" blue="0.97254901959999995" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="Z5H-rh-nKu" firstAttribute="leading" secondItem="MLe-F2-EBX" secondAttribute="leading" id="AEG-tn-sMm"/>
-                                            <constraint firstItem="Z5H-rh-nKu" firstAttribute="top" secondItem="NAW-EP-3Y5" secondAttribute="bottom" constant="8" id="VdB-Sy-dqL"/>
-                                            <constraint firstAttribute="trailing" secondItem="NAW-EP-3Y5" secondAttribute="trailing" constant="8" id="X4F-5t-WVj"/>
-                                            <constraint firstAttribute="trailing" secondItem="Z5H-rh-nKu" secondAttribute="trailing" id="fC0-9i-KWc"/>
-                                            <constraint firstItem="NAW-EP-3Y5" firstAttribute="leading" secondItem="MLe-F2-EBX" secondAttribute="leading" constant="8" id="tJD-P3-pk8"/>
-                                            <constraint firstItem="NAW-EP-3Y5" firstAttribute="top" secondItem="MLe-F2-EBX" secondAttribute="top" id="xg8-7g-Rqi"/>
+                                            <constraint firstItem="Mz5-iQ-OIu" firstAttribute="top" secondItem="KiU-Io-r2o" secondAttribute="top" id="4UT-o9-gXl"/>
+                                            <constraint firstItem="SmB-TD-Lub" firstAttribute="leading" secondItem="KiU-Io-r2o" secondAttribute="leading" id="Tnu-yX-s6h"/>
+                                            <constraint firstItem="Mz5-iQ-OIu" firstAttribute="leading" secondItem="KiU-Io-r2o" secondAttribute="leading" id="idh-Kg-bir"/>
+                                            <constraint firstAttribute="trailing" secondItem="SmB-TD-Lub" secondAttribute="trailing" id="r5y-mT-Iuf"/>
                                         </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgA-aA-zCn" userLabel="Password View">
-                                        <rect key="frame" x="0.0" y="201.5" width="315" height="72.5"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="xMh-mq-m98" userLabel="Password StackView">
+                                        <rect key="frame" x="0.0" y="102.5" width="333" height="82.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bdv-5G-Ve5">
-                                                <rect key="frame" x="8" y="0.0" width="299" height="20"/>
-                                                <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="17"/>
-                                                <color key="textColor" red="0.094117647060000004" green="0.1529411765" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiR-Gg-Ft4">
+                                                <rect key="frame" x="0.0" y="0.0" width="61" height="16.5"/>
+                                                <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="14"/>
+                                                <color key="textColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZW6-PL-QgL">
-                                                <rect key="frame" x="0.0" y="28" width="315" height="45"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T00-2y-NaS" userLabel="Password View">
+                                                <rect key="frame" x="0.0" y="28.5" width="333" height="54"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="keyImage" translatesAutoresizingMaskIntoConstraints="NO" id="Tv8-PK-AUM">
-                                                        <rect key="frame" x="12" y="12.5" width="20" height="20"/>
-                                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="keyImage" translatesAutoresizingMaskIntoConstraints="NO" id="MRq-nx-HdT">
+                                                        <rect key="frame" x="16" y="16.5" width="21" height="21"/>
+                                                        <color key="tintColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="VUy-nF-t2b"/>
-                                                            <constraint firstAttribute="width" constant="20" id="YF0-W2-sWP"/>
+                                                            <constraint firstAttribute="height" constant="21" id="i2e-cj-6xb"/>
+                                                            <constraint firstAttribute="width" constant="21" id="lbE-Ld-reJ"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xPi-29-STc">
-                                                        <rect key="frame" x="40" y="0.0" width="228" height="45"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="45" id="Z5Q-Gg-Mxi"/>
-                                                        </constraints>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="17"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7g4-ao-AfM">
+                                                        <rect key="frame" x="53" y="17.5" width="235" height="19"/>
+                                                        <color key="tintColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="oYn-kQ-Tog" id="Hyy-1d-9ED"/>
+                                                        </connections>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mD-tU-inK">
-                                                        <rect key="frame" x="273" y="10.5" width="27" height="24"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkA-85-33j">
+                                                        <rect key="frame" x="296" y="16.5" width="21" height="21"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="27" id="E8P-S0-qSR"/>
-                                                            <constraint firstAttribute="height" constant="24" id="Ide-Bl-NR2"/>
+                                                            <constraint firstAttribute="width" constant="21" id="fTI-5J-VEl"/>
+                                                            <constraint firstAttribute="height" constant="21" id="sDe-qp-6po"/>
                                                         </constraints>
-                                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" image="eyeImage"/>
                                                         <connections>
-                                                            <action selector="showHidePassword:" destination="oYn-kQ-Tog" eventType="touchUpInside" id="DOX-gd-87N"/>
+                                                            <action selector="showHidePassword:" destination="tBM-jZ-I7y" eventType="touchUpInside" id="1X3-yO-Z1h"/>
+                                                            <action selector="showHidePassword:" destination="oYn-kQ-Tog" eventType="touchUpInside" id="NHm-8K-ysH"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="Tv8-PK-AUM" firstAttribute="leading" secondItem="ZW6-PL-QgL" secondAttribute="leading" constant="12" id="0ko-Vj-bzt"/>
-                                                    <constraint firstAttribute="height" constant="45" id="6Xz-bD-Rv8"/>
-                                                    <constraint firstItem="xPi-29-STc" firstAttribute="leading" secondItem="Tv8-PK-AUM" secondAttribute="trailing" constant="8" id="TKu-fl-Vw7"/>
-                                                    <constraint firstItem="Tv8-PK-AUM" firstAttribute="centerY" secondItem="ZW6-PL-QgL" secondAttribute="centerY" id="ZHN-pi-il6"/>
-                                                    <constraint firstItem="0mD-tU-inK" firstAttribute="leading" secondItem="xPi-29-STc" secondAttribute="trailing" constant="5" id="aDz-v6-7a9"/>
-                                                    <constraint firstItem="xPi-29-STc" firstAttribute="centerY" secondItem="ZW6-PL-QgL" secondAttribute="centerY" id="lmI-bk-lZs"/>
-                                                    <constraint firstAttribute="trailing" secondItem="0mD-tU-inK" secondAttribute="trailing" constant="15" id="n17-t8-nXL"/>
-                                                    <constraint firstItem="0mD-tU-inK" firstAttribute="centerY" secondItem="ZW6-PL-QgL" secondAttribute="centerY" id="nAX-Vd-Egf"/>
+                                                    <constraint firstAttribute="height" constant="54" id="6cP-66-5hb"/>
+                                                    <constraint firstItem="7g4-ao-AfM" firstAttribute="leading" secondItem="MRq-nx-HdT" secondAttribute="trailing" constant="16" id="AIo-a3-64I"/>
+                                                    <constraint firstItem="7g4-ao-AfM" firstAttribute="centerY" secondItem="T00-2y-NaS" secondAttribute="centerY" id="T1l-xz-R1w"/>
+                                                    <constraint firstItem="MRq-nx-HdT" firstAttribute="leading" secondItem="T00-2y-NaS" secondAttribute="leading" constant="16" id="g4P-Df-Mxx"/>
+                                                    <constraint firstItem="MRq-nx-HdT" firstAttribute="centerY" secondItem="T00-2y-NaS" secondAttribute="centerY" id="o6J-q7-nEa"/>
+                                                    <constraint firstItem="gkA-85-33j" firstAttribute="centerY" secondItem="T00-2y-NaS" secondAttribute="centerY" id="qr0-Sg-f18"/>
+                                                    <constraint firstItem="gkA-85-33j" firstAttribute="leading" secondItem="7g4-ao-AfM" secondAttribute="trailing" constant="8" id="sEd-cP-8Ee"/>
+                                                    <constraint firstAttribute="trailing" secondItem="gkA-85-33j" secondAttribute="trailing" constant="16" id="ywl-rq-hmM"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="22"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="0.5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.95294117649999999" green="0.95686274510000002" blue="0.97254901959999995" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="Bdv-5G-Ve5" firstAttribute="top" secondItem="fgA-aA-zCn" secondAttribute="top" id="4Q2-wy-I3i"/>
-                                            <constraint firstAttribute="trailing" secondItem="ZW6-PL-QgL" secondAttribute="trailing" id="Cvt-LU-zch"/>
-                                            <constraint firstAttribute="trailing" secondItem="Bdv-5G-Ve5" secondAttribute="trailing" constant="8" id="WFc-j2-yGE"/>
-                                            <constraint firstItem="ZW6-PL-QgL" firstAttribute="leading" secondItem="fgA-aA-zCn" secondAttribute="leading" id="kVq-mT-Gnm"/>
-                                            <constraint firstItem="ZW6-PL-QgL" firstAttribute="top" secondItem="Bdv-5G-Ve5" secondAttribute="bottom" constant="8" id="o3N-rx-OSG"/>
-                                            <constraint firstItem="Bdv-5G-Ve5" firstAttribute="leading" secondItem="fgA-aA-zCn" secondAttribute="leading" constant="8" id="q2z-jY-Tmp"/>
+                                            <constraint firstItem="T00-2y-NaS" firstAttribute="leading" secondItem="xMh-mq-m98" secondAttribute="leading" id="CeJ-7H-9M0"/>
+                                            <constraint firstItem="NiR-Gg-Ft4" firstAttribute="leading" secondItem="xMh-mq-m98" secondAttribute="leading" id="ec0-1K-Lc5"/>
+                                            <constraint firstAttribute="trailing" secondItem="T00-2y-NaS" secondAttribute="trailing" id="qeM-Dr-ERY"/>
+                                            <constraint firstItem="NiR-Gg-Ft4" firstAttribute="top" secondItem="xMh-mq-m98" secondAttribute="top" id="wKV-ft-7iS"/>
                                         </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C9u-3x-IaS" userLabel="Confirmation View">
-                                        <rect key="frame" x="0.0" y="304" width="315" height="72.5"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hPl-eo-rpT" userLabel="Confirmation StackView">
+                                        <rect key="frame" x="0.0" y="205" width="333" height="82.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmation Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivv-zb-e8W">
-                                                <rect key="frame" x="8" y="0.0" width="299" height="20"/>
-                                                <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="17"/>
-                                                <color key="textColor" red="0.094117647060000004" green="0.1529411765" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmation code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ys-qP-VDh">
+                                                <rect key="frame" x="0.0" y="0.0" width="117.5" height="16.5"/>
+                                                <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="14"/>
+                                                <color key="textColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K7u-3I-ukc">
-                                                <rect key="frame" x="0.0" y="28" width="315" height="45"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08F-ZZ-Uv8" userLabel="Confirmation View">
+                                                <rect key="frame" x="0.0" y="28.5" width="333" height="54"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelopeImage" translatesAutoresizingMaskIntoConstraints="NO" id="ZM7-1v-M9O">
-                                                        <rect key="frame" x="12" y="12.5" width="20" height="20"/>
-                                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lockImage" translatesAutoresizingMaskIntoConstraints="NO" id="imU-oT-9HE">
+                                                        <rect key="frame" x="16" y="16.5" width="21" height="21"/>
+                                                        <color key="tintColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="cd7-Z8-zxR"/>
-                                                            <constraint firstAttribute="width" constant="20" id="dos-6A-XMf"/>
+                                                            <constraint firstAttribute="width" constant="21" id="Qql-fy-5to"/>
+                                                            <constraint firstAttribute="height" constant="21" id="TPt-9P-jlO"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirmation Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gjp-Zh-j75">
-                                                        <rect key="frame" x="40" y="0.0" width="275" height="45"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="45" id="UJi-p3-qMe"/>
-                                                        </constraints>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter confirmation code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mje-5d-kzf">
+                                                        <rect key="frame" x="53" y="17" width="264" height="20.5"/>
+                                                        <color key="tintColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="oYn-kQ-Tog" id="ikx-db-Hlk"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="EJu-qI-9wv"/>
-                                                    <constraint firstAttribute="trailing" secondItem="gjp-Zh-j75" secondAttribute="trailing" id="TSt-fO-8Cz"/>
-                                                    <constraint firstItem="gjp-Zh-j75" firstAttribute="leading" secondItem="ZM7-1v-M9O" secondAttribute="trailing" constant="8" id="YKr-O0-FlM"/>
-                                                    <constraint firstItem="gjp-Zh-j75" firstAttribute="centerY" secondItem="K7u-3I-ukc" secondAttribute="centerY" id="kVT-hQ-21S"/>
-                                                    <constraint firstItem="ZM7-1v-M9O" firstAttribute="centerY" secondItem="K7u-3I-ukc" secondAttribute="centerY" id="qWp-MS-a8n"/>
-                                                    <constraint firstItem="ZM7-1v-M9O" firstAttribute="leading" secondItem="K7u-3I-ukc" secondAttribute="leading" constant="12" id="yCL-5e-iRW"/>
+                                                    <constraint firstItem="imU-oT-9HE" firstAttribute="leading" secondItem="08F-ZZ-Uv8" secondAttribute="leading" constant="16" id="B3v-IY-2CO"/>
+                                                    <constraint firstItem="Mje-5d-kzf" firstAttribute="centerY" secondItem="08F-ZZ-Uv8" secondAttribute="centerY" id="Fmb-bC-HKh"/>
+                                                    <constraint firstAttribute="height" constant="54" id="GY2-m1-bVW"/>
+                                                    <constraint firstItem="Mje-5d-kzf" firstAttribute="leading" secondItem="imU-oT-9HE" secondAttribute="trailing" constant="16" id="cHU-9a-uzb"/>
+                                                    <constraint firstItem="imU-oT-9HE" firstAttribute="centerY" secondItem="08F-ZZ-Uv8" secondAttribute="centerY" id="jaL-2o-DIV"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Mje-5d-kzf" secondAttribute="trailing" constant="16" id="thO-H3-aXE"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="22"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="0.5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.95294117649999999" green="0.95686274510000002" blue="0.97254901959999995" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="K7u-3I-ukc" firstAttribute="leading" secondItem="C9u-3x-IaS" secondAttribute="leading" id="DsB-1Z-ZDo"/>
-                                            <constraint firstItem="ivv-zb-e8W" firstAttribute="leading" secondItem="C9u-3x-IaS" secondAttribute="leading" constant="8" id="TQZ-A8-1mN"/>
-                                            <constraint firstItem="K7u-3I-ukc" firstAttribute="top" secondItem="ivv-zb-e8W" secondAttribute="bottom" constant="8" id="drr-pH-rzf"/>
-                                            <constraint firstAttribute="trailing" secondItem="ivv-zb-e8W" secondAttribute="trailing" constant="8" id="eye-FO-dAf"/>
-                                            <constraint firstItem="ivv-zb-e8W" firstAttribute="top" secondItem="C9u-3x-IaS" secondAttribute="top" id="s8e-EJ-DGf"/>
-                                            <constraint firstAttribute="trailing" secondItem="K7u-3I-ukc" secondAttribute="trailing" id="vdR-gS-JSo"/>
+                                            <constraint firstItem="7Ys-qP-VDh" firstAttribute="leading" secondItem="hPl-eo-rpT" secondAttribute="leading" id="8yR-hh-0uQ"/>
+                                            <constraint firstItem="08F-ZZ-Uv8" firstAttribute="leading" secondItem="hPl-eo-rpT" secondAttribute="leading" id="EVD-Q1-bCy"/>
+                                            <constraint firstAttribute="trailing" secondItem="08F-ZZ-Uv8" secondAttribute="trailing" id="aHG-j7-I1d"/>
+                                            <constraint firstItem="7Ys-qP-VDh" firstAttribute="top" secondItem="hPl-eo-rpT" secondAttribute="top" id="nwW-5o-2RZ"/>
                                         </constraints>
-                                    </view>
+                                    </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="fgA-aA-zCn" firstAttribute="leading" secondItem="uyf-YI-Nbp" secondAttribute="leading" id="7vJ-sJ-ujr"/>
-                                    <constraint firstItem="C9u-3x-IaS" firstAttribute="leading" secondItem="uyf-YI-Nbp" secondAttribute="leading" id="AyV-2D-gvU"/>
-                                    <constraint firstAttribute="trailing" secondItem="mBb-5X-mxI" secondAttribute="trailing" id="F3g-Hb-bD0"/>
-                                    <constraint firstAttribute="trailing" secondItem="MLe-F2-EBX" secondAttribute="trailing" id="Kpg-7Q-0Kb"/>
-                                    <constraint firstAttribute="trailing" secondItem="fgA-aA-zCn" secondAttribute="trailing" id="b02-w8-9Wm"/>
-                                    <constraint firstItem="mBb-5X-mxI" firstAttribute="leading" secondItem="uyf-YI-Nbp" secondAttribute="leading" id="j95-dW-Xhy"/>
-                                    <constraint firstAttribute="trailing" secondItem="C9u-3x-IaS" secondAttribute="trailing" id="xFT-JK-UTp"/>
-                                    <constraint firstItem="mBb-5X-mxI" firstAttribute="top" secondItem="uyf-YI-Nbp" secondAttribute="top" id="ydv-KY-Jkk"/>
-                                    <constraint firstItem="MLe-F2-EBX" firstAttribute="leading" secondItem="uyf-YI-Nbp" secondAttribute="leading" id="zVa-1a-t3g"/>
-                                </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.95326143500000005" green="0.95649224519999998" blue="0.97255307440000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="uyf-YI-Nbp" firstAttribute="leading" secondItem="bRf-kC-3Qf" secondAttribute="leading" constant="30" id="4CZ-AH-jjb"/>
-                            <constraint firstAttribute="trailing" secondItem="JyM-ka-pB5" secondAttribute="trailing" constant="30" id="DlS-WL-IIG"/>
-                            <constraint firstItem="RJJ-nm-kxN" firstAttribute="centerX" secondItem="bRf-kC-3Qf" secondAttribute="centerX" id="Imz-U5-2Rc"/>
-                            <constraint firstItem="JyM-ka-pB5" firstAttribute="top" secondItem="uyf-YI-Nbp" secondAttribute="bottom" constant="40" id="OTF-fc-Jvy"/>
-                            <constraint firstItem="uyf-YI-Nbp" firstAttribute="top" secondItem="c3H-pp-mMy" secondAttribute="bottom" constant="20" id="PbC-xN-Cx5"/>
-                            <constraint firstItem="c3H-pp-mMy" firstAttribute="top" secondItem="jca-3G-Q5u" secondAttribute="bottom" constant="20" id="Ryn-mx-KSw"/>
-                            <constraint firstItem="JyM-ka-pB5" firstAttribute="leading" secondItem="bRf-kC-3Qf" secondAttribute="leading" constant="30" id="WTJ-zx-LPd"/>
-                            <constraint firstItem="c3H-pp-mMy" firstAttribute="leading" secondItem="bRf-kC-3Qf" secondAttribute="leading" constant="30" id="aD6-PL-hag"/>
-                            <constraint firstItem="RJJ-nm-kxN" firstAttribute="top" secondItem="JyM-ka-pB5" secondAttribute="bottom" constant="20" id="das-Yb-0km"/>
-                            <constraint firstAttribute="trailing" secondItem="uyf-YI-Nbp" secondAttribute="trailing" constant="30" id="kos-fV-pZf"/>
-                            <constraint firstAttribute="trailing" secondItem="c3H-pp-mMy" secondAttribute="trailing" constant="30" id="zU6-uX-jWK"/>
+                            <constraint firstItem="Xjv-z1-tTA" firstAttribute="leading" secondItem="bRf-kC-3Qf" secondAttribute="leading" constant="21" id="44y-5W-4MD"/>
+                            <constraint firstItem="JyM-ka-pB5" firstAttribute="leading" secondItem="bRf-kC-3Qf" secondAttribute="leading" constant="21" id="4es-IX-T60"/>
+                            <constraint firstItem="mYB-sW-Ns3" firstAttribute="top" secondItem="jca-3G-Q5u" secondAttribute="bottom" constant="57" id="7oX-uZ-9QL"/>
+                            <constraint firstItem="RJJ-nm-kxN" firstAttribute="centerX" secondItem="bRf-kC-3Qf" secondAttribute="centerX" id="Czr-cf-8lu"/>
+                            <constraint firstItem="Xjv-z1-tTA" firstAttribute="top" secondItem="ply-86-N2s" secondAttribute="bottom" constant="40" id="L4w-6k-oxz"/>
+                            <constraint firstItem="ply-86-N2s" firstAttribute="top" secondItem="mYB-sW-Ns3" secondAttribute="bottom" constant="26" id="Y4g-rs-Kiv"/>
+                            <constraint firstItem="RJJ-nm-kxN" firstAttribute="top" secondItem="JyM-ka-pB5" secondAttribute="bottom" constant="15" id="Zce-mv-GO7"/>
+                            <constraint firstItem="ply-86-N2s" firstAttribute="centerX" secondItem="bRf-kC-3Qf" secondAttribute="centerX" id="bK5-p5-aN7"/>
+                            <constraint firstItem="mYB-sW-Ns3" firstAttribute="centerX" secondItem="bRf-kC-3Qf" secondAttribute="centerX" id="bw3-7z-9GJ"/>
+                            <constraint firstAttribute="trailing" secondItem="JyM-ka-pB5" secondAttribute="trailing" constant="21" id="cJr-Tf-ulQ"/>
+                            <constraint firstItem="JyM-ka-pB5" firstAttribute="top" secondItem="Xjv-z1-tTA" secondAttribute="bottom" constant="30" id="iyE-Ym-oKJ"/>
+                            <constraint firstAttribute="trailing" secondItem="Xjv-z1-tTA" secondAttribute="trailing" constant="21" id="w4f-WF-x8a"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ze1-65-hn0"/>
                     <connections>
-                        <outlet property="codeTextField" destination="gjp-Zh-j75" id="LpO-sa-nDb"/>
-                        <outlet property="emailTextField" destination="vGt-JB-p2K" id="QbK-R9-M19"/>
-                        <outlet property="emailView" destination="MLe-F2-EBX" id="Ydi-Lc-zoa"/>
-                        <outlet property="envelopeImage" destination="ZM7-1v-M9O" id="7Rc-1V-zcI"/>
-                        <outlet property="passwordTextField" destination="xPi-29-STc" id="JQG-fc-Aed"/>
-                        <outlet property="passwordView" destination="fgA-aA-zCn" id="dNN-gN-zPr"/>
-                        <outlet property="topLabel" destination="mBb-5X-mxI" id="UDp-96-UuL"/>
+                        <outlet property="codeTextField" destination="Mje-5d-kzf" id="L3W-7j-VOd"/>
+                        <outlet property="confirmationView" destination="08F-ZZ-Uv8" id="D1F-HO-ohg"/>
+                        <outlet property="emailStackView" destination="KiU-Io-r2o" id="2eG-2c-W9c"/>
+                        <outlet property="emailTextField" destination="EDb-1L-NDW" id="lgD-h2-KQR"/>
+                        <outlet property="emailView" destination="SmB-TD-Lub" id="W3h-eu-ryK"/>
+                        <outlet property="envelopeImage" destination="mox-CH-6fu" id="lXe-gZ-mDC"/>
+                        <outlet property="eyeButton" destination="gkA-85-33j" id="VWG-9T-s2E"/>
+                        <outlet property="keyImage" destination="MRq-nx-HdT" id="N7F-nS-Epj"/>
+                        <outlet property="lockImage" destination="imU-oT-9HE" id="2eA-z2-9cn"/>
+                        <outlet property="passwordStackView" destination="xMh-mq-m98" id="Kuh-mS-rDE"/>
+                        <outlet property="passwordTextField" destination="7g4-ao-AfM" id="eT7-zi-d3c"/>
+                        <outlet property="passwordView" destination="T00-2y-NaS" id="fln-0c-jbL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mZ4-p7-k7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -806,21 +797,95 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9P-Ga-w9L">
-                                <rect key="frame" x="30" y="285" width="315" height="50"/>
-                                <color key="backgroundColor" red="0.094117647060000004" green="0.1529411765" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-aws-big" translatesAutoresizingMaskIntoConstraints="NO" id="QMi-kc-d8F">
+                                <rect key="frame" x="163.5" y="57" width="48" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="lSb-VB-UVT"/>
+                                    <constraint firstAttribute="height" constant="48" id="2Gn-y6-VOy"/>
+                                    <constraint firstAttribute="width" constant="48" id="7rs-MY-mNS"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MavenPro-Black" family="Maven Pro Black" pointSize="20"/>
-                                <state key="normal" title="RESET PASSWORD">
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIK-Wc-7Qb">
+                                <rect key="frame" x="60" y="131" width="255.5" height="38"/>
+                                <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="32"/>
+                                <color key="textColor" red="0.14901960784313725" green="0.20000000000000001" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6Y6-hH-FT5">
+                                <rect key="frame" x="21" y="209" width="333" height="82.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="4by-a0-TfZ" userLabel="Email StackView">
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="82.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPa-uP-yD2">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="16.5"/>
+                                                <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="14"/>
+                                                <color key="textColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RBM-qM-Ii5" userLabel="Email View">
+                                                <rect key="frame" x="0.0" y="28.5" width="333" height="54"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelopeImage" translatesAutoresizingMaskIntoConstraints="NO" id="E6m-HD-7eA">
+                                                        <rect key="frame" x="16" y="16.5" width="21" height="21"/>
+                                                        <color key="tintColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="21" id="Fb5-a1-Sap"/>
+                                                            <constraint firstAttribute="height" constant="21" id="g83-ZN-jyL"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PTs-7H-hOd">
+                                                        <rect key="frame" x="53" y="17" width="264" height="20.5"/>
+                                                        <color key="tintColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="P72-4o-dGU" id="ePr-Ur-S2a"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="E6m-HD-7eA" firstAttribute="centerY" secondItem="RBM-qM-Ii5" secondAttribute="centerY" id="QjP-Zz-YAe"/>
+                                                    <constraint firstItem="PTs-7H-hOd" firstAttribute="leading" secondItem="E6m-HD-7eA" secondAttribute="trailing" constant="16" id="Rdv-kH-BeD"/>
+                                                    <constraint firstItem="E6m-HD-7eA" firstAttribute="leading" secondItem="RBM-qM-Ii5" secondAttribute="leading" constant="16" id="mNO-ev-OSg"/>
+                                                    <constraint firstItem="PTs-7H-hOd" firstAttribute="centerY" secondItem="RBM-qM-Ii5" secondAttribute="centerY" id="nGV-jX-qEY"/>
+                                                    <constraint firstAttribute="height" constant="54" id="pVm-9i-xEp"/>
+                                                    <constraint firstAttribute="trailing" secondItem="PTs-7H-hOd" secondAttribute="trailing" constant="16" id="pw3-cF-JlZ"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="0.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="RBM-qM-Ii5" secondAttribute="trailing" id="BRf-qK-IXy"/>
+                                            <constraint firstItem="RBM-qM-Ii5" firstAttribute="leading" secondItem="4by-a0-TfZ" secondAttribute="leading" id="GDA-Rl-NwE"/>
+                                            <constraint firstItem="rPa-uP-yD2" firstAttribute="leading" secondItem="4by-a0-TfZ" secondAttribute="leading" id="KJ7-uB-AUU"/>
+                                            <constraint firstItem="rPa-uP-yD2" firstAttribute="top" secondItem="4by-a0-TfZ" secondAttribute="top" id="fzC-iR-TeL"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9P-Ga-w9L">
+                                <rect key="frame" x="21" y="321.5" width="333" height="56"/>
+                                <color key="backgroundColor" red="0.14117647058823529" green="0.81960784313725488" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Mwo-Y7-3FA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="20"/>
+                                <state key="normal" title="Submit">
                                     <color key="titleColor" red="0.9951923077" green="0.9903846154" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="25"/>
+                                        <integer key="value" value="14"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -828,112 +893,26 @@
                                     <action selector="onSignUpClicked:" destination="tBM-jZ-I7y" eventType="touchUpInside" id="9V2-xd-Snt"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Zrh-Jv-dTo">
-                                <rect key="frame" x="30" y="20" width="315" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="3s1-lS-xc0"/>
-                                </constraints>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="4aD-z1-q91">
-                                <rect key="frame" x="30" y="95" width="315" height="160"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tp-qe-nVj">
-                                        <rect key="frame" x="0.0" y="0.0" width="315" height="40"/>
-                                        <string key="text">ENTER YOUR EMAIL TO 
-RESET YOUR PASSWORD</string>
-                                        <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="17"/>
-                                        <color key="textColor" red="0.094117647060000004" green="0.1529411765" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="go8-Rl-xrq">
-                                        <rect key="frame" x="0.0" y="70" width="315" height="90"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJ0-Oc-qdX">
-                                                <rect key="frame" x="8" y="8" width="43.5" height="20"/>
-                                                <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="17"/>
-                                                <color key="textColor" red="0.094117647060000004" green="0.1529411765" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQ2-Md-w9j">
-                                                <rect key="frame" x="0.0" y="36" width="315" height="45"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelopeImage" translatesAutoresizingMaskIntoConstraints="NO" id="DMv-xB-iqH">
-                                                        <rect key="frame" x="12" y="12.5" width="20" height="20"/>
-                                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="OjW-Hf-hQk"/>
-                                                            <constraint firstAttribute="width" constant="20" id="jGF-nF-y6G"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8DA-sr-n5V">
-                                                        <rect key="frame" x="40" y="0.0" width="275" height="45"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="45" id="YmB-K4-bA8"/>
-                                                        </constraints>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" textContentType="email"/>
-                                                    </textField>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="3Vo-ow-g0D"/>
-                                                    <constraint firstItem="8DA-sr-n5V" firstAttribute="centerY" secondItem="kQ2-Md-w9j" secondAttribute="centerY" id="Em1-ji-wES"/>
-                                                    <constraint firstItem="DMv-xB-iqH" firstAttribute="centerY" secondItem="kQ2-Md-w9j" secondAttribute="centerY" id="Kcg-f2-Zx3"/>
-                                                    <constraint firstAttribute="trailing" secondItem="8DA-sr-n5V" secondAttribute="trailing" id="XWE-qZ-blo"/>
-                                                    <constraint firstItem="DMv-xB-iqH" firstAttribute="leading" secondItem="kQ2-Md-w9j" secondAttribute="leading" constant="12" id="bc0-NF-BAj"/>
-                                                    <constraint firstItem="8DA-sr-n5V" firstAttribute="leading" secondItem="DMv-xB-iqH" secondAttribute="trailing" constant="8" id="iiG-gI-Kbx"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="22"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.95294117649999999" green="0.95686274510000002" blue="0.97254901959999995" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="kQ2-Md-w9j" firstAttribute="top" secondItem="iJ0-Oc-qdX" secondAttribute="bottom" constant="8" id="8Hv-zn-MDI"/>
-                                            <constraint firstItem="kQ2-Md-w9j" firstAttribute="leading" secondItem="go8-Rl-xrq" secondAttribute="leading" id="QEg-tv-Yfg"/>
-                                            <constraint firstAttribute="trailing" secondItem="kQ2-Md-w9j" secondAttribute="trailing" id="U4S-e8-Qiy"/>
-                                            <constraint firstItem="iJ0-Oc-qdX" firstAttribute="leading" secondItem="go8-Rl-xrq" secondAttribute="leading" constant="8" id="dSz-Pc-XQw"/>
-                                            <constraint firstItem="iJ0-Oc-qdX" firstAttribute="top" secondItem="go8-Rl-xrq" secondAttribute="top" constant="8" id="uz6-ZG-piP"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="go8-Rl-xrq" firstAttribute="top" secondItem="4tp-qe-nVj" secondAttribute="bottom" constant="30" id="Ak5-BM-vFs"/>
-                                    <constraint firstItem="4tp-qe-nVj" firstAttribute="leading" secondItem="4aD-z1-q91" secondAttribute="leading" id="WDY-Kj-x96"/>
-                                    <constraint firstAttribute="trailing" secondItem="4tp-qe-nVj" secondAttribute="trailing" id="WN2-ZY-a0T"/>
-                                    <constraint firstAttribute="bottom" secondItem="go8-Rl-xrq" secondAttribute="bottom" id="WaR-G3-hr1"/>
-                                    <constraint firstAttribute="height" constant="160" id="s35-Pc-SKI"/>
-                                    <constraint firstItem="go8-Rl-xrq" firstAttribute="leading" secondItem="4aD-z1-q91" secondAttribute="leading" id="wk1-tK-PIu"/>
-                                    <constraint firstItem="4tp-qe-nVj" firstAttribute="top" secondItem="4aD-z1-q91" secondAttribute="top" id="xjp-L9-SAd"/>
-                                    <constraint firstAttribute="trailing" secondItem="go8-Rl-xrq" secondAttribute="trailing" id="zUC-iR-Pml"/>
-                                </constraints>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.95326143500000005" green="0.95649224519999998" blue="0.97255307440000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Zrh-Jv-dTo" secondAttribute="trailing" constant="30" id="ArP-hS-xNX"/>
-                            <constraint firstItem="4aD-z1-q91" firstAttribute="top" secondItem="Zrh-Jv-dTo" secondAttribute="bottom" constant="30" id="Fc2-55-NDn"/>
-                            <constraint firstAttribute="trailing" secondItem="e9P-Ga-w9L" secondAttribute="trailing" constant="30" id="Ovf-rJ-TWf"/>
-                            <constraint firstItem="e9P-Ga-w9L" firstAttribute="top" secondItem="4aD-z1-q91" secondAttribute="bottom" constant="30" id="UgO-aI-tZL"/>
-                            <constraint firstAttribute="trailing" secondItem="4aD-z1-q91" secondAttribute="trailing" constant="30" id="bNV-Fv-jOl"/>
-                            <constraint firstItem="4aD-z1-q91" firstAttribute="leading" secondItem="mvy-xA-fuB" secondAttribute="leading" constant="30" id="d5v-Vg-Uhq"/>
-                            <constraint firstItem="Zrh-Jv-dTo" firstAttribute="top" secondItem="PN8-a0-H46" secondAttribute="bottom" constant="20" id="eRv-8C-Adu"/>
-                            <constraint firstItem="Zrh-Jv-dTo" firstAttribute="leading" secondItem="mvy-xA-fuB" secondAttribute="leading" constant="30" id="hAV-qJ-St7"/>
-                            <constraint firstItem="e9P-Ga-w9L" firstAttribute="leading" secondItem="mvy-xA-fuB" secondAttribute="leading" constant="30" id="ykZ-uY-78d"/>
+                            <constraint firstItem="AIK-Wc-7Qb" firstAttribute="centerX" secondItem="mvy-xA-fuB" secondAttribute="centerX" id="MnU-gu-TC2"/>
+                            <constraint firstItem="QMi-kc-d8F" firstAttribute="centerX" secondItem="mvy-xA-fuB" secondAttribute="centerX" id="S52-CK-ME5"/>
+                            <constraint firstAttribute="trailing" secondItem="6Y6-hH-FT5" secondAttribute="trailing" constant="21" id="V4w-ib-sdG"/>
+                            <constraint firstItem="6Y6-hH-FT5" firstAttribute="top" secondItem="AIK-Wc-7Qb" secondAttribute="bottom" constant="40" id="ZAG-WT-nT9"/>
+                            <constraint firstItem="QMi-kc-d8F" firstAttribute="top" secondItem="PN8-a0-H46" secondAttribute="bottom" constant="57" id="ZzG-CB-lwz"/>
+                            <constraint firstItem="e9P-Ga-w9L" firstAttribute="top" secondItem="6Y6-hH-FT5" secondAttribute="bottom" constant="30" id="emo-oh-RYa"/>
+                            <constraint firstItem="AIK-Wc-7Qb" firstAttribute="top" secondItem="QMi-kc-d8F" secondAttribute="bottom" constant="26" id="ley-Wo-rLB"/>
+                            <constraint firstItem="6Y6-hH-FT5" firstAttribute="leading" secondItem="mvy-xA-fuB" secondAttribute="leading" constant="21" id="moE-hO-y0d"/>
+                            <constraint firstItem="e9P-Ga-w9L" firstAttribute="leading" secondItem="mvy-xA-fuB" secondAttribute="leading" constant="21" id="rSB-Nb-cBg"/>
+                            <constraint firstAttribute="trailing" secondItem="e9P-Ga-w9L" secondAttribute="trailing" constant="21" id="rfR-KO-mXr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wcH-Ol-TbY"/>
                     <connections>
-                        <outlet property="emailTextField" destination="8DA-sr-n5V" id="eIw-C0-BHq"/>
-                        <outlet property="envelopeImage" destination="DMv-xB-iqH" id="esQ-qx-5Qj"/>
-                        <outlet property="topLabel" destination="4tp-qe-nVj" id="Vt6-PD-kzH"/>
+                        <outlet property="emailTextField" destination="PTs-7H-hOd" id="Nq5-aT-YT9"/>
+                        <outlet property="emailView" destination="RBM-qM-Ii5" id="TNF-oG-dYm"/>
+                        <outlet property="envelopeImage" destination="E6m-HD-7eA" id="fhq-Jm-73J"/>
                         <segue destination="Wwt-zD-yTe" kind="show" identifier="NewPasswordSegue" id="khP-zb-zjs"/>
                     </connections>
                 </viewController>
@@ -1155,6 +1134,7 @@ RESET YOUR PASSWORD</string>
         <image name="envelopeImage" width="21" height="21"/>
         <image name="eyeImage" width="21" height="21"/>
         <image name="keyImage" width="21" height="21"/>
+        <image name="lockImage" width="32" height="32"/>
         <image name="logo" width="1010" height="213"/>
         <image name="logo-aws-big" width="181" height="203"/>
     </resources>
