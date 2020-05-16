@@ -142,12 +142,14 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
     
     // set up username and password UI if user pools enabled
     [self setUpUserPoolsUI];
+    
     envelopeImage.tintColor = UIColor.lightGrayColor;
     keyImage.tintColor = UIColor.lightGrayColor;
     eyeButton.tintColor = UIColor.lightGrayColor;
-    [errorLabel setHidden:YES];
+    
     emailView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     passwordView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    [errorLabel setHidden:YES];
 }
     
 - (void)viewWillAppear:(BOOL)animated {
@@ -226,6 +228,7 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
         } else {
             passwordView.layer.borderColor = [UIColor lightGrayColor].CGColor;
             keyImage.tintColor = [UIColor lightGrayColor];
+            eyeButton.tintColor = [UIColor lightGrayColor];
         }
     }
     return YES;

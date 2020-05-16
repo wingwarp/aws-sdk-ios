@@ -195,22 +195,33 @@
 
 #pragma mark - UIViewController
 
-@synthesize topLabel;
 @synthesize codeTextField;
 @synthesize passwordTextField;
-@synthesize envelopeImage;
+@synthesize emailView;
+@synthesize passwordView;
+
+@synthesize lockImage;
 @synthesize keyImage;
+@synthesize eyeButton;
+
+@synthesize darkColor;
+@synthesize lightGreenColor;
+@synthesize redColor;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpNavigationBar];
     
-    envelopeImage.tintColor = UIColor.lightGrayColor;
-    keyImage.tintColor = UIColor.lightGrayColor;
+    darkColor = [UIColor colorWithRed:38/255.0 green:51/255.0 blue:65/255.0 alpha:1];
+    lightGreenColor = [UIColor colorWithRed:36/255.0 green:209/255.0 blue:195/255.0 alpha:1];
+    redColor = [UIColor colorWithRed:233/255.0 green:57/255.0 blue:57/255.0 alpha:1];
     
-    NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
-    [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(47, 9)];
-    [topLabel setAttributedText:text];
+    lockImage.tintColor = [UIColor lightGrayColor];
+    keyImage.tintColor = [UIColor lightGrayColor];
+    eyeButton.tintColor = [UIColor lightGrayColor];
+    
+    emailView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    passwordView.layer.borderColor = [UIColor lightGrayColor].CGColor;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -270,6 +281,44 @@
 - (void)setUpNavigationBar {
     NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Reset Password"];
     self.navigationItem.titleView = navBarView;
+}
+#pragma mark UITextFieldDelegate methods
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if (textField == codeTextField) {
+        emailView.layer.borderColor = darkColor.CGColor;
+        lockImage.tintColor = darkColor;
+    } else {
+        keyImage.tintColor = darkColor;
+        eyeButton.tintColor = darkColor;
+        passwordView.layer.borderColor = darkColor.CGColor;
+    }
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    
+    if (textField == codeTextField) {
+        if (![textField.text  isEqual: @""]) {
+            emailView.layer.borderColor = lightGreenColor.CGColor;
+            lockImage.tintColor = lightGreenColor;
+        } else {
+            emailView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+            lockImage.tintColor = [UIColor lightGrayColor];
+        }
+    } else {
+        if (![textField.text isEqualToString:@""]) {
+            passwordView.layer.borderColor = lightGreenColor.CGColor;
+            keyImage.tintColor = lightGreenColor;
+        } else {
+            passwordView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+            keyImage.tintColor = [UIColor lightGrayColor];
+            eyeButton.tintColor = [UIColor lightGrayColor];
+        }
+    }
+    return YES;
 }
 
 - (IBAction)onUpdatePassword:(id)sender {

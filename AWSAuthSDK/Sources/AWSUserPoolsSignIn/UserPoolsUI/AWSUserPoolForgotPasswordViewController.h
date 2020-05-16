@@ -34,11 +34,20 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface AWSUserPoolNewPasswordViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *topLabel;
+
 @property (weak, nonatomic) IBOutlet UITextField *codeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
-@property (weak, nonatomic) IBOutlet UIImageView *envelopeImage;
+
+@property (weak, nonatomic) IBOutlet UIImageView *lockImage;
 @property (weak, nonatomic) IBOutlet UIImageView *keyImage;
+@property (weak, nonatomic) IBOutlet UIButton *eyeButton;
+
+@property (weak, nonatomic) IBOutlet UIView *emailView;
+@property (weak, nonatomic) IBOutlet UIView *passwordView;
+
+@property (atomic) UIColor *darkColor;
+@property (atomic) UIColor *lightGreenColor;
+@property (atomic) UIColor *redColor;
 
 @property (strong, nonatomic) id<AWSUIConfiguration> config;
 
