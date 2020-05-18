@@ -46,20 +46,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-aws-big" translatesAutoresizingMaskIntoConstraints="NO" id="XyS-xE-YtR">
-                                <rect key="frame" x="163.5" y="57" width="48" height="48"/>
+                                <rect key="frame" x="163.5" y="10" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="P5j-bq-Cmu"/>
                                     <constraint firstAttribute="height" constant="48" id="zyp-UW-L9a"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecd-fZ-Owd">
-                                <rect key="frame" x="66" y="131" width="243.5" height="38"/>
+                                <rect key="frame" x="66" y="84" width="243.5" height="38"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="32"/>
                                 <color key="textColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fDb-aQ-Rwq">
-                                <rect key="frame" x="21" y="209" width="333" height="185"/>
+                                <rect key="frame" x="21" y="162" width="333" height="185"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="TjV-mh-oEi" userLabel="Email StackView">
                                         <rect key="frame" x="0.0" y="0.0" width="333" height="82.5"/>
@@ -190,7 +190,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wON-mn-kGn">
-                                <rect key="frame" x="21" y="424" width="333" height="56"/>
+                                <rect key="frame" x="21" y="377" width="333" height="56"/>
                                 <color key="backgroundColor" red="0.14117647058823529" green="0.81960784313725488" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="WRc-Qo-K9q"/>
@@ -216,7 +216,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="XyS-xE-YtR" firstAttribute="centerX" secondItem="sSU-fu-YjH" secondAttribute="centerX" id="065-G9-b7Z"/>
-                            <constraint firstItem="XyS-xE-YtR" firstAttribute="top" secondItem="FqQ-ca-9Q7" secondAttribute="bottom" constant="57" id="8dh-c3-Mbx"/>
+                            <constraint firstItem="XyS-xE-YtR" firstAttribute="top" secondItem="FqQ-ca-9Q7" secondAttribute="bottom" constant="10" id="8dh-c3-Mbx"/>
                             <constraint firstItem="ecd-fZ-Owd" firstAttribute="centerX" secondItem="sSU-fu-YjH" secondAttribute="centerX" id="BuK-Gc-qBy"/>
                             <constraint firstItem="fDb-aQ-Rwq" firstAttribute="top" secondItem="ecd-fZ-Owd" secondAttribute="bottom" constant="40" id="E1q-MD-6bh"/>
                             <constraint firstItem="wON-mn-kGn" firstAttribute="top" secondItem="fDb-aQ-Rwq" secondAttribute="bottom" constant="30" id="MOT-8B-dRB"/>
@@ -254,7 +254,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Db4-um-TSC">
-                                <rect key="frame" x="21" y="424" width="333" height="56"/>
+                                <rect key="frame" x="21" y="377" width="333" height="56"/>
                                 <color key="backgroundColor" red="0.14117647058823529" green="0.81960784313725488" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="e38-pR-gGq"/>
@@ -275,20 +275,20 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-aws-big" translatesAutoresizingMaskIntoConstraints="NO" id="TNY-rr-z4J">
-                                <rect key="frame" x="163.5" y="57" width="48" height="48"/>
+                                <rect key="frame" x="163.5" y="10" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="gSg-hG-Q4J"/>
                                     <constraint firstAttribute="height" constant="48" id="iHD-rz-I70"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ys0-fG-HVy">
-                                <rect key="frame" x="129" y="131" width="117.5" height="38"/>
+                                <rect key="frame" x="129" y="84" width="117.5" height="38"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="32"/>
                                 <color key="textColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7UG-Yv-AIL">
-                                <rect key="frame" x="21" y="209" width="333" height="185"/>
+                                <rect key="frame" x="21" y="162" width="333" height="185"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="TpA-Mb-asQ" userLabel="Email StackView">
                                         <rect key="frame" x="0.0" y="0.0" width="333" height="82.5"/>
@@ -419,7 +419,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rtx-HF-TCl">
-                                <rect key="frame" x="62.5" y="510" width="250" height="24"/>
+                                <rect key="frame" x="62.5" y="463" width="250" height="24"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pyf-WN-gXF">
                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="24"/>
@@ -452,7 +452,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aon-7c-Y8Y">
-                                <rect key="frame" x="95" y="542" width="185" height="24"/>
+                                <rect key="frame" x="95" y="495" width="185" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="cq2-0i-rd6"/>
                                 </constraints>
@@ -474,7 +474,7 @@
                             <constraint firstItem="Aon-7c-Y8Y" firstAttribute="centerX" secondItem="Z83-6q-CAy" secondAttribute="centerX" id="IiG-9B-7gM"/>
                             <constraint firstItem="7UG-Yv-AIL" firstAttribute="top" secondItem="Ys0-fG-HVy" secondAttribute="bottom" constant="40" id="KvU-Sf-cVy"/>
                             <constraint firstItem="rtx-HF-TCl" firstAttribute="top" secondItem="Db4-um-TSC" secondAttribute="bottom" constant="30" id="Rji-vI-svl"/>
-                            <constraint firstItem="TNY-rr-z4J" firstAttribute="top" secondItem="7hn-wh-vfF" secondAttribute="bottom" constant="57" id="Xd0-n3-UfP"/>
+                            <constraint firstItem="TNY-rr-z4J" firstAttribute="top" secondItem="7hn-wh-vfF" secondAttribute="bottom" constant="10" id="Xd0-n3-UfP"/>
                             <constraint firstItem="Ys0-fG-HVy" firstAttribute="top" secondItem="TNY-rr-z4J" secondAttribute="bottom" constant="26" id="bos-zz-Oe6"/>
                             <constraint firstItem="TNY-rr-z4J" firstAttribute="centerX" secondItem="Z83-6q-CAy" secondAttribute="centerX" id="g2m-oh-9pc"/>
                             <constraint firstAttribute="trailing" secondItem="Db4-um-TSC" secondAttribute="trailing" constant="21" id="iwR-2v-rMD"/>
@@ -512,7 +512,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJJ-nm-kxN">
-                                <rect key="frame" x="105.5" y="597.5" width="164" height="31"/>
+                                <rect key="frame" x="105.5" y="550.5" width="164" height="31"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro Medium" pointSize="16"/>
                                 <state key="normal" title="Request another code">
                                     <color key="titleColor" red="0.27450980392156865" green="0.094117647058823528" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
@@ -522,20 +522,20 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-aws-big" translatesAutoresizingMaskIntoConstraints="NO" id="mYB-sW-Ns3">
-                                <rect key="frame" x="163.5" y="57" width="48" height="48"/>
+                                <rect key="frame" x="163.5" y="10" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="AGc-bN-E20"/>
                                     <constraint firstAttribute="height" constant="48" id="QYE-cS-G6e"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Signup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ply-86-N2s">
-                                <rect key="frame" x="69.5" y="131" width="236.5" height="38"/>
+                                <rect key="frame" x="69.5" y="84" width="236.5" height="38"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="32"/>
                                 <color key="textColor" red="0.14901960780000001" green="0.20000000000000001" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyM-ka-pB5">
-                                <rect key="frame" x="21" y="526.5" width="333" height="56"/>
+                                <rect key="frame" x="21" y="479.5" width="333" height="56"/>
                                 <color key="backgroundColor" red="0.14117647058823529" green="0.81960784313725488" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="hXn-fM-7o4"/>
@@ -557,7 +557,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Xjv-z1-tTA">
-                                <rect key="frame" x="21" y="209" width="333" height="287.5"/>
+                                <rect key="frame" x="21" y="162" width="333" height="287.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="KiU-Io-r2o" userLabel="Email StackView">
                                         <rect key="frame" x="0.0" y="0.0" width="333" height="82.5"/>
@@ -749,7 +749,7 @@
                         <constraints>
                             <constraint firstItem="Xjv-z1-tTA" firstAttribute="leading" secondItem="bRf-kC-3Qf" secondAttribute="leading" constant="21" id="44y-5W-4MD"/>
                             <constraint firstItem="JyM-ka-pB5" firstAttribute="leading" secondItem="bRf-kC-3Qf" secondAttribute="leading" constant="21" id="4es-IX-T60"/>
-                            <constraint firstItem="mYB-sW-Ns3" firstAttribute="top" secondItem="jca-3G-Q5u" secondAttribute="bottom" constant="57" id="7oX-uZ-9QL"/>
+                            <constraint firstItem="mYB-sW-Ns3" firstAttribute="top" secondItem="jca-3G-Q5u" secondAttribute="bottom" constant="10" id="7oX-uZ-9QL"/>
                             <constraint firstItem="RJJ-nm-kxN" firstAttribute="centerX" secondItem="bRf-kC-3Qf" secondAttribute="centerX" id="Czr-cf-8lu"/>
                             <constraint firstItem="Xjv-z1-tTA" firstAttribute="top" secondItem="ply-86-N2s" secondAttribute="bottom" constant="40" id="L4w-6k-oxz"/>
                             <constraint firstItem="ply-86-N2s" firstAttribute="top" secondItem="mYB-sW-Ns3" secondAttribute="bottom" constant="26" id="Y4g-rs-Kiv"/>
@@ -794,20 +794,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-aws-big" translatesAutoresizingMaskIntoConstraints="NO" id="QMi-kc-d8F">
-                                <rect key="frame" x="163.5" y="57" width="48" height="48"/>
+                                <rect key="frame" x="163.5" y="10" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="2Gn-y6-VOy"/>
                                     <constraint firstAttribute="width" constant="48" id="7rs-MY-mNS"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIK-Wc-7Qb">
-                                <rect key="frame" x="60" y="131" width="255.5" height="38"/>
+                                <rect key="frame" x="60" y="84" width="255.5" height="38"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="32"/>
                                 <color key="textColor" red="0.14901960784313725" green="0.20000000000000001" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6Y6-hH-FT5">
-                                <rect key="frame" x="21" y="209" width="333" height="82.5"/>
+                                <rect key="frame" x="21" y="162" width="333" height="82.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="4by-a0-TfZ" userLabel="Email StackView">
                                         <rect key="frame" x="0.0" y="0.0" width="333" height="82.5"/>
@@ -868,7 +868,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9P-Ga-w9L">
-                                <rect key="frame" x="21" y="321.5" width="333" height="56"/>
+                                <rect key="frame" x="21" y="274.5" width="333" height="56"/>
                                 <color key="backgroundColor" red="0.14117647058823529" green="0.81960784313725488" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Mwo-Y7-3FA"/>
@@ -896,7 +896,7 @@
                             <constraint firstItem="QMi-kc-d8F" firstAttribute="centerX" secondItem="mvy-xA-fuB" secondAttribute="centerX" id="S52-CK-ME5"/>
                             <constraint firstAttribute="trailing" secondItem="6Y6-hH-FT5" secondAttribute="trailing" constant="21" id="V4w-ib-sdG"/>
                             <constraint firstItem="6Y6-hH-FT5" firstAttribute="top" secondItem="AIK-Wc-7Qb" secondAttribute="bottom" constant="40" id="ZAG-WT-nT9"/>
-                            <constraint firstItem="QMi-kc-d8F" firstAttribute="top" secondItem="PN8-a0-H46" secondAttribute="bottom" constant="57" id="ZzG-CB-lwz"/>
+                            <constraint firstItem="QMi-kc-d8F" firstAttribute="top" secondItem="PN8-a0-H46" secondAttribute="bottom" constant="10" id="ZzG-CB-lwz"/>
                             <constraint firstItem="e9P-Ga-w9L" firstAttribute="top" secondItem="6Y6-hH-FT5" secondAttribute="bottom" constant="30" id="emo-oh-RYa"/>
                             <constraint firstItem="AIK-Wc-7Qb" firstAttribute="top" secondItem="QMi-kc-d8F" secondAttribute="bottom" constant="26" id="ley-Wo-rLB"/>
                             <constraint firstItem="6Y6-hH-FT5" firstAttribute="leading" secondItem="mvy-xA-fuB" secondAttribute="leading" constant="21" id="moE-hO-y0d"/>
@@ -1125,7 +1125,6 @@
             <point key="canvasLocation" x="-231" y="1442"/>
         </scene>
     </scenes>
-    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="envelopeImage" width="21" height="21"/>
         <image name="eyeImage" width="21" height="21"/>

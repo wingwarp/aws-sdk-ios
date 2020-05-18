@@ -116,9 +116,8 @@
 }
 
 - (void)setUpNavigationBar {
-    NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Forgot Password"];
-    self.navigationItem.titleView = navBarView;
-        [self.navigationItem setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil]];
+    [self.navigationItem setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil]];
+    self.navigationItem.backBarButtonItem.tintColor = [[UIColor alloc]initWithRed:70/255.0 green:24/255.0 blue:217/255.0 alpha:1];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -279,8 +278,7 @@
 }
 
 - (void)setUpNavigationBar {
-    NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Reset Password"];
-    self.navigationItem.titleView = navBarView;
+    self.title = @"";
 }
 #pragma mark UITextFieldDelegate methods
 

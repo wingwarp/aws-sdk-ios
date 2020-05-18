@@ -142,6 +142,7 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
     
     // set up username and password UI if user pools enabled
     [self setUpUserPoolsUI];
+    self.title = @"";
     
     envelopeImage.tintColor = UIColor.lightGrayColor;
     keyImage.tintColor = UIColor.lightGrayColor;
@@ -344,15 +345,12 @@ static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 }
 
 - (void)setUpNavigationController {
-    [self.navigationController setNavigationBarHidden:YES];
-//    UIImage *bgImage = [UIImage imageNamed:@"navbar_bg"];
-//    [self.navigationController.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
-//    self.navigationItem.title = @"";
-//    self.navigationController.navigationBar.tintColor = UIColor.whiteColor;
-//
-//    NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Sign In"];
-//    self.navigationItem.titleView = navBarView;
-//    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    [self.navigationItem setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Sign In" style:UIBarButtonItemStylePlain target:nil action:nil]];
+    self.navigationItem.backBarButtonItem.tintColor = [[UIColor alloc]initWithRed:70/255.0 green:24/255.0 blue:217/255.0 alpha:1];
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
 }
 
 - (void)barButtonClosePressed {
