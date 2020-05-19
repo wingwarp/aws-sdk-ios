@@ -45,7 +45,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-aws-big" translatesAutoresizingMaskIntoConstraints="NO" id="XyS-xE-YtR">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fc_logo" translatesAutoresizingMaskIntoConstraints="NO" id="XyS-xE-YtR">
                                 <rect key="frame" x="163.5" y="10" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="P5j-bq-Cmu"/>
@@ -274,7 +274,7 @@
                                     <action selector="onSignUpClicked:" destination="tBM-jZ-I7y" eventType="touchUpInside" id="CIF-Sp-AWE"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-aws-big" translatesAutoresizingMaskIntoConstraints="NO" id="TNY-rr-z4J">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fc_logo" translatesAutoresizingMaskIntoConstraints="NO" id="TNY-rr-z4J">
                                 <rect key="frame" x="163.5" y="10" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="gSg-hG-Q4J"/>
@@ -521,7 +521,7 @@
                                     <action selector="onResendConfirmationCode:" destination="oYn-kQ-Tog" eventType="touchUpInside" id="PzT-yY-pgi"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-aws-big" translatesAutoresizingMaskIntoConstraints="NO" id="mYB-sW-Ns3">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fc_logo" translatesAutoresizingMaskIntoConstraints="NO" id="mYB-sW-Ns3">
                                 <rect key="frame" x="163.5" y="10" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="AGc-bN-E20"/>
@@ -793,7 +793,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-aws-big" translatesAutoresizingMaskIntoConstraints="NO" id="QMi-kc-d8F">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fc_logo" translatesAutoresizingMaskIntoConstraints="NO" id="QMi-kc-d8F">
                                 <rect key="frame" x="163.5" y="10" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="2Gn-y6-VOy"/>
@@ -1128,8 +1128,8 @@
     <resources>
         <image name="envelopeImage" width="21" height="21"/>
         <image name="eyeImage" width="21" height="21"/>
+        <image name="fc_logo" width="512" height="533"/>
         <image name="keyImage" width="21" height="21"/>
         <image name="lockImage" width="32" height="32"/>
-        <image name="logo-aws-big" width="181" height="203"/>
     </resources>
 </document>
