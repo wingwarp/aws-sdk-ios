@@ -46,6 +46,29 @@
                BlueprintName = "AWSS3Tests"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "AWSS3TransferUtilityTests/testMultiPartUploadLargeFileWithCustomMetaData()">
+               </Test>
+               <Test
+                  Identifier = "AWSS3TransferUtilityTests/testReRegisterTransferUtility()">
+               </Test>
+               <Test
+                  Identifier = "AWSS3TransferUtilityTests/testSuspendResumeLargeFileUpload()">
+               </Test>
+               <Test
+                  Identifier = "AWSS3TransferUtilityTests/testSuspendResumeMultipartUpload()">
+               </Test>
+               <Test
+                  Identifier = "AWSS3TransferUtilityTests/testSuspendResumeMultipartUploadLongDelay()">
+               </Test>
+               <Test
+                  Identifier = "AWSS3TransferUtilityTests/testSuspendResumeUploadAndDownloadLargeData()">
+               </Test>
+               <Test
+                  Identifier = "AWSS3TransferUtilityTests/testSuspendResumeUploadAndDownloadLargeDataLongDelay()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "NO">

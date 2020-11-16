@@ -18,9 +18,10 @@ import AWSS3
 
 var testData = Data()
 var generalTestBucket = ""
-var transferAccelerationBucket = "ios-v2-s3-transfer-acceleration"
 
 class AWSS3TransferUtilityTests: XCTestCase {
+    static var region: AWSRegionType!
+    static var transferAccelerationBucket: String!
 
     override class func setUp() {
         super.setUp()
@@ -29,10 +30,14 @@ class AWSS3TransferUtilityTests: XCTestCase {
         AWSDDLog.sharedInstance.logLevel = .debug
         AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
         
-        AWSTestUtility.setupCognitoCredentialsProvider()
+        AWSTestUtility.setupSessionCredentialsProvider()
+
+        region = AWSTestUtility.getRegionFromTestConfiguration()
+        transferAccelerationBucket = AWSTestUtility.getIntegrationTestConfigurationValue(forPackageId: "s3",
+                                                                                         configKey: "bucket_name_transfer_acceleration")
 
         let serviceConfiguration = AWSServiceConfiguration(
-            region: .EUWest1,
+            region: region,
             credentialsProvider: AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider
         )
 
@@ -79,7 +84,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         )
         
         let invalidStaticCredentialProvider = AWSStaticCredentialsProvider(accessKey: "Invalid", secretKey: "AlsoInvalid")
-        let invalidServiceConfig = AWSServiceConfiguration(region: .USEast1, credentialsProvider: invalidStaticCredentialProvider)
+        let invalidServiceConfig = AWSServiceConfiguration(region: region, credentialsProvider: invalidStaticCredentialProvider)
         AWSS3TransferUtility.register(with: invalidServiceConfig!, forKey: "invalid")
         
         
@@ -90,8 +95,10 @@ class AWSS3TransferUtilityTests: XCTestCase {
         testData = dataString.data(using: String.Encoding.utf8)!
         
         let timeInterval = (Int)((Date.timeIntervalSinceReferenceDate * 1000).rounded())
-        generalTestBucket = "s3-integ-transferutil-test-\(timeInterval)"
-        AWSS3TestHelper.createBucket(withName: generalTestBucket, andRegion: AWSRegionType.USEast1)
+        let bucketNamePrefix = AWSTestUtility.getIntegrationTestConfigurationValue(forPackageId: "s3",
+                                                                                   configKey: "bucket_name_prefix")!
+        generalTestBucket = "\(bucketNamePrefix)-\(timeInterval)"
+        AWSS3TestHelper.createBucket(withName: generalTestBucket, andRegion: region)
     }
 
     override func setUp() {
@@ -121,9 +128,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         uploadExpression.setValue("AES256", forRequestHeader: "x-amz-server-side-encryption-customer-algorithm")
         uploadExpression.setValue(password, forRequestHeader: "x-amz-server-side-encryption-customer-key")
         uploadExpression.setValue(passwordMD5, forRequestHeader: "x-amz-server-side-encryption-customer-key-MD5")
-        uploadExpression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        uploadExpression.progressBlock = { _, _ in }
         
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
             XCTAssertNil(error)
@@ -199,9 +204,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         uploadExpression.setValue(password, forRequestHeader: "x-amz-server-side-encryption-customer-key")
         uploadExpression.setValue(passwordMD5, forRequestHeader: "x-amz-server-side-encryption-customer-key-MD5")
         
-        uploadExpression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        uploadExpression.progressBlock = { _, _ in }
         
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
             XCTAssertNil(error)
@@ -275,9 +278,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         uploadExpression.setValue("AES256", forRequestHeader: "x-amz-server-side-encryption-customer-algorithm")
         uploadExpression.setValue(password, forRequestHeader: "x-amz-server-side-encryption-customer-key")
         uploadExpression.setValue(passwordMD5, forRequestHeader: "x-amz-server-side-encryption-customer-key-MD5")
-        uploadExpression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        uploadExpression.progressBlock = { _, _ in }
         
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
             XCTAssertNil(error)
@@ -373,9 +374,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         uploadExpression.setValue("AES256", forRequestHeader: "x-amz-server-side-encryption-customer-algorithm")
         uploadExpression.setValue(password, forRequestHeader: "x-amz-server-side-encryption-customer-key")
         uploadExpression.setValue(passwordMD5, forRequestHeader: "x-amz-server-side-encryption-customer-key-MD5")
-        uploadExpression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        uploadExpression.progressBlock = { _, _ in }
         
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
             XCTAssertNil(error)
@@ -456,9 +455,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         uploadExpression.setValue("AES256", forRequestHeader: "x-amz-server-side-encryption-customer-algorithm")
         uploadExpression.setValue(password, forRequestHeader: "x-amz-server-side-encryption-customer-key")
         uploadExpression.setValue(passwordMD5, forRequestHeader: "x-amz-server-side-encryption-customer-key-MD5")
-        uploadExpression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        uploadExpression.progressBlock = { _, _ in }
         
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
             XCTAssertNil(error)
@@ -611,7 +608,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 }
 
                 transferUtility?.downloadData(
-                    fromBucket: transferAccelerationBucket,
+                    fromBucket: AWSS3TransferUtilityTests.transferAccelerationBucket,
                     key: "test-swift-upload",
                     expression: downloadExpression,
                     completionHandler: downloadCompletionHandler).continueWith (block: { (task) -> AnyObject? in
@@ -625,7 +622,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
 
         transferUtility?.uploadData(
             testData,
-            bucket: transferAccelerationBucket,
+            bucket: AWSS3TransferUtilityTests.transferAccelerationBucket,
             key: "test-swift-upload",
             contentType: "application/octet-stream",
             expression: uploadExpression,
@@ -755,9 +752,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let expression = AWSS3TransferUtilityUploadExpression()
         expression.setValue(author, forRequestHeader: "x-amz-meta-author");
         expression.setValue(uuid, forRequestHeader: "x-amz-meta-id");
-        expression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        expression.progressBlock = { _, _ in }
         
         //Create Completion Handler
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
@@ -822,9 +817,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let expression = AWSS3TransferUtilityUploadExpression()
         expression.setValue(author, forRequestHeader: "x-amz-meta-author")
         expression.setValue(uuid, forRequestHeader: "x-amz-meta-id")
-        expression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        expression.progressBlock = { _, _ in }
         
         //Create Completion Handler
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
@@ -883,9 +876,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         FileManager.default.createFile(atPath: filePath, contents: testData.data(using: .utf8), attributes: nil)
         
         let expression = AWSS3TransferUtilityUploadExpression()
-        expression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        expression.progressBlock = { _, _ in }
         
         //Create Completion Handler
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
@@ -930,9 +921,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let expression = AWSS3TransferUtilityUploadExpression()
         expression.setValue(author, forRequestHeader: "x-amz-meta-author");
         expression.setValue(uuid, forRequestHeader: "x-amz-meta-id");
-        expression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        expression.progressBlock = { _, _ in }
         
         //Create Completion Handler
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
@@ -1006,9 +995,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let expression = AWSS3TransferUtilityUploadExpression()
         expression.setValue(author, forRequestHeader: "x-amz-meta-author");
         expression.setValue(uuid, forRequestHeader: "x-amz-meta-id");
-        expression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        expression.progressBlock = { _, _ in }
         
         //Create Completion Handler
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
@@ -1080,9 +1067,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let author:(String) = "integration test"
         expression.setValue(author, forRequestHeader: "x-amz-meta-author");
         expression.setValue(uuid, forRequestHeader: "x-amz-meta-id");
-        expression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        expression.progressBlock = { _, _ in }
         
         //Create Completion Handler
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
@@ -1140,9 +1125,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let author:(String) = "integration test"
         expression.setValue(author, forRequestHeader: "x-amz-meta-author");
         expression.setValue(uuid, forRequestHeader: "x-amz-meta-id");
-        expression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        expression.progressBlock = { _, _ in }
         
         //Create Completion Handler
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
@@ -1583,23 +1566,97 @@ class AWSS3TransferUtilityTests: XCTestCase {
         var refUploadTask: AWSS3TransferUtilityMultiPartUploadTask?
 
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry")
-        XCTAssertNotNil(transferUtility)
-        transferUtility?.uploadUsingMultiPart(fileURL:  fileURL, bucket: generalTestBucket,
-                                   key: "testCancelMultipartUpload.txt",
-                                   contentType: "text/plain",
-                                   expression: expression,
-                                   completionHandler: nil)
-            .continueWith { (task: AWSTask<AWSS3TransferUtilityMultiPartUploadTask>) -> Any? in
-                XCTAssertNil(task.error)
-                XCTAssertNotNil(task.result)
-                refUploadTask = task.result
-                return nil;
-            }
-       sleep(2)
-        refUploadTask?.cancel()
-        XCTAssertEqual(refUploadTask?.status, AWSS3TransferUtilityTransferStatusType.cancelled)
 
+        let taskCancelled = expectation(description: "Task has been cancelled")
+
+        transferUtility?.uploadUsingMultiPart(
+            fileURL: fileURL,
+            bucket: generalTestBucket,
+            key: "testCancelMultipartUpload.txt",
+            contentType: "text/plain",
+            expression: expression,
+            completionHandler: nil
+        ).continueWith { (task: AWSTask<AWSS3TransferUtilityMultiPartUploadTask>) -> Any? in
+            XCTAssertNil(task.error)
+            XCTAssertNotNil(task.result)
+            refUploadTask = task.result
+
+            DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) {
+                refUploadTask?.cancel()
+                taskCancelled.fulfill()
+            }
+
+            return nil;
+        }
+
+        wait(for: [taskCancelled], timeout: 10.0)
+
+        XCTAssertEqual(refUploadTask?.status, AWSS3TransferUtilityTransferStatusType.cancelled)
     }
+
+    /// - Given: A registered TransferUtility with an in-process upload
+    /// - When: I remove the registered TransferUtility
+    /// - Then: The NSURLSession with which the TU instance is associated should be invalidated, and TransferUtility
+    ///         should publish a notification to that effect
+    func testRemovingTransferUtilityInvalidatesSession() {
+        // Register this before creating the transfer utility so we're comfortable that the expectation will receive
+        // all "DidBecomeInvalid" notifications
+        let sessionInvalidationExpectation = XCTNSNotificationExpectation(
+            name: .AWSS3TransferUtilityURLSessionDidBecomeInvalid,
+            object: nil,
+            notificationCenter: NotificationCenter.default
+        )
+
+        // setup a custom transfer utility that will be registered then removed
+        let serviceConfiguration = AWSServiceManager.default().defaultServiceConfiguration
+        let transferUtilityConfiguration = AWSS3TransferUtilityConfiguration()
+        transferUtilityConfiguration.isAccelerateModeEnabled = false
+        transferUtilityConfiguration.retryLimit = 10
+        transferUtilityConfiguration.multiPartConcurrencyLimit = 6
+        transferUtilityConfiguration.timeoutIntervalForResource = 15*60 //15 minutes
+
+        AWSS3TransferUtility.register(
+            with: serviceConfiguration!,
+            transferUtilityConfiguration: transferUtilityConfiguration,
+            forKey: "to-remove"
+        )
+
+        //Create a large temp file;
+        let filePath = NSTemporaryDirectory() + "testCancelMultipartUpload.tmp"
+        var testData = "CancelT"
+        for _ in 1...12 {
+            testData = testData + testData;
+        }
+        let fileURL = URL(fileURLWithPath: filePath)
+        FileManager.default.createFile(atPath: filePath, contents: testData.data(using: .utf8), attributes: nil)
+
+        let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "to-remove")!
+
+        // Cancel as soon as we get any progress
+        var hasBeenRemoved = false
+        let expression = AWSS3TransferUtilityMultiPartUploadExpression()
+        expression.progressBlock = { _, _ in
+            if hasBeenRemoved {
+                return
+            }
+            hasBeenRemoved = true
+            AWSS3TransferUtility.remove(forKey: "to-remove")
+        }
+        
+        transferUtility.uploadUsingMultiPart(
+            fileURL:  fileURL,
+            bucket: generalTestBucket,
+            key: "testCancelMultipartUpload.txt",
+            contentType: "text/plain",
+            expression: expression,
+            completionHandler: nil
+        )
+
+        // This needs to wait for the multipart sections to be created, as well as for the transfer to start. Give it
+        // enough time to account for variations in runtime environment.
+        wait(for: [sessionInvalidationExpectation], timeout: 60)
+    }
+
     
     func testSuspendResumeMultipartUpload() {
         //Create a large temp file;
@@ -1708,9 +1765,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let author:(String) = "integration test"
         expression.setValue(author, forRequestHeader: "x-amz-meta-author")
         expression.setValue(uuid, forRequestHeader: "x-amz-meta-id")
-        expression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        expression.progressBlock = { _, _ in }
         
         //Create Completion Handler
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityMultiPartUploadTask, error: Error?) -> Void in
@@ -1773,6 +1828,8 @@ class AWSS3TransferUtilityTests: XCTestCase {
     }
     
     func testMultiPartUploadTransferAcceleration() {
+        continueAfterFailure = false
+
         //Create a large temp file;
         let filePath = NSTemporaryDirectory() + "testMultiPartUploadTransferAcceleration.tmp"
         var testData = "Test1234"
@@ -1781,6 +1838,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         let fileURL = URL(fileURLWithPath: filePath)
         FileManager.default.createFile(atPath: filePath, contents: testData.data(using: .utf8), attributes: nil)
+
         var calculatedHash:(String) = ""
         if let digestData = sha256(url: fileURL) {
             calculatedHash = digestData.map { String(format: "%02hhx", $0) }.joined()
@@ -1788,35 +1846,36 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "transfer-acceleration")
         XCTAssertNotNil(transferUtility)
-        let expectation = self.expectation(description: "The completion handler called.")
+
+        let completionHandlerInvoked = expectation(description: "The completion handler was invoked")
         
         //Create Completion Handler
-        let uploadCompletionHandler = { (task: AWSS3TransferUtilityMultiPartUploadTask, error: Error?) -> Void in
+        let uploadCompletionHandler: AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock = { task, error in
             XCTAssertNil(error)
             XCTAssertEqual(task.status, AWSS3TransferUtilityTransferStatusType.completed)
             self.verifyContent(tu: transferUtility!,
-                               bucket: transferAccelerationBucket,
+                               bucket: AWSS3TransferUtilityTests.transferAccelerationBucket,
                                key: "testMultiPartUploadTransferAcceleration.txt",
                                hash: calculatedHash)
-            expectation.fulfill()
+            completionHandlerInvoked.fulfill()
         }
         
         let expression = AWSS3TransferUtilityMultiPartUploadExpression()
-        expression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        expression.progressBlock = { _, _ in }
         
-       
-        transferUtility?.uploadUsingMultiPart(fileURL:fileURL, bucket: transferAccelerationBucket,
-                                   key: "testMultiPartUploadTransferAcceleration.txt",
-                                   contentType: "text/plain",
-                                   expression: expression,
-                                   completionHandler: uploadCompletionHandler)
-            .continueWith { (task: AWSTask<AWSS3TransferUtilityMultiPartUploadTask>) -> Any? in
-                XCTAssertNil(task.error)
-                XCTAssertNotNil(task.result)
-                return nil
-            }.waitUntilFinished()
+        transferUtility?.uploadUsingMultiPart(
+            fileURL:fileURL,
+            bucket: AWSS3TransferUtilityTests.transferAccelerationBucket,
+            key: "testMultiPartUploadTransferAcceleration.txt",
+            contentType: "text/plain",
+            expression: expression,
+            completionHandler: uploadCompletionHandler
+        )
+        .continueWith { (task: AWSTask<AWSS3TransferUtilityMultiPartUploadTask>) -> Any? in
+            XCTAssertNil(task.error)
+            XCTAssertNotNil(task.result)
+            return nil
+        }.waitUntilFinished()
         
         waitForExpectations(timeout: 120) { (error) in
             XCTAssertNil(error)
@@ -1845,9 +1904,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         uploadExpression.setValue("36uk2Tu", forRequestHeader: "x-amz-meta-upload_id")
         uploadExpression.setValue("The token", forRequestHeader: "x-amz-meta-user_token")
         
-        uploadExpression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        uploadExpression.progressBlock = { _, _ in }
         
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
             XCTAssertNil(error)
@@ -1935,9 +1992,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         expression.setValue("AES256", forRequestHeader: "x-amz-server-side-encryption")
         expression.setValue("attachment", forRequestHeader: "Content-Disposition");
         print(expression.requestHeaders)
-        expression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        expression.progressBlock = { _, _ in }
         
         //Create Completion Handler
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityMultiPartUploadTask, error: Error?) -> Void in
@@ -1995,9 +2050,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let transferUtility = AWSS3TransferUtility.default()
         let uploadExpression = AWSS3TransferUtilityUploadExpression()
         
-        uploadExpression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        uploadExpression.progressBlock = { _, _ in }
         
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
         
@@ -2206,9 +2259,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let transferUtility = AWSS3TransferUtility.default()
         let uploadExpression = AWSS3TransferUtilityUploadExpression()
         
-        uploadExpression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        uploadExpression.progressBlock = { _, _ in }
         
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
             
@@ -2299,9 +2350,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         XCTAssertNotNil(transferUtility)
         let uploadExpression = AWSS3TransferUtilityUploadExpression()
         
-        uploadExpression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        uploadExpression.progressBlock = { _, _ in }
         
         
         var testData = "Test123456789"
@@ -2402,9 +2451,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let expression = AWSS3TransferUtilityUploadExpression()
         expression.setValue(author, forRequestHeader: "x-amz-meta-author");
         expression.setValue(uuid, forRequestHeader: "x-amz-meta-id");
-        expression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        expression.progressBlock = { _, _ in }
         
         //Create Completion Handler
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
@@ -2439,7 +2486,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
     
     func testTransferUtilityCompletionHandler() {
         let serviceConfiguration = AWSServiceConfiguration(
-            region: .EUWest1,
+            region: AWSS3TransferUtilityTests.region,
             credentialsProvider: AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider
         )
         
@@ -2485,7 +2532,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let downloadsCompleted = self.expectation(description: "Downloads completed")
         
         let serviceConfiguration = AWSServiceConfiguration(
-            region: .USEast1,
+            region: AWSS3TransferUtilityTests.region,
             credentialsProvider: AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider
         )
         
@@ -2501,9 +2548,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         XCTAssertNotNil(transferUtility)
         let uploadExpression = AWSS3TransferUtilityUploadExpression()
         
-        uploadExpression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        uploadExpression.progressBlock = { _, _ in }
         
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
             XCTAssertNil(error)
@@ -2516,9 +2561,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         
         let multiPartUploadExpression = AWSS3TransferUtilityMultiPartUploadExpression()
-        multiPartUploadExpression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        multiPartUploadExpression.progressBlock = { _, _ in }
       
         let multiPartUploadCompletionHandler = { (task: AWSS3TransferUtilityMultiPartUploadTask, error: Error?) -> Void in
             XCTAssertNil(error)
@@ -2530,9 +2573,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         
         let downloadExpression = AWSS3TransferUtilityDownloadExpression()
-        downloadExpression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        downloadExpression.progressBlock = { _, _ in }
         
         let downloadCompletionHandler = { (task: AWSS3TransferUtilityDownloadTask, URL: Foundation.URL?, data: Data?, error: Error?) in
             XCTAssertNil(error)
@@ -2626,7 +2667,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         //Register the TU
         let serviceConfiguration = AWSServiceConfiguration(
-            region: .USEast1,
+            region: AWSS3TransferUtilityTests.region,
             credentialsProvider: AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider
         )
         
@@ -2643,9 +2684,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         XCTAssertNotNil(transferUtility)
         let uploadExpression = AWSS3TransferUtilityUploadExpression()
         
-        uploadExpression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        uploadExpression.progressBlock = { _, _ in }
         
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
             XCTAssertNil(error)
@@ -2658,9 +2697,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         
         let multiPartUploadExpression = AWSS3TransferUtilityMultiPartUploadExpression()
-        multiPartUploadExpression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        multiPartUploadExpression.progressBlock = { _, _ in }
         
         let multiPartUploadCompletionHandler = { (task: AWSS3TransferUtilityMultiPartUploadTask, error: Error?) -> Void in
             XCTAssertNil(error)
@@ -2672,9 +2709,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         
         let downloadExpression = AWSS3TransferUtilityDownloadExpression()
-        downloadExpression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
+        downloadExpression.progressBlock = { _, _ in }
         
         let downloadCompletionHandler = { (task: AWSS3TransferUtilityDownloadTask, URL: Foundation.URL?, data: Data?, error: Error?) in
             XCTAssertNil(error)

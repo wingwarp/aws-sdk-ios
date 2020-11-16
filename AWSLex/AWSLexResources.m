@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -198,6 +198,12 @@
     },\
     \"BotAlias\":{\"type\":\"string\"},\
     \"BotName\":{\"type\":\"string\"},\
+    \"BotVersion\":{\
+      \"type\":\"string\",\
+      \"max\":64,\
+      \"min\":1,\
+      \"pattern\":\"[0-9]+|\\\\$LATEST\"\
+    },\
     \"Button\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -361,6 +367,7 @@
         \"Failed\"\
       ]\
     },\
+    \"Double\":{\"type\":\"double\"},\
     \"ErrorMessage\":{\"type\":\"string\"},\
     \"FulfillmentState\":{\
       \"type\":\"string\",\
@@ -452,6 +459,21 @@
       }\
     },\
     \"HttpContentType\":{\"type\":\"string\"},\
+    \"IntentConfidence\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"score\":{\
+          \"shape\":\"Double\",\
+          \"documentation\":\"<p>A score that indicates how confident Amazon Lex is that an intent satisfies the user's intent. Ranges between 0.00 and 1.00. Higher scores indicate higher confidence.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Provides a score that indicates the confidence that Amazon Lex has that an intent is the one that satisfies the user's intent.</p>\"\
+    },\
+    \"IntentList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"PredictedIntent\"},\
+      \"max\":4\
+    },\
     \"IntentName\":{\"type\":\"string\"},\
     \"IntentSummary\":{\
       \"type\":\"structure\",\
@@ -636,6 +658,20 @@
           \"location\":\"header\",\
           \"locationName\":\"x-amz-lex-intent-name\"\
         },\
+        \"nluIntentConfidence\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Provides a score that indicates how confident Amazon Lex is that the returned intent is the one that matches the user's intent. The score is between 0.0 and 1.0.</p> <p>The score is a relative score, not an absolute score. The score may change based on improvements to the Amazon Lex NLU.</p>\",\
+          \"jsonvalue\":true,\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-lex-nlu-intent-confidence\"\
+        },\
+        \"alternativeIntents\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>One to four alternative intents that may be applicable to the user's intent.</p> <p>Each alternative includes a score that indicates how confident Amazon Lex is that the intent matches the user's intent. The intents are sorted by the confidence score.</p>\",\
+          \"jsonvalue\":true,\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-lex-alternative-intents\"\
+        },\
         \"slots\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>Map of zero or more intent slots (name/value pairs) Amazon Lex detected from the user input during the conversation. The field is base-64 encoded.</p> <p>Amazon Lex creates a resolution list containing likely values for a slot. The value that it returns is determined by the <code>valueSelectionStrategy</code> selected when the slot type was created or updated. If <code>valueSelectionStrategy</code> is set to <code>ORIGINAL_VALUE</code>, the value provided by the user is returned, if the user value is similar to the slot values. If <code>valueSelectionStrategy</code> is set to <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the resolution list or, if there is no resolution list, null. If you don't specify a <code>valueSelectionStrategy</code>, the default is <code>ORIGINAL_VALUE</code>.</p>\",\
@@ -649,6 +685,12 @@
           \"jsonvalue\":true,\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-lex-session-attributes\"\
+        },\
+        \"sentimentResponse\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The sentiment expressed in an utterance.</p> <p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis, this field contains the result of the analysis.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-lex-sentiment\"\
         },\
         \"message\":{\
           \"shape\":\"Text\",\
@@ -683,6 +725,18 @@
         \"audioStream\":{\
           \"shape\":\"BlobStream\",\
           \"documentation\":\"<p>The prompt (or statement) to convey to the user. This is based on the bot configuration and context. For example, if Amazon Lex did not understand the user intent, it sends the <code>clarificationPrompt</code> configured for the bot. If the intent requires confirmation before taking the fulfillment action, it sends the <code>confirmationPrompt</code>. Another example: Suppose that the Lambda function successfully fulfilled the intent, and sent a message to convey to the user. Then Amazon Lex sends that message in the response. </p>\"\
+        },\
+        \"botVersion\":{\
+          \"shape\":\"BotVersion\",\
+          \"documentation\":\"<p>The version of the bot that responded to the conversation. You can use this information to help determine if one version of a bot is performing better than another version.</p> <p>If you have enabled the new natural language understanding (NLU) model, you can use this to determine if the improvement is due to changes to the bot or changes to the NLU.</p> <p>For more information about enabling the new NLU, see the <a href=\\\"https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements\\\">enableModelImprovements</a> parameter of the <code>PutBot</code> operation.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-lex-bot-version\"\
+        },\
+        \"sessionId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The unique identifier for the session.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-lex-session-id\"\
         }\
       },\
       \"payload\":\"audioStream\"\
@@ -735,6 +789,14 @@
           \"shape\":\"IntentName\",\
           \"documentation\":\"<p>The current user intent that Amazon Lex is aware of.</p>\"\
         },\
+        \"nluIntentConfidence\":{\
+          \"shape\":\"IntentConfidence\",\
+          \"documentation\":\"<p>Provides a score that indicates how confident Amazon Lex is that the returned intent is the one that matches the user's intent. The score is between 0.0 and 1.0. For more information, see <a href=\\\"https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html\\\">Confidence Scores</a>.</p> <p>The score is a relative score, not an absolute score. The score may change based on improvements to the Amazon Lex natural language understanding (NLU) model.</p>\"\
+        },\
+        \"alternativeIntents\":{\
+          \"shape\":\"IntentList\",\
+          \"documentation\":\"<p>One to four alternative intents that may be applicable to the user's intent.</p> <p>Each alternative includes a score that indicates how confident Amazon Lex is that the intent matches the user's intent. The intents are sorted by the confidence score.</p>\"\
+        },\
         \"slots\":{\
           \"shape\":\"StringMap\",\
           \"documentation\":\"<p> The intent slots that Amazon Lex detected from the user input in the conversation. </p> <p>Amazon Lex creates a resolution list containing likely values for a slot. The value that it returns is determined by the <code>valueSelectionStrategy</code> selected when the slot type was created or updated. If <code>valueSelectionStrategy</code> is set to <code>ORIGINAL_VALUE</code>, the value provided by the user is returned, if the user value is similar to the slot values. If <code>valueSelectionStrategy</code> is set to <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the resolution list or, if there is no resolution list, null. If you don't specify a <code>valueSelectionStrategy</code>, the default is <code>ORIGINAL_VALUE</code>.</p>\"\
@@ -746,6 +808,10 @@
         \"message\":{\
           \"shape\":\"Text\",\
           \"documentation\":\"<p>The message to convey to the user. The message can come from the bot's configuration or from a Lambda function.</p> <p>If the intent is not configured with a Lambda function, or if the Lambda function returned <code>Delegate</code> as the <code>dialogAction.type</code> its response, Amazon Lex decides on the next course of action and selects an appropriate message from the bot's configuration based on the current interaction context. For example, if Amazon Lex isn't able to understand user input, it uses a clarification prompt message.</p> <p>When you create an intent you can assign messages to groups. When messages are assigned to groups Amazon Lex returns one message from each group in the response. The message field is an escaped JSON string containing the messages. For more information about the structure of the JSON string returned, see <a>msg-prompts-formats</a>.</p> <p>If the Lambda function returns a message, Amazon Lex passes it to the client in its response.</p>\"\
+        },\
+        \"sentimentResponse\":{\
+          \"shape\":\"SentimentResponse\",\
+          \"documentation\":\"<p>The sentiment expressed in and utterance.</p> <p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis, this field contains the result of the analysis.</p>\"\
         },\
         \"messageFormat\":{\
           \"shape\":\"MessageFormatType\",\
@@ -762,8 +828,34 @@
         \"responseCard\":{\
           \"shape\":\"ResponseCard\",\
           \"documentation\":\"<p>Represents the options that the user has to respond to the current prompt. Response Card can come from the bot configuration (in the Amazon Lex console, choose the settings button next to a slot) or from a code hook (Lambda function). </p>\"\
+        },\
+        \"sessionId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>A unique identifier for the session.</p>\"\
+        },\
+        \"botVersion\":{\
+          \"shape\":\"BotVersion\",\
+          \"documentation\":\"<p>The version of the bot that responded to the conversation. You can use this information to help determine if one version of a bot is performing better than another version.</p> <p>If you have enabled the new natural language understanding (NLU) model, you can use this to determine if the improvement is due to changes to the bot or changes to the NLU.</p> <p>For more information about enabling the new NLU, see the <a href=\\\"https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements\\\">enableModelImprovements</a> parameter of the <code>PutBot</code> operation.</p>\"\
         }\
       }\
+    },\
+    \"PredictedIntent\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"intentName\":{\
+          \"shape\":\"IntentName\",\
+          \"documentation\":\"<p>The name of the intent that Amazon Lex suggests satisfies the user's intent.</p>\"\
+        },\
+        \"nluIntentConfidence\":{\
+          \"shape\":\"IntentConfidence\",\
+          \"documentation\":\"<p>Indicates how confident Amazon Lex is that an intent satisfies the user's intent.</p>\"\
+        },\
+        \"slots\":{\
+          \"shape\":\"StringMap\",\
+          \"documentation\":\"<p>The slot and slot values associated with the predicted intent.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>An intent that Amazon Lex suggests satisfies the user's intent. Includes the name of the intent, the confidence that Amazon Lex has that the user's intent is satisfied, and the slots defined for the intent.</p>\"\
     },\
     \"PutSessionRequest\":{\
       \"type\":\"structure\",\
@@ -904,6 +996,22 @@
       },\
       \"documentation\":\"<p>If you configure a response card when creating your bots, Amazon Lex substitutes the session attributes and slot values that are available, and then returns it. The response card can also come from a Lambda function ( <code>dialogCodeHook</code> and <code>fulfillmentActivity</code> on an intent).</p>\"\
     },\
+    \"SentimentLabel\":{\"type\":\"string\"},\
+    \"SentimentResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"sentimentLabel\":{\
+          \"shape\":\"SentimentLabel\",\
+          \"documentation\":\"<p>The inferred sentiment that Amazon Comprehend has the highest confidence in.</p>\"\
+        },\
+        \"sentimentScore\":{\
+          \"shape\":\"SentimentScore\",\
+          \"documentation\":\"<p>The likelihood that the sentiment was correctly inferred.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The sentiment expressed in an utterance.</p> <p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis, this field structure contains the result of the analysis.</p>\"\
+    },\
+    \"SentimentScore\":{\"type\":\"string\"},\
     \"String\":{\"type\":\"string\"},\
     \"StringMap\":{\
       \"type\":\"map\",\

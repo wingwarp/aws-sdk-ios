@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 #import "AWSIoTDataResources.h"
 
 static NSString *const AWSInfoIoTData = @"IoTData";
-NSString *const AWSIoTDataSDKVersion = @"2.12.1";
+NSString *const AWSIoTDataSDKVersion = @"2.19.1";
 
 
 @interface AWSIoTDataResponseSerializer : AWSJSONResponseSerializer
@@ -321,6 +321,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTDataGetThingShadowResponse *response, NSError *error))completionHandler {
     [[self getThingShadow:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDataGetThingShadowResponse *> * _Nonnull task) {
         AWSIoTDataGetThingShadowResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDataListNamedShadowsForThingResponse *> *)listNamedShadowsForThing:(AWSIoTDataListNamedShadowsForThingRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/api/things/shadow/ListNamedShadowsForThing/{thingName}"
+                  targetPrefix:@""
+                 operationName:@"ListNamedShadowsForThing"
+                   outputClass:[AWSIoTDataListNamedShadowsForThingResponse class]];
+}
+
+- (void)listNamedShadowsForThing:(AWSIoTDataListNamedShadowsForThingRequest *)request
+     completionHandler:(void (^)(AWSIoTDataListNamedShadowsForThingResponse *response, NSError *error))completionHandler {
+    [[self listNamedShadowsForThing:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDataListNamedShadowsForThingResponse *> * _Nonnull task) {
+        AWSIoTDataListNamedShadowsForThingResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

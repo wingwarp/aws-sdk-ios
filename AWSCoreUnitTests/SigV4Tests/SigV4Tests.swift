@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -43,7 +43,7 @@ class SigV4Tests: XCTestCase {
 
         let taskIsComplete = expectation(description: "Task is complete")
 
-        let presignedURL = AWSSignatureV4Signer.sigV4SignedURL(
+        _ = AWSSignatureV4Signer.sigV4SignedURL(
             with: originalRequest,
             credentialProvider: testCase.credentialsProvider,
             regionName: SigV4TestCredentials.regionName,
@@ -51,7 +51,7 @@ class SigV4Tests: XCTestCase {
             date: SigV4TestCredentials.testDate,
             expireDuration: SigV4TestCredentials.expiry,
             signBody: testCase.shouldSignBody,
-            signSessionToken: testCase.shouldSignSecurityToken)?.continueWith { task in
+            signSessionToken: testCase.shouldSignSecurityToken).continueWith { task in
                 defer {
                     taskIsComplete.fulfill()
                 }

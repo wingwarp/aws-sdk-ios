@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -20,6 +20,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 @implementation AWSLexButton
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"text" : @"text",
@@ -30,6 +34,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 @end
 
 @implementation AWSLexDeleteSessionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -43,6 +51,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 @implementation AWSLexDeleteSessionResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"botAlias" : @"botAlias",
@@ -55,6 +67,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 @end
 
 @implementation AWSLexDialogAction
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -165,6 +181,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 @implementation AWSLexGenericAttachment
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attachmentLinkUrl" : @"attachmentLinkUrl",
@@ -183,6 +203,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 @implementation AWSLexGetSessionRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"botAlias" : @"botAlias",
@@ -195,6 +219,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 @end
 
 @implementation AWSLexGetSessionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -215,7 +243,25 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 @end
 
+@implementation AWSLexIntentConfidence
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"score" : @"score",
+             };
+}
+
+@end
+
 @implementation AWSLexIntentSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -321,6 +367,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 @implementation AWSLexPostContentRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"accept" : @"accept",
@@ -338,16 +388,25 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 @implementation AWSLexPostContentResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"alternativeIntents" : @"alternativeIntents",
              @"audioStream" : @"audioStream",
+             @"botVersion" : @"botVersion",
              @"contentType" : @"contentType",
              @"dialogState" : @"dialogState",
              @"inputTranscript" : @"inputTranscript",
              @"intentName" : @"intentName",
              @"message" : @"message",
              @"messageFormat" : @"messageFormat",
+             @"nluIntentConfidence" : @"nluIntentConfidence",
+             @"sentimentResponse" : @"sentimentResponse",
              @"sessionAttributes" : @"sessionAttributes",
+             @"sessionId" : @"sessionId",
              @"slotToElicit" : @"slotToElicit",
              @"slots" : @"slots",
              };
@@ -429,6 +488,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 @implementation AWSLexPostTextRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"botAlias" : @"botAlias",
@@ -444,17 +507,30 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 @implementation AWSLexPostTextResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"alternativeIntents" : @"alternativeIntents",
+             @"botVersion" : @"botVersion",
              @"dialogState" : @"dialogState",
              @"intentName" : @"intentName",
              @"message" : @"message",
              @"messageFormat" : @"messageFormat",
+             @"nluIntentConfidence" : @"nluIntentConfidence",
              @"responseCard" : @"responseCard",
+             @"sentimentResponse" : @"sentimentResponse",
              @"sessionAttributes" : @"sessionAttributes",
+             @"sessionId" : @"sessionId",
              @"slotToElicit" : @"slotToElicit",
              @"slots" : @"slots",
              };
+}
+
++ (NSValueTransformer *)alternativeIntentsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLexPredictedIntent class]];
 }
 
 + (NSValueTransformer *)dialogStateJSONTransformer {
@@ -529,13 +605,45 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
     }];
 }
 
++ (NSValueTransformer *)nluIntentConfidenceJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLexIntentConfidence class]];
+}
+
 + (NSValueTransformer *)responseCardJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLexResponseCard class]];
+}
+
++ (NSValueTransformer *)sentimentResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLexSentimentResponse class]];
+}
+
+@end
+
+@implementation AWSLexPredictedIntent
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"intentName" : @"intentName",
+             @"nluIntentConfidence" : @"nluIntentConfidence",
+             @"slots" : @"slots",
+             };
+}
+
++ (NSValueTransformer *)nluIntentConfidenceJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLexIntentConfidence class]];
 }
 
 @end
 
 @implementation AWSLexPutSessionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -560,6 +668,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 @end
 
 @implementation AWSLexPutSessionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -652,6 +764,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 @implementation AWSLexResponseCard
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"contentType" : @"contentType",
@@ -678,6 +794,21 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 + (NSValueTransformer *)genericAttachmentsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLexGenericAttachment class]];
+}
+
+@end
+
+@implementation AWSLexSentimentResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"sentimentLabel" : @"sentimentLabel",
+             @"sentimentScore" : @"sentimentScore",
+             };
 }
 
 @end

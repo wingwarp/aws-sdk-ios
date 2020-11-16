@@ -36,22 +36,25 @@ public struct SessionToken {
                 return nil
             }
             let claims = tokenSplit[1]
+                .replacingOccurrences(of: "-", with: "+")
+                .replacingOccurrences(of: "_", with: "/")
             
             let paddedLength = claims.count + (4 - (claims.count % 4)) % 4
             //JWT is not padded with =, pad it if necessary
             let updatedClaims = claims.padding(toLength: paddedLength, withPad: "=", startingAt: 0)
-            let claimsData = Data.init(base64Encoded: updatedClaims, options: .ignoreUnknownCharacters)
-            
-            guard claimsData != nil else {
+            let encodedData = Data(base64Encoded: updatedClaims, options: .ignoreUnknownCharacters)
+
+            guard let claimsData = encodedData else {
                 print("Cannot get claims in `Data` form. Token is not valid base64 encoded string.")
                 return nil
             }
-            let jsonObject = try? JSONSerialization.jsonObject(with: claimsData!, options: [])
-            guard jsonObject != nil else {
+            
+            let jsonObject = try? JSONSerialization.jsonObject(with: claimsData, options: [])
+            guard let convertedDictionary = jsonObject as? [String: AnyObject] else {
                 print("Cannot get claims in `Data` form. Token is not valid JSON string.")
                 return nil
             }
-            return jsonObject as? [String: AnyObject]
+            return convertedDictionary
         }
     }
     
@@ -88,28 +91,17 @@ extension AWSMobileClient: AWSIdentityProviderManager {
         } else if federationProvider == .userPools {
             
             let userPoolsTokenTask: AWSTaskCompletionSource<NSDictionary> = AWSTaskCompletionSource.init()
-            self.getTokens { (tokens, error) in
-                if let tokens = tokens {
-                    dict[self.userPoolClient!.identityProviderName] = tokens.idToken!.tokenString!
-                    userPoolsTokenTask.set(result: dict as NSDictionary)
-                } else if let error = error {
-                    userPoolsTokenTask.set(error: error)
-                }
+            self.getTokens { [weak self] (tokens, error) in
+                self?.setLoginMap(using: tokens, and: error, to: userPoolsTokenTask)
             }
-            
             return userPoolsTokenTask.task
         } else if federationProvider == .oidcFederation {
             dict.addEntries(from: self.cachedLoginsMap)
         } else if federationProvider == .hostedUI {
             if !federationDisabled {
                 let hostedUITokenTask: AWSTaskCompletionSource<NSDictionary> = AWSTaskCompletionSource.init()
-                self.getTokens { (tokens, error) in
-                    if let tokens = tokens {
-                        dict[self.userPoolClient!.identityProviderName] = tokens.idToken!.tokenString!
-                        hostedUITokenTask.set(result: dict as NSDictionary)
-                    } else if let error = error {
-                        hostedUITokenTask.set(error: error)
-                    }
+                self.getTokens { [weak self] (tokens, error) in
+                    self?.setLoginMap(using: tokens, and: error, to: hostedUITokenTask)
                 }
                 return hostedUITokenTask.task
             }
@@ -117,6 +109,25 @@ extension AWSMobileClient: AWSIdentityProviderManager {
         }
         let task = AWSTask.init(result: dict as NSDictionary)
         return task
+    }
+    
+    func setLoginMap(using tokens: Tokens?, and error: Error?, to task: AWSTaskCompletionSource<NSDictionary>) {
+        
+        guard let tokens = tokens else {
+            let idTokenError = error != nil ? error! :
+                AWSMobileClientError.unknown(message: "Could not read the id token or error from the token response")
+            task.set(error: idTokenError)
+            return
+        }
+        guard let idToken = tokens.idToken, let tokenString = idToken.tokenString else {
+            let errorString = "Could not read the id token from the token response"
+            let error = AWSMobileClientError.idTokenNotIssued(message: errorString)
+            task.set(error: error)
+            return
+        }
+        let providerName = self.userPoolClient!.identityProviderName as NSString
+        let dict = NSDictionary(object: tokenString, forKey: providerName)
+        task.set(result: dict)
     }
 }
 
@@ -171,11 +182,15 @@ extension AWSMobileClient {
     /// - Parameters:
     ///   - username: username of the user.
     ///   - password: password of the user.
-    ///   - validationData: validation data for this sign in.
+    ///   - validationData: validation data for this sign in. Overrides any key-value pairs in `clientMetadata` when the
+    ///   same key exists in validation data.
+    ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
+    ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when result is available.
     public func signIn(username: String,
                        password: String,
                        validationData: [String: String]? = nil,
+                       clientMetaData: [String: String] = [:],
                        completionHandler: @escaping ((SignInResult?, Error?) -> Void)) {
         
         switch self.currentUserState {
@@ -211,6 +226,7 @@ extension AWSMobileClient {
             user!.getSession(username,
                              password: password,
                              validationData: validationAttributes,
+                             clientMetaData: clientMetaData,
                              isInitialCustomChallenge: isCustomAuth).continueWith { (task) -> Any? in
                 if let error = task.error {
                     self.invokeSignInCallback(signResult: nil, error: AWSMobileClientError.makeMobileClientError(from: error))
@@ -313,11 +329,14 @@ extension AWSMobileClient {
     ///   - password: password of the user
     ///   - userAttributes: user attributes which contain attributes like phone_number, email, etc.
     ///   - validationData: validation data for the user.
+    ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
+    ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when a sign up result is available.
     public func signUp(username: String,
                        password: String,
                        userAttributes: [String: String] = [:],
                        validationData: [String: String] = [:],
+                       clientMetaData: [String:String] = [:],
                        completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
         
         if (self.userPoolClient == nil) { completionHandler(nil, AWSMobileClientError.userPoolNotConfigured(message: "Cognito User Pools is not configured in `awsconfiguration.json`. Please add Cognito User Pools before using this API."))}
@@ -327,7 +346,8 @@ extension AWSMobileClient {
         
         self.userPoolClient?.signUp(username, password: password,
                                    userAttributes: userAttributesTransformed.count == 0 ? nil : userAttributesTransformed,
-                                   validationData: validationDataTransformed.count == 0 ? nil : validationDataTransformed).continueWith { (task) -> Any? in
+                                   validationData: validationDataTransformed.count == 0 ? nil : validationDataTransformed,
+                                   clientMetaData: clientMetaData).continueWith { (task) -> Any? in
             if let error = task.error {
                 completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let result = task.result {
@@ -338,7 +358,7 @@ extension AWSMobileClient {
                 } else {
                     confirmedStatus = .unconfirmed
                 }
-                
+
                 var codeDeliveryDetails: UserCodeDeliveryDetails? = nil
                 if let deliveryDetails = result.codeDeliveryDetails {
                     switch(deliveryDetails.deliveryMedium) {
@@ -347,6 +367,8 @@ extension AWSMobileClient {
                     case .sms:
                         codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .sms, destination: deliveryDetails.destination, attributeName: deliveryDetails.attributeName)
                     case .unknown:
+                        codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .unknown, destination: deliveryDetails.destination, attributeName: deliveryDetails.attributeName)
+                    @unknown default:
                         codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .unknown, destination: deliveryDetails.destination, attributeName: deliveryDetails.attributeName)
                     }
                 }
@@ -361,18 +383,32 @@ extension AWSMobileClient {
     /// - Parameters:
     ///   - username: username of the user.
     ///   - confirmationCode: confirmation code sent to the user.
+    ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
+    ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when a result is available.
-    public func confirmSignUp(username: String, confirmationCode: String, completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
+    public func confirmSignUp(username: String,
+                              confirmationCode: String,
+                              clientMetaData: [String:String] = [:],
+                              completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
         if let uname = self.userpoolOpsHelper.signUpUser?.username, uname == username {
-            confirmSignUp(user: self.userpoolOpsHelper.signUpUser!, confirmationCode: confirmationCode, completionHandler: completionHandler)
+            confirmSignUp(user: self.userpoolOpsHelper.signUpUser!,
+                          confirmationCode: confirmationCode,
+                          clientMetaData: clientMetaData,
+                          completionHandler: completionHandler)
         } else {
             let user = self.userPoolClient?.getUser(username)
-            confirmSignUp(user: user!, confirmationCode: confirmationCode, completionHandler: completionHandler)
+            confirmSignUp(user: user!,
+                          confirmationCode: confirmationCode,
+                          clientMetaData: clientMetaData,
+                          completionHandler: completionHandler)
         }
     }
     
-    internal func confirmSignUp(user: AWSCognitoIdentityUser, confirmationCode: String, completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
-        user.confirmSignUp(confirmationCode).continueWith { (task) -> Any? in
+    internal func confirmSignUp(user: AWSCognitoIdentityUser,
+                                confirmationCode: String,
+                                clientMetaData: [String:String] = [:],
+                                completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
+        user.confirmSignUp(confirmationCode, clientMetaData: clientMetaData).continueWith { (task) -> Any? in
             if let error = task.error {
                 completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let _ = task.result {
@@ -387,18 +423,24 @@ extension AWSMobileClient {
     ///
     /// - Parameters:
     ///   - username: username of the user who wants a new registration code.
+    ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
+    ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when a result is available.
-    public func resendSignUpCode(username: String, completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
+    public func resendSignUpCode(username: String,
+                                 clientMetaData: [String:String] = [:],
+                                 completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
         if let uname = self.userpoolOpsHelper.signUpUser?.username, uname == username {
-            resendSignUpCode(user: self.userpoolOpsHelper.signUpUser!, completionHandler: completionHandler)
+            resendSignUpCode(user: self.userpoolOpsHelper.signUpUser!, clientMetaData: clientMetaData, completionHandler: completionHandler)
         } else {
             let user = self.userPoolClient?.getUser(username)
-            resendSignUpCode(user: user!, completionHandler: completionHandler)
+            resendSignUpCode(user: user!, clientMetaData: clientMetaData, completionHandler: completionHandler)
         }
     }
     
-    internal func resendSignUpCode(user: AWSCognitoIdentityUser, completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
-        user.resendConfirmationCode().continueWith(block: { (task) -> Any? in
+    internal func resendSignUpCode(user: AWSCognitoIdentityUser,
+                                   clientMetaData: [String:String] = [:],
+                                   completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
+        user.resendConfirmationCode(clientMetaData).continueWith(block: { (task) -> Any? in
             if let error = task.error {
                 completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let result = task.result {
@@ -417,10 +459,14 @@ extension AWSMobileClient {
     ///
     /// - Parameters:
     ///   - username: username of the user who forgot the password.
+    ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
+    ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when result is available.
-    public func forgotPassword(username: String, completionHandler: @escaping ((ForgotPasswordResult?, Error?) -> Void)) {
+    public func forgotPassword(username: String,
+                               clientMetaData: [String:String] = [:],
+                               completionHandler: @escaping ((ForgotPasswordResult?, Error?) -> Void)) {
         let user = self.userPoolClient?.getUser(username)
-        user!.forgotPassword().continueWith { (task) -> Any? in
+        user!.forgotPassword(clientMetaData).continueWith { (task) -> Any? in
             if let error = task.error {
                 completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let result = task.result {
@@ -440,10 +486,16 @@ extension AWSMobileClient {
     ///   - username: username of the user who forgot the password
     ///   - newPassword: the new password which the user wants to set
     ///   - confirmationCode: the confirmation code sent to the user
+    ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
+    ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when a result is available.
-    public func confirmForgotPassword(username: String, newPassword: String, confirmationCode: String, completionHandler: @escaping ((ForgotPasswordResult?, Error?) -> Void)) {
+    public func confirmForgotPassword(username: String,
+                                      newPassword: String,
+                                      confirmationCode: String,
+                                      clientMetaData: [String:String] = [:],
+                                      completionHandler: @escaping ((ForgotPasswordResult?, Error?) -> Void)) {
         let user = self.userPoolClient?.getUser(username)
-        user!.confirmForgotPassword(confirmationCode, password: newPassword).continueWith { (task) -> Any? in
+        user!.confirmForgotPassword(confirmationCode, password: newPassword, clientMetaData: clientMetaData).continueWith { (task) -> Any? in
             if let error = task.error {
                 completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let _ = task.result {
@@ -512,13 +564,21 @@ extension AWSMobileClient {
         self.mobileClientStatusChanged(userState: .signedOut, additionalInfo: [:])
         self.federationProvider = .none
         self.credentialsFetchCancellationSource = AWSCancellationTokenSource()
+        self.clearHostedUIOptionsScopesFromKeychain()
     }
     
     internal func performUserPoolSignOut() {
         if let task = self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.task, !task.isCompleted {
-            self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in."))
+            let error = AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in.")
+            self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.set(error: error)
         }
         self.userpoolOpsHelper.passwordAuthTaskCompletionSource = nil
+
+        if let task = self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.task, !task.isCompleted {
+            let error = AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in.")
+            self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(error: error)
+        }
+        self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
         invokeSignInCallback(signResult: nil, error: AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in."))
         self.userPoolClient?.clearAll()
     }
@@ -570,21 +630,28 @@ extension AWSMobileClient {
     /// - Parameters:
     ///   - challengeResponse: confirmation code or TOTP token which is available to the user.
     ///   - userAttributes: user attributes required for the operation.
+    ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
+    ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when result is available.
     public func confirmSignIn(challengeResponse: String,
                               userAttributes: [String:String] = [:],
+                              clientMetaData: [String:String] = [:],
                               completionHandler: @escaping ((SignInResult?, Error?) -> Void)) {
         if (self.userpoolOpsHelper.mfaCodeCompletionSource != nil) {
             self.userpoolOpsHelper.currentConfirmSignInHandlerCallback = completionHandler
-            self.userpoolOpsHelper.mfaCodeCompletionSource?.set(result: challengeResponse as NSString)
+            let mfaDetails = AWSCognitoIdentityMfaCodeDetails.init(mfaCode: challengeResponse);
+            mfaDetails.clientMetaData = clientMetaData;
+            self.userpoolOpsHelper.mfaCodeCompletionSource?.set(result: mfaDetails)
         } else if (self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource != nil) {
             self.userpoolOpsHelper.currentConfirmSignInHandlerCallback = completionHandler
             let passwordDetails = AWSCognitoIdentityNewPasswordRequiredDetails.init(proposedPassword: challengeResponse,
                                                                                     userAttributes: userAttributes)
+            passwordDetails.clientMetaData = clientMetaData
             self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource?.set(result: passwordDetails)
         } else if (self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource != nil) {
             self.userpoolOpsHelper.currentConfirmSignInHandlerCallback = completionHandler
             let customAuthDetails = AWSCognitoIdentityCustomChallengeDetails.init(challengeResponses: ["ANSWER": challengeResponse])
+            customAuthDetails.clientMetaData = clientMetaData
             self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(result: customAuthDetails)
             self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
         }
@@ -609,7 +676,7 @@ extension AWSMobileClient {
             return nil
         }
     }
- 
+
     /// Fetches the `AWSCredentials` asynchronously.
     ///
     /// - Parameter completionHandler: completionHandler which would have `AWSCredentials` if successfully retrieved, else error.
@@ -641,11 +708,10 @@ extension AWSMobileClient {
                     } else if error._domain == AWSCognitoIdentityErrorDomain
                         && error._code == AWSCognitoIdentityErrorType.notAuthorized.rawValue
                         && self.federationProvider == .oidcFederation {
-                        
-                        self.mobileClientStatusChanged(userState: .signedOutFederatedTokensInvalid, additionalInfo: [self.ProviderKey:self.cachedLoginsMap.first!.key])
                         // store a reference to the completion handler which we would be calling later on.
                         self.pendingAWSCredentialsCompletion = completionHandler
                         
+                        self.mobileClientStatusChanged(userState: .signedOutFederatedTokensInvalid, additionalInfo: [self.ProviderKey:self.cachedLoginsMap.first!.key])
                     } else {
                         self.credentialsFetchLock.leave()
                         completionHandler(nil, error)
@@ -670,7 +736,8 @@ extension AWSMobileClient {
         if self.federationProvider == .userPools {
             self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: "Unable to get valid sign in session from the end user."))
             self.userpoolOpsHelper.passwordAuthTaskCompletionSource = nil
-            self.tokenFetchLock.leave()
+            self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: "Unable to get valid sign in session from the end user."))
+            self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
         } else if self.federationProvider == .hostedUI {
             self.pendingGetTokensCompletion?(nil, AWSMobileClientError.unableToSignIn(message: "Could not get valid token from the user."))
             self.pendingGetTokensCompletion = nil
@@ -693,7 +760,7 @@ extension AWSMobileClient {
         case .userPools, .hostedUI:
             break
         default:
-            completionHandler(nil, AWSMobileClientError.notSignedIn(message: "User is not signed in, please sign in to use this API."))
+            completionHandler(nil, AWSMobileClientError.notSignedIn(message: notSignedInErrorMessage))
             return
         }
         
@@ -701,15 +768,16 @@ extension AWSMobileClient {
             self.tokenFetchOperationQueue.addOperation {
                 self.tokenFetchLock.enter()
                 AWSCognitoAuth.init(forKey: self.CognitoAuthRegistrationKey).getSession({ (session, error) in
-                    if let error = error as? AWSCognitoAuthClientErrorType {
-                        if error == AWSCognitoAuthClientErrorType.errorExpiredRefreshToken {
-                            self.pendingGetTokensCompletion = completionHandler
-                            self.mobileClientStatusChanged(userState: .signedOutUserPoolsTokenInvalid, additionalInfo: [self.ProviderKey:"OAuth"])
-                            // return early without releasing the tokenFetch lock.
-                            return
-                        } else {
-                            completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
-                        }
+
+                    if let sessionError = error,
+                        (sessionError as NSError).domain == AWSCognitoAuthErrorDomain,
+                        let errorType = AWSCognitoAuthClientErrorType(rawValue: (sessionError as NSError).code),
+                        (errorType == .errorExpiredRefreshToken) {
+                        self.pendingGetTokensCompletion = completionHandler
+                        self.mobileClientStatusChanged(userState: .signedOutUserPoolsTokenInvalid,
+                                                       additionalInfo: [self.ProviderKey:"OAuth"])
+                        // return early without releasing the tokenFetch lock.
+                        return
                     } else if let session = session {
                         completionHandler(self.getTokensForCognitoAuthSession(session: session), nil)
                     } else {
@@ -746,7 +814,7 @@ extension AWSMobileClient {
             return
         }
     }
-    
+
     internal func userSessionToTokens(userSession: AWSCognitoIdentityUserSession) -> Tokens {
         var idToken: SessionToken?
         var accessToken: SessionToken?
@@ -767,54 +835,94 @@ extension AWSMobileClient {
 
 //MARK: Extension to hold user attribute operations
 extension AWSMobileClient {
-    
+
+    var notSignedInErrorMessage: String {
+        return "User is not signed in to Cognito User Pool, please sign in to use this API."
+    }
+
     /// Verify a user attribute like phone_number.
+    ///
+    /// This method is only valid for users signed in via UserPools (either directly or via HostedUI).
     ///
     /// - Parameters:
     ///   - attributeName: name of the attribute.
+    ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
+    ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when the result is avilable.
     public func verifyUserAttribute(attributeName: String,
+                                    clientMetaData: [String:String] = [:],
                                     completionHandler: @escaping ((UserCodeDeliveryDetails?, Error?) -> Void)) {
+        guard self.federationProvider == .userPools || self.federationProvider == .hostedUI else {
+            completionHandler(nil, AWSMobileClientError.notSignedIn(message: notSignedInErrorMessage))
+            return
+        }
         let userDetails = AWSMobileClientUserDetails(with: self.userpoolOpsHelper.currentActiveUser!)
-        userDetails.verifyUserAttribute(attributeName: attributeName, completionHandler: completionHandler)
+        userDetails.verifyUserAttribute(attributeName: attributeName, clientMetaData: clientMetaData, completionHandler: completionHandler)
     }
     
     /// Update the attributes for a user.
     ///
+    /// This method is only valid for users signed in via UserPools (either directly or via HostedUI).
+    ///
     /// - Parameters:
     ///   - attributeMap: the attribute map of the user.
+    ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
+    ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when the result is avilable.
     public func updateUserAttributes(attributeMap: [String: String],
+                                     clientMetaData: [String:String] = [:],
                                      completionHandler: @escaping (([UserCodeDeliveryDetails]?, Error?) -> Void)) {
+        guard self.federationProvider == .userPools || self.federationProvider == .hostedUI else {
+            completionHandler(nil, AWSMobileClientError.notSignedIn(message: notSignedInErrorMessage))
+            return
+        }
         let userDetails = AWSMobileClientUserDetails(with: self.userpoolOpsHelper.currentActiveUser!)
-        userDetails.updateUserAttributes(attributeMap: attributeMap, completionHandler: completionHandler)
+        userDetails.updateUserAttributes(attributeMap: attributeMap, clientMetaData: clientMetaData, completionHandler: completionHandler)
     }
     
     /// Fetches the attributes for logged in user.
     ///
+    /// This method is only valid for users signed in via UserPools (either directly or via HostedUI).
+    ///
     /// - Parameter completionHandler: completion handler which will be invoked when result is available.
     public func getUserAttributes(completionHandler: @escaping (([String: String]?, Error?) -> Void)) {
+        guard self.federationProvider == .userPools || self.federationProvider == .hostedUI else {
+            completionHandler(nil, AWSMobileClientError.notSignedIn(message: notSignedInErrorMessage))
+            return
+        }
         let userDetails = AWSMobileClientUserDetails(with: self.userpoolOpsHelper.currentActiveUser!)
         userDetails.getUserAttributes(completionHandler: completionHandler)
     }
     
     /// Confirm the updated attributes using a confirmation code.
     ///
+    /// This method is only valid for users signed in via UserPools (either directly or via HostedUI).
+    ///
     /// - Parameters:
     ///   - attributeName: the attribute to be confirmed.
     ///   - code: the code sent to the user.
     ///   - completionHandler: completionHandler which will be called when the result is avilable.
     public func confirmUpdateUserAttributes(attributeName: String, code: String, completionHandler: @escaping ((Error?) -> Void)) {
+        guard self.federationProvider == .userPools || self.federationProvider == .hostedUI else {
+            completionHandler(AWSMobileClientError.notSignedIn(message: notSignedInErrorMessage))
+            return
+        }
         self.confirmVerifyUserAttribute(attributeName: attributeName, code: code, completionHandler: completionHandler)
     }
     
     /// Confirm the attribute using a confirmation code.
+    ///
+    /// This method is only valid for users signed in via UserPools (either directly or via HostedUI).
     ///
     /// - Parameters:
     ///   - attributeName: the attribute to be verified.
     ///   - code: the code sent to the user.
     ///   - completionHandler: completionHandler which will be called when the result is avilable.
     public func confirmVerifyUserAttribute(attributeName: String, code: String, completionHandler: @escaping ((Error?) -> Void)) {
+        guard self.federationProvider == .userPools || self.federationProvider == .hostedUI else {
+            completionHandler(AWSMobileClientError.notSignedIn(message: notSignedInErrorMessage))
+            return
+        }
         let userDetails = AWSMobileClientUserDetails(with: self.userpoolOpsHelper.currentActiveUser!)
         userDetails.confirmVerifyUserAttribute(attributeName: attributeName,
                                                code: code,
@@ -840,7 +948,7 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
             return
         }
         if (self.federationProvider != .userPools) {
-            passwordAuthenticationCompletionSource.set(error: AWSMobileClientError.notSignedIn(message: "User is not signed in, please sign in to use this API."))
+            passwordAuthenticationCompletionSource.set(error: AWSMobileClientError.notSignedIn(message: notSignedInErrorMessage))
         }
         switch self.currentUserState {
         case .signedIn, .signedOutUserPoolsTokenInvalid:
@@ -870,22 +978,26 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
         }
     }
     
-    func getCustomAuthenticationDetails(_ customAuthentiationInput: AWSCognitoIdentityCustomAuthenticationInput,
+    func getCustomAuthenticationDetails(_ customAuthenticationInput: AWSCognitoIdentityCustomAuthenticationInput,
                                         customAuthCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails>) {
         
         self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = customAuthCompletionSource
         
         // getCustomAuthenticationDetails will be invoked in a signIn process or when the token expires.
-        // If this get invoked when the token expires, we first inform the listener that
-        // the user got signedOut.
-        if (self.currentUserState == .signedIn) {
+        // If this get invoked when the token expires, we first inform the listener that the user got signedOut. This
+        // delegate is called in token expiry if the user state is .signedIn or .signedOutUserPoolsTokenInvalid with
+        // customAuthenticationInput.challengeParameters empty
+        if ((self.currentUserState == .signedIn || self.currentUserState == .signedOutUserPoolsTokenInvalid) &&
+            customAuthenticationInput.challengeParameters.isEmpty) {
             let username = self.userPoolClient?.currentUser()?.username ?? ""
             self.mobileClientStatusChanged(userState: .signedOutUserPoolsTokenInvalid,
                                            additionalInfo: ["username": username])
         } else {
             // If user is not signedIn, we reach here as part of the signIn flow. Next step
             // is to inform the user to enter custom auth challenge.
-            let result = SignInResult(signInState: .customChallenge, codeDetails: nil)
+            let result = SignInResult(signInState: .customChallenge,
+                                      parameters: customAuthenticationInput.challengeParameters,
+                                      codeDetails: nil)
             invokeSignInCallback(signResult: result, error: nil)
         }
     }
@@ -895,8 +1007,9 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
             invokeSignInCallback(signResult: nil, error: AWSMobileClientError.makeMobileClientError(from: error))
         }
     }
-    
-    func getCode(_ authenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput, mfaCodeCompletionSource: AWSTaskCompletionSource<NSString>) {
+
+    func getCode(_ authenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput,
+                 mfaCodeCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityMfaCodeDetails>) {
         self.userpoolOpsHelper.mfaCodeCompletionSource = mfaCodeCompletionSource
         var codeDeliveryDetails: UserCodeDeliveryDetails? = nil
             switch(authenticationInput.deliveryMedium) {
@@ -906,7 +1019,9 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
                 codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .sms, destination: authenticationInput.destination, attributeName: "phone")
             case .unknown:
                 codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .unknown, destination: authenticationInput.destination, attributeName: "unknown")
-            }
+            @unknown default:
+                codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .unknown, destination: authenticationInput.destination, attributeName: "unknown")
+        }
         
         let result = SignInResult(signInState: .smsMFA, codeDetails: codeDeliveryDetails)
         invokeSignInCallback(signResult: result, error: nil)
@@ -945,6 +1060,18 @@ extension AWSMobileClient {
         self.signInURIQueryParameters = JSONHelper.dictionaryFromData(self.keychain.data(forKey: SignInURIQueryParametersKey))
         self.tokenURIQueryParameters = JSONHelper.dictionaryFromData(self.keychain.data(forKey: TokenURIQueryParametersKey))
         self.signOutURIQueryParameters = JSONHelper.dictionaryFromData(self.keychain.data(forKey: SignOutURIQueryParametersKey))
+    }
+    
+    internal func loadHostedUIScopesFromKeychain() {
+        self.scopes = JSONHelper.arrayFromData(self.keychain.data(forKey: HostedUIOptionsScopesKey))
+    }
+    
+    internal func saveHostedUIOptionsScopesInKeychain() {
+        self.keychain.setData(JSONHelper.dataFromArray(self.scopes), forKey: HostedUIOptionsScopesKey)
+    }
+    
+    internal func clearHostedUIOptionsScopesFromKeychain() {
+        self.keychain.removeItem(forKey: HostedUIOptionsScopesKey)
     }
     
     internal func saveLoginsMapInKeychain() {

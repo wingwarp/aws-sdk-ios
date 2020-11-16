@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -20,6 +20,10 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 @implementation AWSTranslateAppliedTerminology
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"name" : @"Name",
@@ -35,6 +39,10 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 @implementation AWSTranslateDeleteTerminologyRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"name" : @"Name",
@@ -43,7 +51,43 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 @end
 
+@implementation AWSTranslateDescribeTextTranslationJobRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"jobId" : @"JobId",
+             };
+}
+
+@end
+
+@implementation AWSTranslateDescribeTextTranslationJobResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"textTranslationJobProperties" : @"TextTranslationJobProperties",
+             };
+}
+
++ (NSValueTransformer *)textTranslationJobPropertiesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateTextTranslationJobProperties class]];
+}
+
+@end
+
 @implementation AWSTranslateEncryptionKey
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -71,6 +115,10 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 @end
 
 @implementation AWSTranslateGetTerminologyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -104,6 +152,10 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 @implementation AWSTranslateGetTerminologyResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"terminologyDataLocation" : @"TerminologyDataLocation",
@@ -122,6 +174,10 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 @end
 
 @implementation AWSTranslateImportTerminologyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -161,6 +217,10 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 @implementation AWSTranslateImportTerminologyResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"terminologyProperties" : @"TerminologyProperties",
@@ -173,7 +233,42 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 @end
 
+@implementation AWSTranslateInputDataConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contentType" : @"ContentType",
+             @"s3Uri" : @"S3Uri",
+             };
+}
+
+@end
+
+@implementation AWSTranslateJobDetails
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"documentsWithErrorsCount" : @"DocumentsWithErrorsCount",
+             @"inputDocumentsCount" : @"InputDocumentsCount",
+             @"translatedDocumentsCount" : @"TranslatedDocumentsCount",
+             };
+}
+
+@end
+
 @implementation AWSTranslateListTerminologiesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -185,6 +280,10 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 @end
 
 @implementation AWSTranslateListTerminologiesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -199,7 +298,229 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 @end
 
+@implementation AWSTranslateListTextTranslationJobsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"filter" : @"Filter",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)filterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateTextTranslationJobFilter class]];
+}
+
+@end
+
+@implementation AWSTranslateListTextTranslationJobsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"textTranslationJobPropertiesList" : @"TextTranslationJobPropertiesList",
+             };
+}
+
++ (NSValueTransformer *)textTranslationJobPropertiesListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranslateTextTranslationJobProperties class]];
+}
+
+@end
+
+@implementation AWSTranslateOutputDataConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"s3Uri" : @"S3Uri",
+             };
+}
+
+@end
+
+@implementation AWSTranslateStartTextTranslationJobRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientToken" : @"ClientToken",
+             @"dataAccessRoleArn" : @"DataAccessRoleArn",
+             @"inputDataConfig" : @"InputDataConfig",
+             @"jobName" : @"JobName",
+             @"outputDataConfig" : @"OutputDataConfig",
+             @"sourceLanguageCode" : @"SourceLanguageCode",
+             @"targetLanguageCodes" : @"TargetLanguageCodes",
+             @"terminologyNames" : @"TerminologyNames",
+             };
+}
+
++ (NSValueTransformer *)inputDataConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateInputDataConfig class]];
+}
+
++ (NSValueTransformer *)outputDataConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateOutputDataConfig class]];
+}
+
+@end
+
+@implementation AWSTranslateStartTextTranslationJobResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"jobId" : @"JobId",
+             @"jobStatus" : @"JobStatus",
+             };
+}
+
++ (NSValueTransformer *)jobStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"SUBMITTED"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusSubmitted);
+        }
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED_WITH_ERROR"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusCompletedWithError);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"STOP_REQUESTED"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusStopRequested);
+        }
+        if ([value caseInsensitiveCompare:@"STOPPED"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusStopped);
+        }
+        return @(AWSTranslateJobStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranslateJobStatusSubmitted:
+                return @"SUBMITTED";
+            case AWSTranslateJobStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSTranslateJobStatusCompleted:
+                return @"COMPLETED";
+            case AWSTranslateJobStatusCompletedWithError:
+                return @"COMPLETED_WITH_ERROR";
+            case AWSTranslateJobStatusFailed:
+                return @"FAILED";
+            case AWSTranslateJobStatusStopRequested:
+                return @"STOP_REQUESTED";
+            case AWSTranslateJobStatusStopped:
+                return @"STOPPED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSTranslateStopTextTranslationJobRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"jobId" : @"JobId",
+             };
+}
+
+@end
+
+@implementation AWSTranslateStopTextTranslationJobResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"jobId" : @"JobId",
+             @"jobStatus" : @"JobStatus",
+             };
+}
+
++ (NSValueTransformer *)jobStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"SUBMITTED"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusSubmitted);
+        }
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED_WITH_ERROR"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusCompletedWithError);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"STOP_REQUESTED"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusStopRequested);
+        }
+        if ([value caseInsensitiveCompare:@"STOPPED"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusStopped);
+        }
+        return @(AWSTranslateJobStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranslateJobStatusSubmitted:
+                return @"SUBMITTED";
+            case AWSTranslateJobStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSTranslateJobStatusCompleted:
+                return @"COMPLETED";
+            case AWSTranslateJobStatusCompletedWithError:
+                return @"COMPLETED_WITH_ERROR";
+            case AWSTranslateJobStatusFailed:
+                return @"FAILED";
+            case AWSTranslateJobStatusStopRequested:
+                return @"STOP_REQUESTED";
+            case AWSTranslateJobStatusStopped:
+                return @"STOPPED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSTranslateTerm
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -211,6 +532,10 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 @end
 
 @implementation AWSTranslateTerminologyData
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -244,6 +569,10 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 @implementation AWSTranslateTerminologyDataLocation
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"location" : @"Location",
@@ -254,6 +583,10 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 @end
 
 @implementation AWSTranslateTerminologyProperties
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -292,7 +625,190 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 @end
 
+@implementation AWSTranslateTextTranslationJobFilter
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"jobName" : @"JobName",
+             @"jobStatus" : @"JobStatus",
+             @"submittedAfterTime" : @"SubmittedAfterTime",
+             @"submittedBeforeTime" : @"SubmittedBeforeTime",
+             };
+}
+
++ (NSValueTransformer *)jobStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"SUBMITTED"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusSubmitted);
+        }
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED_WITH_ERROR"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusCompletedWithError);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"STOP_REQUESTED"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusStopRequested);
+        }
+        if ([value caseInsensitiveCompare:@"STOPPED"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusStopped);
+        }
+        return @(AWSTranslateJobStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranslateJobStatusSubmitted:
+                return @"SUBMITTED";
+            case AWSTranslateJobStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSTranslateJobStatusCompleted:
+                return @"COMPLETED";
+            case AWSTranslateJobStatusCompletedWithError:
+                return @"COMPLETED_WITH_ERROR";
+            case AWSTranslateJobStatusFailed:
+                return @"FAILED";
+            case AWSTranslateJobStatusStopRequested:
+                return @"STOP_REQUESTED";
+            case AWSTranslateJobStatusStopped:
+                return @"STOPPED";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)submittedAfterTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)submittedBeforeTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSTranslateTextTranslationJobProperties
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dataAccessRoleArn" : @"DataAccessRoleArn",
+             @"endTime" : @"EndTime",
+             @"inputDataConfig" : @"InputDataConfig",
+             @"jobDetails" : @"JobDetails",
+             @"jobId" : @"JobId",
+             @"jobName" : @"JobName",
+             @"jobStatus" : @"JobStatus",
+             @"message" : @"Message",
+             @"outputDataConfig" : @"OutputDataConfig",
+             @"sourceLanguageCode" : @"SourceLanguageCode",
+             @"submittedTime" : @"SubmittedTime",
+             @"targetLanguageCodes" : @"TargetLanguageCodes",
+             @"terminologyNames" : @"TerminologyNames",
+             };
+}
+
++ (NSValueTransformer *)endTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)inputDataConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateInputDataConfig class]];
+}
+
++ (NSValueTransformer *)jobDetailsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateJobDetails class]];
+}
+
++ (NSValueTransformer *)jobStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"SUBMITTED"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusSubmitted);
+        }
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED_WITH_ERROR"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusCompletedWithError);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"STOP_REQUESTED"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusStopRequested);
+        }
+        if ([value caseInsensitiveCompare:@"STOPPED"] == NSOrderedSame) {
+            return @(AWSTranslateJobStatusStopped);
+        }
+        return @(AWSTranslateJobStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranslateJobStatusSubmitted:
+                return @"SUBMITTED";
+            case AWSTranslateJobStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSTranslateJobStatusCompleted:
+                return @"COMPLETED";
+            case AWSTranslateJobStatusCompletedWithError:
+                return @"COMPLETED_WITH_ERROR";
+            case AWSTranslateJobStatusFailed:
+                return @"FAILED";
+            case AWSTranslateJobStatusStopRequested:
+                return @"STOP_REQUESTED";
+            case AWSTranslateJobStatusStopped:
+                return @"STOPPED";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)outputDataConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateOutputDataConfig class]];
+}
+
++ (NSValueTransformer *)submittedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
 @implementation AWSTranslateTranslateTextRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -306,6 +822,10 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 @end
 
 @implementation AWSTranslateTranslateTextResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{

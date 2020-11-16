@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        AWSTestUtility.setupCognitoCredentialsProvider()
+        AWSTestUtility.setupSessionCredentialsProvider()
 
         guard let config = AWSServiceManager.default().defaultServiceConfiguration else {
             XCTFail("Can't get default service configuration")
@@ -44,7 +44,7 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
     }
 
     func testStreamingExample() throws {
-        AWSDDLog.sharedInstance.logLevel = .verbose
+        AWSDDLog.sharedInstance.logLevel = .info
         AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
         
         let bundle = Bundle(for: AWSTranscribeStreamingSwiftTests.self)

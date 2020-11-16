@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -20,6 +20,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTAbortConfig
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"criteriaList" : @"criteriaList",
@@ -33,6 +37,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTAbortCriteria
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -94,6 +102,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTAcceptCertificateTransferRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"certificateId" : @"certificateId",
@@ -105,16 +117,23 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTAction
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"cloudwatchAlarm" : @"cloudwatchAlarm",
+             @"cloudwatchLogs" : @"cloudwatchLogs",
              @"cloudwatchMetric" : @"cloudwatchMetric",
              @"dynamoDB" : @"dynamoDB",
              @"dynamoDBv2" : @"dynamoDBv2",
              @"elasticsearch" : @"elasticsearch",
              @"firehose" : @"firehose",
+             @"http" : @"http",
              @"iotAnalytics" : @"iotAnalytics",
              @"iotEvents" : @"iotEvents",
+             @"iotSiteWise" : @"iotSiteWise",
              @"kinesis" : @"kinesis",
              @"lambda" : @"lambda",
              @"republish" : @"republish",
@@ -123,11 +142,16 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"sns" : @"sns",
              @"sqs" : @"sqs",
              @"stepFunctions" : @"stepFunctions",
+             @"timestream" : @"timestream",
              };
 }
 
 + (NSValueTransformer *)cloudwatchAlarmJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTCloudwatchAlarmAction class]];
+}
+
++ (NSValueTransformer *)cloudwatchLogsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTCloudwatchLogsAction class]];
 }
 
 + (NSValueTransformer *)cloudwatchMetricJSONTransformer {
@@ -150,12 +174,20 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTFirehoseAction class]];
 }
 
++ (NSValueTransformer *)httpJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTHttpAction class]];
+}
+
 + (NSValueTransformer *)iotAnalyticsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTIotAnalyticsAction class]];
 }
 
 + (NSValueTransformer *)iotEventsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTIotEventsAction class]];
+}
+
++ (NSValueTransformer *)iotSiteWiseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTIotSiteWiseAction class]];
 }
 
 + (NSValueTransformer *)kinesisJSONTransformer {
@@ -190,9 +222,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTStepFunctionsAction class]];
 }
 
++ (NSValueTransformer *)timestreamJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTTimestreamAction class]];
+}
+
 @end
 
 @implementation AWSIoTActiveViolation
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -234,6 +274,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTAddThingToBillingGroupRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"billingGroupArn" : @"billingGroupArn",
@@ -247,9 +291,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTAddThingToBillingGroupResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTAddThingToThingGroupRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -265,9 +317,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTAddThingToThingGroupResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTAddThingsToThingGroupParams
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -280,6 +340,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTAlertTarget
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"alertTargetArn" : @"alertTargetArn",
@@ -290,6 +354,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTAllowed
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -303,12 +371,73 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTAssetPropertyTimestamp
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"offsetInNanos" : @"offsetInNanos",
+             @"timeInSeconds" : @"timeInSeconds",
+             };
+}
+
+@end
+
+@implementation AWSIoTAssetPropertyValue
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"quality" : @"quality",
+             @"timestamp" : @"timestamp",
+             @"value" : @"value",
+             };
+}
+
++ (NSValueTransformer *)timestampJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAssetPropertyTimestamp class]];
+}
+
++ (NSValueTransformer *)valueJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAssetPropertyVariant class]];
+}
+
+@end
+
+@implementation AWSIoTAssetPropertyVariant
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"booleanValueProperty" : @"booleanValue",
+             @"doubleValueProperty" : @"doubleValue",
+             @"integerValueProperty" : @"integerValue",
+             @"stringValueProperty" : @"stringValue",
+             };
+}
+
+@end
+
 @implementation AWSIoTAssociateTargetsWithJobRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"comment" : @"comment",
              @"jobId" : @"jobId",
+             @"namespaceId" : @"namespaceId",
              @"targets" : @"targets",
              };
 }
@@ -316,6 +445,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTAssociateTargetsWithJobResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -329,6 +462,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTAttachPolicyRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"policyName" : @"policyName",
@@ -339,6 +476,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTAttachPrincipalPolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -351,6 +492,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTAttachSecurityProfileRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"securityProfileName" : @"securityProfileName",
@@ -362,9 +507,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTAttachSecurityProfileResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTAttachThingPrincipalRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -377,9 +530,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTAttachThingPrincipalResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTAttributePayload
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -392,6 +553,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTAuditCheckConfiguration
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"enabled" : @"enabled",
@@ -402,6 +567,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTAuditCheckDetails
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"checkCompliant" : @"checkCompliant",
@@ -409,6 +578,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"errorCode" : @"errorCode",
              @"message" : @"message",
              @"nonCompliantResourcesCount" : @"nonCompliantResourcesCount",
+             @"suppressedNonCompliantResourcesCount" : @"suppressedNonCompliantResourcesCount",
              @"totalResourcesCount" : @"totalResourcesCount",
              };
 }
@@ -458,11 +628,16 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTAuditFinding
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"checkName" : @"checkName",
              @"findingId" : @"findingId",
              @"findingTime" : @"findingTime",
+             @"isSuppressed" : @"isSuppressed",
              @"nonCompliantResource" : @"nonCompliantResource",
              @"reasonForNonCompliance" : @"reasonForNonCompliance",
              @"reasonForNonComplianceCode" : @"reasonForNonComplianceCode",
@@ -531,6 +706,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTAuditMitigationActionExecutionMetadata
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -607,6 +786,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTAuditMitigationActionsTaskMetadata
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"startTime" : @"startTime",
@@ -658,6 +841,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTAuditMitigationActionsTaskTarget
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"auditCheckToReasonCodeFilter" : @"auditCheckToReasonCodeFilter",
@@ -670,6 +857,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTAuditNotificationTarget
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"enabled" : @"enabled",
@@ -680,7 +871,41 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTAuditSuppression
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"checkName" : @"checkName",
+             @"detail" : @"description",
+             @"expirationDate" : @"expirationDate",
+             @"resourceIdentifier" : @"resourceIdentifier",
+             @"suppressIndefinitely" : @"suppressIndefinitely",
+             };
+}
+
++ (NSValueTransformer *)expirationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)resourceIdentifierJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTResourceIdentifier class]];
+}
+
+@end
+
 @implementation AWSIoTAuditTaskMetadata
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -746,6 +971,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTAuthInfo
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"actionType" : @"actionType",
@@ -787,6 +1016,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTAuthResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -838,7 +1071,26 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTAuthorizerConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"allowAuthorizerOverride" : @"allowAuthorizerOverride",
+             @"defaultAuthorizerName" : @"defaultAuthorizerName",
+             };
+}
+
+@end
+
 @implementation AWSIoTAuthorizerDescription
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -847,6 +1099,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"authorizerName" : @"authorizerName",
              @"creationDate" : @"creationDate",
              @"lastModifiedDate" : @"lastModifiedDate",
+             @"signingDisabled" : @"signingDisabled",
              @"status" : @"status",
              @"tokenKeyName" : @"tokenKeyName",
              @"tokenSigningPublicKeys" : @"tokenSigningPublicKeys",
@@ -894,6 +1147,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTAuthorizerSummary
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"authorizerArn" : @"authorizerArn",
@@ -903,11 +1160,165 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
-@implementation AWSIoTAwsJobExecutionsRolloutConfig
+@implementation AWSIoTAwsJobAbortConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"abortCriteriaList" : @"abortCriteriaList",
+             };
+}
+
++ (NSValueTransformer *)abortCriteriaListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTAwsJobAbortCriteria class]];
+}
+
+@end
+
+@implementation AWSIoTAwsJobAbortCriteria
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"action" : @"action",
+             @"failureType" : @"failureType",
+             @"minNumberOfExecutedThings" : @"minNumberOfExecutedThings",
+             @"thresholdPercentage" : @"thresholdPercentage",
+             };
+}
+
++ (NSValueTransformer *)actionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CANCEL"] == NSOrderedSame) {
+            return @(AWSIoTAwsJobAbortCriteriaAbortActionCancel);
+        }
+        return @(AWSIoTAwsJobAbortCriteriaAbortActionUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTAwsJobAbortCriteriaAbortActionCancel:
+                return @"CANCEL";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)failureTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSIoTAwsJobAbortCriteriaFailureTypeFailed);
+        }
+        if ([value caseInsensitiveCompare:@"REJECTED"] == NSOrderedSame) {
+            return @(AWSIoTAwsJobAbortCriteriaFailureTypeRejected);
+        }
+        if ([value caseInsensitiveCompare:@"TIMED_OUT"] == NSOrderedSame) {
+            return @(AWSIoTAwsJobAbortCriteriaFailureTypeTimedOut);
+        }
+        if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
+            return @(AWSIoTAwsJobAbortCriteriaFailureTypeAll);
+        }
+        return @(AWSIoTAwsJobAbortCriteriaFailureTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTAwsJobAbortCriteriaFailureTypeFailed:
+                return @"FAILED";
+            case AWSIoTAwsJobAbortCriteriaFailureTypeRejected:
+                return @"REJECTED";
+            case AWSIoTAwsJobAbortCriteriaFailureTypeTimedOut:
+                return @"TIMED_OUT";
+            case AWSIoTAwsJobAbortCriteriaFailureTypeAll:
+                return @"ALL";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSIoTAwsJobExecutionsRolloutConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"exponentialRate" : @"exponentialRate",
              @"maximumPerMinute" : @"maximumPerMinute",
+             };
+}
+
++ (NSValueTransformer *)exponentialRateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAwsJobExponentialRolloutRate class]];
+}
+
+@end
+
+@implementation AWSIoTAwsJobExponentialRolloutRate
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"baseRatePerMinute" : @"baseRatePerMinute",
+             @"incrementFactor" : @"incrementFactor",
+             @"rateIncreaseCriteria" : @"rateIncreaseCriteria",
+             };
+}
+
++ (NSValueTransformer *)rateIncreaseCriteriaJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAwsJobRateIncreaseCriteria class]];
+}
+
+@end
+
+@implementation AWSIoTAwsJobPresignedUrlConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"expiresInSec" : @"expiresInSec",
+             };
+}
+
+@end
+
+@implementation AWSIoTAwsJobRateIncreaseCriteria
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"numberOfNotifiedThings" : @"numberOfNotifiedThings",
+             @"numberOfSucceededThings" : @"numberOfSucceededThings",
+             };
+}
+
+@end
+
+@implementation AWSIoTAwsJobTimeoutConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"inProgressTimeoutInMinutes" : @"inProgressTimeoutInMinutes",
              };
 }
 
@@ -915,10 +1326,15 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTBehavior
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"criteria" : @"criteria",
              @"metric" : @"metric",
+             @"metricDimension" : @"metricDimension",
              @"name" : @"name",
              };
 }
@@ -927,9 +1343,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTBehaviorCriteria class]];
 }
 
++ (NSValueTransformer *)metricDimensionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTMetricDimension class]];
+}
+
 @end
 
 @implementation AWSIoTBehaviorCriteria
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1005,6 +1429,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTBillingGroupMetadata
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"creationDate" : @"creationDate",
@@ -1023,6 +1451,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTBillingGroupProperties
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"billingGroupDescription" : @"billingGroupDescription",
@@ -1032,6 +1464,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTCACertificate
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1074,6 +1510,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTCACertificateDescription
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1157,6 +1597,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCancelAuditMitigationActionsTaskRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"taskId" : @"taskId",
@@ -1167,9 +1611,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCancelAuditMitigationActionsTaskResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTCancelAuditTaskRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1181,9 +1633,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCancelAuditTaskResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTCancelCertificateTransferRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1194,6 +1654,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTCancelJobExecutionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1209,6 +1673,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCancelJobRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"comment" : @"comment",
@@ -1222,6 +1690,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCancelJobResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"detail" : @"description",
@@ -1234,13 +1706,39 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCertificate
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"certificateArn" : @"certificateArn",
              @"certificateId" : @"certificateId",
+             @"certificateMode" : @"certificateMode",
              @"creationDate" : @"creationDate",
              @"status" : @"status",
              };
+}
+
++ (NSValueTransformer *)certificateModeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DEFAULT"] == NSOrderedSame) {
+            return @(AWSIoTCertificateModeDefault);
+        }
+        if ([value caseInsensitiveCompare:@"SNI_ONLY"] == NSOrderedSame) {
+            return @(AWSIoTCertificateModeSniOnly);
+        }
+        return @(AWSIoTCertificateModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTCertificateModeDefault:
+                return @"DEFAULT";
+            case AWSIoTCertificateModeSniOnly:
+                return @"SNI_ONLY";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)creationDateJSONTransformer {
@@ -1296,11 +1794,16 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCertificateDescription
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"caCertificateId" : @"caCertificateId",
              @"certificateArn" : @"certificateArn",
              @"certificateId" : @"certificateId",
+             @"certificateMode" : @"certificateMode",
              @"certificatePem" : @"certificatePem",
              @"creationDate" : @"creationDate",
              @"customerVersion" : @"customerVersion",
@@ -1312,6 +1815,27 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"transferData" : @"transferData",
              @"validity" : @"validity",
              };
+}
+
++ (NSValueTransformer *)certificateModeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DEFAULT"] == NSOrderedSame) {
+            return @(AWSIoTCertificateModeDefault);
+        }
+        if ([value caseInsensitiveCompare:@"SNI_ONLY"] == NSOrderedSame) {
+            return @(AWSIoTCertificateModeSniOnly);
+        }
+        return @(AWSIoTCertificateModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTCertificateModeDefault:
+                return @"DEFAULT";
+            case AWSIoTCertificateModeSniOnly:
+                return @"SNI_ONLY";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)creationDateJSONTransformer {
@@ -1383,6 +1907,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCertificateValidity
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"notAfter" : @"notAfter",
@@ -1410,13 +1938,25 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTClearDefaultAuthorizerRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTClearDefaultAuthorizerResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTCloudwatchAlarmAction
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1429,7 +1969,26 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTCloudwatchLogsAction
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logGroupName" : @"logGroupName",
+             @"roleArn" : @"roleArn",
+             };
+}
+
+@end
+
 @implementation AWSIoTCloudwatchMetricAction
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1445,6 +2004,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTCodeSigning
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1466,6 +2029,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCodeSigningCertificateChain
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"certificateName" : @"certificateName",
@@ -1477,6 +2044,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCodeSigningSignature
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"inlineDocument" : @"inlineDocument",
@@ -1487,6 +2058,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTConfiguration
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"enabled" : @"Enabled",
@@ -1495,13 +2070,80 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTConfirmTopicRuleDestinationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"confirmationToken" : @"confirmationToken",
+             };
+}
+
+@end
+
+@implementation AWSIoTConfirmTopicRuleDestinationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSIoTCreateAuditSuppressionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"checkName" : @"checkName",
+             @"clientRequestToken" : @"clientRequestToken",
+             @"detail" : @"description",
+             @"expirationDate" : @"expirationDate",
+             @"resourceIdentifier" : @"resourceIdentifier",
+             @"suppressIndefinitely" : @"suppressIndefinitely",
+             };
+}
+
++ (NSValueTransformer *)expirationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)resourceIdentifierJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTResourceIdentifier class]];
+}
+
+@end
+
+@implementation AWSIoTCreateAuditSuppressionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
 @implementation AWSIoTCreateAuthorizerRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"authorizerFunctionArn" : @"authorizerFunctionArn",
              @"authorizerName" : @"authorizerName",
+             @"signingDisabled" : @"signingDisabled",
              @"status" : @"status",
+             @"tags" : @"tags",
              @"tokenKeyName" : @"tokenKeyName",
              @"tokenSigningPublicKeys" : @"tokenSigningPublicKeys",
              };
@@ -1528,9 +2170,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
     }];
 }
 
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTTag class]];
+}
+
 @end
 
 @implementation AWSIoTCreateAuthorizerResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1542,6 +2192,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTCreateBillingGroupRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1563,6 +2217,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCreateBillingGroupResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"billingGroupArn" : @"billingGroupArn",
@@ -1575,6 +2233,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCreateCertificateFromCsrRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"certificateSigningRequest" : @"certificateSigningRequest",
@@ -1586,6 +2248,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCreateCertificateFromCsrResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"certificateArn" : @"certificateArn",
@@ -1596,7 +2262,133 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTCreateDimensionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientRequestToken" : @"clientRequestToken",
+             @"name" : @"name",
+             @"stringValues" : @"stringValues",
+             @"tags" : @"tags",
+             @"types" : @"type",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTTag class]];
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"TOPIC_FILTER"] == NSOrderedSame) {
+            return @(AWSIoTDimensionTypeTopicFilter);
+        }
+        return @(AWSIoTDimensionTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTDimensionTypeTopicFilter:
+                return @"TOPIC_FILTER";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSIoTCreateDimensionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"arn",
+             @"name" : @"name",
+             };
+}
+
+@end
+
+@implementation AWSIoTCreateDomainConfigurationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"authorizerConfig" : @"authorizerConfig",
+             @"domainConfigurationName" : @"domainConfigurationName",
+             @"domainName" : @"domainName",
+             @"serverCertificateArns" : @"serverCertificateArns",
+             @"serviceType" : @"serviceType",
+             @"tags" : @"tags",
+             @"validationCertificateArn" : @"validationCertificateArn",
+             };
+}
+
++ (NSValueTransformer *)authorizerConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAuthorizerConfig class]];
+}
+
++ (NSValueTransformer *)serviceTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DATA"] == NSOrderedSame) {
+            return @(AWSIoTServiceTypeData);
+        }
+        if ([value caseInsensitiveCompare:@"CREDENTIAL_PROVIDER"] == NSOrderedSame) {
+            return @(AWSIoTServiceTypeCredentialProvider);
+        }
+        if ([value caseInsensitiveCompare:@"JOBS"] == NSOrderedSame) {
+            return @(AWSIoTServiceTypeJobs);
+        }
+        return @(AWSIoTServiceTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTServiceTypeData:
+                return @"DATA";
+            case AWSIoTServiceTypeCredentialProvider:
+                return @"CREDENTIAL_PROVIDER";
+            case AWSIoTServiceTypeJobs:
+                return @"JOBS";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTTag class]];
+}
+
+@end
+
+@implementation AWSIoTCreateDomainConfigurationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"domainConfigurationArn" : @"domainConfigurationArn",
+             @"domainConfigurationName" : @"domainConfigurationName",
+             };
+}
+
+@end
+
 @implementation AWSIoTCreateDynamicThingGroupRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1621,6 +2413,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCreateDynamicThingGroupResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"indexName" : @"indexName",
@@ -1636,6 +2432,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCreateJobRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"abortConfig" : @"abortConfig",
@@ -1644,6 +2444,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"documentSource" : @"documentSource",
              @"jobExecutionsRolloutConfig" : @"jobExecutionsRolloutConfig",
              @"jobId" : @"jobId",
+             @"namespaceId" : @"namespaceId",
              @"presignedUrlConfig" : @"presignedUrlConfig",
              @"tags" : @"tags",
              @"targetSelection" : @"targetSelection",
@@ -1697,6 +2498,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCreateJobResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"detail" : @"description",
@@ -1709,6 +2514,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCreateKeysAndCertificateRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"setAsActive" : @"setAsActive",
@@ -1718,6 +2527,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTCreateKeysAndCertificateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1735,6 +2548,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTCreateMitigationActionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1757,6 +2574,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCreateMitigationActionResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"actionArn" : @"actionArn",
@@ -1768,13 +2589,21 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCreateOTAUpdateRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"additionalParameters" : @"additionalParameters",
+             @"awsJobAbortConfig" : @"awsJobAbortConfig",
              @"awsJobExecutionsRolloutConfig" : @"awsJobExecutionsRolloutConfig",
+             @"awsJobPresignedUrlConfig" : @"awsJobPresignedUrlConfig",
+             @"awsJobTimeoutConfig" : @"awsJobTimeoutConfig",
              @"detail" : @"description",
              @"files" : @"files",
              @"otaUpdateId" : @"otaUpdateId",
+             @"protocols" : @"protocols",
              @"roleArn" : @"roleArn",
              @"tags" : @"tags",
              @"targetSelection" : @"targetSelection",
@@ -1782,8 +2611,20 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              };
 }
 
++ (NSValueTransformer *)awsJobAbortConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAwsJobAbortConfig class]];
+}
+
 + (NSValueTransformer *)awsJobExecutionsRolloutConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAwsJobExecutionsRolloutConfig class]];
+}
+
++ (NSValueTransformer *)awsJobPresignedUrlConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAwsJobPresignedUrlConfig class]];
+}
+
++ (NSValueTransformer *)awsJobTimeoutConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAwsJobTimeoutConfig class]];
 }
 
 + (NSValueTransformer *)filesJSONTransformer {
@@ -1818,6 +2659,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTCreateOTAUpdateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1864,16 +2709,29 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCreatePolicyRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"policyDocument" : @"policyDocument",
              @"policyName" : @"policyName",
+             @"tags" : @"tags",
              };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTTag class]];
 }
 
 @end
 
 @implementation AWSIoTCreatePolicyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1888,6 +2746,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCreatePolicyVersionRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"policyDocument" : @"policyDocument",
@@ -1900,6 +2762,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCreatePolicyVersionResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"isDefaultVersion" : @"isDefaultVersion",
@@ -1911,19 +2777,152 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTCreateProvisioningClaimRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateName" : @"templateName",
+             };
+}
+
+@end
+
+@implementation AWSIoTCreateProvisioningClaimResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateId" : @"certificateId",
+             @"certificatePem" : @"certificatePem",
+             @"expiration" : @"expiration",
+             @"keyPair" : @"keyPair",
+             };
+}
+
++ (NSValueTransformer *)expirationJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)keyPairJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTKeyPair class]];
+}
+
+@end
+
+@implementation AWSIoTCreateProvisioningTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"description",
+             @"enabled" : @"enabled",
+             @"preProvisioningHook" : @"preProvisioningHook",
+             @"provisioningRoleArn" : @"provisioningRoleArn",
+             @"tags" : @"tags",
+             @"templateBody" : @"templateBody",
+             @"templateName" : @"templateName",
+             };
+}
+
++ (NSValueTransformer *)preProvisioningHookJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTProvisioningHook class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTTag class]];
+}
+
+@end
+
+@implementation AWSIoTCreateProvisioningTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"defaultVersionId" : @"defaultVersionId",
+             @"templateArn" : @"templateArn",
+             @"templateName" : @"templateName",
+             };
+}
+
+@end
+
+@implementation AWSIoTCreateProvisioningTemplateVersionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"setAsDefault" : @"setAsDefault",
+             @"templateBody" : @"templateBody",
+             @"templateName" : @"templateName",
+             };
+}
+
+@end
+
+@implementation AWSIoTCreateProvisioningTemplateVersionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"isDefaultVersion" : @"isDefaultVersion",
+             @"templateArn" : @"templateArn",
+             @"templateName" : @"templateName",
+             @"versionId" : @"versionId",
+             };
+}
+
+@end
+
 @implementation AWSIoTCreateRoleAliasRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"credentialDurationSeconds" : @"credentialDurationSeconds",
              @"roleAlias" : @"roleAlias",
              @"roleArn" : @"roleArn",
+             @"tags" : @"tags",
              };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTTag class]];
 }
 
 @end
 
 @implementation AWSIoTCreateRoleAliasResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1935,6 +2934,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTCreateScheduledAuditRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2032,6 +3035,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCreateScheduledAuditResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"scheduledAuditArn" : @"scheduledAuditArn",
@@ -2042,15 +3049,24 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCreateSecurityProfileRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"additionalMetricsToRetain" : @"additionalMetricsToRetain",
+             @"additionalMetricsToRetainV2" : @"additionalMetricsToRetainV2",
              @"alertTargets" : @"alertTargets",
              @"behaviors" : @"behaviors",
              @"securityProfileDescription" : @"securityProfileDescription",
              @"securityProfileName" : @"securityProfileName",
              @"tags" : @"tags",
              };
+}
+
++ (NSValueTransformer *)additionalMetricsToRetainV2JSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTMetricToRetain class]];
 }
 
 + (NSValueTransformer *)alertTargetsJSONTransformer {
@@ -2073,6 +3089,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCreateSecurityProfileResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"securityProfileArn" : @"securityProfileArn",
@@ -2083,6 +3103,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTCreateStreamRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2106,6 +3130,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCreateStreamResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"detail" : @"description",
@@ -2118,6 +3146,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTCreateThingGroupRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2140,6 +3172,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCreateThingGroupResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"thingGroupArn" : @"thingGroupArn",
@@ -2151,6 +3187,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTCreateThingRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2169,6 +3209,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCreateThingResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"thingArn" : @"thingArn",
@@ -2180,6 +3224,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTCreateThingTypeRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2201,6 +3249,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTCreateThingTypeResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"thingTypeArn" : @"thingTypeArn",
@@ -2211,7 +3263,47 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTCreateTopicRuleDestinationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"destinationConfiguration" : @"destinationConfiguration",
+             };
+}
+
++ (NSValueTransformer *)destinationConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTTopicRuleDestinationConfiguration class]];
+}
+
+@end
+
+@implementation AWSIoTCreateTopicRuleDestinationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"topicRuleDestination" : @"topicRuleDestination",
+             };
+}
+
++ (NSValueTransformer *)topicRuleDestinationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTTopicRuleDestination class]];
+}
+
+@end
+
 @implementation AWSIoTCreateTopicRuleRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2228,6 +3320,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTCustomCodeSigning
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2250,6 +3346,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDeleteAccountAuditConfigurationRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"deleteScheduledAudits" : @"deleteScheduledAudits",
@@ -2260,9 +3360,44 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDeleteAccountAuditConfigurationResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSIoTDeleteAuditSuppressionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"checkName" : @"checkName",
+             @"resourceIdentifier" : @"resourceIdentifier",
+             };
+}
+
++ (NSValueTransformer *)resourceIdentifierJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTResourceIdentifier class]];
+}
+
+@end
+
+@implementation AWSIoTDeleteAuditSuppressionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDeleteAuthorizerRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2274,9 +3409,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDeleteAuthorizerResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDeleteBillingGroupRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2289,9 +3432,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDeleteBillingGroupResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDeleteCACertificateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2303,9 +3454,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDeleteCACertificateResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDeleteCertificateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2316,7 +3475,55 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTDeleteDimensionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"name",
+             };
+}
+
+@end
+
+@implementation AWSIoTDeleteDimensionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSIoTDeleteDomainConfigurationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"domainConfigurationName" : @"domainConfigurationName",
+             };
+}
+
+@end
+
+@implementation AWSIoTDeleteDomainConfigurationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
 @implementation AWSIoTDeleteDynamicThingGroupRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2329,15 +3536,24 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDeleteDynamicThingGroupResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDeleteJobExecutionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"executionNumber" : @"executionNumber",
              @"force" : @"force",
              @"jobId" : @"jobId",
+             @"namespaceId" : @"namespaceId",
              @"thingName" : @"thingName",
              };
 }
@@ -2346,16 +3562,25 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDeleteJobRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"force" : @"force",
              @"jobId" : @"jobId",
+             @"namespaceId" : @"namespaceId",
              };
 }
 
 @end
 
 @implementation AWSIoTDeleteMitigationActionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2367,9 +3592,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDeleteMitigationActionResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDeleteOTAUpdateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2383,9 +3616,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDeleteOTAUpdateResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDeletePolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2397,6 +3638,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDeletePolicyVersionRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"policyName" : @"policyName",
@@ -2406,15 +3651,72 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTDeleteProvisioningTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateName" : @"templateName",
+             };
+}
+
+@end
+
+@implementation AWSIoTDeleteProvisioningTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSIoTDeleteProvisioningTemplateVersionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateName" : @"templateName",
+             @"versionId" : @"versionId",
+             };
+}
+
+@end
+
+@implementation AWSIoTDeleteProvisioningTemplateVersionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
 @implementation AWSIoTDeleteRegistrationCodeRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 @end
 
 @implementation AWSIoTDeleteRegistrationCodeResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDeleteRoleAliasRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2426,9 +3728,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDeleteRoleAliasResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDeleteScheduledAuditRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2440,9 +3750,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDeleteScheduledAuditResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDeleteSecurityProfileRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2455,9 +3773,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDeleteSecurityProfileResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDeleteStreamRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2469,9 +3795,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDeleteStreamResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDeleteThingGroupRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2484,9 +3818,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDeleteThingGroupResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDeleteThingRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2499,9 +3841,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDeleteThingResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDeleteThingTypeRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2513,9 +3863,39 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDeleteThingTypeResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSIoTDeleteTopicRuleDestinationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"arn",
+             };
+}
+
+@end
+
+@implementation AWSIoTDeleteTopicRuleDestinationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDeleteTopicRuleRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2526,6 +3906,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDeleteV2LoggingLevelRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2559,6 +3943,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDenied
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"explicitDeny" : @"explicitDeny",
@@ -2578,6 +3966,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDeprecateThingTypeRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"thingTypeName" : @"thingTypeName",
@@ -2589,13 +3981,25 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDeprecateThingTypeResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDescribeAccountAuditConfigurationRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDescribeAccountAuditConfigurationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2625,6 +4029,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeAuditFindingRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"findingId" : @"findingId",
@@ -2634,6 +4042,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDescribeAuditFindingResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2649,6 +4061,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeAuditMitigationActionsTaskRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"taskId" : @"taskId",
@@ -2658,6 +4074,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDescribeAuditMitigationActionsTaskResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2736,7 +4156,60 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTDescribeAuditSuppressionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"checkName" : @"checkName",
+             @"resourceIdentifier" : @"resourceIdentifier",
+             };
+}
+
++ (NSValueTransformer *)resourceIdentifierJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTResourceIdentifier class]];
+}
+
+@end
+
+@implementation AWSIoTDescribeAuditSuppressionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"checkName" : @"checkName",
+             @"detail" : @"description",
+             @"expirationDate" : @"expirationDate",
+             @"resourceIdentifier" : @"resourceIdentifier",
+             @"suppressIndefinitely" : @"suppressIndefinitely",
+             };
+}
+
++ (NSValueTransformer *)expirationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)resourceIdentifierJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTResourceIdentifier class]];
+}
+
+@end
+
 @implementation AWSIoTDescribeAuditTaskRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2747,6 +4220,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDescribeAuditTaskResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2835,6 +4312,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeAuthorizerRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"authorizerName" : @"authorizerName",
@@ -2844,6 +4325,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDescribeAuthorizerResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2859,6 +4344,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeBillingGroupRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"billingGroupName" : @"billingGroupName",
@@ -2868,6 +4357,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDescribeBillingGroupResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2892,6 +4385,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeCACertificateRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"certificateId" : @"certificateId",
@@ -2901,6 +4398,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDescribeCACertificateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2921,6 +4422,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeCertificateRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"certificateId" : @"certificateId",
@@ -2930,6 +4435,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDescribeCertificateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2945,9 +4454,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeDefaultAuthorizerRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDescribeDefaultAuthorizerResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2961,7 +4478,201 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTDescribeDimensionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"name",
+             };
+}
+
+@end
+
+@implementation AWSIoTDescribeDimensionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"arn",
+             @"creationDate" : @"creationDate",
+             @"lastModifiedDate" : @"lastModifiedDate",
+             @"name" : @"name",
+             @"stringValues" : @"stringValues",
+             @"types" : @"type",
+             };
+}
+
++ (NSValueTransformer *)creationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"TOPIC_FILTER"] == NSOrderedSame) {
+            return @(AWSIoTDimensionTypeTopicFilter);
+        }
+        return @(AWSIoTDimensionTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTDimensionTypeTopicFilter:
+                return @"TOPIC_FILTER";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSIoTDescribeDomainConfigurationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"domainConfigurationName" : @"domainConfigurationName",
+             };
+}
+
+@end
+
+@implementation AWSIoTDescribeDomainConfigurationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"authorizerConfig" : @"authorizerConfig",
+             @"domainConfigurationArn" : @"domainConfigurationArn",
+             @"domainConfigurationName" : @"domainConfigurationName",
+             @"domainConfigurationStatus" : @"domainConfigurationStatus",
+             @"domainName" : @"domainName",
+             @"domainType" : @"domainType",
+             @"lastStatusChangeDate" : @"lastStatusChangeDate",
+             @"serverCertificates" : @"serverCertificates",
+             @"serviceType" : @"serviceType",
+             };
+}
+
++ (NSValueTransformer *)authorizerConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAuthorizerConfig class]];
+}
+
++ (NSValueTransformer *)domainConfigurationStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSIoTDomainConfigurationStatusEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
+            return @(AWSIoTDomainConfigurationStatusDisabled);
+        }
+        return @(AWSIoTDomainConfigurationStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTDomainConfigurationStatusEnabled:
+                return @"ENABLED";
+            case AWSIoTDomainConfigurationStatusDisabled:
+                return @"DISABLED";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)domainTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ENDPOINT"] == NSOrderedSame) {
+            return @(AWSIoTDomainTypeEndpoint);
+        }
+        if ([value caseInsensitiveCompare:@"AWS_MANAGED"] == NSOrderedSame) {
+            return @(AWSIoTDomainTypeAwsManaged);
+        }
+        if ([value caseInsensitiveCompare:@"CUSTOMER_MANAGED"] == NSOrderedSame) {
+            return @(AWSIoTDomainTypeCustomerManaged);
+        }
+        return @(AWSIoTDomainTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTDomainTypeEndpoint:
+                return @"ENDPOINT";
+            case AWSIoTDomainTypeAwsManaged:
+                return @"AWS_MANAGED";
+            case AWSIoTDomainTypeCustomerManaged:
+                return @"CUSTOMER_MANAGED";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)lastStatusChangeDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)serverCertificatesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTServerCertificateSummary class]];
+}
+
++ (NSValueTransformer *)serviceTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DATA"] == NSOrderedSame) {
+            return @(AWSIoTServiceTypeData);
+        }
+        if ([value caseInsensitiveCompare:@"CREDENTIAL_PROVIDER"] == NSOrderedSame) {
+            return @(AWSIoTServiceTypeCredentialProvider);
+        }
+        if ([value caseInsensitiveCompare:@"JOBS"] == NSOrderedSame) {
+            return @(AWSIoTServiceTypeJobs);
+        }
+        return @(AWSIoTServiceTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTServiceTypeData:
+                return @"DATA";
+            case AWSIoTServiceTypeCredentialProvider:
+                return @"CREDENTIAL_PROVIDER";
+            case AWSIoTServiceTypeJobs:
+                return @"JOBS";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSIoTDescribeEndpointRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2973,6 +4684,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeEndpointResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"endpointAddress" : @"endpointAddress",
@@ -2983,9 +4698,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeEventConfigurationsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDescribeEventConfigurationsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3023,6 +4746,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeIndexRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"indexName" : @"indexName",
@@ -3032,6 +4759,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDescribeIndexResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3071,6 +4802,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeJobExecutionRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"executionNumber" : @"executionNumber",
@@ -3082,6 +4817,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDescribeJobExecutionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3097,6 +4836,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeJobRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"jobId" : @"jobId",
@@ -3106,6 +4849,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDescribeJobResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3122,6 +4869,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeMitigationActionRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"actionName" : @"actionName",
@@ -3131,6 +4882,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDescribeMitigationActionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3208,7 +4963,108 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTDescribeProvisioningTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateName" : @"templateName",
+             };
+}
+
+@end
+
+@implementation AWSIoTDescribeProvisioningTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"creationDate" : @"creationDate",
+             @"defaultVersionId" : @"defaultVersionId",
+             @"detail" : @"description",
+             @"enabled" : @"enabled",
+             @"lastModifiedDate" : @"lastModifiedDate",
+             @"preProvisioningHook" : @"preProvisioningHook",
+             @"provisioningRoleArn" : @"provisioningRoleArn",
+             @"templateArn" : @"templateArn",
+             @"templateBody" : @"templateBody",
+             @"templateName" : @"templateName",
+             };
+}
+
++ (NSValueTransformer *)creationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)preProvisioningHookJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTProvisioningHook class]];
+}
+
+@end
+
+@implementation AWSIoTDescribeProvisioningTemplateVersionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateName" : @"templateName",
+             @"versionId" : @"versionId",
+             };
+}
+
+@end
+
+@implementation AWSIoTDescribeProvisioningTemplateVersionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"creationDate" : @"creationDate",
+             @"isDefaultVersion" : @"isDefaultVersion",
+             @"templateBody" : @"templateBody",
+             @"versionId" : @"versionId",
+             };
+}
+
++ (NSValueTransformer *)creationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
 @implementation AWSIoTDescribeRoleAliasRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3219,6 +5075,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDescribeRoleAliasResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3234,6 +5094,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeScheduledAuditRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"scheduledAuditName" : @"scheduledAuditName",
@@ -3243,6 +5107,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDescribeScheduledAuditResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3336,6 +5204,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeSecurityProfileRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"securityProfileName" : @"securityProfileName",
@@ -3346,9 +5218,14 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeSecurityProfileResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"additionalMetricsToRetain" : @"additionalMetricsToRetain",
+             @"additionalMetricsToRetainV2" : @"additionalMetricsToRetainV2",
              @"alertTargets" : @"alertTargets",
              @"behaviors" : @"behaviors",
              @"creationDate" : @"creationDate",
@@ -3358,6 +5235,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"securityProfileName" : @"securityProfileName",
              @"version" : @"version",
              };
+}
+
++ (NSValueTransformer *)additionalMetricsToRetainV2JSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTMetricToRetain class]];
 }
 
 + (NSValueTransformer *)alertTargetsJSONTransformer {
@@ -3392,6 +5273,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeStreamRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"streamId" : @"streamId",
@@ -3401,6 +5286,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDescribeStreamResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3416,6 +5305,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeThingGroupRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"thingGroupName" : @"thingGroupName",
@@ -3425,6 +5318,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDescribeThingGroupResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3479,6 +5376,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeThingRegistrationTaskRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"taskId" : @"taskId",
@@ -3488,6 +5389,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDescribeThingRegistrationTaskResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3562,6 +5467,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeThingRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"thingName" : @"thingName",
@@ -3571,6 +5480,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDescribeThingResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3589,6 +5502,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDescribeThingTypeRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"thingTypeName" : @"thingTypeName",
@@ -3598,6 +5515,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDescribeThingTypeResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3621,6 +5542,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDestination
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"s3Destination" : @"s3Destination",
@@ -3635,6 +5560,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDetachPolicyRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"policyName" : @"policyName",
@@ -3645,6 +5574,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDetachPrincipalPolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3657,6 +5590,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDetachSecurityProfileRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"securityProfileName" : @"securityProfileName",
@@ -3668,9 +5605,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDetachSecurityProfileResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDetachThingPrincipalRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3683,9 +5628,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDetachThingPrincipalResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTDisableTopicRuleRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3695,7 +5648,53 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTDomainConfigurationSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"domainConfigurationArn" : @"domainConfigurationArn",
+             @"domainConfigurationName" : @"domainConfigurationName",
+             @"serviceType" : @"serviceType",
+             };
+}
+
++ (NSValueTransformer *)serviceTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DATA"] == NSOrderedSame) {
+            return @(AWSIoTServiceTypeData);
+        }
+        if ([value caseInsensitiveCompare:@"CREDENTIAL_PROVIDER"] == NSOrderedSame) {
+            return @(AWSIoTServiceTypeCredentialProvider);
+        }
+        if ([value caseInsensitiveCompare:@"JOBS"] == NSOrderedSame) {
+            return @(AWSIoTServiceTypeJobs);
+        }
+        return @(AWSIoTServiceTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTServiceTypeData:
+                return @"DATA";
+            case AWSIoTServiceTypeCredentialProvider:
+                return @"CREDENTIAL_PROVIDER";
+            case AWSIoTServiceTypeJobs:
+                return @"JOBS";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSIoTDynamoDBAction
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3758,6 +5757,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTDynamoDBv2Action
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"putItem" : @"putItem",
@@ -3773,6 +5776,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTEffectivePolicy
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"policyArn" : @"policyArn",
@@ -3784,6 +5791,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTElasticsearchAction
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3798,6 +5809,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTEnableIoTLoggingParams
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3846,6 +5861,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTEnableTopicRuleRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ruleName" : @"ruleName",
@@ -3855,6 +5874,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTErrorInfo
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3866,6 +5889,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTExplicitDeny
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3881,6 +5908,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTExponentialRolloutRate
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"baseRatePerMinute" : @"baseRatePerMinute",
@@ -3895,7 +5926,52 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTField
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"name",
+             @"types" : @"type",
+             };
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Number"] == NSOrderedSame) {
+            return @(AWSIoTFieldTypeNumber);
+        }
+        if ([value caseInsensitiveCompare:@"String"] == NSOrderedSame) {
+            return @(AWSIoTFieldTypeString);
+        }
+        if ([value caseInsensitiveCompare:@"Boolean"] == NSOrderedSame) {
+            return @(AWSIoTFieldTypeBoolean);
+        }
+        return @(AWSIoTFieldTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTFieldTypeNumber:
+                return @"Number";
+            case AWSIoTFieldTypeString:
+                return @"String";
+            case AWSIoTFieldTypeBoolean:
+                return @"Boolean";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSIoTFileLocation
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3916,6 +5992,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTFirehoseAction
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"deliveryStreamName" : @"deliveryStreamName",
@@ -3926,7 +6006,42 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTGetCardinalityRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"aggregationField" : @"aggregationField",
+             @"indexName" : @"indexName",
+             @"queryString" : @"queryString",
+             @"queryVersion" : @"queryVersion",
+             };
+}
+
+@end
+
+@implementation AWSIoTGetCardinalityResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cardinality" : @"cardinality",
+             };
+}
+
+@end
+
 @implementation AWSIoTGetEffectivePoliciesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3939,6 +6054,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTGetEffectivePoliciesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3954,9 +6073,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTGetIndexingConfigurationRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTGetIndexingConfigurationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3977,6 +6104,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTGetJobDocumentRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"jobId" : @"jobId",
@@ -3986,6 +6117,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTGetJobDocumentResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3997,9 +6132,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTGetLoggingOptionsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTGetLoggingOptionsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4048,6 +6191,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTGetOTAUpdateRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"otaUpdateId" : @"otaUpdateId",
@@ -4057,6 +6204,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTGetOTAUpdateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4070,7 +6221,47 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTGetPercentilesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"aggregationField" : @"aggregationField",
+             @"indexName" : @"indexName",
+             @"percents" : @"percents",
+             @"queryString" : @"queryString",
+             @"queryVersion" : @"queryVersion",
+             };
+}
+
+@end
+
+@implementation AWSIoTGetPercentilesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"percentiles" : @"percentiles",
+             };
+}
+
++ (NSValueTransformer *)percentilesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTPercentPair class]];
+}
+
+@end
+
 @implementation AWSIoTGetPolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4081,6 +6272,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTGetPolicyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4114,6 +6309,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTGetPolicyVersionRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"policyName" : @"policyName",
@@ -4124,6 +6323,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTGetPolicyVersionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4158,9 +6361,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTGetRegistrationCodeRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTGetRegistrationCodeResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4171,6 +6382,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTGetStatisticsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4185,6 +6400,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTGetStatisticsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"statistics" : @"statistics",
@@ -4197,7 +6416,43 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTGetTopicRuleDestinationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"arn",
+             };
+}
+
+@end
+
+@implementation AWSIoTGetTopicRuleDestinationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"topicRuleDestination" : @"topicRuleDestination",
+             };
+}
+
++ (NSValueTransformer *)topicRuleDestinationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTTopicRuleDestination class]];
+}
+
+@end
+
 @implementation AWSIoTGetTopicRuleRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4208,6 +6463,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTGetTopicRuleResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4224,9 +6483,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTGetV2LoggingOptionsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTGetV2LoggingOptionsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4276,6 +6543,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTGroupNameAndArn
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"groupArn" : @"groupArn",
@@ -4285,7 +6556,126 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTHttpAction
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"auth" : @"auth",
+             @"confirmationUrl" : @"confirmationUrl",
+             @"headers" : @"headers",
+             @"url" : @"url",
+             };
+}
+
++ (NSValueTransformer *)authJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTHttpAuthorization class]];
+}
+
++ (NSValueTransformer *)headersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTHttpActionHeader class]];
+}
+
+@end
+
+@implementation AWSIoTHttpActionHeader
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"key" : @"key",
+             @"value" : @"value",
+             };
+}
+
+@end
+
+@implementation AWSIoTHttpAuthorization
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"sigv4" : @"sigv4",
+             };
+}
+
++ (NSValueTransformer *)sigv4JSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTSigV4Authorization class]];
+}
+
+@end
+
+@implementation AWSIoTHttpContext
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"headers" : @"headers",
+             @"queryString" : @"queryString",
+             };
+}
+
+@end
+
+@implementation AWSIoTHttpUrlDestinationConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"confirmationUrl" : @"confirmationUrl",
+             };
+}
+
+@end
+
+@implementation AWSIoTHttpUrlDestinationProperties
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"confirmationUrl" : @"confirmationUrl",
+             };
+}
+
+@end
+
+@implementation AWSIoTHttpUrlDestinationSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"confirmationUrl" : @"confirmationUrl",
+             };
+}
+
+@end
+
 @implementation AWSIoTImplicitDeny
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4301,6 +6691,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTIotAnalyticsAction
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"channelArn" : @"channelArn",
@@ -4313,6 +6707,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTIotEventsAction
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"inputName" : @"inputName",
@@ -4323,7 +6721,30 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTIotSiteWiseAction
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"putAssetPropertyValueEntries" : @"putAssetPropertyValueEntries",
+             @"roleArn" : @"roleArn",
+             };
+}
+
++ (NSValueTransformer *)putAssetPropertyValueEntriesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTPutAssetPropertyValueEntry class]];
+}
+
+@end
+
 @implementation AWSIoTJob
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4338,6 +6759,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"jobId" : @"jobId",
              @"jobProcessDetails" : @"jobProcessDetails",
              @"lastUpdatedAt" : @"lastUpdatedAt",
+             @"namespaceId" : @"namespaceId",
              @"presignedUrlConfig" : @"presignedUrlConfig",
              @"reasonCode" : @"reasonCode",
              @"status" : @"status",
@@ -4447,6 +6869,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTJobExecution
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"approximateSecondsBeforeTimedOut" : @"approximateSecondsBeforeTimedOut",
@@ -4546,6 +6972,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTJobExecutionStatusDetails
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"detailsMap" : @"detailsMap",
@@ -4555,6 +6985,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTJobExecutionSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4645,6 +7079,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTJobExecutionSummaryForJob
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"jobExecutionSummary" : @"jobExecutionSummary",
@@ -4659,6 +7097,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTJobExecutionSummaryForThing
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4675,6 +7117,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTJobExecutionsRolloutConfig
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"exponentialRate" : @"exponentialRate",
@@ -4689,6 +7135,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTJobProcessDetails
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4707,6 +7157,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTJobSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4801,6 +7255,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTKeyPair
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"privateKey" : @"PrivateKey",
@@ -4811,6 +7269,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTKinesisAction
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4824,6 +7286,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTLambdaAction
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"functionArn" : @"functionArn",
@@ -4833,6 +7299,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListActiveViolationsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4846,6 +7316,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListActiveViolationsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4862,6 +7336,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListAttachedPoliciesRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"marker" : @"marker",
@@ -4874,6 +7352,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListAttachedPoliciesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4890,10 +7372,15 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListAuditFindingsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"checkName" : @"checkName",
              @"endTime" : @"endTime",
+             @"listSuppressedFindings" : @"listSuppressedFindings",
              @"maxResults" : @"maxResults",
              @"nextToken" : @"nextToken",
              @"resourceIdentifier" : @"resourceIdentifier",
@@ -4926,6 +7413,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListAuditFindingsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"findings" : @"findings",
@@ -4940,6 +7431,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListAuditMitigationActionsExecutionsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4996,6 +7491,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListAuditMitigationActionsExecutionsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"actionsExecutions" : @"actionsExecutions",
@@ -5010,6 +7509,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListAuditMitigationActionsTasksRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5074,6 +7577,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListAuditMitigationActionsTasksResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"nextToken",
@@ -5087,7 +7594,52 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTListAuditSuppressionsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ascendingOrder" : @"ascendingOrder",
+             @"checkName" : @"checkName",
+             @"maxResults" : @"maxResults",
+             @"nextToken" : @"nextToken",
+             @"resourceIdentifier" : @"resourceIdentifier",
+             };
+}
+
++ (NSValueTransformer *)resourceIdentifierJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTResourceIdentifier class]];
+}
+
+@end
+
+@implementation AWSIoTListAuditSuppressionsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"nextToken",
+             @"suppressions" : @"suppressions",
+             };
+}
+
++ (NSValueTransformer *)suppressionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTAuditSuppression class]];
+}
+
+@end
+
 @implementation AWSIoTListAuditTasksRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5172,6 +7724,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListAuditTasksResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"nextToken",
@@ -5186,6 +7742,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListAuthorizersRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5221,6 +7781,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListAuthorizersResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"authorizers" : @"authorizers",
@@ -5236,6 +7800,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListBillingGroupsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"maxResults" : @"maxResults",
@@ -5247,6 +7815,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListBillingGroupsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5263,6 +7835,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListCACertificatesRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ascendingOrder" : @"ascendingOrder",
@@ -5274,6 +7850,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListCACertificatesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5290,6 +7870,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListCertificatesByCARequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ascendingOrder" : @"ascendingOrder",
@@ -5302,6 +7886,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListCertificatesByCAResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5318,6 +7906,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListCertificatesRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ascendingOrder" : @"ascendingOrder",
@@ -5329,6 +7921,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListCertificatesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5343,7 +7939,102 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTListDimensionsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"maxResults",
+             @"nextToken" : @"nextToken",
+             };
+}
+
+@end
+
+@implementation AWSIoTListDimensionsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dimensionNames" : @"dimensionNames",
+             @"nextToken" : @"nextToken",
+             };
+}
+
+@end
+
+@implementation AWSIoTListDomainConfigurationsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"marker" : @"marker",
+             @"pageSize" : @"pageSize",
+             @"serviceType" : @"serviceType",
+             };
+}
+
++ (NSValueTransformer *)serviceTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DATA"] == NSOrderedSame) {
+            return @(AWSIoTServiceTypeData);
+        }
+        if ([value caseInsensitiveCompare:@"CREDENTIAL_PROVIDER"] == NSOrderedSame) {
+            return @(AWSIoTServiceTypeCredentialProvider);
+        }
+        if ([value caseInsensitiveCompare:@"JOBS"] == NSOrderedSame) {
+            return @(AWSIoTServiceTypeJobs);
+        }
+        return @(AWSIoTServiceTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTServiceTypeData:
+                return @"DATA";
+            case AWSIoTServiceTypeCredentialProvider:
+                return @"CREDENTIAL_PROVIDER";
+            case AWSIoTServiceTypeJobs:
+                return @"JOBS";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSIoTListDomainConfigurationsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"domainConfigurations" : @"domainConfigurations",
+             @"nextMarker" : @"nextMarker",
+             };
+}
+
++ (NSValueTransformer *)domainConfigurationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTDomainConfigurationSummary class]];
+}
+
+@end
+
 @implementation AWSIoTListIndicesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5356,6 +8047,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListIndicesResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"indexNames" : @"indexNames",
@@ -5366,6 +8061,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListJobExecutionsForJobRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5431,6 +8130,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListJobExecutionsForJobResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"executionSummaries" : @"executionSummaries",
@@ -5446,9 +8149,14 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListJobExecutionsForThingRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"maxResults" : @"maxResults",
+             @"namespaceId" : @"namespaceId",
              @"nextToken" : @"nextToken",
              @"status" : @"status",
              @"thingName" : @"thingName",
@@ -5510,6 +8218,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListJobExecutionsForThingResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"executionSummaries" : @"executionSummaries",
@@ -5525,9 +8237,14 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListJobsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"maxResults" : @"maxResults",
+             @"namespaceId" : @"namespaceId",
              @"nextToken" : @"nextToken",
              @"status" : @"status",
              @"targetSelection" : @"targetSelection",
@@ -5592,6 +8309,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListJobsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"jobs" : @"jobs",
@@ -5606,6 +8327,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListMitigationActionsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5660,6 +8385,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListMitigationActionsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"actionIdentifiers" : @"actionIdentifiers",
@@ -5674,6 +8403,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListOTAUpdatesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5718,6 +8451,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListOTAUpdatesResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"nextToken",
@@ -5733,6 +8470,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListOutgoingCertificatesRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ascendingOrder" : @"ascendingOrder",
@@ -5744,6 +8485,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListOutgoingCertificatesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5760,6 +8505,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListPoliciesRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ascendingOrder" : @"ascendingOrder",
@@ -5771,6 +8520,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListPoliciesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5787,6 +8540,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListPolicyPrincipalsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ascendingOrder" : @"ascendingOrder",
@@ -5800,6 +8557,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListPolicyPrincipalsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextMarker" : @"nextMarker",
@@ -5811,6 +8572,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListPolicyVersionsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"policyName" : @"policyName",
@@ -5820,6 +8585,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListPolicyVersionsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5835,6 +8604,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListPrincipalPoliciesRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ascendingOrder" : @"ascendingOrder",
@@ -5847,6 +8620,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListPrincipalPoliciesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5863,6 +8640,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListPrincipalThingsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"maxResults" : @"maxResults",
@@ -5875,6 +8656,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListPrincipalThingsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"nextToken",
@@ -5884,7 +8669,80 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTListProvisioningTemplateVersionsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"maxResults",
+             @"nextToken" : @"nextToken",
+             @"templateName" : @"templateName",
+             };
+}
+
+@end
+
+@implementation AWSIoTListProvisioningTemplateVersionsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"nextToken",
+             @"versions" : @"versions",
+             };
+}
+
++ (NSValueTransformer *)versionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTProvisioningTemplateVersionSummary class]];
+}
+
+@end
+
+@implementation AWSIoTListProvisioningTemplatesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"maxResults",
+             @"nextToken" : @"nextToken",
+             };
+}
+
+@end
+
+@implementation AWSIoTListProvisioningTemplatesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"nextToken",
+             @"templates" : @"templates",
+             };
+}
+
++ (NSValueTransformer *)templatesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTProvisioningTemplateSummary class]];
+}
+
+@end
+
 @implementation AWSIoTListRoleAliasesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5898,6 +8756,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListRoleAliasesResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextMarker" : @"nextMarker",
@@ -5909,6 +8771,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListScheduledAuditsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"maxResults" : @"maxResults",
@@ -5919,6 +8785,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListScheduledAuditsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5935,6 +8805,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListSecurityProfilesForTargetRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"maxResults" : @"maxResults",
@@ -5947,6 +8821,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListSecurityProfilesForTargetResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5963,8 +8841,13 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListSecurityProfilesRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dimensionName" : @"dimensionName",
              @"maxResults" : @"maxResults",
              @"nextToken" : @"nextToken",
              };
@@ -5973,6 +8856,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListSecurityProfilesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5989,6 +8876,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListStreamsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ascendingOrder" : @"ascendingOrder",
@@ -6000,6 +8891,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListStreamsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6016,6 +8911,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListTagsForResourceRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"nextToken",
@@ -6026,6 +8925,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListTagsForResourceResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6042,6 +8945,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListTargetsForPolicyRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"marker" : @"marker",
@@ -6054,6 +8961,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListTargetsForPolicyResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextMarker" : @"nextMarker",
@@ -6064,6 +8975,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListTargetsForSecurityProfileRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6076,6 +8991,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListTargetsForSecurityProfileResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6092,6 +9011,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListThingGroupsForThingRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"maxResults" : @"maxResults",
@@ -6103,6 +9026,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListThingGroupsForThingResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6119,6 +9046,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListThingGroupsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"maxResults" : @"maxResults",
@@ -6132,6 +9063,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListThingGroupsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6148,8 +9083,14 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListThingPrincipalsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"maxResults" : @"maxResults",
+             @"nextToken" : @"nextToken",
              @"thingName" : @"thingName",
              };
 }
@@ -6158,8 +9099,13 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListThingPrincipalsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"nextToken" : @"nextToken",
              @"principals" : @"principals",
              };
 }
@@ -6167,6 +9113,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListThingRegistrationTaskReportsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6202,6 +9152,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListThingRegistrationTaskReportsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"nextToken",
@@ -6234,6 +9188,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListThingRegistrationTasksRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6283,6 +9241,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListThingRegistrationTasksResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"nextToken",
@@ -6293,6 +9255,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListThingTypesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6305,6 +9271,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListThingTypesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6321,6 +9291,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListThingsInBillingGroupRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"billingGroupName" : @"billingGroupName",
@@ -6333,6 +9307,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListThingsInBillingGroupResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"nextToken",
@@ -6343,6 +9321,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListThingsInThingGroupRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6357,6 +9339,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListThingsInThingGroupResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"nextToken",
@@ -6367,6 +9353,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListThingsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6382,6 +9372,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListThingsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"nextToken",
@@ -6395,7 +9389,45 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTListTopicRuleDestinationsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"maxResults",
+             @"nextToken" : @"nextToken",
+             };
+}
+
+@end
+
+@implementation AWSIoTListTopicRuleDestinationsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"destinationSummaries" : @"destinationSummaries",
+             @"nextToken" : @"nextToken",
+             };
+}
+
++ (NSValueTransformer *)destinationSummariesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTTopicRuleDestinationSummary class]];
+}
+
+@end
+
 @implementation AWSIoTListTopicRulesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6409,6 +9441,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListTopicRulesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6424,6 +9460,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListV2LoggingLevelsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6458,6 +9498,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListV2LoggingLevelsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"logTargetConfigurations" : @"logTargetConfigurations",
@@ -6472,6 +9516,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTListViolationEventsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6504,6 +9552,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTListViolationEventsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"nextToken",
@@ -6518,6 +9570,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTLogTarget
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6550,6 +9606,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTLogTargetConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6602,6 +9662,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTLoggingOptionsPayload
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"logLevel" : @"logLevel",
@@ -6647,7 +9711,66 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTMetricDimension
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dimensionName" : @"dimensionName",
+             @"operatorValue" : @"operator",
+             };
+}
+
++ (NSValueTransformer *)operatorValueJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"IN"] == NSOrderedSame) {
+            return @(AWSIoTDimensionValueOperatorIN);
+        }
+        if ([value caseInsensitiveCompare:@"NOT_IN"] == NSOrderedSame) {
+            return @(AWSIoTDimensionValueOperatorNotIn);
+        }
+        return @(AWSIoTDimensionValueOperatorUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTDimensionValueOperatorIN:
+                return @"IN";
+            case AWSIoTDimensionValueOperatorNotIn:
+                return @"NOT_IN";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSIoTMetricToRetain
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"metric" : @"metric",
+             @"metricDimension" : @"metricDimension",
+             };
+}
+
++ (NSValueTransformer *)metricDimensionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTMetricDimension class]];
+}
+
+@end
+
 @implementation AWSIoTMetricValue
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6660,6 +9783,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTMitigationAction
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6677,6 +9804,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTMitigationActionIdentifier
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6697,6 +9828,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTMitigationActionParams
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6735,7 +9870,27 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTMqttContext
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientId" : @"clientId",
+             @"password" : @"password",
+             @"username" : @"username",
+             };
+}
+
+@end
+
 @implementation AWSIoTNonCompliantResource
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6769,6 +9924,12 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
         if ([value caseInsensitiveCompare:@"ACCOUNT_SETTINGS"] == NSOrderedSame) {
             return @(AWSIoTResourceTypeAccountSettings);
         }
+        if ([value caseInsensitiveCompare:@"ROLE_ALIAS"] == NSOrderedSame) {
+            return @(AWSIoTResourceTypeRoleAlias);
+        }
+        if ([value caseInsensitiveCompare:@"IAM_ROLE"] == NSOrderedSame) {
+            return @(AWSIoTResourceTypeIamRole);
+        }
         return @(AWSIoTResourceTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -6784,6 +9945,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"CLIENT_ID";
             case AWSIoTResourceTypeAccountSettings:
                 return @"ACCOUNT_SETTINGS";
+            case AWSIoTResourceTypeRoleAlias:
+                return @"ROLE_ALIAS";
+            case AWSIoTResourceTypeIamRole:
+                return @"IAM_ROLE";
             default:
                 return nil;
         }
@@ -6793,6 +9958,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTOTAUpdateFile
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6816,12 +9985,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTOTAUpdateInfo
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"additionalParameters" : @"additionalParameters",
              @"awsIotJobArn" : @"awsIotJobArn",
              @"awsIotJobId" : @"awsIotJobId",
              @"awsJobExecutionsRolloutConfig" : @"awsJobExecutionsRolloutConfig",
+             @"awsJobPresignedUrlConfig" : @"awsJobPresignedUrlConfig",
              @"creationDate" : @"creationDate",
              @"detail" : @"description",
              @"errorInfo" : @"errorInfo",
@@ -6830,6 +10004,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"otaUpdateFiles" : @"otaUpdateFiles",
              @"otaUpdateId" : @"otaUpdateId",
              @"otaUpdateStatus" : @"otaUpdateStatus",
+             @"protocols" : @"protocols",
              @"targetSelection" : @"targetSelection",
              @"targets" : @"targets",
              };
@@ -6837,6 +10012,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)awsJobExecutionsRolloutConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAwsJobExecutionsRolloutConfig class]];
+}
+
++ (NSValueTransformer *)awsJobPresignedUrlConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAwsJobPresignedUrlConfig class]];
 }
 
 + (NSValueTransformer *)creationDateJSONTransformer {
@@ -6919,6 +10098,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTOTAUpdateSummary
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"creationDate" : @"creationDate",
@@ -6938,6 +10121,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTOutgoingCertificate
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6968,7 +10155,26 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTPercentPair
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"percent" : @"percent",
+             @"value" : @"value",
+             };
+}
+
+@end
+
 @implementation AWSIoTPolicy
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -6980,6 +10186,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTPolicyVersion
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7001,6 +10211,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTPolicyVersionIdentifier
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"policyName" : @"policyName",
@@ -7012,6 +10226,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTPresignedUrlConfig
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"expiresInSec" : @"expiresInSec",
@@ -7021,7 +10239,85 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTProvisioningHook
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"payloadVersion" : @"payloadVersion",
+             @"targetArn" : @"targetArn",
+             };
+}
+
+@end
+
+@implementation AWSIoTProvisioningTemplateSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"creationDate" : @"creationDate",
+             @"detail" : @"description",
+             @"enabled" : @"enabled",
+             @"lastModifiedDate" : @"lastModifiedDate",
+             @"templateArn" : @"templateArn",
+             @"templateName" : @"templateName",
+             };
+}
+
++ (NSValueTransformer *)creationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSIoTProvisioningTemplateVersionSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"creationDate" : @"creationDate",
+             @"isDefaultVersion" : @"isDefaultVersion",
+             @"versionId" : @"versionId",
+             };
+}
+
++ (NSValueTransformer *)creationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
 @implementation AWSIoTPublishFindingToSnsParams
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7031,7 +10327,33 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTPutAssetPropertyValueEntry
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"assetId" : @"assetId",
+             @"entryId" : @"entryId",
+             @"propertyAlias" : @"propertyAlias",
+             @"propertyId" : @"propertyId",
+             @"propertyValues" : @"propertyValues",
+             };
+}
+
++ (NSValueTransformer *)propertyValuesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTAssetPropertyValue class]];
+}
+
+@end
+
 @implementation AWSIoTPutItemInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7042,6 +10364,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTRateIncreaseCriteria
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7054,12 +10380,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTRegisterCACertificateRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"allowAutoRegistration" : @"allowAutoRegistration",
              @"caCertificate" : @"caCertificate",
              @"registrationConfig" : @"registrationConfig",
              @"setAsActive" : @"setAsActive",
+             @"tags" : @"tags",
              @"verificationCertificate" : @"verificationCertificate",
              };
 }
@@ -7068,9 +10399,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTRegistrationConfig class]];
 }
 
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTTag class]];
+}
+
 @end
 
 @implementation AWSIoTRegisterCACertificateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7082,6 +10421,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTRegisterCertificateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7137,6 +10480,81 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTRegisterCertificateResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateArn" : @"certificateArn",
+             @"certificateId" : @"certificateId",
+             };
+}
+
+@end
+
+@implementation AWSIoTRegisterCertificateWithoutCARequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificatePem" : @"certificatePem",
+             @"status" : @"status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSIoTCertificateStatusActive);
+        }
+        if ([value caseInsensitiveCompare:@"INACTIVE"] == NSOrderedSame) {
+            return @(AWSIoTCertificateStatusInactive);
+        }
+        if ([value caseInsensitiveCompare:@"REVOKED"] == NSOrderedSame) {
+            return @(AWSIoTCertificateStatusRevoked);
+        }
+        if ([value caseInsensitiveCompare:@"PENDING_TRANSFER"] == NSOrderedSame) {
+            return @(AWSIoTCertificateStatusPendingTransfer);
+        }
+        if ([value caseInsensitiveCompare:@"REGISTER_INACTIVE"] == NSOrderedSame) {
+            return @(AWSIoTCertificateStatusRegisterInactive);
+        }
+        if ([value caseInsensitiveCompare:@"PENDING_ACTIVATION"] == NSOrderedSame) {
+            return @(AWSIoTCertificateStatusPendingActivation);
+        }
+        return @(AWSIoTCertificateStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTCertificateStatusActive:
+                return @"ACTIVE";
+            case AWSIoTCertificateStatusInactive:
+                return @"INACTIVE";
+            case AWSIoTCertificateStatusRevoked:
+                return @"REVOKED";
+            case AWSIoTCertificateStatusPendingTransfer:
+                return @"PENDING_TRANSFER";
+            case AWSIoTCertificateStatusRegisterInactive:
+                return @"REGISTER_INACTIVE";
+            case AWSIoTCertificateStatusPendingActivation:
+                return @"PENDING_ACTIVATION";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSIoTRegisterCertificateWithoutCAResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"certificateArn" : @"certificateArn",
@@ -7147,6 +10565,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTRegisterThingRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7159,6 +10581,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTRegisterThingResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"certificatePem" : @"certificatePem",
@@ -7169,6 +10595,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTRegistrationConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7181,6 +10611,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTRejectCertificateTransferRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"certificateId" : @"certificateId",
@@ -7191,6 +10625,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTRelatedResource
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7224,6 +10662,12 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
         if ([value caseInsensitiveCompare:@"ACCOUNT_SETTINGS"] == NSOrderedSame) {
             return @(AWSIoTResourceTypeAccountSettings);
         }
+        if ([value caseInsensitiveCompare:@"ROLE_ALIAS"] == NSOrderedSame) {
+            return @(AWSIoTResourceTypeRoleAlias);
+        }
+        if ([value caseInsensitiveCompare:@"IAM_ROLE"] == NSOrderedSame) {
+            return @(AWSIoTResourceTypeIamRole);
+        }
         return @(AWSIoTResourceTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -7239,6 +10683,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"CLIENT_ID";
             case AWSIoTResourceTypeAccountSettings:
                 return @"ACCOUNT_SETTINGS";
+            case AWSIoTResourceTypeRoleAlias:
+                return @"ROLE_ALIAS";
+            case AWSIoTResourceTypeIamRole:
+                return @"IAM_ROLE";
             default:
                 return nil;
         }
@@ -7248,6 +10696,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTRemoveThingFromBillingGroupRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7262,9 +10714,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTRemoveThingFromBillingGroupResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTRemoveThingFromThingGroupRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7279,9 +10739,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTRemoveThingFromThingGroupResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTReplaceDefaultPolicyVersionParams
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7309,6 +10777,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTReplaceTopicRuleRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ruleName" : @"ruleName",
@@ -7324,6 +10796,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTRepublishAction
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"qos" : @"qos",
@@ -7336,6 +10812,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTResourceIdentifier
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"account" : @"account",
@@ -7343,7 +10823,9 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"clientId" : @"clientId",
              @"cognitoIdentityPoolId" : @"cognitoIdentityPoolId",
              @"deviceCertificateId" : @"deviceCertificateId",
+             @"iamRoleArn" : @"iamRoleArn",
              @"policyVersionIdentifier" : @"policyVersionIdentifier",
+             @"roleAliasArn" : @"roleAliasArn",
              };
 }
 
@@ -7354,6 +10836,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTRoleAliasDescription
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7386,6 +10872,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTS3Action
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7451,6 +10941,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTS3Destination
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"bucket" : @"bucket",
@@ -7461,6 +10955,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTS3Location
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7474,6 +10972,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTSalesforceAction
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"token" : @"token",
@@ -7484,6 +10986,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTScheduledAuditMetadata
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7576,6 +11082,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTSearchIndexRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"indexName" : @"indexName",
@@ -7589,6 +11099,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTSearchIndexResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7610,6 +11124,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTSecurityProfileIdentifier
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"arn" : @"arn",
@@ -7621,6 +11139,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTSecurityProfileTarget
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"arn" : @"arn",
@@ -7630,6 +11152,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTSecurityProfileTargetMapping
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7648,7 +11174,48 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTServerCertificateSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"serverCertificateArn" : @"serverCertificateArn",
+             @"serverCertificateStatus" : @"serverCertificateStatus",
+             @"serverCertificateStatusDetail" : @"serverCertificateStatusDetail",
+             };
+}
+
++ (NSValueTransformer *)serverCertificateStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"INVALID"] == NSOrderedSame) {
+            return @(AWSIoTServerCertificateStatusInvalid);
+        }
+        if ([value caseInsensitiveCompare:@"VALID"] == NSOrderedSame) {
+            return @(AWSIoTServerCertificateStatusValid);
+        }
+        return @(AWSIoTServerCertificateStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTServerCertificateStatusInvalid:
+                return @"INVALID";
+            case AWSIoTServerCertificateStatusValid:
+                return @"VALID";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSIoTSetDefaultAuthorizerRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7659,6 +11226,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTSetDefaultAuthorizerResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7671,6 +11242,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTSetDefaultPolicyVersionRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"policyName" : @"policyName",
@@ -7681,6 +11256,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTSetLoggingOptionsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7695,6 +11274,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTSetV2LoggingLevelRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7747,6 +11330,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTSetV2LoggingOptionsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"defaultLogLevel" : @"defaultLogLevel",
@@ -7793,7 +11380,27 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTSigV4Authorization
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"roleArn" : @"roleArn",
+             @"serviceName" : @"serviceName",
+             @"signingRegion" : @"signingRegion",
+             };
+}
+
+@end
+
 @implementation AWSIoTSigningProfileParameter
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7806,6 +11413,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTSnsAction
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7840,6 +11451,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTSqsAction
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"queueUrl" : @"queueUrl",
@@ -7851,6 +11466,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTStartAuditMitigationActionsTaskRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7869,6 +11488,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTStartAuditMitigationActionsTaskResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"taskId" : @"taskId",
@@ -7878,6 +11501,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTStartOnDemandAuditTaskRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7889,6 +11516,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTStartOnDemandAuditTaskResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"taskId" : @"taskId",
@@ -7898,6 +11529,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTStartSigningJobParameter
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7919,6 +11554,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTStartThingRegistrationTaskRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"inputFileBucket" : @"inputFileBucket",
@@ -7932,6 +11571,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTStartThingRegistrationTaskResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"taskId" : @"taskId",
@@ -7941,6 +11584,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTStatisticalThreshold
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7952,15 +11599,30 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTStatistics
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"average" : @"average",
              @"count" : @"count",
+             @"maximum" : @"maximum",
+             @"minimum" : @"minimum",
+             @"stdDeviation" : @"stdDeviation",
+             @"sum" : @"sum",
+             @"sumOfSquares" : @"sumOfSquares",
+             @"variance" : @"variance",
              };
 }
 
 @end
 
 @implementation AWSIoTStepFunctionsAction
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7974,6 +11636,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTStopThingRegistrationTaskRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"taskId" : @"taskId",
@@ -7984,9 +11650,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTStopThingRegistrationTaskResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTStream
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -7998,6 +11672,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTStreamFile
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8013,6 +11691,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTStreamInfo
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8051,6 +11733,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTStreamSummary
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"detail" : @"description",
@@ -8064,6 +11750,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTTag
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"key" : @"Key",
@@ -8074,6 +11764,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTTagResourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8090,9 +11784,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTTagResourceResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTTaskStatistics
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8110,6 +11812,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTTaskStatisticsForAuditCheck
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"canceledFindingsCount" : @"canceledFindingsCount",
@@ -8123,6 +11829,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTTestAuthorizationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8143,6 +11853,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTTestAuthorizationResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"authResults" : @"authResults",
@@ -8157,17 +11871,40 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTTestInvokeAuthorizerRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"authorizerName" : @"authorizerName",
+             @"httpContext" : @"httpContext",
+             @"mqttContext" : @"mqttContext",
+             @"tlsContext" : @"tlsContext",
              @"token" : @"token",
              @"tokenSignature" : @"tokenSignature",
              };
 }
 
++ (NSValueTransformer *)httpContextJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTHttpContext class]];
+}
+
++ (NSValueTransformer *)mqttContextJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTMqttContext class]];
+}
+
++ (NSValueTransformer *)tlsContextJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTTlsContext class]];
+}
+
 @end
 
 @implementation AWSIoTTestInvokeAuthorizerResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8183,6 +11920,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTThingAttribute
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attributes" : @"attributes",
@@ -8197,6 +11938,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTThingConnectivity
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"connected" : @"connected",
@@ -8207,6 +11952,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTThingDocument
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8228,6 +11977,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTThingGroupDocument
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attributes" : @"attributes",
@@ -8242,10 +11995,24 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTThingGroupIndexingConfiguration
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"customFields" : @"customFields",
+             @"managedFields" : @"managedFields",
              @"thingGroupIndexingMode" : @"thingGroupIndexingMode",
              };
+}
+
++ (NSValueTransformer *)customFieldsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTField class]];
+}
+
++ (NSValueTransformer *)managedFieldsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTField class]];
 }
 
 + (NSValueTransformer *)thingGroupIndexingModeJSONTransformer {
@@ -8273,6 +12040,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTThingGroupMetadata
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"creationDate" : @"creationDate",
@@ -8297,6 +12068,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTThingGroupProperties
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attributePayload" : @"attributePayload",
@@ -8312,11 +12087,25 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTThingIndexingConfiguration
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"customFields" : @"customFields",
+             @"managedFields" : @"managedFields",
              @"thingConnectivityIndexingMode" : @"thingConnectivityIndexingMode",
              @"thingIndexingMode" : @"thingIndexingMode",
              };
+}
+
++ (NSValueTransformer *)customFieldsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTField class]];
+}
+
++ (NSValueTransformer *)managedFieldsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTField class]];
 }
 
 + (NSValueTransformer *)thingConnectivityIndexingModeJSONTransformer {
@@ -8370,6 +12159,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTThingTypeDefinition
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"thingTypeArn" : @"thingTypeArn",
@@ -8390,6 +12183,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTThingTypeMetadata
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8419,6 +12216,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTThingTypeProperties
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"searchableAttributes" : @"searchableAttributes",
@@ -8430,6 +12231,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTTimeoutConfig
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"inProgressTimeoutInMinutes" : @"inProgressTimeoutInMinutes",
@@ -8438,7 +12243,81 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTTimestreamAction
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"databaseName" : @"databaseName",
+             @"dimensions" : @"dimensions",
+             @"roleArn" : @"roleArn",
+             @"tableName" : @"tableName",
+             @"timestamp" : @"timestamp",
+             };
+}
+
++ (NSValueTransformer *)dimensionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTTimestreamDimension class]];
+}
+
++ (NSValueTransformer *)timestampJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTTimestreamTimestamp class]];
+}
+
+@end
+
+@implementation AWSIoTTimestreamDimension
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"name",
+             @"value" : @"value",
+             };
+}
+
+@end
+
+@implementation AWSIoTTimestreamTimestamp
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"unit" : @"unit",
+             @"value" : @"value",
+             };
+}
+
+@end
+
+@implementation AWSIoTTlsContext
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"serverName" : @"serverName",
+             };
+}
+
+@end
+
 @implementation AWSIoTTopicRule
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8471,7 +12350,133 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTTopicRuleDestination
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"arn",
+             @"httpUrlProperties" : @"httpUrlProperties",
+             @"status" : @"status",
+             @"statusReason" : @"statusReason",
+             };
+}
+
++ (NSValueTransformer *)httpUrlPropertiesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTHttpUrlDestinationProperties class]];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSIoTTopicRuleDestinationStatusEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSIoTTopicRuleDestinationStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
+            return @(AWSIoTTopicRuleDestinationStatusDisabled);
+        }
+        if ([value caseInsensitiveCompare:@"ERROR"] == NSOrderedSame) {
+            return @(AWSIoTTopicRuleDestinationStatusError);
+        }
+        return @(AWSIoTTopicRuleDestinationStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTTopicRuleDestinationStatusEnabled:
+                return @"ENABLED";
+            case AWSIoTTopicRuleDestinationStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSIoTTopicRuleDestinationStatusDisabled:
+                return @"DISABLED";
+            case AWSIoTTopicRuleDestinationStatusError:
+                return @"ERROR";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSIoTTopicRuleDestinationConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"httpUrlConfiguration" : @"httpUrlConfiguration",
+             };
+}
+
++ (NSValueTransformer *)httpUrlConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTHttpUrlDestinationConfiguration class]];
+}
+
+@end
+
+@implementation AWSIoTTopicRuleDestinationSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"arn",
+             @"httpUrlSummary" : @"httpUrlSummary",
+             @"status" : @"status",
+             @"statusReason" : @"statusReason",
+             };
+}
+
++ (NSValueTransformer *)httpUrlSummaryJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTHttpUrlDestinationSummary class]];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSIoTTopicRuleDestinationStatusEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSIoTTopicRuleDestinationStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
+            return @(AWSIoTTopicRuleDestinationStatusDisabled);
+        }
+        if ([value caseInsensitiveCompare:@"ERROR"] == NSOrderedSame) {
+            return @(AWSIoTTopicRuleDestinationStatusError);
+        }
+        return @(AWSIoTTopicRuleDestinationStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTTopicRuleDestinationStatusEnabled:
+                return @"ENABLED";
+            case AWSIoTTopicRuleDestinationStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSIoTTopicRuleDestinationStatusDisabled:
+                return @"DISABLED";
+            case AWSIoTTopicRuleDestinationStatusError:
+                return @"ERROR";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSIoTTopicRuleListItem
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8494,6 +12499,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTTopicRulePayload
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8518,6 +12527,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTTransferCertificateRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"certificateId" : @"certificateId",
@@ -8530,6 +12543,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTTransferCertificateResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"transferredCertificateArn" : @"transferredCertificateArn",
@@ -8539,6 +12556,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTTransferData
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8578,6 +12599,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUntagResourceRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"resourceArn" : @"resourceArn",
@@ -8589,9 +12614,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUntagResourceResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTUpdateAccountAuditConfigurationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8621,9 +12654,55 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUpdateAccountAuditConfigurationResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSIoTUpdateAuditSuppressionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"checkName" : @"checkName",
+             @"detail" : @"description",
+             @"expirationDate" : @"expirationDate",
+             @"resourceIdentifier" : @"resourceIdentifier",
+             @"suppressIndefinitely" : @"suppressIndefinitely",
+             };
+}
+
++ (NSValueTransformer *)expirationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)resourceIdentifierJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTResourceIdentifier class]];
+}
+
+@end
+
+@implementation AWSIoTUpdateAuditSuppressionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTUpdateAuthorizerRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8660,6 +12739,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUpdateAuthorizerResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"authorizerArn" : @"authorizerArn",
@@ -8670,6 +12753,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTUpdateBillingGroupRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8687,6 +12774,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUpdateBillingGroupResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"version" : @"version",
@@ -8696,6 +12787,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTUpdateCACertificateParams
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8722,6 +12817,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTUpdateCACertificateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8783,6 +12882,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUpdateCertificateRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"certificateId" : @"certificateId",
@@ -8835,6 +12938,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUpdateDeviceCertificateParams
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"action" : @"action",
@@ -8859,7 +12966,134 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTUpdateDimensionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"name",
+             @"stringValues" : @"stringValues",
+             };
+}
+
+@end
+
+@implementation AWSIoTUpdateDimensionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"arn",
+             @"creationDate" : @"creationDate",
+             @"lastModifiedDate" : @"lastModifiedDate",
+             @"name" : @"name",
+             @"stringValues" : @"stringValues",
+             @"types" : @"type",
+             };
+}
+
++ (NSValueTransformer *)creationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"TOPIC_FILTER"] == NSOrderedSame) {
+            return @(AWSIoTDimensionTypeTopicFilter);
+        }
+        return @(AWSIoTDimensionTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTDimensionTypeTopicFilter:
+                return @"TOPIC_FILTER";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSIoTUpdateDomainConfigurationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"authorizerConfig" : @"authorizerConfig",
+             @"domainConfigurationName" : @"domainConfigurationName",
+             @"domainConfigurationStatus" : @"domainConfigurationStatus",
+             @"removeAuthorizerConfig" : @"removeAuthorizerConfig",
+             };
+}
+
++ (NSValueTransformer *)authorizerConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAuthorizerConfig class]];
+}
+
++ (NSValueTransformer *)domainConfigurationStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSIoTDomainConfigurationStatusEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
+            return @(AWSIoTDomainConfigurationStatusDisabled);
+        }
+        return @(AWSIoTDomainConfigurationStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTDomainConfigurationStatusEnabled:
+                return @"ENABLED";
+            case AWSIoTDomainConfigurationStatusDisabled:
+                return @"DISABLED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSIoTUpdateDomainConfigurationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"domainConfigurationArn" : @"domainConfigurationArn",
+             @"domainConfigurationName" : @"domainConfigurationName",
+             };
+}
+
+@end
+
 @implementation AWSIoTUpdateDynamicThingGroupRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8880,6 +13114,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUpdateDynamicThingGroupResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"version" : @"version",
@@ -8889,6 +13127,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTUpdateEventConfigurationsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8908,9 +13150,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUpdateEventConfigurationsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTUpdateIndexingConfigurationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8931,9 +13181,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUpdateIndexingConfigurationResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTUpdateJobRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -8941,6 +13199,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"detail" : @"description",
              @"jobExecutionsRolloutConfig" : @"jobExecutionsRolloutConfig",
              @"jobId" : @"jobId",
+             @"namespaceId" : @"namespaceId",
              @"presignedUrlConfig" : @"presignedUrlConfig",
              @"timeoutConfig" : @"timeoutConfig",
              };
@@ -8966,6 +13225,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUpdateMitigationActionRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"actionName" : @"actionName",
@@ -8982,6 +13245,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUpdateMitigationActionResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"actionArn" : @"actionArn",
@@ -8991,7 +13258,43 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTUpdateProvisioningTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"defaultVersionId" : @"defaultVersionId",
+             @"detail" : @"description",
+             @"enabled" : @"enabled",
+             @"preProvisioningHook" : @"preProvisioningHook",
+             @"provisioningRoleArn" : @"provisioningRoleArn",
+             @"removePreProvisioningHook" : @"removePreProvisioningHook",
+             @"templateName" : @"templateName",
+             };
+}
+
++ (NSValueTransformer *)preProvisioningHookJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTProvisioningHook class]];
+}
+
+@end
+
+@implementation AWSIoTUpdateProvisioningTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
 @implementation AWSIoTUpdateRoleAliasRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -9005,6 +13308,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUpdateRoleAliasResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"roleAlias" : @"roleAlias",
@@ -9015,6 +13322,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTUpdateScheduledAuditRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -9107,6 +13418,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUpdateScheduledAuditResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"scheduledAuditArn" : @"scheduledAuditArn",
@@ -9117,9 +13432,14 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUpdateSecurityProfileRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"additionalMetricsToRetain" : @"additionalMetricsToRetain",
+             @"additionalMetricsToRetainV2" : @"additionalMetricsToRetainV2",
              @"alertTargets" : @"alertTargets",
              @"behaviors" : @"behaviors",
              @"deleteAdditionalMetricsToRetain" : @"deleteAdditionalMetricsToRetain",
@@ -9129,6 +13449,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"securityProfileDescription" : @"securityProfileDescription",
              @"securityProfileName" : @"securityProfileName",
              };
+}
+
++ (NSValueTransformer *)additionalMetricsToRetainV2JSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTMetricToRetain class]];
 }
 
 + (NSValueTransformer *)alertTargetsJSONTransformer {
@@ -9147,9 +13471,14 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUpdateSecurityProfileResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"additionalMetricsToRetain" : @"additionalMetricsToRetain",
+             @"additionalMetricsToRetainV2" : @"additionalMetricsToRetainV2",
              @"alertTargets" : @"alertTargets",
              @"behaviors" : @"behaviors",
              @"creationDate" : @"creationDate",
@@ -9159,6 +13488,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"securityProfileName" : @"securityProfileName",
              @"version" : @"version",
              };
+}
+
++ (NSValueTransformer *)additionalMetricsToRetainV2JSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTMetricToRetain class]];
 }
 
 + (NSValueTransformer *)alertTargetsJSONTransformer {
@@ -9193,6 +13526,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUpdateStreamRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"detail" : @"description",
@@ -9210,6 +13547,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUpdateStreamResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"detail" : @"description",
@@ -9222,6 +13563,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTUpdateThingGroupRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -9239,6 +13584,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUpdateThingGroupResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"version" : @"version",
@@ -9248,6 +13597,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTUpdateThingGroupsForThingRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -9262,9 +13615,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUpdateThingGroupsForThingResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTUpdateThingRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -9284,9 +13645,71 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTUpdateThingResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSIoTUpdateTopicRuleDestinationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"arn",
+             @"status" : @"status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSIoTTopicRuleDestinationStatusEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSIoTTopicRuleDestinationStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
+            return @(AWSIoTTopicRuleDestinationStatusDisabled);
+        }
+        if ([value caseInsensitiveCompare:@"ERROR"] == NSOrderedSame) {
+            return @(AWSIoTTopicRuleDestinationStatusError);
+        }
+        return @(AWSIoTTopicRuleDestinationStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTTopicRuleDestinationStatusEnabled:
+                return @"ENABLED";
+            case AWSIoTTopicRuleDestinationStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSIoTTopicRuleDestinationStatusDisabled:
+                return @"DISABLED";
+            case AWSIoTTopicRuleDestinationStatusError:
+                return @"ERROR";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSIoTUpdateTopicRuleDestinationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTValidateSecurityProfileBehaviorsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -9301,6 +13724,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTValidateSecurityProfileBehaviorsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -9317,6 +13744,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @implementation AWSIoTValidationError
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"errorMessage" : @"errorMessage",
@@ -9326,6 +13757,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTViolationEvent
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{

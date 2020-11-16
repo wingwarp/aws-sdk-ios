@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -417,9 +417,7 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
         UIButton *btn = buttons[[buttonViews indexOfObject:signInButtonViewClass]];
         UIView<AWSSignInButtonView> *buttonView = [[signInButtonViewClass alloc] initWithFrame:CGRectMake(0, 0, btn.frame.size.width, btn.frame.size.height)];
         buttonView.buttonStyle = AWSSignInButtonStyleLarge;
-        if (self.config.primaryColor) {
-            buttonView.backgroundColor = self.config.primaryColor;
-        }
+        buttonView.backgroundColor = [AWSAuthUIHelper getSecondaryBackgroundColor];
         buttonView.delegate = self;
         
         [btn addSubview:buttonView];

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -20,6 +20,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 @implementation AWSPollyDeleteLexiconInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"name" : @"Name",
@@ -30,9 +34,17 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 @implementation AWSPollyDeleteLexiconOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSPollyDescribeVoicesInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -224,6 +236,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 @implementation AWSPollyDescribeVoicesOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"NextToken",
@@ -239,6 +255,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 @implementation AWSPollyGetLexiconInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"name" : @"Name",
@@ -248,6 +268,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 @end
 
 @implementation AWSPollyGetLexiconOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -268,6 +292,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 @implementation AWSPollyGetSpeechSynthesisTaskInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"taskId" : @"TaskId",
@@ -277,6 +305,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 @end
 
 @implementation AWSPollyGetSpeechSynthesisTaskOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -292,6 +324,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 @implementation AWSPollyLexicon
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"content" : @"Content",
@@ -302,6 +338,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 @end
 
 @implementation AWSPollyLexiconAttributes
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -482,6 +522,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 @implementation AWSPollyLexiconDescription
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attributes" : @"Attributes",
@@ -497,6 +541,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 @implementation AWSPollyListLexiconsInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"NextToken",
@@ -506,6 +554,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 @end
 
 @implementation AWSPollyListLexiconsOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -521,6 +573,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 @end
 
 @implementation AWSPollyListSpeechSynthesisTasksInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -565,6 +621,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 @implementation AWSPollyListSpeechSynthesisTasksOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"NextToken",
@@ -580,6 +640,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 @implementation AWSPollyPutLexiconInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"content" : @"Content",
@@ -591,9 +655,17 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 @implementation AWSPollyPutLexiconOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSPollyStartSpeechSynthesisTaskInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -858,6 +930,9 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"Brian"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdBrian);
         }
+        if ([value caseInsensitiveCompare:@"Camila"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdCamila);
+        }
         if ([value caseInsensitiveCompare:@"Carla"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdCarla);
         }
@@ -930,6 +1005,9 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"Kendra"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdKendra);
         }
+        if ([value caseInsensitiveCompare:@"Kevin"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdKevin);
+        }
         if ([value caseInsensitiveCompare:@"Kimberly"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdKimberly);
         }
@@ -944,6 +1022,9 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         }
         if ([value caseInsensitiveCompare:@"Lucia"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdLucia);
+        }
+        if ([value caseInsensitiveCompare:@"Lupe"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdLupe);
         }
         if ([value caseInsensitiveCompare:@"Mads"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdMads);
@@ -1030,6 +1111,8 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"Bianca";
             case AWSPollyVoiceIdBrian:
                 return @"Brian";
+            case AWSPollyVoiceIdCamila:
+                return @"Camila";
             case AWSPollyVoiceIdCarla:
                 return @"Carla";
             case AWSPollyVoiceIdCarmen:
@@ -1078,6 +1161,8 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"Karl";
             case AWSPollyVoiceIdKendra:
                 return @"Kendra";
+            case AWSPollyVoiceIdKevin:
+                return @"Kevin";
             case AWSPollyVoiceIdKimberly:
                 return @"Kimberly";
             case AWSPollyVoiceIdLea:
@@ -1088,6 +1173,8 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"Lotte";
             case AWSPollyVoiceIdLucia:
                 return @"Lucia";
+            case AWSPollyVoiceIdLupe:
+                return @"Lupe";
             case AWSPollyVoiceIdMads:
                 return @"Mads";
             case AWSPollyVoiceIdMaja:
@@ -1146,6 +1233,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 @implementation AWSPollyStartSpeechSynthesisTaskOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"synthesisTask" : @"SynthesisTask",
@@ -1159,6 +1250,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 @end
 
 @implementation AWSPollySynthesisTask
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1465,6 +1560,9 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"Brian"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdBrian);
         }
+        if ([value caseInsensitiveCompare:@"Camila"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdCamila);
+        }
         if ([value caseInsensitiveCompare:@"Carla"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdCarla);
         }
@@ -1537,6 +1635,9 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"Kendra"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdKendra);
         }
+        if ([value caseInsensitiveCompare:@"Kevin"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdKevin);
+        }
         if ([value caseInsensitiveCompare:@"Kimberly"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdKimberly);
         }
@@ -1551,6 +1652,9 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         }
         if ([value caseInsensitiveCompare:@"Lucia"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdLucia);
+        }
+        if ([value caseInsensitiveCompare:@"Lupe"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdLupe);
         }
         if ([value caseInsensitiveCompare:@"Mads"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdMads);
@@ -1637,6 +1741,8 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"Bianca";
             case AWSPollyVoiceIdBrian:
                 return @"Brian";
+            case AWSPollyVoiceIdCamila:
+                return @"Camila";
             case AWSPollyVoiceIdCarla:
                 return @"Carla";
             case AWSPollyVoiceIdCarmen:
@@ -1685,6 +1791,8 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"Karl";
             case AWSPollyVoiceIdKendra:
                 return @"Kendra";
+            case AWSPollyVoiceIdKevin:
+                return @"Kevin";
             case AWSPollyVoiceIdKimberly:
                 return @"Kimberly";
             case AWSPollyVoiceIdLea:
@@ -1695,6 +1803,8 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"Lotte";
             case AWSPollyVoiceIdLucia:
                 return @"Lucia";
+            case AWSPollyVoiceIdLupe:
+                return @"Lupe";
             case AWSPollyVoiceIdMads:
                 return @"Mads";
             case AWSPollyVoiceIdMaja:
@@ -1752,6 +1862,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 @end
 
 @implementation AWSPollySynthesizeSpeechInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2013,6 +2127,9 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"Brian"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdBrian);
         }
+        if ([value caseInsensitiveCompare:@"Camila"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdCamila);
+        }
         if ([value caseInsensitiveCompare:@"Carla"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdCarla);
         }
@@ -2085,6 +2202,9 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"Kendra"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdKendra);
         }
+        if ([value caseInsensitiveCompare:@"Kevin"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdKevin);
+        }
         if ([value caseInsensitiveCompare:@"Kimberly"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdKimberly);
         }
@@ -2099,6 +2219,9 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         }
         if ([value caseInsensitiveCompare:@"Lucia"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdLucia);
+        }
+        if ([value caseInsensitiveCompare:@"Lupe"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdLupe);
         }
         if ([value caseInsensitiveCompare:@"Mads"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdMads);
@@ -2185,6 +2308,8 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"Bianca";
             case AWSPollyVoiceIdBrian:
                 return @"Brian";
+            case AWSPollyVoiceIdCamila:
+                return @"Camila";
             case AWSPollyVoiceIdCarla:
                 return @"Carla";
             case AWSPollyVoiceIdCarmen:
@@ -2233,6 +2358,8 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"Karl";
             case AWSPollyVoiceIdKendra:
                 return @"Kendra";
+            case AWSPollyVoiceIdKevin:
+                return @"Kevin";
             case AWSPollyVoiceIdKimberly:
                 return @"Kimberly";
             case AWSPollyVoiceIdLea:
@@ -2243,6 +2370,8 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"Lotte";
             case AWSPollyVoiceIdLucia:
                 return @"Lucia";
+            case AWSPollyVoiceIdLupe:
+                return @"Lupe";
             case AWSPollyVoiceIdMads:
                 return @"Mads";
             case AWSPollyVoiceIdMaja:
@@ -2301,6 +2430,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 @implementation AWSPollySynthesizeSpeechOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"audioStream" : @"AudioStream",
@@ -2312,6 +2445,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 @end
 
 @implementation AWSPollyVoice
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2362,6 +2499,9 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         }
         if ([value caseInsensitiveCompare:@"Brian"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdBrian);
+        }
+        if ([value caseInsensitiveCompare:@"Camila"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdCamila);
         }
         if ([value caseInsensitiveCompare:@"Carla"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdCarla);
@@ -2435,6 +2575,9 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"Kendra"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdKendra);
         }
+        if ([value caseInsensitiveCompare:@"Kevin"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdKevin);
+        }
         if ([value caseInsensitiveCompare:@"Kimberly"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdKimberly);
         }
@@ -2449,6 +2592,9 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         }
         if ([value caseInsensitiveCompare:@"Lucia"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdLucia);
+        }
+        if ([value caseInsensitiveCompare:@"Lupe"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdLupe);
         }
         if ([value caseInsensitiveCompare:@"Mads"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdMads);
@@ -2535,6 +2681,8 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"Bianca";
             case AWSPollyVoiceIdBrian:
                 return @"Brian";
+            case AWSPollyVoiceIdCamila:
+                return @"Camila";
             case AWSPollyVoiceIdCarla:
                 return @"Carla";
             case AWSPollyVoiceIdCarmen:
@@ -2583,6 +2731,8 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"Karl";
             case AWSPollyVoiceIdKendra:
                 return @"Kendra";
+            case AWSPollyVoiceIdKevin:
+                return @"Kevin";
             case AWSPollyVoiceIdKimberly:
                 return @"Kimberly";
             case AWSPollyVoiceIdLea:
@@ -2593,6 +2743,8 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"Lotte";
             case AWSPollyVoiceIdLucia:
                 return @"Lucia";
+            case AWSPollyVoiceIdLupe:
+                return @"Lupe";
             case AWSPollyVoiceIdMads:
                 return @"Mads";
             case AWSPollyVoiceIdMaja:

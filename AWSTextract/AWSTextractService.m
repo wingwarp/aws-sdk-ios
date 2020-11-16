@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
 //
 
 #import "AWSTextractService.h"
-#import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSCategory.h>
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSSignature.h>
@@ -26,7 +25,7 @@
 #import "AWSTextractResources.h"
 
 static NSString *const AWSInfoTextract = @"Textract";
-NSString *const AWSTextractSDKVersion = @"2.12.1";
+NSString *const AWSTextractSDKVersion = @"2.19.1";
 
 
 @interface AWSTextractResponseSerializer : AWSJSONResponseSerializer
@@ -43,6 +42,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"AccessDeniedException" : @(AWSTextractErrorAccessDenied),
                             @"BadDocumentException" : @(AWSTextractErrorBadDocument),
                             @"DocumentTooLargeException" : @(AWSTextractErrorDocumentTooLarge),
+                            @"HumanLoopQuotaExceededException" : @(AWSTextractErrorHumanLoopQuotaExceeded),
                             @"IdempotentParameterMismatchException" : @(AWSTextractErrorIdempotentParameterMismatch),
                             @"InternalServerError" : @(AWSTextractErrorInternalServer),
                             @"InvalidJobIdException" : @(AWSTextractErrorInvalidJobId),

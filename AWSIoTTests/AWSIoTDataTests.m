@@ -41,6 +41,18 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
 
 AWSIoTData *iotData;
 
+AWSRegionType region;
+NSString *endpointString;
+
+/**
+ NOTE: This test suite creates certificates from scratch if it doesn't find any in the keychain. If it does, though, it
+ assumes they've already been attached to the IoT Policy named in `policyName`, which could cause test failures if this
+ is run after an update of the IoT test stack.
+
+ The CI/CD platform launches a new simulator instance each time, but for safety, we recommend cleaning the simulator
+ before running these tests locally.
+ */
+
 @implementation AWSIoTDataTests
 
 + (void)setUp {
@@ -48,15 +60,16 @@ AWSIoTData *iotData;
     [AWSDDLog sharedInstance].logLevel = AWSDDLogLevelInfo;
     [AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]];
 
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    [AWSTestUtility setupCognitoCredentialsProviderForDefaultRegion];
+    region = [AWSTestUtility getRegionFromTestConfiguration];
 
-    NSString *endpoint1 = [AWSTestUtility getIoTEndPoint:@"iot-us-east1-endpoint"];
-    AWSEndpoint *endpoint = [[AWSEndpoint alloc] initWithURLString:endpoint1];
-
+    endpointString = [AWSTestUtility getIoTEndPoint:@"iot_endpoint_address"];
+    AWSEndpoint *endpoint = [[AWSEndpoint alloc] initWithURLString:endpointString];
+   
     AWSServiceManager *defaultServiceManager = [AWSServiceManager defaultServiceManager];
     AWSServiceConfiguration *defaultServiceConfiguration = [defaultServiceManager defaultServiceConfiguration];
     id<AWSCredentialsProvider> defaultCredentialsProvider = [defaultServiceConfiguration credentialsProvider];
-    AWSServiceConfiguration *iotServiceConfig = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+    AWSServiceConfiguration *iotServiceConfig = [[AWSServiceConfiguration alloc] initWithRegion:region
                                                                                        endpoint:endpoint
                                                                             credentialsProvider:defaultCredentialsProvider];
 
@@ -278,6 +291,7 @@ AWSIoTData *iotData;
     __block NSUInteger topic2Count = 0;
 
     XCTestExpectation *statusIsConnected = [self expectationWithDescription:@"status is 'connected'"];
+    statusIsConnected.assertForOverFulfill = false;
     void (^updateConnectionStatus)(AWSIoTMQTTStatus status) = ^(AWSIoTMQTTStatus status) {
         if (status == AWSIoTMQTTStatusConnected) {
             connected = YES;
@@ -1005,11 +1019,10 @@ AWSIoTData *iotData;
 #pragma mark: - Utilities
 
 + (void) registerIoTDataManagerForKey:(NSString *)key {
-    NSString *endpointString = [AWSTestUtility getIoTEndPoint:@"iot-us-east1-endpoint"];
     AWSEndpoint *endpoint = [[AWSEndpoint alloc] initWithURLString:endpointString];
 
     id<AWSCredentialsProvider> defaultCredentialsProvider = [[[AWSServiceManager defaultServiceManager] defaultServiceConfiguration] credentialsProvider];
-    AWSServiceConfiguration *serviceConfig = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+    AWSServiceConfiguration *serviceConfig = [[AWSServiceConfiguration alloc] initWithRegion:region
                                                                                     endpoint:endpoint
                                                                          credentialsProvider:defaultCredentialsProvider];
 

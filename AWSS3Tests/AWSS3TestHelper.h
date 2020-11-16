@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -23,9 +23,18 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)createBucketWithName:(NSString *)bucketName
                    andRegion:(AWSRegionType)regionType;
 
++ (BOOL)createBucketWithName:(NSString *)bucketName;
+
 + (void)deleteAllObjectsFromBucket:(NSString *)bucketName;
 
 + (BOOL)deleteBucketWithName:(NSString *)bucketName;
+
++ (AWSS3CreateBucketRequest *)getCreateBucketRequest;
+
++ (AWSS3BucketLocationConstraint)getLocationConstraintForRegionType:(AWSRegionType)regionType;
+
++ (NSString *)getTestBucketName;
+
 
 /**
 Check if the given object is present inside the bucket. This is a blocking call.

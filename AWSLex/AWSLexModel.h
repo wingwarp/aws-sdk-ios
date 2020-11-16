@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -89,14 +89,17 @@ typedef NS_ENUM(NSInteger, AWSLexMessageFormatType) {
 @class AWSLexGenericAttachment;
 @class AWSLexGetSessionRequest;
 @class AWSLexGetSessionResponse;
+@class AWSLexIntentConfidence;
 @class AWSLexIntentSummary;
 @class AWSLexPostContentRequest;
 @class AWSLexPostContentResponse;
 @class AWSLexPostTextRequest;
 @class AWSLexPostTextResponse;
+@class AWSLexPredictedIntent;
 @class AWSLexPutSessionRequest;
 @class AWSLexPutSessionResponse;
 @class AWSLexResponseCard;
+@class AWSLexSentimentResponse;
 
 /**
  <p>Represents an option to be shown on the client platform (Facebook, Slack, etc.)</p>
@@ -302,6 +305,19 @@ typedef NS_ENUM(NSInteger, AWSLexMessageFormatType) {
 @end
 
 /**
+ <p>Provides a score that indicates the confidence that Amazon Lex has that an intent is the one that satisfies the user's intent.</p>
+ */
+@interface AWSLexIntentConfidence : AWSModel
+
+
+/**
+ <p>A score that indicates how confident Amazon Lex is that an intent satisfies the user's intent. Ranges between 0.00 and 1.00. Higher scores indicate higher confidence.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable score;
+
+@end
+
+/**
  <p>Provides information about the state of an intent. You can use this information to get the current state of an intent so that you can process the intent, or so that you can return the intent to its previous state.</p>
  Required parameters: [dialogActionType]
  */
@@ -400,9 +416,19 @@ typedef NS_ENUM(NSInteger, AWSLexMessageFormatType) {
 
 
 /**
+ <p>One to four alternative intents that may be applicable to the user's intent.</p><p>Each alternative includes a score that indicates how confident Amazon Lex is that the intent matches the user's intent. The intents are sorted by the confidence score.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable alternativeIntents;
+
+/**
  <p>The prompt (or statement) to convey to the user. This is based on the bot configuration and context. For example, if Amazon Lex did not understand the user intent, it sends the <code>clarificationPrompt</code> configured for the bot. If the intent requires confirmation before taking the fulfillment action, it sends the <code>confirmationPrompt</code>. Another example: Suppose that the Lambda function successfully fulfilled the intent, and sent a message to convey to the user. Then Amazon Lex sends that message in the response. </p>
  */
 @property (nonatomic, strong) NSData * _Nullable audioStream;
+
+/**
+ <p>The version of the bot that responded to the conversation. You can use this information to help determine if one version of a bot is performing better than another version.</p><p>If you have enabled the new natural language understanding (NLU) model, you can use this to determine if the improvement is due to changes to the bot or changes to the NLU.</p><p>For more information about enabling the new NLU, see the <a href="https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements">enableModelImprovements</a> parameter of the <code>PutBot</code> operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable botVersion;
 
 /**
  <p>Content type as specified in the <code>Accept</code> HTTP header in the request.</p>
@@ -435,9 +461,24 @@ typedef NS_ENUM(NSInteger, AWSLexMessageFormatType) {
 @property (nonatomic, assign) AWSLexMessageFormatType messageFormat;
 
 /**
+ <p>Provides a score that indicates how confident Amazon Lex is that the returned intent is the one that matches the user's intent. The score is between 0.0 and 1.0.</p><p>The score is a relative score, not an absolute score. The score may change based on improvements to the Amazon Lex NLU.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nluIntentConfidence;
+
+/**
+ <p>The sentiment expressed in an utterance.</p><p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis, this field contains the result of the analysis.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sentimentResponse;
+
+/**
  <p> Map of key/value pairs representing the session-specific context information. </p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable sessionAttributes;
+
+/**
+ <p>The unique identifier for the session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sessionId;
 
 /**
  <p> If the <code>dialogState</code> value is <code>ElicitSlot</code>, returns the name of the slot for which Amazon Lex is eliciting a value. </p>
@@ -496,6 +537,16 @@ typedef NS_ENUM(NSInteger, AWSLexMessageFormatType) {
 
 
 /**
+ <p>One to four alternative intents that may be applicable to the user's intent.</p><p>Each alternative includes a score that indicates how confident Amazon Lex is that the intent matches the user's intent. The intents are sorted by the confidence score.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLexPredictedIntent *> * _Nullable alternativeIntents;
+
+/**
+ <p>The version of the bot that responded to the conversation. You can use this information to help determine if one version of a bot is performing better than another version.</p><p>If you have enabled the new natural language understanding (NLU) model, you can use this to determine if the improvement is due to changes to the bot or changes to the NLU.</p><p>For more information about enabling the new NLU, see the <a href="https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements">enableModelImprovements</a> parameter of the <code>PutBot</code> operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable botVersion;
+
+/**
  <p> Identifies the current state of the user interaction. Amazon Lex returns one of the following values as <code>dialogState</code>. The client can optionally use this information to customize the user interface. </p><ul><li><p><code>ElicitIntent</code> - Amazon Lex wants to elicit user intent. </p><p>For example, a user might utter an intent ("I want to order a pizza"). If Amazon Lex cannot infer the user intent from this utterance, it will return this dialogState.</p></li><li><p><code>ConfirmIntent</code> - Amazon Lex is expecting a "yes" or "no" response. </p><p> For example, Amazon Lex wants user confirmation before fulfilling an intent. </p><p>Instead of a simple "yes" or "no," a user might respond with additional information. For example, "yes, but make it thick crust pizza" or "no, I want to order a drink". Amazon Lex can process such additional information (in these examples, update the crust type slot value, or change intent from OrderPizza to OrderDrink).</p></li><li><p><code>ElicitSlot</code> - Amazon Lex is expecting a slot value for the current intent. </p><p>For example, suppose that in the response Amazon Lex sends this message: "What size pizza would you like?". A user might reply with the slot value (e.g., "medium"). The user might also provide additional information in the response (e.g., "medium thick crust pizza"). Amazon Lex can process such additional information appropriately. </p></li><li><p><code>Fulfilled</code> - Conveys that the Lambda function configured for the intent has successfully fulfilled the intent. </p></li><li><p><code>ReadyForFulfillment</code> - Conveys that the client has to fulfill the intent. </p></li><li><p><code>Failed</code> - Conveys that the conversation with the user failed. </p><p> This can happen for various reasons including that the user did not provide an appropriate response to prompts from the service (you can configure how many times Amazon Lex can prompt a user for specific information), or the Lambda function failed to fulfill the intent. </p></li></ul>
  */
 @property (nonatomic, assign) AWSLexDialogState dialogState;
@@ -516,14 +567,29 @@ typedef NS_ENUM(NSInteger, AWSLexMessageFormatType) {
 @property (nonatomic, assign) AWSLexMessageFormatType messageFormat;
 
 /**
+ <p>Provides a score that indicates how confident Amazon Lex is that the returned intent is the one that matches the user's intent. The score is between 0.0 and 1.0. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html">Confidence Scores</a>.</p><p>The score is a relative score, not an absolute score. The score may change based on improvements to the Amazon Lex natural language understanding (NLU) model.</p>
+ */
+@property (nonatomic, strong) AWSLexIntentConfidence * _Nullable nluIntentConfidence;
+
+/**
  <p>Represents the options that the user has to respond to the current prompt. Response Card can come from the bot configuration (in the Amazon Lex console, choose the settings button next to a slot) or from a code hook (Lambda function). </p>
  */
 @property (nonatomic, strong) AWSLexResponseCard * _Nullable responseCard;
 
 /**
+ <p>The sentiment expressed in and utterance.</p><p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis, this field contains the result of the analysis.</p>
+ */
+@property (nonatomic, strong) AWSLexSentimentResponse * _Nullable sentimentResponse;
+
+/**
  <p>A map of key-value pairs representing the session-specific context information.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable sessionAttributes;
+
+/**
+ <p>A unique identifier for the session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sessionId;
 
 /**
  <p>If the <code>dialogState</code> value is <code>ElicitSlot</code>, returns the name of the slot for which Amazon Lex is eliciting a value. </p>
@@ -532,6 +598,29 @@ typedef NS_ENUM(NSInteger, AWSLexMessageFormatType) {
 
 /**
  <p> The intent slots that Amazon Lex detected from the user input in the conversation. </p><p>Amazon Lex creates a resolution list containing likely values for a slot. The value that it returns is determined by the <code>valueSelectionStrategy</code> selected when the slot type was created or updated. If <code>valueSelectionStrategy</code> is set to <code>ORIGINAL_VALUE</code>, the value provided by the user is returned, if the user value is similar to the slot values. If <code>valueSelectionStrategy</code> is set to <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the resolution list or, if there is no resolution list, null. If you don't specify a <code>valueSelectionStrategy</code>, the default is <code>ORIGINAL_VALUE</code>.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable slots;
+
+@end
+
+/**
+ <p>An intent that Amazon Lex suggests satisfies the user's intent. Includes the name of the intent, the confidence that Amazon Lex has that the user's intent is satisfied, and the slots defined for the intent.</p>
+ */
+@interface AWSLexPredictedIntent : AWSModel
+
+
+/**
+ <p>The name of the intent that Amazon Lex suggests satisfies the user's intent.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable intentName;
+
+/**
+ <p>Indicates how confident Amazon Lex is that an intent satisfies the user's intent.</p>
+ */
+@property (nonatomic, strong) AWSLexIntentConfidence * _Nullable nluIntentConfidence;
+
+/**
+ <p>The slot and slot values associated with the predicted intent.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable slots;
 
@@ -658,6 +747,24 @@ typedef NS_ENUM(NSInteger, AWSLexMessageFormatType) {
  <p>The version of the response card format.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable version;
+
+@end
+
+/**
+ <p>The sentiment expressed in an utterance.</p><p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis, this field structure contains the result of the analysis.</p>
+ */
+@interface AWSLexSentimentResponse : AWSModel
+
+
+/**
+ <p>The inferred sentiment that Amazon Comprehend has the highest confidence in.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sentimentLabel;
+
+/**
+ <p>The likelihood that the sentiment was correctly inferred.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sentimentScore;
 
 @end
 

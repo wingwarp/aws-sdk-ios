@@ -323,9 +323,13 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     AWSS3TransferUtility *s3TransferUtility = [[AWSS3TransferUtility alloc] initWithConfiguration:configuration
                                                                      transferUtilityConfiguration:transferUtilityConfiguration
                                                                                        identifier:[NSString stringWithFormat:@"%@.%@", AWSS3TransferUtilityDefaultIdentifier, key]
-                                                                                completionHandler: completionHandler];
-    [_serviceClients setObject:s3TransferUtility
-                        forKey:key];
+                                                                                     recoverState:NO
+                                                                                completionHandler:completionHandler];
+    if (s3TransferUtility) {
+        [_serviceClients setObject:s3TransferUtility
+                            forKey:key];
+        [s3TransferUtility recover:completionHandler];
+    }
 }
 
 + (instancetype)S3TransferUtilityForKey:(NSString *)key {
@@ -389,6 +393,17 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)serviceConfiguration
          transferUtilityConfiguration:(AWSS3TransferUtilityConfiguration *)transferUtilityConfiguration
                            identifier:(NSString *)identifier
+                    completionHandler:(void (^)(NSError *_Nullable error)) completionHandler {
+    return [self initWithConfiguration:serviceConfiguration
+          transferUtilityConfiguration:transferUtilityConfiguration identifier:identifier
+                          recoverState:YES
+                     completionHandler:completionHandler];
+}
+
+- (instancetype)initWithConfiguration:(AWSServiceConfiguration *)serviceConfiguration
+         transferUtilityConfiguration:(AWSS3TransferUtilityConfiguration *)transferUtilityConfiguration
+                           identifier:(NSString *)identifier
+                         recoverState:(BOOL)recoverState
                     completionHandler: (void (^)(NSError *_Nullable error)) completionHandler{
     if (self = [super init]) {
         
@@ -471,9 +486,11 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         
         //Instantiate the Database Helper
         self.databaseQueue = [AWSS3TransferUtilityDatabaseHelper createDatabase:_cacheDirectoryPath];
-        
-        //Recover the state from the previous time this was instantiated
-        [self recover:completionHandler];
+
+        if (recoverState) {
+            //Recover the state from the previous time this was instantiated
+            [self recover:completionHandler];
+        }
     }
     return self;
 }
@@ -2191,7 +2208,12 @@ didCompleteWithError:(NSError *)error {
                     AWSS3TransferUtilityUploadSubTask *subTask = [transferUtilityMultiPartUploadTask.inProgressPartsDictionary objectForKey:key];
                     [subTask.sessionTask cancel];
                 }
-                
+
+                for (NSNumber *key in [transferUtilityMultiPartUploadTask.waitingPartsDictionary allKeys]) {
+                    AWSS3TransferUtilityUploadSubTask *subTask = [transferUtilityMultiPartUploadTask.waitingPartsDictionary objectForKey:key];
+                    [subTask.sessionTask cancel];
+                }
+
                 //Abort the request, so the server can clean up any partials.
                 [self callAbortMultiPartForUploadTask:transferUtilityMultiPartUploadTask];
                 
