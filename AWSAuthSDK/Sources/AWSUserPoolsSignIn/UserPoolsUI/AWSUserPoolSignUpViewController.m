@@ -45,6 +45,7 @@
 
 @property (nonatomic, strong) NSString* sentTo;
 @property (nonatomic, strong) AWSCognitoIdentityUser * user;
+@property (nonatomic, strong) AWSCognitoIdentityUserPool * pool;
 
 @end
 
@@ -65,12 +66,12 @@ id<AWSUIConfiguration> config = nil;
     self.pool = [AWSCognitoIdentityUserPool defaultCognitoIdentityUserPool];
     [self setUpNavigationBar];
     
-    envelopeImage.tintColor = UIColor.lightGrayColor;
-    keyImage.tintColor = UIColor.lightGrayColor;
-    
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
     [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(32, 9)];
     [topLabel setAttributedText:text];
+    
+    envelopeImage.tintColor = UIColor.lightGrayColor;
+    keyImage.tintColor = UIColor.lightGrayColor;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -94,7 +95,7 @@ id<AWSUIConfiguration> config = nil;
 
     [UIView animateWithDuration:0.3 animations:^{
         CGRect f = self.view.frame;
-        f.origin.y = -keyboardSize.height / 2;
+        f.origin.y = -150;
         self.view.frame = f;
     }];
 }
@@ -136,6 +137,7 @@ id<AWSUIConfiguration> config = nil;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([@"SignUpConfirmSegue" isEqualToString:segue.identifier]){
         UserPoolSignUpConfirmationViewController *signUpConfirmationViewController = segue.destinationViewController;
+        signUpConfirmationViewController.isNewUser = YES;
         signUpConfirmationViewController.sentTo = self.sentTo;
         NSString *userName = emailTextField.text;
         signUpConfirmationViewController.user = [self.pool getUser:userName];
@@ -213,18 +215,26 @@ id<AWSUIConfiguration> config = nil;
 #pragma mark - UIViewController
 
 @synthesize topLabel;
+@synthesize emailTextField;
+@synthesize passwordTextField;
 @synthesize codeTextField;
+
+@synthesize emailView;
+@synthesize passwordView;
+
 @synthesize envelopeImage;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.pool = [AWSCognitoIdentityUserPool defaultCognitoIdentityUserPool];
     [self setUpNavigationBar];
-    
-    envelopeImage.tintColor = UIColor.lightGrayColor;
+    [self setUpView];
     
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:topLabel.text];
     [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(62, 8)];
     [topLabel setAttributedText:text];
+    
+    envelopeImage.tintColor = UIColor.lightGrayColor;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -248,7 +258,7 @@ id<AWSUIConfiguration> config = nil;
 
     [UIView animateWithDuration:0.3 animations:^{
         CGRect f = self.view.frame;
-        f.origin.y = -keyboardSize.height / 2;
+        f.origin.y = -150;
         self.view.frame = f;
     }];
 }
@@ -278,13 +288,60 @@ id<AWSUIConfiguration> config = nil;
     [super touchesBegan:touches withEvent:event];
 }
 
+- (IBAction)showHidePassword:(UIButton *)sender {
+    self.passwordTextField.secureTextEntry = !self.passwordTextField.secureTextEntry;
+}
+
 - (void)setUpNavigationBar {
     NavBarView *navBarView = [[NavBarView alloc]initWithName:@"Confirm Signup"];
     self.navigationItem.titleView = navBarView;
 }
 
+- (void)setUpView {
+    if (self.isNewUser == YES) {
+        [emailView removeFromSuperview];
+        [passwordView removeFromSuperview];
+    }
+}
+
+- (void)getUser {
+    
+    if ([self.emailTextField.text isEqualToString:@""] || [self.passwordTextField.text isEqualToString:@""]) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Missing Infromation" message:@"Please enter a valid email and password." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:okButton];
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+        return;
+    }
+    
+    NSMutableArray * attributes = [NSMutableArray new];
+    AWSCognitoIdentityUserAttributeType * email = [AWSCognitoIdentityUserAttributeType new];
+    email.name = @"email";
+    email.value = self.emailTextField.text;
+    
+    if(![@"" isEqualToString:email.value]){
+        [attributes addObject:email];
+    }
+    
+    NSString *userName = self.emailTextField.text;
+    NSString *password = self.passwordTextField.text;
+    
+    //sign up the user
+    [self.pool signUp:userName
+              password:password
+        userAttributes:attributes validationData:nil];
+    
+    self.user = [self.pool getUser:userName];
+    [[AWSSignInManager sharedInstance] reSignInWithUsername:userName password:password];
+}
 
 - (IBAction)onConfirmCode:(id)sender {
+    
+    if (self.isNewUser == NO) {
+        [self getUser];
+    }
+    
     NSString *confirmationCode = codeTextField.text;
     if ([confirmationCode isEqualToString:@""]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Missing Information"
@@ -331,6 +388,10 @@ id<AWSUIConfiguration> config = nil;
 
 - (IBAction)onResendConfirmationCode:(id)sender {
     //resend the confirmation code
+    if (self.isNewUser == NO) {
+        [self getUser];
+    }
+    
     [[self.user resendConfirmationCode] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserResendConfirmationCodeResponse *> * _Nonnull task) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if(task.error){
@@ -358,4 +419,3 @@ id<AWSUIConfiguration> config = nil;
 }
 
 @end
-
